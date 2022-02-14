@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex B1Report"] 1644851172 "B1Report.aux" "B1Report.bbl" "B1Report" 1644851173
-  "/usr/local/texlive/2021/texmf-dist/bibtex/bib/gloss/sample.bib" 1136766823 2721 b88105703bd616b4f9867992219afb8a ""
+["bibtex B1Report"] 1644851552 "B1Report.aux" "B1Report.bbl" "B1Report" 1644851554
   "/usr/local/texlive/2021/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "B1Report.aux" 1644851173 6592 49cb006b5fd9fb621ddcdcac77e34a52 "pdflatex"
+  "B1Report.aux" 1644851553 6689 99126d51fbd2618df17013f8a4629a13 "pdflatex"
+  "sample.bib" 1642456896 1300 d8a126f0d83681208535020bdd6e9fb0 ""
   (generated)
-  "B1Report.blg"
   "B1Report.bbl"
-["pdflatex"] 1644851172 "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex" "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf" "B1Report" 1644851173
-  "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux" 1644851173 6592 49cb006b5fd9fb621ddcdcac77e34a52 ""
+  "B1Report.blg"
+["pdflatex"] 1644851552 "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex" "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf" "B1Report" 1644851554
+  "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux" 1644851553 6689 99126d51fbd2618df17013f8a4629a13 ""
   "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex" 1642457033 33492 64cf7c8fb8f9871c9c45f8845af0fe14 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -15,6 +15,8 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1136768653 4484 b828043cbd581d289d955903c1339981 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm" 1136768653 2520 53e01eef820ca829e42c1333c3fd02b9 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm" 1136768653 4712 9ef4d7d106579d4b136e1529e1a4533c ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvro7t.tfm" 1136768653 2772 ab6561c8ff5ee69ff6d5961b9356db5a ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm" 1136768653 4964 f223217e5e1f85fa3742fb0480aba9e8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -61,8 +63,10 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb" 1136849748 44648 23115b2a545ebfe2c526c3ca99db8b95 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb" 1136849748 48169 b4fd9d908b9ee8c65d4305ad39071c5e ""
   "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/helvetic/phvb7t.vf" 1136768653 1372 1c26b449eb4a1a0bcf6ac7cfe376d450 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/helvetic/phvr7t.vf" 1136768653 1372 dc841a9f00a1a11b1443367ae6c5588e ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/helvetic/phvro7t.vf" 1136768653 1372 9948cedecdb0445a3b5cf1b8a8082ab8 ""
   "/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty" 1583617216 6501 4011d89d9621e0b0901138815ba5ff29 ""
   "/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -103,8 +107,8 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1639390176 2724739 aa606ac9ef91aed9e7f7fcc4d184594f ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "B1Report.aux" 1644851173 6592 49cb006b5fd9fb621ddcdcac77e34a52 "pdflatex"
-  "B1Report.bbl" 1644851172 49 0eba253fc001332e731e8aba3f23127b "bibtex B1Report"
+  "B1Report.aux" 1644851553 6689 99126d51fbd2618df17013f8a4629a13 "pdflatex"
+  "B1Report.bbl" 1644851552 711 310b3597f1b3eaf799d1fa2ebe5f3252 "bibtex B1Report"
   "B1Report.tex" 1642457033 33492 64cf7c8fb8f9871c9c45f8845af0fe14 ""
   "Figures/Task1tvk.jpg" 1642014723 24117 245b4df8bcc100f695542a74abf95dfb ""
   "Figures/Task1yvexample.jpg" 1642014634 23784 131f1e27c1522466e56ac45100e7ca0b ""
@@ -116,8 +120,8 @@
   "Figures/Task5bandb.jpg" 1642068775 28893 2f1aa2d6f261bfa9f9abe8545d6c8a4f ""
   "Figures/task2.jpg" 1642017351 36225 d05eee9f05ed142764728e49658feb69 ""
   (generated)
-  "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf"
-  "B1Report.pdf"
   "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.log"
-  "B1Report.log"
   "B1Report.aux"
+  "B1Report.log"
+  "B1Report.pdf"
+  "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf"

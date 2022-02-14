@@ -477,6 +477,9 @@ INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvro7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/helvetic/phvro7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -495,3 +498,4 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb

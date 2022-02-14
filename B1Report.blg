@@ -3,48 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: B1Report.aux
 The style file: plain.bst
 Database file #1: sample.bib
-Warning--I didn't find a database entry for "DBLP:journals/corr/Ehlers17"
-Warning--I didn't find a database entry for "NNVNotes"
-Warning--I didn't find a database entry for "NEURIPS2018_be53d253"
-You've used 0 entries,
+You've used 3 entries,
             2118 wiz_defined-function locations,
-            503 strings with 4105 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            518 strings with 4580 characters,
+and the built_in function-call counts, 911 in all, are:
+= -- 74
+> -- 62
+< -- 1
++ -- 24
+- -- 20
+* -- 61
+:= -- 170
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 3
+duplicate$ -- 31
+empty$ -- 69
+format.name$ -- 20
+if$ -- 182
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 17
+num.names$ -- 8
+pop$ -- 21
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 13
 quote$ -- 0
-skip$ -- 1
+skip$ -- 23
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 16
+swap$ -- 5
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 12
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 3 warnings)
+while$ -- 7
+width$ -- 4
+write$ -- 33
