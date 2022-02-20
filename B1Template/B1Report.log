@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  14 FEB 2022 15:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  20 FEB 2022 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,19 +6,20 @@ entering extended mode
 **"/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex"
 (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2020/04/10 v1.4m Standard LaTeX document class
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count179
-\c@section=\count180
-\c@subsection=\count181
-\c@subsubsection=\count182
-\c@paragraph=\count183
-\c@subparagraph=\count184
-\c@figure=\count185
-\c@table=\count186
+\c@chapter=\count180
+\c@section=\count181
+\c@subsection=\count182
+\c@subsubsection=\count183
+\c@paragraph=\count184
+\c@subparagraph=\count185
+\c@figure=\count186
+\c@table=\count187
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -53,17 +54,17 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen147
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count187
-\c@continuedfloat=\count188
+\c@caption@flags=\count188
+\c@continuedfloat=\count189
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
-\c@subfigure=\count189
-\c@subtable=\count190
+\c@subfigure=\count190
+\c@subtable=\count191
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
  (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count191
+\c@float@type=\count192
 \float@exts=\toks16
 \float@box=\box47
 \@float@everytoks=\toks17
@@ -72,22 +73,22 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks18
-\c@algorithm=\count192
+\c@algorithm=\count193
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
  (/usr/local/texlive/2021/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count193
-\c@ALG@rem=\count194
-\c@ALG@nested=\count195
+\c@ALG@line=\count194
+\c@ALG@rem=\count195
+\c@ALG@nested=\count196
 \ALG@tlm=\skip49
 \ALG@thistlm=\skip50
-\c@ALG@Lnr=\count196
-\c@ALG@blocknr=\count197
-\c@ALG@storecount=\count198
-\c@ALG@tmpcounter=\count199
+\c@ALG@Lnr=\count197
+\c@ALG@blocknr=\count198
+\c@ALG@storecount=\count199
+\c@ALG@tmpcounter=\count266
 \ALG@tmplength=\skip51
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -108,13 +109,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count266
+\inf@bad=\count267
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count267
-\leftroot@=\count268
+\uproot@=\count268
+\leftroot@=\count269
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count269
-\DOTSCASE@=\count270
+\classnum@=\count270
+\DOTSCASE@=\count271
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -123,15 +124,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen150
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count271
-\c@MaxMatrixCols=\count272
+\macc@depth=\count272
+\c@MaxMatrixCols=\count273
 \dotsspace@=\muskip16
-\c@parentequation=\count273
-\dspbrk@lvl=\count274
+\c@parentequation=\count274
+\dspbrk@lvl=\count275
 \tag@help=\toks20
-\row@=\count275
-\column@=\count276
-\maxfields@=\count277
+\row@=\count276
+\column@=\count277
+\maxfields@=\count278
 \andhelp@=\toks21
 \eqnshift@=\dimen151
 \alignsep@=\dimen152
@@ -163,9 +164,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count278
-\Gm@cntv=\count279
-\c@Gm@tempcnt=\count280
+\Gm@cnth=\count279
+\Gm@cntv=\count280
+\c@Gm@tempcnt=\count281
 \Gm@bindingoffset=\dimen157
 \Gm@wd@mp=\dimen158
 \Gm@odd@mp=\dimen159
@@ -180,13 +181,13 @@ Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen165
 \WF@size=\dimen166
-\c@WF@wrappedlines=\count281
+\c@WF@wrappedlines=\count282
 \WF@box=\box51
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count282
+\l__color_backend_stack_int=\count283
 \l__pdf_internal_box=\box52
 ) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux)
 \openout1 = `B1Report.aux'.
@@ -207,16 +208,16 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
  (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count283
+\scratchcounter=\count284
 \scratchdimen=\dimen167
 \scratchbox=\box53
-\nofMPsegments=\count284
-\nofMParguments=\count285
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count286
+\MPscratchCnt=\count287
 \MPscratchDim=\dimen168
-\MPnumerator=\count287
-\makeMPintoPDFobject=\count288
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -270,93 +271,32 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 105.
- [1
+) [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Figures/Task1tvk.jpg, id=15, 562.1pt x 421.575pt>
-File: Figures/Task1tvk.jpg Graphic file (type jpg)
-<use Figures/Task1tvk.jpg>
-Package pdftex.def Info: Figures/Task1tvk.jpg  used on input line 148.
-(pdftex.def)             Requested size: 200.19435pt x 150.14583pt.
-<Figures/Task1yvexample.jpg, id=16, 562.1pt x 421.575pt>
-File: Figures/Task1yvexample.jpg Graphic file (type jpg)
-<use Figures/Task1yvexample.jpg>
-Package pdftex.def Info: Figures/Task1yvexample.jpg  used on input line 153.
-(pdftex.def)             Requested size: 200.19435pt x 150.14583pt.
- [2] [3 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg> </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg>]
-<Figures/task2.jpg, id=28, 562.1pt x 421.575pt>
-File: Figures/task2.jpg Graphic file (type jpg)
-<use Figures/task2.jpg>
-Package pdftex.def Info: Figures/task2.jpg  used on input line 228.
-(pdftex.def)             Requested size: 200.19435pt x 150.14583pt.
-<Figures/Task3.jpg, id=29, 1124.2pt x 843.15pt>
-File: Figures/Task3.jpg Graphic file (type jpg)
-<use Figures/Task3.jpg>
-Package pdftex.def Info: Figures/Task3.jpg  used on input line 233.
-(pdftex.def)             Requested size: 200.19435pt x 150.1394pt.
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] [1]
+Chapter 1.
+(/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl [1
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 227--237
-[]$[]$ $[]$ 
- []
+]
 
-[4 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg> </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg>] [5] [6]
-<Figures/Task4yvexample.jpg, id=43, 1124.2pt x 843.15pt>
-File: Figures/Task4yvexample.jpg Graphic file (type jpg)
-<use Figures/Task4yvexample.jpg>
-Package pdftex.def Info: Figures/Task4yvexample.jpg  used on input line 362.
-(pdftex.def)             Requested size: 250.24199pt x 187.6807pt.
-<Figures/Task4tvk.jpg, id=44, 1124.2pt x 843.15pt>
-File: Figures/Task4tvk.jpg Graphic file (type jpg)
-<use Figures/Task4tvk.jpg>
-Package pdftex.def Info: Figures/Task4tvk.jpg  used on input line 375.
-(pdftex.def)             Requested size: 200.19435pt x 150.1394pt.
-<Figures/Task4tvk_parrallel.jpg, id=45, 1124.2pt x 843.15pt>
-File: Figures/Task4tvk_parrallel.jpg Graphic file (type jpg)
-<use Figures/Task4tvk_parrallel.jpg>
-Package pdftex.def Info: Figures/Task4tvk_parrallel.jpg  used on input line 380.
-(pdftex.def)             Requested size: 200.19435pt x 150.1394pt.
- [7 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg>] [8 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg> </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg>]
-Overfull \hbox (24.49934pt too wide) in paragraph at lines 422--423
- \OT1/cmr/bx/n/10.95 Branch and Bound[] \OT1/cmr/m/n/10.95 We ran the \OT1/cmtt/m/n/10.95 branch[]and[]bound \OT1/cmr/m/n/10.95 pro-ce-dure us-ing a ver-sion of \OT1/cmtt/m/n/10.95 linear[]programming[]bound
- []
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-<Figures/Task5.jpg, id=53, 562.1pt x 421.575pt>
-File: Figures/Task5.jpg Graphic file (type jpg)
-<use Figures/Task5.jpg>
-Package pdftex.def Info: Figures/Task5.jpg  used on input line 439.
-(pdftex.def)             Requested size: 200.19435pt x 150.14583pt.
-<Figures/Task5bandb.jpg, id=54, 562.1pt x 421.575pt>
-File: Figures/Task5bandb.jpg Graphic file (type jpg)
-<use Figures/Task5bandb.jpg>
-Package pdftex.def Info: Figures/Task5bandb.jpg  used on input line 444.
-(pdftex.def)             Requested size: 200.19435pt x 150.14583pt.
+) [2
 
-Overfull \hbox (14.29463pt too wide) in paragraph at lines 452--459
-\OT1/cmr/m/n/10.95 The \OT1/cmtt/m/n/10.95 linear[]programming[]bound \OT1/cmr/m/n/10.95 method pro-duces much tighter bounds than \OT1/cmtt/m/n/10.95 interval[]bound[]propogation\OT1/cmr/m/n/10.95 .
- []
-
-
-Overfull \hbox (12.49512pt too wide) in paragraph at lines 452--459
-\OT1/cmr/m/n/10.95 The up-per bounds are sig-nif-i-cantly de-creased from the pre-vi-ous best, how-ever, com-pared to \OT1/cmtt/m/n/10.95 random[]sampling
- []
-
-[9 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg> </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg>] (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl) [10] (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux) ) 
+] (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux) ) 
 Here is how much of TeX's memory you used:
- 5015 strings out of 478994
- 77321 string characters out of 5858183
- 378170 words of memory out of 5000000
- 22427 multiletter control sequences out of 15000+600000
- 415985 words of font info for 75 fonts, out of 8000000 for 9000
+ 4883 strings out of 478994
+ 74896 string characters out of 5858183
+ 364296 words of memory out of 5000000
+ 22318 multiletter control sequences out of 15000+600000
+ 412354 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,16n,74p,685b,519s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf" (10 pages, 565339 bytes).
+ 68i,6n,74p,368b,203s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf" (5 pages, 62122 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 40 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

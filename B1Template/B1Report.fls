@@ -4,17 +4,17 @@ INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.tex
 OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.log
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/size11.clo
@@ -375,102 +375,28 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf
+INPUT /usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.pdf
-INPUT /usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1tvk.jpg
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task1yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/task2.jpg
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task3.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4yvexample.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task4tvk_parrallel.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Task5bandb.jpg
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.bbl
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/B1Report.aux
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
