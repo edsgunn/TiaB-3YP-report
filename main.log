@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  20 FEB 2022 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  29 MAR 2022 14:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -833,20 +833,19 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 
 (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
 Chapter 1.
-)
 1: section
 [1
 
 
 
-]
+]) [2]
 \openout2 = `Chapters/Chapter2.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
 Chapter 2.
 )
 1: section
-[2
+[3
 
 
 
@@ -858,7 +857,7 @@ Chapter 2.
 Chapter 3.
 )
 1: section
-[3
+[4
 
 
 
@@ -870,7 +869,7 @@ Chapter 3.
 Chapter 4.
 )
 1: section
-[4
+[5
 
 
 
@@ -882,7 +881,7 @@ Chapter 4.
 Chapter 5.
 )
 1: section
-[5
+[6
 
 
 
@@ -893,7 +892,7 @@ Chapter 5.
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
 Chapter 6.
 1: section
-[6
+[7
 
 
 
@@ -903,30 +902,25 @@ Overfull \hbox (12.15245pt too wide) in paragraph at lines 72--74
 \T1/ppl/m/n/10.95 site, here: [][]$\T1/cmtt/m/n/10.95 http : / / www . ecs . soton . ac . uk / ~srg / softwaretools / document / templates/$[][] 
  []
 
-[7]
+[8]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 92.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [8]
+) [9]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 148.
-
-[9] [10]
+ [10] [11]
 Overfull \hbox (8.37132pt too wide) in paragraph at lines 180--181
 \T1/ppl/m/n/10.95 sided print-ing is as sim-ple as un-com-ment-ing the \T1/cmtt/m/it/10.95 oneside \T1/ppl/m/n/10.95 op-tion of the \T1/cmtt/m/n/10.95 documentclass
  []
 
-[11] [12]
-<Figures/Electron.pdf, id=391, 398.3386pt x 284.52756pt>
+[12] [13]
+<Figures/Electron.pdf, id=401, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
 <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf  used on input line 262.
 (pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
- [13 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf>]
+ [14 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf>]
 Overfull \hbox (0.90797pt too wide) in paragraph at lines 308--309
 \T1/ppl/m/n/10.95 au-to-mat-i-cally builds a ta-ble of Con-tents by look-ing at all the [][]\T1/cmtt/m/n/10.95 \chapter{}[]\T1/ppl/m/n/10.95 , [][]\T1/cmtt/m/n/10.95 \section{}
  []
@@ -936,28 +930,25 @@ Overfull \hbox (0.45015pt too wide) in paragraph at lines 310--311
 []\T1/ppl/m/n/10.95 The Ta-ble of Con-tents should only list the sec-tions to three (3) lev-els. A [][]\T1/cmtt/m/n/10.95 chapter{}
  []
 
-[14]) [15]
+[15]) [16]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[16
+[17
 
 
 
 
 ]
 1: section
-[17
+[18
 
 
 
 ] (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux) (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux))
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8EDFD6C5AE0EE87EBCC3010A92AEC786;7623.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -965,18 +956,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26280 strings out of 478994
- 550347 string characters out of 5858183
- 1083901 words of memory out of 5000000
- 43275 multiletter control sequences out of 15000+600000
+ 26279 strings out of 478994
+ 550322 string characters out of 5858183
+ 1083902 words of memory out of 5000000
+ 43273 multiletter control sequences out of 15000+600000
  466845 words of font info for 148 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,21n,102p,1878b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.pdf" (23 pages, 265603 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.pdf" (24 pages, 288539 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 492 compressed objects within 5 object streams
- 87 named destinations out of 1000 (max. 500000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 502 compressed objects within 6 object streams
+ 88 named destinations out of 1000 (max. 500000)
  430 words of extra memory for PDF output out of 10000 (max. 10000000)
 

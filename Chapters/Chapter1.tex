@@ -15,7 +15,20 @@ The matching of chords to a melody is a skill which usually requires years of tr
 There is a large market of amateur musicians who lack the necessary training for this task but would otherwise enjoy the experience of developing music.  
 In this report we will detail the design of \textbf{INSERT NAME HERE}, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
 Users are able to record a melody using their microphone and regenerate the chord sequence until they feel the they have found one suitable for the intended feel of their song.
-Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature.
+Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature. \\
+The problem of converting a recorded melody to a set of chords can be decomposed into a set of simpler sub-probblems, these being:
+The conversion of the recorded melody into a form which numerically represents its features. 
+The generation of a set of chords from this numerical representation.
+The latter of these two problems can be solved in many ways many of which require a detailed knowlege of music to find patterns in melodies to match to chords.  
+\textbf{WHY IS THIS A PROBELM FOR US}
+A method which requires little knowlege of music is the used of a machine learning model to extract these patters from data of known chord melody pairings from professionally composed music. 
+The curation and processing of an appropriate dataset requires significant effort and care in itself.
+This leads to a natural division of labour across the project into the catagories of:
+User Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
+Curation and preparation of a dataset in an appropriate format - detailed in \ref{Chapter3} by Terence Tan;
+The design of an appropriate machine learning model - detailed in \ref{Chapter4} by Edward Gunn;
+The conversion of recorded melody to the same format as expressed in the dataset - detailed in \ref{Chapter5} by Kitty Fung.
+
 
 %-----------------------------------
 %	SUBSECTION 1
