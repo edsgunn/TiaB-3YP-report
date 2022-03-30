@@ -1,20 +1,20 @@
-PWD /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report
+PWD /Users/terencetan/Documents/GitHub/TiaB-3YP-report
 INPUT /usr/local/texlive/2021/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.log
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.log
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/MastersDoctoralThesis.cls
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -863,31 +863,31 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
@@ -939,13 +939,13 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main-blx.bib
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.bbl
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main-blx.bib
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.bbl
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/graphics/color.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -984,18 +984,18 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestri
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.pdf
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.pdf
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
@@ -1064,9 +1064,9 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.toc
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.toc
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.toc
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.toc
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.toc
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.toc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
@@ -1077,111 +1077,131 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.toc
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lof
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lof
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lof
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lof
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lot
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lot
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lot
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.lot
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.tex
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.toc
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lot
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lot
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lot
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplri8t.tfm
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lot
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplri8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplrc8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplro8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplrc8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplri8t.tfm
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplri8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
@@ -1219,16 +1239,12 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplri8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplrc8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplro8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
@@ -1237,8 +1253,8 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8c.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr8c.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecst1095.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecst1095.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
@@ -1252,66 +1268,62 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplrc8t.tfm
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplrc8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr8t.vf
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplr7t.vf
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter1.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.aux
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.out
-INPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.run.xml
-OUTPUT /Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.run.xml
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.out
+INPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.run.xml
+OUTPUT /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.run.xml
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb
