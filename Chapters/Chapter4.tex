@@ -28,10 +28,29 @@ ChordGAN \\
 CLSTMGAN for melody Generation \\
 
 \section{Model Requirements}
-\subsection{Real Requrements}
-
 \subsection{MVP Requrements}
 
+The MVP requirements were defined at the beginning of the project to ensure it is compatible with the other parts of the product that were simaltaniously in development and to ensure the possibbility of the creation of the prototye for proof of concept. 
+We required the model to be a black box in which we could input a melody and it would output chords which sounded good.
+The notion of sounding good is intentionally vague as what sounds good or bad is usually down to individual tast in music.
+There is never a definitive answer to which chords would sound the best.
+However, we felt \textbf{NEED STRONGER PROOF} that even people without any musical training would be able to judge whether chords fit the melody relatively accurately.
+Within this overarching requirement we defined tighter constraints for the sake of both practicality and user experience. 
+The model would have to be designed for sequential data such that the temporal relationship of the different notes being played were taken into account.
+It would be possible to simply learn a function where for a given measure a chord suited to the notes played within that measure was generated without taking into account surrounding measures.
+This approach could produce reasonable results and be significantly more simple that other options, however, the quality and variation of chords generated would be lower than that of a model for sequential data, hence our choice to forego it.
+The model would also have to be conditional. For a given input it should produce a catered output. This is an obious contraint however for models such as a GAN it recquires changes to the format of the input data.
+To maximise user experience the models should be non-deterministic. This allows users to regenerate the accompaniment multiple times to obtain new chords and thus means they can choose what they feel is best.
+
+One chord per measure
+\subsection{Other possible Requrements}
+
+There were some constraints which were not used in our project which would provide better quality chords but provided too large a practical barrier to be implemented.
+
+Strongly temporal
+Rhythmic intention conscious
+Bidirectional
+More than one chord per bar
 \section{Models}
 
 \subsection{GANs}
