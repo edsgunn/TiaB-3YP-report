@@ -5,17 +5,6 @@
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
-
-% Define some commands to keep the formatting separated from the content 
-\newcommand{\keyword}[1]{\textbf{#1}}
-\newcommand{\tabhead}[1]{\textbf{#1}}
-\newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\file}[1]{\texttt{\bfseries#1}}
-\newcommand{\option}[1]{\texttt{\itshape#1}}
-
-%----------------------------------------------------------------------------------------
-
-%----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
@@ -30,11 +19,8 @@ Therefore in order to use techniques developed for natural language processing i
 
 \section{Related Work}
 
-The generation of chords to accompany a monphonic melody is an area which has developed machine learning techniques are improved. 
-An early approach to this problem from \cite{ChordPrediction} used a standard MLP to learn the relationship between melodies and accompanying chords.
-MySong, the first attempt focusing specifically on a vocal melody in \cite{MySong} used an augment hidden markov model with parameters such that users could adjust the "Happy factor" and "Jazz factor" to alter the mood of the generated chords to their preference.
-A weakness of the hidden markov model is that at each timestep only the previous timestep is considers when suggesting a chord. 
-\cite{BLSTM} utilises a BLSTM to increase the effect of long term dependencies on the output rather than relying only on the previous output. \\
+MySong \\
+BLSTMS guy \\
 ML in Automatic Chord Generation \\
 SeqGAN \\  
 MuseGAN \\      
@@ -70,7 +56,7 @@ More than one chord per bar
 
 \subsection{GANs}
 
-Generative Adversarial Netwoks or GANs were first proposed in the landmark paper \cite{GANs}. Unlike most models GANs consist of two separate agents working against each other.
+Generative Adversarial Netwoks or GANs were first proposed in the landmark paper \cite{GANs}. Unlike most models GANs consist of two separate models working against each other.
 The first model, the Generator, takes an input of random noise and outputs data which mimics the training data. 
 The second model, the Discriminator, takes as input an example from the training data or an output from the Generator and outputs a value between 0 and 1 indicating whether it thinks the input is real or generated.
 The Binary Cross Entropy loss is used for the Discriminator avaraged across real and generate examples. The loss for the Generator is the log complement of that for the Discriminator. Thus the two models play the following minmax game:
@@ -93,77 +79,17 @@ RNNs that operate on large sequences often experience the probblems of exploding
 \subsection{LSTMs}
 
 The Long Short Term Memory model or LSTM was proposed in \cite{LSTMs} in order to overcome the gradient problems related to RNNs and thus allow for faster training on long sequences.
-They are also capable or learning longer dependencies due to their internal memory. An LSTM cell has three gates: input, forget, and output.
-The state of these gates determines whether the cell allows new input, forgets old information, and affects the output at the current timestep.
-At timeset t, the states of the gates are given by:
-\begin{equation}
-    i_t=\sigma(w_i[h_{t-1},x_t]+b_i)
-\end{equation}
-\begin{equation}
-    f_t=\sigma(w_f[h_{t-1},x_t]+b_f)
-\end{equation}
-\begin{equation}
-    o_t=\sigma(w_o[h_{t-1},x_t]+b_o)
-\end{equation}
-where $i_t$, $f_t$ and $o_t$ denote the input, forget, and output gates state respectively, $h_{t-1}$ is the output at the previous timestep.
-$w$ and $b$ represent weights and biases of each gate, $x_t$ is the input to the LSTM cell, and $\sigma (.)$ is the sigmoid function applied elementwise.
-The current output of the cell is computed by:
-\begin{equation}
-    h_t=o_t \circ tanh(c_t)
-\end{equation}
-\begin{equation}
-    c_t = f_t \circ c_{t-1}+i_t \circ \overset{\sim}{c}_t
-\end{equation}
-\begin{equation}
-    \overset{\sim}{c}_t = tanh(w_c[h_t,x_t]+b_c)
-\end{equation}
+
 \subsection{Transformers}
 
 \subsection{Our Model}
 
 We propose the use of a conditional GAN where the Generator consists of a linear layer followed by a number of LSTM layers and then by another linear layer and the Discriminator consists of a number of LSTM layers followed by a linear output layer.
 
-\subsection{Model Functionality}
-
-As proof of concept for the design we developed a command line based interface for the model such that it was easy to train, vary parameters and test. 
-In production the user would be able utilise a subset of this interface, such as the option to generate accompaniment and have it played back, through a graphical user interface.
-The options available in the interface are show in table \ref{tab:parameters}
-
-\begin{table}
-    \caption{The parameters of the command line iterface for the model}
-    \label{tab:parameters}
-    \centering
-    \begin{tabular}{l l l p{0.5\linewidth}}
-    \toprule
-    \tabhead{Parameter} & \tabhead{Options} & \tabhead{Default} & \tabhead{Description} \\
-    \midrule
-    \code{-input\_size} & \code{[input\_size]} & $12$ & The size of the input vector to the discrimiator representing the melody  \\
-    \code{-output\_size} & \code{[output\_size]} & $25$ & The size of the output vector representing the chord played in each measure \\
-    \code{-h\_size} & \code{[h\_size]} & $128$ & The size of the hidden layers in the LSTM layers \\
-    \code{-n\_layers} & \code{[n\_layers]} & $2$ & The number of LSTM layers in the generator and discriminator \\
-    \code{-noise\_size} & \code{[noise\_size]} & $12$ & The size of the noise vector concatinated with the input vector to the generator \\
-    \code{-max\_seqlen} & \code{[max\_seqlen]} & $200$ & The maximum length of song in measures used in training \\
-    \code{-src\_data} & \code{[src\_data]} &  & The default path to the training data \\
-    \code{-batch\_size} & \code{[batch\_size]} & $10$ & The size of the batches used in the stochasitc gradient descent algorithm \\
-    \code{-epochs} & \code{[epochs]} & $100$ & The number of epochs used in training \\
-    \code{-printevery} & \code{[printevery]} & $10$ & The number of epochs between printing an example during training \\
-    \code{-load} & & False & Whether to load a model in or not \\
-    \code{-load\_dir} & \code{[load\_dir]} &  & The path to the folder containing pretrained models \\
-    \code{-model\_num} & \code{[model\_num]} & $1$ & The number of the model to be loaded in \\
-    \code{-save} & & False & Whether to save the model after training \\
-    \code{-save\_dir} & \code{[save\_dir]} &  & The path to the save directory \\
-    \code{-playback} & & False & Whether to play an example of generated music at the end of training \\
-    \bottomrule \\
-\end{tabular}
-\end{table}
- 
-
 \section{Training}
 Adam optimiser
 BCELoss averaged across each element in the sequence or BCELoss for whole song?
 
 \subsection{Issues}
-Number of songs not always divisible by batch number
-Softmaxing of outputs of generator
-Device managment
+
 \section{Results}
