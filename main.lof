@@ -7,8 +7,9 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Pictorial representation of the preprocessing of the dataset. \relax }}{11}{figure.caption.30}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Transforming DataFrame to LSTM data input format.\relax }}{12}{figure.caption.34}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Converting DataFrame to Transformer data input format.\relax }}{13}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Converting DataFrame (normalised by the largest common factor) to Transformer data input format.\relax }}{14}{figure.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces An Electron}}{29}{figure.caption.70}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces An Electron}}{30}{figure.caption.72}%
 \addvspace {10\p@ }
