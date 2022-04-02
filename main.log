@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.14)  29 MAR 2022 23:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.14)  2 APR 2022 02:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,6 +714,18 @@ Package caption Info: End \AtBeginDocument code.
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
 (scrlayer)             \begin{document} on input line 90.
+
+Package scrlayer-scrpage Warning: Very small head height detected!
+(scrlayer-scrpage)                Using scrlayer-scrpage the head height
+(scrlayer-scrpage)                should be at least \baselineskip, which is
+(scrlayer-scrpage)                21.89601pt currently.
+(scrlayer-scrpage)                But head height is currently 18.85364pt only.
+(scrlayer-scrpage)                You may use
+(scrlayer-scrpage)                geometry option `head=21.89601pt'
+(scrlayer-scrpage)                or load package `scrlayer-scrpage' with
+(scrlayer-scrpage)                option `singlespacing=true'
+(scrlayer-scrpage)                to avoid this warning.
+
 Package scrbase Info: activating english \abbrevname on input line 90.
 Package scrbase Info: activating english \byname on input line 90.
 Package scrbase Info: activating english \acknowledgementname on input line 90.
@@ -794,30 +806,43 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
  Abstract
 --------------------
 1: section
-[2
+
+Package scrlayer-scrpage Warning: \headheight to low.
+(scrlayer-scrpage)                At least 21.896pt needed,
+(scrlayer-scrpage)                but only 18.85364pt found.
+(scrlayer-scrpage)                I'll enlarge \headheight, for further
+(scrlayer-scrpage)                processing, but you should do this yourself,
+(scrlayer-scrpage)                e.g., setting geometry's option
+(scrlayer-scrpage)                `head=21.896pt'.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 197.
+
+
+Overfull \vbox (3.04236pt too high) has occurred while \output is active []
+
+ [2
 
 ] (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.toc
 1: section
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 42.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 44.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 42.
-)
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 44.
+ [4])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [4] (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof)
+ [5] (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
 
 1: section
-[5
+[6
 
 ] (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.lot)
 \tf@lot=\write7
@@ -825,38 +850,38 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 
 
 1: section
-[6
+[7
 
 ]
-1: section
-\openout2 = `Chapters/Chapter1.aux'.
-
-(/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
-Chapter 1.
-)
 1: section
 [1
 
-
-
 ]
-\openout2 = `Chapters/Chapter2.aux'.
+\openout2 = `Chapters/Chapter1.aux'.
 
- (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
-Chapter 2.
-)
+ (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.tex
+Chapter 1.
 1: section
 [2
 
 
+]) [3]
+\openout2 = `Chapters/Chapter2.aux'.
+
+ (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.tex
+Chapter 2.
+1: section
+[4
 
 
-]
+
+
+]) [5]
 \openout2 = `Chapters/Chapter3.aux'.
 
  (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.tex
 Chapter 3.
-<Figures/CSV dataframe.png, id=336, 453.695pt x 238.8925pt>
+<Figures/CSV dataframe.png, id=369, 453.695pt x 238.8925pt>
 File: Figures/CSV dataframe.png Graphic file (type png)
 <use Figures/CSV dataframe.png>
 Package pdftex.def Info: Figures/CSV dataframe.png  used on input line 19.
@@ -867,128 +892,155 @@ Overfull \hbox (49.66481pt too wide) in paragraph at lines 19--21
  []
 
 1: section
-[3
+[6
 
 
 
 
-] [4 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png>]
-<Figures/Algorithm pictorial2.png, id=361, 1424.32124pt x 566.115pt>
+] [7 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/CSV dataframe.png>] [8]
+<Figures/Algorithm pictorial2.png, id=400, 1424.32124pt x 566.115pt>
 File: Figures/Algorithm pictorial2.png Graphic file (type png)
 <use Figures/Algorithm pictorial2.png>
-Package pdftex.def Info: Figures/Algorithm pictorial2.png  used on input line 131.
+Package pdftex.def Info: Figures/Algorithm pictorial2.png  used on input line 167.
 (pdftex.def)             Requested size: 427.29967pt x 169.8358pt.
 
-Overfull \hbox (23.27058pt too wide) in paragraph at lines 131--133
+Overfull \hbox (23.27058pt too wide) in paragraph at lines 167--170
  [][] 
  []
 
-) [5] [6 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png>]
+[9] [10] [11 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Algorithm pictorial2.png>]
+<Figures/LSTM pictorial 4.png, id=419, 1445.4pt x 571.13374pt>
+File: Figures/LSTM pictorial 4.png Graphic file (type png)
+<use Figures/LSTM pictorial 4.png>
+Package pdftex.def Info: Figures/LSTM pictorial 4.png  used on input line 199.
+(pdftex.def)             Requested size: 433.62335pt x 171.34145pt.
+
+Overfull \hbox (29.59427pt too wide) in paragraph at lines 199--201
+ [][] 
+ []
+
+<Figures/Transformer 2.png, id=421, 1445.4pt x 676.5275pt>
+File: Figures/Transformer 2.png Graphic file (type png)
+<use Figures/Transformer 2.png>
+Package pdftex.def Info: Figures/Transformer 2.png  used on input line 213.
+(pdftex.def)             Requested size: 433.62335pt x 202.95981pt.
+
+Overfull \hbox (29.59427pt too wide) in paragraph at lines 213--215
+ [][] 
+ []
+
+) [12 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/LSTM pictorial 4.png>] [13 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Transformer 2.png>]
 \openout2 = `Chapters/Chapter4.aux'.
 
  (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.tex
 Chapter 4.
-)
 1: section
-[7
+[14
 
 
 
 
-]
+]) [15]
 \openout2 = `Chapters/Chapter5.aux'.
 
  (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.tex
 Chapter 5.
-)
 1: section
-[8
+[16
 
 
 
 
-]
+]) [17]
 \openout2 = `Chapters/ChapterTutorial.aux'.
 
  (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.tex
 Chapter 6.
 1: section
-[9
+[18
 
 
 
 
-]
+] [19]
 Overfull \hbox (12.15245pt too wide) in paragraph at lines 72--74
 \T1/ppl/m/n/10.95 site, here: [][]$\T1/cmtt/m/n/10.95 http : / / www . ecs . soton . ac . uk / ~srg / softwaretools / document / templates/$[][] 
  []
 
-[10]
+[20]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 92.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [11]
+) [21] [22]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
- [12] [13]
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 148.
+
+[23] [24]
 Overfull \hbox (8.37132pt too wide) in paragraph at lines 180--181
 \T1/ppl/m/n/10.95 sided print-ing is as sim-ple as un-com-ment-ing the \T1/cmtt/m/it/10.95 oneside \T1/ppl/m/n/10.95 op-tion of the \T1/cmtt/m/n/10.95 documentclass
  []
 
-[14] [15]
-<Figures/Electron.pdf, id=441, 398.3386pt x 284.52756pt>
+[25] [26] [27] [28]
+<Figures/Electron.pdf, id=526, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
 <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf  used on input line 262.
 (pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
- [16 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf>]
+ [29 </Users/terencetan/Documents/GitHub/TiaB-3YP-report/Figures/Electron.pdf>]
 Overfull \hbox (0.90797pt too wide) in paragraph at lines 308--309
 \T1/ppl/m/n/10.95 au-to-mat-i-cally builds a ta-ble of Con-tents by look-ing at all the [][]\T1/cmtt/m/n/10.95 \chapter{}[]\T1/ppl/m/n/10.95 , [][]\T1/cmtt/m/n/10.95 \section{}
  []
 
-
+[30]
 Overfull \hbox (0.45015pt too wide) in paragraph at lines 310--311
 []\T1/ppl/m/n/10.95 The Ta-ble of Con-tents should only list the sec-tions to three (3) lev-els. A [][]\T1/cmtt/m/n/10.95 chapter{}
  []
 
-[17]) [18]
+) [31]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[19
+[32
 
 
 
 
 ]
 1: section
-[20
+[33
 
 
 
 ] (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.aux (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter1.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter2.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter3.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter4.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/Chapter5.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Chapters/ChapterTutorial.aux) (/Users/terencetan/Documents/GitHub/TiaB-3YP-report/Appendices/AppendixA.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B2BCD971F634CA454C5B20B90F41B94B;7720.
+(rerunfilecheck)             Checksum: C343CC611D2A94735465B82A2A012683;7965.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26320 strings out of 478994
- 550594 string characters out of 5858184
- 1089320 words of memory out of 5000000
- 43294 multiletter control sequences out of 15000+600000
- 468398 words of font info for 150 fonts, out of 8000000 for 9000
+ 26368 strings out of 478994
+ 551371 string characters out of 5858184
+ 1090619 words of memory out of 5000000
+ 43319 multiletter control sequences out of 15000+600000
+ 473057 words of font info for 156 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,21n,102p,1869b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.pdf (26 pages, 743601 bytes).
+ 98i,22n,102p,1869b,2480s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /Users/terencetan/Documents/GitHub/TiaB-3YP-report/main.pdf (40 pages, 2484183 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 102 named destinations out of 1000 (max. 500000)
- 448 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 687 PDF objects out of 1000 (max. 8388607)
+ 611 compressed objects within 7 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 474 words of extra memory for PDF output out of 10000 (max. 10000000)
 

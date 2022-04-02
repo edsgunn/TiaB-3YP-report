@@ -1,56 +1,58 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {english}{}
 \contentsline {chapter}{Abstract}{ii}{section*.1}%
-\contentsline {chapter}{\numberline {1}Project Definition}{1}{chapter.5}%
-\contentsline {section}{\numberline {1.1}Introduction}{1}{section.6}%
-\contentsline {subsection}{\numberline {1.1.1}Subsection 1}{1}{subsection.7}%
-\contentsline {subsection}{\numberline {1.1.2}Subsection 2}{1}{subsection.8}%
-\contentsline {section}{\numberline {1.2}Main Section 2}{1}{section.9}%
-\contentsline {chapter}{\numberline {2}Product Design}{2}{chapter.10}%
-\contentsline {section}{\numberline {2.1}Main Section 1}{2}{section.11}%
-\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{2}{subsection.12}%
-\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{2}{subsection.13}%
-\contentsline {section}{\numberline {2.2}Main Section 2}{2}{section.14}%
-\contentsline {chapter}{\numberline {3}Data}{3}{chapter.15}%
-\contentsline {section}{\numberline {3.1}Dataset}{3}{section.16}%
-\contentsline {section}{\numberline {3.2}Preprocessing of dataset}{3}{section.18}%
-\contentsline {subsection}{\numberline {3.2.1}Code}{4}{subsection.25}%
-\contentsline {subsection}{\numberline {3.2.2}Subsection 2}{5}{subsection.30}%
-\contentsline {section}{\numberline {3.3}Main Section 2}{5}{section.31}%
-\contentsline {chapter}{\numberline {4}Model}{7}{chapter.32}%
-\contentsline {section}{\numberline {4.1}Main Section 1}{7}{section.33}%
-\contentsline {subsection}{\numberline {4.1.1}Subsection 1}{7}{subsection.34}%
-\contentsline {subsection}{\numberline {4.1.2}Subsection 2}{7}{subsection.35}%
-\contentsline {section}{\numberline {4.2}Main Section 2}{7}{section.36}%
-\contentsline {chapter}{\numberline {5}Voice Processing}{8}{chapter.37}%
-\contentsline {section}{\numberline {5.1}Main Section 1}{8}{section.38}%
-\contentsline {subsection}{\numberline {5.1.1}Subsection 1}{8}{subsection.39}%
-\contentsline {subsection}{\numberline {5.1.2}Subsection 2}{8}{subsection.40}%
-\contentsline {section}{\numberline {5.2}Main Section 2}{8}{section.41}%
-\contentsline {chapter}{\numberline {6}Chapter Title Here}{9}{chapter.42}%
-\contentsline {section}{\numberline {6.1}Welcome and Thank You}{9}{section.43}%
-\contentsline {section}{\numberline {6.2}Learning \LaTeX {}}{9}{section.44}%
-\contentsline {subsection}{\numberline {6.2.1}A (not so short) Introduction to \LaTeX {}}{9}{subsection.45}%
-\contentsline {subsection}{\numberline {6.2.2}A Short Math Guide for \LaTeX {}}{10}{subsection.46}%
-\contentsline {subsection}{\numberline {6.2.3}Common \LaTeX {} Math Symbols}{10}{subsection.47}%
-\contentsline {subsection}{\numberline {6.2.4}\LaTeX {} on a Mac}{10}{subsection.48}%
-\contentsline {section}{\numberline {6.3}Getting Started with this Template}{10}{section.49}%
-\contentsline {subsection}{\numberline {6.3.1}About this Template}{10}{subsection.50}%
-\contentsline {section}{\numberline {6.4}What this Template Includes}{11}{section.51}%
-\contentsline {subsection}{\numberline {6.4.1}Folders}{11}{subsection.52}%
-\contentsline {subsection}{\numberline {6.4.2}Files}{11}{subsection.53}%
-\contentsline {section}{\numberline {6.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{12}{section.54}%
-\contentsline {section}{\numberline {6.6}The \texttt {main.tex} File Explained}{13}{section.55}%
-\contentsline {section}{\numberline {6.7}Thesis Features and Conventions}{14}{section.56}%
-\contentsline {subsection}{\numberline {6.7.1}Printing Format}{14}{subsection.57}%
-\contentsline {subsection}{\numberline {6.7.2}Using US Letter Paper}{14}{subsection.58}%
-\contentsline {subsection}{\numberline {6.7.3}References}{14}{subsection.59}%
-\contentsline {subsubsection}{A Note on bibtex}{15}{section*.61}%
-\contentsline {subsection}{\numberline {6.7.4}Tables}{15}{subsection.62}%
-\contentsline {subsection}{\numberline {6.7.5}Figures}{16}{subsection.64}%
-\contentsline {subsection}{\numberline {6.7.6}Typesetting mathematics}{17}{subsection.66}%
-\contentsline {section}{\numberline {6.8}Sectioning and Subsectioning}{17}{section.68}%
-\contentsline {section}{\numberline {6.9}In Closing}{18}{section.69}%
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{19}{appendix.70}%
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{19}{section.71}%
-\contentsline {chapter}{Bibliography}{20}{appendix*.72}%
+\contentsline {chapter}{\numberline {1}Project Definition}{2}{chapter.5}%
+\contentsline {section}{\numberline {1.1}Introduction}{2}{section.6}%
+\contentsline {subsection}{\numberline {1.1.1}Subsection 1}{2}{subsection.7}%
+\contentsline {subsection}{\numberline {1.1.2}Subsection 2}{2}{subsection.8}%
+\contentsline {section}{\numberline {1.2}Main Section 2}{3}{section.9}%
+\contentsline {chapter}{\numberline {2}Product Design}{4}{chapter.10}%
+\contentsline {section}{\numberline {2.1}Main Section 1}{4}{section.11}%
+\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{4}{subsection.12}%
+\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{4}{subsection.13}%
+\contentsline {section}{\numberline {2.2}Main Section 2}{5}{section.14}%
+\contentsline {chapter}{\numberline {3}Data}{6}{chapter.15}%
+\contentsline {section}{\numberline {3.1}Dataset}{6}{section.16}%
+\contentsline {section}{\numberline {3.2}Preprocessing of dataset}{6}{section.18}%
+\contentsline {subsection}{\numberline {3.2.1}Code}{9}{subsection.25}%
+\contentsline {section}{\numberline {3.3}Model input format}{9}{section.31}%
+\contentsline {subsection}{\numberline {3.3.1}LSTM format}{9}{subsection.32}%
+\contentsline {subsubsection}{Code}{11}{section*.33}%
+\contentsline {subsection}{\numberline {3.3.2}Transformer format}{12}{subsection.35}%
+\contentsline {chapter}{\numberline {4}Model}{14}{chapter.37}%
+\contentsline {section}{\numberline {4.1}Main Section 1}{14}{section.38}%
+\contentsline {subsection}{\numberline {4.1.1}Subsection 1}{14}{subsection.39}%
+\contentsline {subsection}{\numberline {4.1.2}Subsection 2}{14}{subsection.40}%
+\contentsline {section}{\numberline {4.2}Main Section 2}{15}{section.41}%
+\contentsline {chapter}{\numberline {5}Voice Processing}{16}{chapter.42}%
+\contentsline {section}{\numberline {5.1}Main Section 1}{16}{section.43}%
+\contentsline {subsection}{\numberline {5.1.1}Subsection 1}{16}{subsection.44}%
+\contentsline {subsection}{\numberline {5.1.2}Subsection 2}{16}{subsection.45}%
+\contentsline {section}{\numberline {5.2}Main Section 2}{17}{section.46}%
+\contentsline {chapter}{\numberline {6}Chapter Title Here}{18}{chapter.47}%
+\contentsline {section}{\numberline {6.1}Welcome and Thank You}{18}{section.48}%
+\contentsline {section}{\numberline {6.2}Learning \LaTeX {}}{18}{section.49}%
+\contentsline {subsection}{\numberline {6.2.1}A (not so short) Introduction to \LaTeX {}}{19}{subsection.50}%
+\contentsline {subsection}{\numberline {6.2.2}A Short Math Guide for \LaTeX {}}{19}{subsection.51}%
+\contentsline {subsection}{\numberline {6.2.3}Common \LaTeX {} Math Symbols}{19}{subsection.52}%
+\contentsline {subsection}{\numberline {6.2.4}\LaTeX {} on a Mac}{20}{subsection.53}%
+\contentsline {section}{\numberline {6.3}Getting Started with this Template}{20}{section.54}%
+\contentsline {subsection}{\numberline {6.3.1}About this Template}{20}{subsection.55}%
+\contentsline {section}{\numberline {6.4}What this Template Includes}{21}{section.56}%
+\contentsline {subsection}{\numberline {6.4.1}Folders}{21}{subsection.57}%
+\contentsline {subsection}{\numberline {6.4.2}Files}{22}{subsection.58}%
+\contentsline {section}{\numberline {6.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{23}{section.59}%
+\contentsline {section}{\numberline {6.6}The \texttt {main.tex} File Explained}{24}{section.60}%
+\contentsline {section}{\numberline {6.7}Thesis Features and Conventions}{25}{section.61}%
+\contentsline {subsection}{\numberline {6.7.1}Printing Format}{25}{subsection.62}%
+\contentsline {subsection}{\numberline {6.7.2}Using US Letter Paper}{26}{subsection.63}%
+\contentsline {subsection}{\numberline {6.7.3}References}{26}{subsection.64}%
+\contentsline {subsubsection}{A Note on bibtex}{27}{section*.66}%
+\contentsline {subsection}{\numberline {6.7.4}Tables}{28}{subsection.67}%
+\contentsline {subsection}{\numberline {6.7.5}Figures}{28}{subsection.69}%
+\contentsline {subsection}{\numberline {6.7.6}Typesetting mathematics}{30}{subsection.71}%
+\contentsline {section}{\numberline {6.8}Sectioning and Subsectioning}{31}{section.73}%
+\contentsline {section}{\numberline {6.9}In Closing}{31}{section.74}%
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{32}{appendix.75}%
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{32}{section.76}%
+\contentsline {chapter}{Bibliography}{33}{appendix*.77}%
