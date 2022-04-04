@@ -23,7 +23,7 @@
 \contentsline {subsection}{\numberline {4.2.2}Other possible Requrements}{9}{subsection.24}%
 \contentsline {subsection}{\numberline {4.2.3}Evaluation criteria}{9}{subsection.25}%
 \contentsline {paragraph}{Approach}{9}{section*.26}%
-\contentsline {paragraph}{Data}{9}{section*.27}%
+\contentsline {paragraph}{Data}{10}{section*.27}%
 \contentsline {paragraph}{Quantiative Evalutaion}{10}{section*.28}%
 \contentsline {paragraph}{Qualitative Evaluation}{10}{section*.29}%
 \contentsline {paragraph}{Criteria}{10}{section*.30}%
@@ -33,23 +33,23 @@
 \contentsline {subsubsection}{Explanation and Applicability}{12}{section*.34}%
 \contentsline {subsubsection}{Implementations}{12}{section*.35}%
 \contentsline {paragraph}{MySong}{12}{section*.36}%
-\contentsline {paragraph}{Chord Generation from Symbolic Melody}{12}{section*.37}%
+\contentsline {paragraph}{Chord Generation from Symbolic Melody}{13}{section*.37}%
 \contentsline {paragraph}{Machine Learning in Automatic Music Chords Generation}{13}{section*.38}%
 \contentsline {subsection}{\numberline {4.3.3}DNN-HMMs}{13}{subsection.39}%
 \contentsline {subsubsection}{Explanation and Applicability}{13}{section*.40}%
 \contentsline {subsubsection}{Implementations}{13}{section*.41}%
 \contentsline {paragraph}{Chord Generation from Symbolic Melody}{13}{section*.42}%
-\contentsline {subsection}{\numberline {4.3.4}GANs}{13}{subsection.43}%
-\contentsline {subsubsection}{Explanation and Applicability}{13}{section*.44}%
+\contentsline {subsection}{\numberline {4.3.4}GANs}{14}{subsection.43}%
+\contentsline {subsubsection}{Explanation and Applicability}{14}{section*.44}%
 \contentsline {subsubsection}{Implementations}{14}{section*.46}%
 \contentsline {paragraph}{ChordGAN}{14}{section*.47}%
-\contentsline {subsection}{\numberline {4.3.5}RNNs}{14}{subsection.48}%
+\contentsline {subsection}{\numberline {4.3.5}RNNs}{15}{subsection.48}%
 \contentsline {subsection}{\numberline {4.3.6}LSTMs}{15}{subsection.50}%
 \contentsline {subsection}{\numberline {4.3.7}Reinforcement Learning}{16}{subsection.58}%
 \contentsline {subsection}{\numberline {4.3.8}Transformers}{16}{subsection.59}%
 \contentsline {subsection}{\numberline {4.3.9}Our Model}{16}{subsection.60}%
-\contentsline {subsection}{\numberline {4.3.10}Model Functionality}{16}{subsection.61}%
-\contentsline {section}{\numberline {4.4}Training}{16}{section.63}%
+\contentsline {subsection}{\numberline {4.3.10}Model Functionality}{17}{subsection.61}%
+\contentsline {section}{\numberline {4.4}Training}{17}{section.63}%
 \contentsline {subsection}{\numberline {4.4.1}Issues}{18}{subsection.64}%
 \contentsline {section}{\numberline {4.5}Results}{18}{section.65}%
 \contentsline {chapter}{\numberline {5}Voice Processing}{19}{chapter.66}%

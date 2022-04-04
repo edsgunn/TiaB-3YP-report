@@ -27,6 +27,9 @@ The translation problem is one that is very popular in machine learning research
 However the music related problem is harder to solve due to the extra dimension each of its elements contains. 
 Each element in a melody has both pitch, represented by a descrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or letters.  
 Therefore in order to use techniques developed for natural language processing it is necessary to encode the melody and chords in such a way that their dimensions are collapsed into one. 
+Since this collapsing of dimensions has already been conducted in \textbf{REF TO DATA CHAPTER} we are able to take full advanatges of NLP techniques.
+There has been many attempts to apply some of these techniques to the chord generation problem. 
+In order to find the best model we evaluate these attempts against a defined criteria and develop a novel model to evalutate against the same criteria.
 
 
 \section{Model Requirements}
@@ -43,8 +46,7 @@ It would be possible to simply learn a function where for a given measure a chor
 This approach could produce reasonable results and be significantly more simple that other options, however, the quality and variation of chords generated would be lower than that of a model for sequential data, hence our choice to forego it.
 The model would also have to be conditional. For a given input it should produce a catered output. This is an obious contraint however for models such as a GAN it recquires changes to the format of the input data.
 To maximise user experience the models should be non-deterministic. This allows users to regenerate the accompaniment multiple times to obtain new chords and thus means they can choose what they feel is best.
-
-One chord per measure
+For practicality sake we constrained our MVP to only require one chord to be played each measure as the problem of determining when a chord should be played is of similar difficulty to choosing which chord to play.
 \subsection{Other possible Requrements}
 
 There were some constraints which were not used in our project which would provide better quality chords but provided too large a practical barrier to be implemented.
@@ -276,7 +278,9 @@ Adam optimiser
 BCELoss averaged across each element in the sequence or BCELoss for whole song?
 
 \subsection{Issues}
-Number of songs not always divisible by batch number
+Training is conducted in batches of a given size.
+It is unlikely that the size of the dataset is divisble by the batch size so the final batch is likely to be shorter than the others.
+This initially casued problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
 Softmaxing of outputs of generator
 Device managment
 \section{Results}
