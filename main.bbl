@@ -266,6 +266,34 @@
     \field{year}{2017}
   \endentry
 
+  \entry{ChordGAN}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LC}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Conan},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DS}{%
+         family={Dubnov},
+         familyi={D\bibinitperiod},
+         given={Shlomo},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LCDS1}
+    \strng{fullhash}{LCDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{ChordGAN: Symbolic Music Style Transfer with Chroma Feature
+  Extraction}
+    \field{year}{2021}
+  \endentry
+
   \entry{CGANs}{misc}{}
     \name{author}{2}{}{%
       {{hash=MM}{%
@@ -303,6 +331,30 @@
     \verb https://arxiv.org/abs/1411.1784
     \endverb
     \field{year}{2014}
+  \endentry
+
+  \entry{oinkina}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=O}{%
+         family={Oinkina},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{O1}
+    \strng{fullhash}{O1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Understanding LSTM networks}
+    \verb{url}
+    \verb https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+    \endverb
+    \field{journaltitle}{Understanding LSTM Networks -- colah's blog}
+    \field{month}{08}
+    \field{year}{2015}
   \endentry
 
   \entry{MySong}{inproceedings}{}

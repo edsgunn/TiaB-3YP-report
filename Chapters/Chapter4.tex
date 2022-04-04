@@ -110,7 +110,7 @@ Previous implementaitions \\
         Qualitative \\
         Extra features \\
 \subsection{HMMs}
-
+\label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
 Hidden Markov Models or HMMs were first put forward by Leonard E. Baum in a series of statistical papers \textbf{list papers from wikipedia}. 
 They model a stochasitc process in which the desired states, $\boldsymbol{X}$, are not directly observable but related states, $\boldsymbol{Y}$, which directly influence the desired states are. 
@@ -126,7 +126,7 @@ No measure was given for the accuracy of the model, however a study which compar
 In 264 comparisons the participants prefered MySon 95 times, manual 121 times and had no preference 48 times
 The additional user input possible with the "Happy factor" and "Jazz factor" parameters are reported to significantly improve the user experience, however, this is thier only implementation and so nothing can be infered about the quality of the HMM itself.
 
-\paragraph{Chord Generation from Symbolic Melody} \label{para:ChordGenfromSymMelody} As a comparison for the main model in \cite{BLSTM} an HMM was implemented. 
+\paragraph{Chord Generation from Symbolic Melody}  As a comparison for the main model in \cite{BLSTM} an HMM was implemented. 
 The HMM is trained on a reduced version of the \textbf{Include link?} wikifonia.org dataset which includes and array of Western music genres with 2,252 lead sheets, 1802 of which are used for training. 
 This overall comes to 72,418 measures for the training set and 17,768 for the test set. 
 They tested the accuracy of the HMM on sequences of length 4, 8, 12, and 16 bars long gaining an accuracy of $0.4033$, $0.4043$, $0.4041$, and $0.4045$ respectively and an average accuracy of $0.4041$.
@@ -134,8 +134,27 @@ They also carried out a user subjective test with 25 participants each evaluatin
 The users would listen to the music played and judge the accompaniment on a scale of 1, being not appropriate, and 5, being very appropriate.
 The HMM achieved an average score of $2.31$ and the original chords achieved an average score of $4.04$.
 
+\paragraph{Machine Learning in Automatic Music Chords Generation} An HMM was tested in \cite{MLForChords} along with other simpler models. It was trained on 43 lead sheets, with 813 measures total. 
+An accuracy of $0.4844$ was achieved, however an choice of only 7 chords were used unlike the usual 24.
+
+% \paragraph{Autoarrangement System of Accompaniment Chords} An HMM with improved PCP feature extraction was used in \cite{HMMswithML} 
+
+\subsection{DNN-HMMs}
+
+\subsubsection{Explanation and Applicability} 
+
+A deep neural network HMM makes it possible to assume a posterior for the HMM using the output from the softmax output layer of the DNN. 
+This allows for the posterior to be learned in training.
+
+\subsubsection{Implementations}
+
+\paragraph{Chord Generation from Symbolic Melody} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \ref{subsec:HMM}.
+The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
+On the user subjective test the DNN-HMM achieved a score of $3.55$.
 
 \subsection{GANs}
+
+\subsubsection{Explanation and Applicability}
 
 Generative Adversarial Netwoks or GANs were first proposed in the landmark paper \cite{GANs}. Unlike most models GANs consist of two separate agents working against each other.
 The first model, the Generator, takes an input of random noise and outputs data which mimics the training data. 
@@ -148,6 +167,13 @@ Theoretically the Generator and Discriminator can be any differentaible function
 The problem with GANs for our uses is that they are not conditional, the only input to the Generator is noise. A proposed remody for this was presented in \cite{CGANs}.
 By concatinating the label data, in our case the melody, with the noise as input to the Generator and doing the same with the training data and the label data, in our case a chord and melody, as input to the Discriminator GANs can be made conditional. 
 Thus they would be suitable for our uses. 
+
+\subsubsection{Implementations}
+
+\paragraph{ChordGAN} \cite{ChordGAN} uses a conditional GAN along with Chroma Feature Extraction to generate chords for a specific genre of music based on the dataset it was trained on.
+They used three different data sets one for each Pop, Jazz and Classical music each shorter than 1600 measures (specific lengths are not given).
+The model achieved an acuracy of $0.68$, $0.74$ and $0.64$ respectively across the datasets.
+
 \subsection{RNNs}
 
 Recurrent Neural Networks or RNNs have become a staple in the machine learning engineer's library of models. 
@@ -156,6 +182,14 @@ This means that the state of the network at each timestep depends that of the pr
 This makes RNNs ideal for processing sequential data as temporal relationships are taken into account.
 The gradient of RNNs can be found using a variation of the backpropagation algorithm usually know as backpropagation through time.
 RNNs that operate on large sequences often experience the probblems of exploding or vanishing gradients leading to a saturation of learning.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/RNN}
+    \decoRule
+    \caption[An RNN]{A many inputs to many outputs diagram of an RNN from \cite{oinkina}}
+    \label{fig:RNN}
+\end{figure}
 
 \subsection{LSTMs}
 
@@ -184,6 +218,16 @@ The current output of the cell is computed by:
 \begin{equation}
     \overset{\sim}{c}_t = tanh(w_c[h_t,x_t]+b_c)
 \end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/LSTM}
+    \decoRule
+    \caption[An RNN]{The repeating module in an LSTM from \cite{oinkina}}
+    \label{fig:LSTM}
+\end{figure}
+\subsection{Reinforcement Learning}
+
 \subsection{Transformers}
 
 \subsection{Our Model}
