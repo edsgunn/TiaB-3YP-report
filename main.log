@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  1 APR 2022 11:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.13)  4 APR 2022 19:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,14 +728,14 @@ Package caption Info: End \AtBeginDocument code.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * bindingoffset: 14.22636pt
 * modes: includehead includefoot twoside 
-* h-part:(L,W,R)=(56.9055pt, 418.25546pt, 108.12054pt)
+* h-part:(L,W,R)=(56.9055pt, 469.4705pt, 56.9055pt)
 * v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=418.25546pt
+* \textwidth=469.4705pt
 * \textheight=665.04546pt
 * \oddsidemargin=-1.13812pt
-* \evensidemargin=35.85056pt
+* \evensidemargin=-15.36449pt
 * \topmargin=-15.36449pt
 * \headheight=18.85364pt
 * \headsep=19.8738pt
@@ -853,14 +853,14 @@ Overfull \vbox (3.04236pt too high) has occurred while \output is active []
 1: section
 [3
 
-]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 52.
+] [4]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 63.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 52.
- [4])
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 63.
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -893,117 +893,116 @@ Chapter 1.
 [2
 
 
-]) [3] [4]
+]) [3]
 \openout2 = `Chapters/Chapter2.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter2.tex
 Chapter 2.
+)
 1: section
-[5
+[4
 
 
 
 
-]) [6]
+] [5]
 \openout2 = `Chapters/Chapter3.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter3.tex
 Chapter 3.
+)
 1: section
-[7
+[6
 
 
 
 
-]) [8]
+] [7]
 \openout2 = `Chapters/Chapter4.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter4.tex
 Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--43
-
- []
-
 1: section
-[9
+[8
 
 
 
 
-] [10] [11] [12]
-Overfull \hbox (20.83083pt too wide) in paragraph at lines 136--158
- [][] 
+] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 92--102
+
  []
 
-) [13] [14]
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 104--112
+
+ []
+
+[11] [12] [13] [14]) [15] [16]
 \openout2 = `Chapters/Chapter5.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/Chapter5.tex
 Chapter 5.
-1: section
-[15
-
-
-
-
-]) [16]
-\openout2 = `Chapters/ChapterTutorial.aux'.
-
- (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
-Chapter 6.
+)
 1: section
 [17
 
 
 
 
-] [18] [19]
-Overfull \hbox (2.21176pt too wide) in paragraph at lines 78--79
-[]\T1/cmr/m/n/10.95 Sunil's tem-plate was made avail-able through [][]$\T1/cmtt/m/n/10.95 http : / / www . LaTeXTemplates . com$[][] \T1/cmr/m/n/10.95 where
+] [18]
+\openout2 = `Chapters/ChapterTutorial.aux'.
+
+ (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Chapters/ChapterTutorial.tex
+Chapter 6.
+1: section
+[19
+
+
+
+
+] [20]
+Overfull \hbox (12.41167pt too wide) in paragraph at lines 68--69
+\T1/cmr/m/n/10.95 tion's rec-om-men-da-tions. These mod-i-fi-ca-tions will need to be done on the \T1/cmtt/m/n/10.95 MastersDoctoralThesis.cls
  []
 
-[20] [21]
+[21] [22] [23]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
- [22] [23] [24]
+ [24] [25]
 
-LaTeX Warning: Citation 'Reference1' on page 25 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'Reference2' on page 25 undefined on input line 194.
+LaTeX Warning: Citation 'Reference1' on page 26 undefined on input line 194.
 
 
-LaTeX Warning: Citation 'Reference1' on page 25 undefined on input line 194.
+LaTeX Warning: Citation 'Reference2' on page 26 undefined on input line 194.
 
 
-LaTeX Warning: Citation 'Reference3' on page 25 undefined on input line 194.
+LaTeX Warning: Citation 'Reference1' on page 26 undefined on input line 194.
 
-[25] [26] [27]
-<Figures/Electron.pdf, id=558, 398.3386pt x 284.52756pt>
+
+LaTeX Warning: Citation 'Reference3' on page 26 undefined on input line 194.
+
+[26] [27] [28]
+<Figures/Electron.pdf, id=601, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
 <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf  used on input line 262.
 (pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
- [28 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf>] [29]) [30]
+ [29 </Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Figures/Electron.pdf>] [30]) [31]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[31
+[32
 
 
 
 
 ]
-Overfull \hbox (128.91359pt too wide) in paragraph at lines 284--284
-\T1/cmr/m/n/10.95 ciates, Inc. \T1/cmr/m/sc/10.95 url\T1/cmr/m/n/10.95 : [][]$\T1/cmtt/m/n/10.95 https : / / proceedings . neurips . cc / paper / 2014 / file / 5ca3e9b122f61f8f06494c97b1afccf3 -[]
- []
-
 1: section
-[32
+[33
 
 
 
@@ -1012,7 +1011,7 @@ Overfull \hbox (128.91359pt too wide) in paragraph at lines 284--284
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 92A0EFF4B9A500DD24504AA1C8CBAFB7;8842.
+(rerunfilecheck)             Checksum: 3D0932AC2541067F6955959FD9DC1139;9491.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -1023,18 +1022,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26715 strings out of 478994
- 554947 string characters out of 5858183
- 1092009 words of memory out of 5000000
- 43676 multiletter control sequences out of 15000+600000
- 438445 words of font info for 111 fonts, out of 8000000 for 9000
+ 26760 strings out of 478994
+ 555711 string characters out of 5858183
+ 1091246 words of memory out of 5000000
+ 43701 multiletter control sequences out of 15000+600000
+ 440286 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,20n,102p,1878b,2467s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti2074.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.pdf" (39 pages, 609121 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti2074.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
+Output written on "/Users/edsgunn/Documents/Uni/3rd Year/3YP/TiaB-3YP-report/main.pdf" (40 pages, 626943 bytes).
 PDF statistics:
- 802 PDF objects out of 1000 (max. 8388607)
- 709 compressed objects within 8 object streams
- 125 named destinations out of 1000 (max. 500000)
- 518 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 550 words of extra memory for PDF output out of 10000 (max. 10000000)
 

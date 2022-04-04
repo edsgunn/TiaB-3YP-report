@@ -17,6 +17,33 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global}
+  \entry{MLForChords}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CZ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Ziheng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=QJ}{%
+         family={Qi},
+         familyi={Q\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CZQJ1}
+    \strng{fullhash}{CZQJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Machine Learning in Automatic Music Chords Generation}
+    \field{year}{2015}
+  \endentry
+
   \entry{ChordPrediction}{article}{}
     \name{author}{2}{}{%
       {{hash=CUS}{%
@@ -345,6 +372,65 @@
     }
     \field{year}{2008}
     \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{ReinforcementLearning}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZT}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Te},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LFCM}{%
+         family={Lau},
+         familyi={L\bibinitperiod},
+         given={Francis C.\bibnamedelima M.},
+         giveni={F\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZTLFCM1}
+    \strng{fullhash}{ZTLFCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{abstract}{%
+    We present a novel reinforcement learning architecture that learns a
+  structured representation for use in symbolic melody harmonization.
+  Probabilistic models are predominant in melody harmonization tasks, most of
+  which only treat melody notes as independent observations and do not take
+  note of substructures in the melodic sequence. To fill this gap, we add
+  substructure discovery as a crucial step in automatic chord generation. The
+  proposed method consists of a structured representation module that generates
+  hierarchical structures for the symbolic melodies, a policy module that
+  learns to break a melody into segments (whose boundaries concur with chord
+  changes) and phrases (the subunits in segments) and a harmonization module
+  that generates chord sequences for each segment. We formulate the structure
+  discovery process as a sequential decision problem with a policy gradient RL
+  method selecting the boundary of each segment or phrase to obtain an
+  optimized structure. We conduct experiments on our preprocessed HookTheory
+  Lead Sheet Dataset, which has 17,979 melody/chord pairs. The results
+  demonstrate that our proposed method can learn task-specific representations
+  and, thus, yield competitive results compared with state-of-the-art
+  baselines.%
+    }
+    \verb{doi}
+    \verb 10.3390/electronics10202469
+    \endverb
+    \field{issn}{2079-9292}
+    \field{number}{20}
+    \field{title}{Automatic Melody Harmonization via Reinforcement Learning by
+  Exploring Structured Representations for Melody Sequences}
+    \verb{url}
+    \verb https://www.mdpi.com/2079-9292/10/20/2469
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Electronics}
+    \field{year}{2021}
   \endentry
 \enddatalist
 \endinput

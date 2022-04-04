@@ -6,61 +6,72 @@
 \contentsline {subsection}{\numberline {1.1.1}Musical terminology}{3}{subsection.7}%
 \contentsline {subsection}{\numberline {1.1.2}Subsection 2}{3}{subsection.8}%
 \contentsline {section}{\numberline {1.2}Main Section 2}{3}{section.9}%
-\contentsline {chapter}{\numberline {2}Product Design}{5}{chapter.10}%
-\contentsline {section}{\numberline {2.1}Main Section 1}{5}{section.11}%
-\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{5}{subsection.12}%
-\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{5}{subsection.13}%
-\contentsline {section}{\numberline {2.2}Main Section 2}{6}{section.14}%
-\contentsline {chapter}{\numberline {3}Data}{7}{chapter.15}%
-\contentsline {section}{\numberline {3.1}Main Section 1}{7}{section.16}%
-\contentsline {subsection}{\numberline {3.1.1}Subsection 1}{7}{subsection.17}%
-\contentsline {subsection}{\numberline {3.1.2}Subsection 2}{7}{subsection.18}%
-\contentsline {section}{\numberline {3.2}Main Section 2}{8}{section.19}%
-\contentsline {chapter}{\numberline {4}Model}{9}{chapter.20}%
-\contentsline {section}{\numberline {4.1}Introduction}{9}{section.21}%
-\contentsline {section}{\numberline {4.2}Related Work}{9}{section.22}%
-\contentsline {section}{\numberline {4.3}Model Requirements}{10}{section.23}%
-\contentsline {subsection}{\numberline {4.3.1}MVP Requrements}{10}{subsection.24}%
-\contentsline {subsection}{\numberline {4.3.2}Other possible Requrements}{11}{subsection.25}%
-\contentsline {section}{\numberline {4.4}Models}{11}{section.26}%
-\contentsline {subsection}{\numberline {4.4.1}GANs}{11}{subsection.27}%
-\contentsline {subsection}{\numberline {4.4.2}RNNs}{12}{subsection.29}%
-\contentsline {subsection}{\numberline {4.4.3}LSTMs}{12}{subsection.30}%
-\contentsline {subsection}{\numberline {4.4.4}Transformers}{13}{subsection.37}%
-\contentsline {subsection}{\numberline {4.4.5}Our Model}{13}{subsection.38}%
-\contentsline {subsection}{\numberline {4.4.6}Model Functionality}{13}{subsection.39}%
-\contentsline {section}{\numberline {4.5}Training}{13}{section.41}%
-\contentsline {subsection}{\numberline {4.5.1}Issues}{13}{subsection.42}%
-\contentsline {section}{\numberline {4.6}Results}{13}{section.43}%
-\contentsline {chapter}{\numberline {5}Voice Processing}{15}{chapter.44}%
-\contentsline {section}{\numberline {5.1}Main Section 1}{15}{section.45}%
-\contentsline {subsection}{\numberline {5.1.1}Subsection 1}{15}{subsection.46}%
-\contentsline {subsection}{\numberline {5.1.2}Subsection 2}{15}{subsection.47}%
-\contentsline {section}{\numberline {5.2}Main Section 2}{16}{section.48}%
-\contentsline {chapter}{\numberline {6}Chapter Title Here}{17}{chapter.49}%
-\contentsline {section}{\numberline {6.1}Welcome and Thank You}{17}{section.50}%
-\contentsline {section}{\numberline {6.2}Learning \LaTeX {}}{17}{section.51}%
-\contentsline {subsection}{\numberline {6.2.1}A (not so short) Introduction to \LaTeX {}}{18}{subsection.52}%
-\contentsline {subsection}{\numberline {6.2.2}A Short Math Guide for \LaTeX {}}{18}{subsection.53}%
-\contentsline {subsection}{\numberline {6.2.3}Common \LaTeX {} Math Symbols}{18}{subsection.54}%
-\contentsline {subsection}{\numberline {6.2.4}\LaTeX {} on a Mac}{19}{subsection.55}%
-\contentsline {section}{\numberline {6.3}Getting Started with this Template}{19}{section.56}%
-\contentsline {subsection}{\numberline {6.3.1}About this Template}{19}{subsection.57}%
-\contentsline {section}{\numberline {6.4}What this Template Includes}{20}{section.58}%
-\contentsline {subsection}{\numberline {6.4.1}Folders}{20}{subsection.59}%
-\contentsline {subsection}{\numberline {6.4.2}Files}{21}{subsection.60}%
-\contentsline {section}{\numberline {6.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{22}{section.61}%
-\contentsline {section}{\numberline {6.6}The \texttt {main.tex} File Explained}{23}{section.62}%
-\contentsline {section}{\numberline {6.7}Thesis Features and Conventions}{24}{section.63}%
-\contentsline {subsection}{\numberline {6.7.1}Printing Format}{24}{subsection.64}%
-\contentsline {subsection}{\numberline {6.7.2}Using US Letter Paper}{25}{subsection.65}%
-\contentsline {subsection}{\numberline {6.7.3}References}{25}{subsection.66}%
-\contentsline {subsubsection}{A Note on bibtex}{26}{section*.68}%
-\contentsline {subsection}{\numberline {6.7.4}Tables}{26}{subsection.69}%
-\contentsline {subsection}{\numberline {6.7.5}Figures}{27}{subsection.71}%
-\contentsline {subsection}{\numberline {6.7.6}Typesetting mathematics}{29}{subsection.73}%
-\contentsline {section}{\numberline {6.8}Sectioning and Subsectioning}{30}{section.75}%
-\contentsline {section}{\numberline {6.9}In Closing}{30}{section.76}%
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{31}{appendix.77}%
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{31}{section.78}%
-\contentsline {chapter}{Bibliography}{32}{appendix*.79}%
+\contentsline {chapter}{\numberline {2}Product Design}{4}{chapter.10}%
+\contentsline {section}{\numberline {2.1}Main Section 1}{4}{section.11}%
+\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{4}{subsection.12}%
+\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{4}{subsection.13}%
+\contentsline {section}{\numberline {2.2}Main Section 2}{5}{section.14}%
+\contentsline {chapter}{\numberline {3}Data}{6}{chapter.15}%
+\contentsline {section}{\numberline {3.1}Main Section 1}{6}{section.16}%
+\contentsline {subsection}{\numberline {3.1.1}Subsection 1}{6}{subsection.17}%
+\contentsline {subsection}{\numberline {3.1.2}Subsection 2}{6}{subsection.18}%
+\contentsline {section}{\numberline {3.2}Main Section 2}{7}{section.19}%
+\contentsline {chapter}{\numberline {4}Model}{8}{chapter.20}%
+\contentsline {section}{\numberline {4.1}Introduction}{8}{section.21}%
+\contentsline {section}{\numberline {4.2}Model Requirements}{8}{section.22}%
+\contentsline {subsection}{\numberline {4.2.1}MVP Requrements}{8}{subsection.23}%
+\contentsline {subsection}{\numberline {4.2.2}Other possible Requrements}{9}{subsection.24}%
+\contentsline {subsection}{\numberline {4.2.3}Evaluation criteria}{9}{subsection.25}%
+\contentsline {paragraph}{Approach}{9}{section*.26}%
+\contentsline {paragraph}{Data}{9}{section*.27}%
+\contentsline {paragraph}{Quantiative Evalutaion}{10}{section*.28}%
+\contentsline {paragraph}{Qualitative Evaluation}{10}{section*.29}%
+\contentsline {paragraph}{Criteria}{10}{section*.30}%
+\contentsline {section}{\numberline {4.3}Models}{11}{section.31}%
+\contentsline {subsection}{\numberline {4.3.1}Model evaluation template}{11}{subsection.32}%
+\contentsline {subsection}{\numberline {4.3.2}HMMs}{12}{subsection.33}%
+\contentsline {subsubsection}{Explanation and Applicability}{12}{section*.34}%
+\contentsline {subsubsection}{Implementations}{12}{section*.35}%
+\contentsline {paragraph}{MySong}{12}{section*.36}%
+\contentsline {paragraph}{Chord Generation from Symbolic Melody}{12}{section*.37}%
+\contentsline {subsection}{\numberline {4.3.3}GANs}{13}{subsection.38}%
+\contentsline {subsection}{\numberline {4.3.4}RNNs}{13}{subsection.40}%
+\contentsline {subsection}{\numberline {4.3.5}LSTMs}{14}{subsection.41}%
+\contentsline {subsection}{\numberline {4.3.6}Transformers}{15}{subsection.48}%
+\contentsline {subsection}{\numberline {4.3.7}Our Model}{15}{subsection.49}%
+\contentsline {subsection}{\numberline {4.3.8}Model Functionality}{15}{subsection.50}%
+\contentsline {section}{\numberline {4.4}Training}{15}{section.52}%
+\contentsline {subsection}{\numberline {4.4.1}Issues}{15}{subsection.53}%
+\contentsline {section}{\numberline {4.5}Results}{15}{section.54}%
+\contentsline {chapter}{\numberline {5}Voice Processing}{17}{chapter.55}%
+\contentsline {section}{\numberline {5.1}Main Section 1}{17}{section.56}%
+\contentsline {subsection}{\numberline {5.1.1}Subsection 1}{17}{subsection.57}%
+\contentsline {subsection}{\numberline {5.1.2}Subsection 2}{17}{subsection.58}%
+\contentsline {section}{\numberline {5.2}Main Section 2}{18}{section.59}%
+\contentsline {chapter}{\numberline {6}Chapter Title Here}{19}{chapter.60}%
+\contentsline {section}{\numberline {6.1}Welcome and Thank You}{19}{section.61}%
+\contentsline {section}{\numberline {6.2}Learning \LaTeX {}}{19}{section.62}%
+\contentsline {subsection}{\numberline {6.2.1}A (not so short) Introduction to \LaTeX {}}{20}{subsection.63}%
+\contentsline {subsection}{\numberline {6.2.2}A Short Math Guide for \LaTeX {}}{20}{subsection.64}%
+\contentsline {subsection}{\numberline {6.2.3}Common \LaTeX {} Math Symbols}{20}{subsection.65}%
+\contentsline {subsection}{\numberline {6.2.4}\LaTeX {} on a Mac}{20}{subsection.66}%
+\contentsline {section}{\numberline {6.3}Getting Started with this Template}{21}{section.67}%
+\contentsline {subsection}{\numberline {6.3.1}About this Template}{21}{subsection.68}%
+\contentsline {section}{\numberline {6.4}What this Template Includes}{22}{section.69}%
+\contentsline {subsection}{\numberline {6.4.1}Folders}{22}{subsection.70}%
+\contentsline {subsection}{\numberline {6.4.2}Files}{22}{subsection.71}%
+\contentsline {section}{\numberline {6.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{24}{section.72}%
+\contentsline {section}{\numberline {6.6}The \texttt {main.tex} File Explained}{24}{section.73}%
+\contentsline {section}{\numberline {6.7}Thesis Features and Conventions}{26}{section.74}%
+\contentsline {subsection}{\numberline {6.7.1}Printing Format}{26}{subsection.75}%
+\contentsline {subsection}{\numberline {6.7.2}Using US Letter Paper}{26}{subsection.76}%
+\contentsline {subsection}{\numberline {6.7.3}References}{26}{subsection.77}%
+\contentsline {subsubsection}{A Note on bibtex}{27}{section*.79}%
+\contentsline {subsection}{\numberline {6.7.4}Tables}{28}{subsection.80}%
+\contentsline {subsection}{\numberline {6.7.5}Figures}{28}{subsection.82}%
+\contentsline {subsection}{\numberline {6.7.6}Typesetting mathematics}{30}{subsection.84}%
+\contentsline {section}{\numberline {6.8}Sectioning and Subsectioning}{31}{section.86}%
+\contentsline {section}{\numberline {6.9}In Closing}{31}{section.87}%
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{32}{appendix.88}%
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{32}{section.89}%
+\contentsline {chapter}{Bibliography}{33}{appendix*.90}%
