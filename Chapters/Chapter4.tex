@@ -25,7 +25,7 @@
 The problem of generation of a set of chords from a melody is very similar to that of translating one language to another. 
 The translation problem is one that is very popular in machine learning research and thus there is many resources on it.  
 However the music related problem is harder to solve due to the extra dimension each of its elements contains. 
-Each element in a melody has both pitch, represented by a descrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or letters.  
+Each element in a melody has both pitch, represented by a descrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or words.  
 Therefore in order to use techniques developed for natural language processing it is necessary to encode the melody and chords in such a way that their dimensions are collapsed into one. 
 Since this collapsing of dimensions has already been conducted in \textbf{REF TO DATA CHAPTER} we are able to take full advanatges of NLP techniques.
 There has been many attempts to apply some of these techniques to the chord generation problem. 
@@ -50,11 +50,15 @@ For practicality sake we constrained our MVP to only require one chord to be pla
 \subsection{Other possible Requrements}
 
 There were some constraints which were not used in our project which would provide better quality chords but provided too large a practical barrier to be implemented.
-
-Strongly temporal
-Rhythmic intention conscious
-Bidirectional
-More than one chord per bar
+The act of collapsing the pitch and duration of the notes into a single dimension removes information from the melody.
+In our case this information is the order in which the notes are played and the rhythmic intention of the composer.
+It is likely a model would be able to produce more suitable chords given this information.
+Thus, for a stricter set of constrains we could include the requirement that the order and duration of notes are both maintained in the data.
+The accompaniment for music is not limited to a single chord played at the start of each bar.
+A much more interesting accompaniment would be generated if it were not limited to this restrictive format.
+As shown in \cite{ReinforcementLearning} it is possible to create a model which learns the divisons within the music and thus learns when would be most appropriate to play a chord.
+Therfore, in order to allow for more interesting accompaniment, the requirement of one chord per bar could be changed such that chords should be played with closer freedom to that of a human composer.
+% Strongly temporal
 
 \subsection{Evaluation criteria}
 \paragraph{Approach}
@@ -73,6 +77,9 @@ This is a particularly important area for evaluation as it will strongly affect 
 There is difficulty in quantative evaluation for this problem as there is no strictly correct chords for a given melody and thus comparison to any specific set of chords gives a skewed interpretation of the output.
 However, the use of conventional quantative evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords and thus can be cautionsly used in evalution.
 The test set from the data can be used to compare the outputs from the model to previously assigned chords. Accuracy can be found by finding the number of chords successfully predicted and dividing by the total number of chords produced.
+\begin{equation}
+    \text{Accuracy} = \frac{\text{Number of Chords Correctly Assigned}}{\text{Total Number of Chords Generated}}
+\end{equation}
 As this was the only quantative measure consistently used across previous implementations this is the only one we will consider for evaluation.
 
 \paragraph{Qualitative Evaluation}
@@ -91,7 +98,7 @@ The final criteria used for evaluation are thus:
 \end{itemize}
 \section{Models}
 
-The generation of chords to accompany a monphonic melody is an area which has developed machine learning techniques are improved. 
+The generation of chords to accompany a monphonic melody is an area which has developed as machine learning techniques are improved. 
 An early approach to this problem from \cite{ChordPrediction} used a standard MLP to learn the relationship between melodies and accompanying chords.
 MySong, the first attempt focusing specifically on a vocal melody in \cite{MySong} used an augment hidden markov model with parameters such that users could adjust the "Happy factor" and "Jazz factor" to alter the mood of the generated chords to their preference.
 A weakness of the hidden markov model is that at each timestep only the previous timestep is considers when suggesting a chord. 
@@ -143,6 +150,7 @@ An accuracy of $0.4844$ was achieved, however an choice of only 7 chords were us
 
 \subsection{DNN-HMMs}
 
+\label{subsec:DNN-HMMs}
 \subsubsection{Explanation and Applicability} 
 
 A deep neural network HMM makes it possible to assume a posterior for the HMM using the output from the softmax output layer of the DNN. 
@@ -152,7 +160,7 @@ This allows for the posterior to be learned in training.
 
 \paragraph{Chord Generation from Symbolic Melody} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \ref{subsec:HMM}.
 The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
-On the user subjective test the DNN-HMM achieved a score of $3.55$.
+On the user subjective test the DNN-HMM achieved a score of $2.48$.
 
 \subsection{GANs}
 
@@ -225,16 +233,45 @@ The current output of the cell is computed by:
     \centering
     \includegraphics[width=0.8\columnwidth]{Figures/LSTM}
     \decoRule
-    \caption[An RNN]{The repeating module in an LSTM from \cite{oinkina}}
+    \caption{The repeating module in an LSTM from \cite{oinkina}}
     \label{fig:LSTM}
 \end{figure}
-\subsection{Reinforcement Learning}
+
+\subsubsection{Implementations}
+
+\paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \ref{subsec:HMM} and \ref{subsec:DNN-HMMs}.
+They build a bidirection LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probaility that each of the 24 chords is played.
+The same dataset as the HMM and DNN-HMM was used and an accuracy of $0.5055$, $0.5032$, $0.4923$, and $0.4990$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.5000$.
+On the user subjective test the DNN-HMM achieved a score of $3.55$.
+
+\paragraph{Automatic Melody Harmonization} A particularly interesting model heaviliy relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
+The simultaniously trained a Structured Representation Module responsible for learning note-level, phrase-level and segment level representaitions, a Segmentation Module acting as a reinforcement learning agent to decide whether the current note is the boundary of a phrase or segment and a Harmonisation Module responsible for generating chords for each segment.
+They used the Hooktheory Lead Sheet Dataset with 10,000 songs, no number of measures is given but with the differnece in model architecture so drastic a comparison on this metric would be inappropriate anyway.
+The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and BLSTM with blocked Gibbs sampling which achieved an accuracy of $0.2516$, $0.2664$, $0.2802$, $0.2933$ respectively.
+% The inclusion of variable numbers of chords in each measure greatly expands the possibilities with music composition
 
 \subsection{Transformers}
 
-\subsection{Our Model}
+Transformers have been a revolutionary development in the field of NLP, first proposed by \cite{Transformers} they have become very widely used and regularly produce state of the art performance.
+Transformers utilise the encoder decoder model for sequence to sequence translation.
+They also heavily use attention which is a mechanism for weighting the importance of different elements of a sequence of data.
+Specifically they propose the Scaled dot-product attention shown in \ref{eq:Attention}
+\begin{equation}
+    \text{Attention}(Q,K,V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V
+    \label{eq:Attention}
+\end{equation}
+where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $d_k$ is the dimension or queries and keys.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\columnwidth]{Figures/Transformer}
+    \decoRule
+    \caption{The architecture of a transformer from \cite{Transformers}}
+    \label{fig:Transformer}
+\end{figure}
 
-We propose the use of a conditional LSTM GAN to learn the association between melodies and chords.
+\section{Our Model}
+
+We propose the use of a conditional BLSTM GAN to learn the association between melodies and chords.
 The Discriminator consists of a number of LSTM layers followed by a linear output layer.
 The Generator consists of a linear layer followed by a number of LSTM layers and then by another linear layer.
 The Binary Cross Entropy loss is used to determine the Discriminator loss for each example. This is averaged across every measure and then between real and generated examples
@@ -274,13 +311,40 @@ The options available in the interface are show in table \ref{tab:parameters}
  
 
 \section{Training}
-Adam optimiser
-BCELoss averaged across each element in the sequence or BCELoss for whole song?
 
+\paragraph{Optimiser}
+We used the Adam optimiser \cite{Adam} which is recommended in the Stanford \href{https://cs231n.github.io/}{CS231n: Convolutional Neural Networks for Visual Recognition}\footnote{https://cs231n.github.io/} as the default optimiser.
+\textbf{EXPLAIN ADAM WHEN NOT FALLING ASLEEP}
+
+\paragraph{Loss}
+As we are using a GAN we use the Binary Cross Entropy or BCE as our loss function
+
+\begin{equation}
+\frac{1}{N} \sum_{i=1}^N log(p(y_i))
+\end{equation}
+which for the disciminator takes the form
+\begin{equation}
+    \frac{1}{N} \sum_{i=1}^N log(D(conc(x_i,z_i))) + log(1-D(conc(G(z_i),z_i)))
+\end{equation}
+where $x_i$ is are the real examples, $z_i$ are the melodies and the $conc$ function concatinates the two vector arguments.
+The loss is the sum of the loss of the discriminator on real data and generated data.
+The generator loss is
+\begin{equation}
+    -\frac{1}{N} \sum_{i=1}^N log(1-D(conc(G(z_i),z_i)))
+\end{equation}
+which results in tring to maximise the loss of the discriminator on generated data.
+This is equivalent to finding the discriminator loss on generated data when labeled as real which is the method we use in our implementation.
+
+\subsection{Avoiding Overfitting}
+Dropout
+GAN techniques
+Reducing number of LSTM layers
 \subsection{Issues}
 Training is conducted in batches of a given size.
 It is unlikely that the size of the dataset is divisble by the batch size so the final batch is likely to be shorter than the others.
 This initially casued problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
 Softmaxing of outputs of generator
 Device managment
+
+\subsection{Testing}
 \section{Results}
