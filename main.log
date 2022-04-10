@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.21)  10 APR 2022 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.21)  10 APR 2022 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -889,83 +889,32 @@ LaTeX Warning: Citation 'francis' on page 5 undefined on input line 140.
 LaTeX Warning: Citation 'parliamentlaw' on page 5 undefined on input line 140.
 
 
-Overfull \hbox (19.71951pt too wide) in paragraph at lines 137--142
+Overfull \hbox (19.71951pt too wide) in paragraph at lines 137--143
 \T1/ppl/m/n/10.95 our to re-duce risks for in-di-vid-u-als and mit-i-gate so-cial and eth-i-cal implications.[]
  []
 
 
-/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.tex:143: LaTeX Error: There's no line here to end.
+LaTeX Warning: Citation 'ukri' on page 5 undefined on input line 148.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.143 \\M
-         oreover, to be publicly accountable, effective governance and overs...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.tex:163: Misplaced alignment tab character &.
-l.163 ...s like a project advisory board/ review &
-                                                   quality assurance steps. ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.tex:165: Misplaced alignment tab character &.
-l.165 (iv)	Gender &
-                    Equality: Since male engineers still dominate the indust...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.tex:166: Misplaced alignment tab character &.
-l.166 ...ul duplication, increasing transparency &
-                                                   reproducibility of results.
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 168.
-(/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+[5]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 164.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [5]
-Overfull \hbox (233.64815pt too wide) in paragraph at lines 179--181
-\T1/ppl/m/n/10.95 8,918,157,500 ac-tive mo-bile de-vices con-sum-ing about 2 kWh/year en-ergy (https://www.digitalinformationworld.com/2020/02/the-
+)
+Overfull \hbox (4.21527pt too wide) in paragraph at lines 177--179
+\T1/ppl/m/n/10.95 ergy (https://www.digitalinformationworld.com/2020/02/the-global-energy-
  []
 
 
-Overfull \hbox (41.43909pt too wide) in paragraph at lines 182--184
+Overfull \hbox (51.81415pt too wide) in paragraph at lines 180--182
 []\T1/ppl/m/n/10.95 From pa-per: https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf
  []
 
-) [6]
+[6]) [7]
 \openout2 = `Chapters/Chapter2.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter2.tex
 Chapter 2.
-)
-1: section
-[7
-
-
-
-
-]
-\openout2 = `Chapters/Chapter3.aux'.
-
- (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter3.tex
-Chapter 3.
 )
 1: section
 [8
@@ -973,30 +922,52 @@ Chapter 3.
 
 
 
-]
-\openout2 = `Chapters/Chapter4.aux'.
+] [9]
+\openout2 = `Chapters/Chapter3.aux'.
 
- (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter4.tex
-Chapter 4.
+ (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter3.tex
+Chapter 3.
 )
-1: section
-[9
-
-
-
-
-]
-\openout2 = `Chapters/Chapter5.aux'.
-
- (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex
-Chapter 5.
 1: section
 [10
 
 
 
 
-] [11]) [12]
+] [11]
+\openout2 = `Chapters/Chapter4.aux'.
+
+ (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter4.tex
+Chapter 4.
+)
+1: section
+[12
+
+
+
+
+] [13]
+\openout2 = `Chapters/Chapter5.aux'.
+
+ (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex
+Chapter 5.
+
+Overfull \hbox (6.19704pt too wide) in paragraph at lines 22--26
+\T1/ppl/m/n/10.95 A. Low-pass fil-ter Trans-form time-signal to frequency-signal us-ing fourier trans-
+ []
+
+1: section
+[14
+
+
+
+
+]
+Overfull \hbox (45.72583pt too wide) in paragraph at lines 49--56
+\T1/ppl/m/n/10.95 no cor-re-la-tion, Y(omega)= Used by au-dac-ity https://github.com/timsainb/noisereduce
+ []
+
+[15]) [16]
 \openout2 = `Chapters/ChapterTutorial.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/ChapterTutorial.tex
@@ -1006,81 +977,85 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 29
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 1: section
-[13
+[17
 
 
 
 
 ]
+Overfull \hbox (0.31374pt too wide) in paragraph at lines 56--57
+\T1/ppl/m/n/10.95 The L[]T[]X dis-tri-bu-tion is avail-able for many sys-tems in-clud-ing Win-dows, Linux
+ []
+
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 58.
 
-
-LaTeX Warning: Reference `FillingFile' on page 14 undefined on input line 64.
-
-
-LaTeX Warning: Reference `FillingFile' on page 14 undefined on input line 64.
+LaTeX Warning: Reference `FillingFile' on page 18 undefined on input line 64.
 
 
-LaTeX Warning: Reference `ThesisConventions' on page 14 undefined on input line 64.
+LaTeX Warning: Reference `FillingFile' on page 18 undefined on input line 64.
 
 
-Overfull \hbox (12.15245pt too wide) in paragraph at lines 72--74
-\T1/ppl/m/n/10.95 site, here: [][]$\T1/cmtt/m/n/10.95 http : / / www . ecs . soton . ac . uk / ~srg / softwaretools / document / templates/$[][] 
- []
-
-[14] [15]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
- [16] [17]
-Overfull \hbox (8.37132pt too wide) in paragraph at lines 180--181
-\T1/ppl/m/n/10.95 sided print-ing is as sim-ple as un-com-ment-ing the \T1/cmtt/m/it/10.95 oneside \T1/ppl/m/n/10.95 op-tion of the \T1/cmtt/m/n/10.95 documentclass
- []
-
-
-LaTeX Warning: Citation 'Reference1' on page 18 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'Reference2' on page 18 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'Reference1' on page 18 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'Reference3' on page 18 undefined on input line 194.
+LaTeX Warning: Reference `ThesisConventions' on page 18 undefined on input line 64.
 
 [18]
+Overfull \hbox (1.37473pt too wide) in paragraph at lines 72--74
+\T1/ppl/m/n/10.95 style file at his site, here: [][]$\T1/cmtt/m/n/10.95 http : / / www . ecs . soton . ac . uk / ~srg / softwaretools /
+ []
 
-LaTeX Warning: Reference `tab:treatments' on page 19 undefined on input line 244.
+[19] [20]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
 
-[19]
-<Figures/Electron.pdf, id=206, 398.3386pt x 284.52756pt>
+
+LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 161.
+
+[21] [22]
+
+LaTeX Warning: Citation 'Reference1' on page 23 undefined on input line 194.
+
+
+LaTeX Warning: Citation 'Reference2' on page 23 undefined on input line 194.
+
+
+LaTeX Warning: Citation 'Reference1' on page 23 undefined on input line 194.
+
+
+LaTeX Warning: Citation 'Reference3' on page 23 undefined on input line 194.
+
+[23]
+
+LaTeX Warning: Reference `tab:treatments' on page 24 undefined on input line 244.
+
+[24]
+<Figures/Electron.pdf, id=235, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
 <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf  used on input line 262.
 (pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
 
 
-LaTeX Warning: Reference `fig:Electron' on page 20 undefined on input line 270.
+LaTeX Warning: Reference `fig:Electron' on page 25 undefined on input line 270.
 
-[20 </Users/kittyfung/Desktop/3YP/GitHub/Figures/Electron.pdf>]
-Overfull \hbox (0.90797pt too wide) in paragraph at lines 308--309
-\T1/ppl/m/n/10.95 au-to-mat-i-cally builds a ta-ble of Con-tents by look-ing at all the [][]\T1/cmtt/m/n/10.95 \chapter{}[]\T1/ppl/m/n/10.95 , [][]\T1/cmtt/m/n/10.95 \section{}
+[25 </Users/kittyfung/Desktop/3YP/GitHub/Figures/Electron.pdf>]
+Overfull \hbox (0.12802pt too wide) in paragraph at lines 280--282
+\T1/ppl/m/n/10.95 loaded from: [][]$\T1/cmtt/m/n/10.95 ftp : / / ftp . ams . org / pub / tex / doc / amsmath / short-[]math-[]guide .
  []
 
 
-Overfull \hbox (0.45015pt too wide) in paragraph at lines 310--311
+Overfull \hbox (10.82521pt too wide) in paragraph at lines 310--311
 []\T1/ppl/m/n/10.95 The Ta-ble of Con-tents should only list the sec-tions to three (3) lev-els. A [][]\T1/cmtt/m/n/10.95 chapter{}
  []
 
-[21]) [22]
+[26]) [27]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[23
+[28
 
 
 
@@ -1089,7 +1064,23 @@ Appendix A.
 
 LaTeX Warning: Empty bibliography on input line 284.
 
+
+/Users/kittyfung/Desktop/3YP/GitHub/main.tex:288: LaTeX Error: \begin{enumerate} on input line 151 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.288 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 (/Users/kittyfung/Desktop/3YP/GitHub/main.aux (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter2.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter3.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter4.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/ChapterTutorial.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Appendices/AppendixA.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 
 LaTeX Warning: There were undefined references.
 
@@ -1103,7 +1094,7 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  FEDC2977FFA0D89AAC3611D2348270E8;9324.
+(rerunfilecheck)             After:  9E25C45BDD73DE1D85FBD78E0F4165BC;9157.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -1112,20 +1103,24 @@ Package biblatex Warning: Please (re)run BibTeX on the file(s):
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 151 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 26188 strings out of 478994
- 546128 string characters out of 5858184
+ 26201 strings out of 478994
+ 546234 string characters out of 5858184
  1062703 words of memory out of 5000000
- 43185 multiletter control sequences out of 15000+600000
+ 43187 multiletter control sequences out of 15000+600000
  466845 words of font info for 148 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,21n,102p,1854b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfst1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/kittyfung/Desktop/3YP/GitHub/main.pdf (28 pages, 294230 bytes).
+ 98i,20n,102p,1854b,1937s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /Users/kittyfung/Desktop/3YP/GitHub/main.pdf (33 pages, 278836 bytes).
 PDF statistics:
- 358 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
+ 122 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
