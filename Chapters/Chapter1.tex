@@ -86,51 +86,62 @@ and online hate crime.
 Governmental organisations have published regulations \cite{EUdataregulations2018} and frameworks
 \cite{framework} that are minimum standards for handling data ethically. The core values of data ethics 
 is to treat data responsibly and righteously.
-\linebreak
-There are 3 overarching principles to adhere to but in short, we as the developer should treat our 
+\\
+There are 3 overarching principles\cite{framework} to adhere to but in short, we as the developer should treat our 
 users\textsc{\char13} data as we would for our own.
 
 \subsubsection{Transparency}
 We should be clear and publish specifications of our project in a way that users can understand and access
 easily. It is necessary to delineate a privacy policy and makes sure users read and agree to it before they use
 our application and keep the policy at a prominent location, i.e. in the footer for webpage, in the developer
-section of the app listing or on the sign-in interface of the app.
-
-\linebreak
-We would include the following items in our privacy policy:
+section of the app listing or on the sign-in interface of the app.\\We would include the following items in our privacy policy:
 \begin{enumerate}
-    \item Company licence and registration reference number: registration on https://ico.org.uk/ is required
+    \item Company licence and registration reference number: Registration at the Information Commissioner's Office is required
     before collecting data from the public
-    \item Details and purpose of data collected: we will collect
+    \item Details and purpose of data collected: We should limit data collection to what is necessary and to an explicit purpose.
+    Thus, we will collect
     \begin{description}
-        \item[Audio data - ] Audio signal and metadata to feed in our machine learning model to improve accuracy.
-        \item[Networks and connections - ] for our interactive community features
-        \item[Usage - ] Contents and functions that the users have viewed or engaged with, as well as the duration.
-        \item[Device information - ] Device attributes like signal strength, battery levels, version of operating system
-        \item[Cookie data - ] Both first- and third-party cookies are needed. For the first-party cookies, to personalise and optimise user
-        experience, we would save their usage preference like language, dark or light background mode. As for the third-party cookies,
-        they are collected since we will be displaying advertisements for standard users, and these cookies will not be placed for users
-        who have subscribed to our platform.
+        \item[Personal details -] Name and email address are the necessary fields, gender, age and profile picture are optional data
+        that will help improve user experience and accuracy of the model. 
+        \item[Audio data -] Audio signal and metadata to feed in our machine learning model to improve accuracy.
+        \item[Networks and connections -] for our interactive community features
+        \item[Usage -] Contents and functions that the users have viewed or engaged with, as well as the duration.
+        \item[Device information -] Device attributes like signal strength, battery levels, version of operating system
+        \item[Cookie data -] Both first- and third-party cookies are needed. For the first-party cookies, to personalise and optimise user
+        experience, we would save their usage preference like language, dark or light background mode. 
+        \\There are 2 purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
+        these advertising companies will be able to place cookies on our app for standard users, but not the premium users who subscribed to our services. 
+        Secondly, we will be implementing social sign-on so users do not have to create a new account on our end. In this case, the social media 
+        platform will be placing their third-party cookies on our app.
+        \\It is important to note that users have the right to know the third parties that have access to their data.
     \end{description}
     \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when an user deactivated
-    his account or when the data is no longer necessary to collect. Although there is no limitation on data storage, we will have to act ethically and
-    decide the timeframe based on the genuine motivation of retaining the data. Data should only be collected when it is vital in the context
-    of app operation, thus we should not keep data just in case it is needed in the future.
-
-
-account deletion (we should store data until it is not necessary to collect/ users deactivate account)
-(c)	Access rights of different members of the team
-(d)	Third parties that will have access to the data collected
-(e)	Rights that users have over their data (users should have the right to request a copy of data provided/ request the organisation to delete the data/ object to the organisation’s data processing)
-(f)	Notification of changes to privacy policy and ask users to review/ accept the revised policy (if needed)
-(g)	Security standards (SSL/ encryption standards)
-(h)	Contact information
+    his account or when the data is no longer necessary to collect. Moreover, we would have to erase or rectify inaccurate data without delay. Although 
+    there is no limitation on data storage, we will have to act ethically and
+    decide the timeframe based on the genuine motivation of retaining the data. Data shtould only be collected when it is vital in the context
+    of app operation, thus we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
+    would have to either delete it or anonymise it. If we are to delete the data, we have to ensure all digital and hard copies of the data are destroyed. 
+    This action requires careful documentation of data storage from the date we collect data from users as traces may often reside in forgotten databases.
+    Anonymising data means that the information cannot be associated with an identity, which will not help with improving user experience, but still can be used
+    to monitor the entire application performance.
+    \item Access rights within the team: Different team members of our project will have access rights to different types of data collected from
+    the users, and we should delineate who will be responsible for which part of the data we store.
+    \item Rights that users have over their data: Users should have the right to request a copy of data provided, request us to delete the data and object to our data processing.
+    \item Notification of changes to privacy policy: We will contact users to review and accept the revised policy through email.
+    \item Security standards: We should specify the encryption standards and the processes in place to test the confidentiality, integrity and availability of 
+    our system.
+    \item Contact information: Organisation contact number, email address, office and postal address
 \end{enumerate}
-\subsubsection{Accountability}
-We should process personal data responsibly and systematically and endeavour to reduce risks for individuals as 
-well as mitigate social and ethical implications.\cite{principles} To be publicly accountable, 
-effective governance and oversight mechanisms that can be exercised by the public are
-necessary. Moreover, we have to ensure our app does no harm in any way (i.e. should not include sensitive topics/ as the app carries on, there will not be a chance for our users to online abuse others)
+
+\subsubsection{Accountability} 
+We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications.\cite{principles} 
+This can be done by creating a department that overviews the entire project and ensures data is managed ethically throughout the process. As we have an interactive community 
+feature, we must ensure that our app does no harm in any way. A new Online Safety Bill is being drafted recently to fight online hate crime, and online companies are liable for failures to
+deal with inappropriate material postsed online.\cite{francis} \cite{parliamentlaw} Companies have the responsibilities to confine illegal and harmful discussions and a conventional and efficient method
+to guarantee this is to implement algorithmic censorship.
+
+\\Moreover, to be publicly accountable, effective governance and oversight mechanisms that can be exercised by the public are necessary. We can enact this by hiring an independent
+third-party audit review our data processing.
 
 
 \subsubsection{Fairness}
@@ -139,7 +150,6 @@ necessary. Moreover, we have to ensure our app does no harm in any way (i.e. sho
 
 
 
-\subsection{Online hate crime}
 %----------------------------------------------------------------------------------------
 %	SECTION 7
 %----------------------------------------------------------------------------------------
