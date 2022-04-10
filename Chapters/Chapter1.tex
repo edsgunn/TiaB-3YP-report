@@ -74,30 +74,72 @@ Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat
 %	SECTION 6
 %----------------------------------------------------------------------------------------
 \section{Ethics}
-Data privacy:
-Data ethics framework: https://www.gov.uk/government/publications/data-ethics-framework
-From a developer’s POV, we should:
-(i)	Treat our users’ data as we would for our own
-(ii)	Collect only necessary data for the app to run
-(iii)	Make sure our app does harm in any way (i.e. won’t include sensitive topics/ as the app carries on, there will not be a chance for our users to online abuse others)
-(iv)	Be transparent with our user community -> have to delineate a privacy policy and makes sure users read and agree to everything before they use our app & probably keep the policy at a place that’s easy for everyone to access
-Took a look at random online sites’ privacy and here’s a summary of what needs to be included:
-(a)	Who we are – company licence and registration reference number, we have to register on https://ico.org.uk/ to collect data from the public
-(b)	Delineate the details and purpose of data collected
-i.e. we will collect 
-- audio data(including metadata) to feed in our model to improve accuracy
-- networks and connections (for our interactive community feature)
-- usage (contents users view/ engage with, functions/features used, duration)
-- device information (device attributes like signal strength, battery levels/ OS versions)
-- cookie data, when users comment/ interact on our app, we would want to save their usage preference (we would have both first- and third-party cookies since we will be placing advertisements in our app for standard users) (“We use cookies to help personalise and improve content and services, provide a safer experience and to show you useful and relevant ads on and off”)
-- Data retention/ account deletion (we should store data until it is not necessary to collect/ users deactivate account)
+From the National Society of Professional Engineers Code of Ethics \cite{codeofethics}, Engineering
+work impacts life directly, thus it is of the utmost importance to ensure service 
+upholds honesty, impartiality, fairness, and equity, and must be dedicated to the protection of
+the public health, safety, and welfare. Since our design interacts with users
+through a mobile application, ethical concerns have arisen regarding the interactions between users 
+as well as data handling on our end. In this section we will address issues related to data ethics 
+and online hate crime.
+
+\subsection{Data ethics}
+Governmental organisations have published regulations \cite{EUdataregulations2018} and frameworks
+\cite{framework} that are minimum standards for handling data ethically. The core values of data ethics 
+is to treat data responsibly and righteously.
+\linebreak
+There are 3 overarching principles to adhere to but in short, we as the developer should treat our 
+users\textsc{\char13} data as we would for our own.
+
+\subsubsection{Transparency}
+We should be clear and publish specifications of our project in a way that users can understand and access
+easily. It is necessary to delineate a privacy policy and makes sure users read and agree to it before they use
+our application and keep the policy at a prominent location, i.e. in the footer for webpage, in the developer
+section of the app listing or on the sign-in interface of the app.
+
+\linebreak
+We would include the following items in our privacy policy:
+\begin{enumerate}
+    \item Company licence and registration reference number: registration on https://ico.org.uk/ is required
+    before collecting data from the public
+    \item Details and purpose of data collected: we will collect
+    \begin{description}
+        \item[Audio data - ] Audio signal and metadata to feed in our machine learning model to improve accuracy.
+        \item[Networks and connections - ] for our interactive community features
+        \item[Usage - ] Contents and functions that the users have viewed or engaged with, as well as the duration.
+        \item[Device information - ] Device attributes like signal strength, battery levels, version of operating system
+        \item[Cookie data - ] Both first- and third-party cookies are needed. For the first-party cookies, to personalise and optimise user
+        experience, we would save their usage preference like language, dark or light background mode. As for the third-party cookies,
+        they are collected since we will be displaying advertisements for standard users, and these cookies will not be placed for users
+        who have subscribed to our platform.
+    \end{description}
+    \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when an user deactivated
+    his account or when the data is no longer necessary to collect. Although there is no limitation on data storage, we will have to act ethically and
+    decide the timeframe based on the genuine motivation of retaining the data. Data should only be collected when it is vital in the context
+    of app operation, thus we should not keep data just in case it is needed in the future.
+
+
+account deletion (we should store data until it is not necessary to collect/ users deactivate account)
 (c)	Access rights of different members of the team
 (d)	Third parties that will have access to the data collected
 (e)	Rights that users have over their data (users should have the right to request a copy of data provided/ request the organisation to delete the data/ object to the organisation’s data processing)
 (f)	Notification of changes to privacy policy and ask users to review/ accept the revised policy (if needed)
 (g)	Security standards (SSL/ encryption standards)
 (h)	Contact information
+\end{enumerate}
+\subsubsection{Accountability}
+We should process personal data responsibly and systematically and endeavour to reduce risks for individuals as 
+well as mitigate social and ethical implications.\cite{principles} To be publicly accountable, 
+effective governance and oversight mechanisms that can be exercised by the public are
+necessary. Moreover, we have to ensure our app does no harm in any way (i.e. should not include sensitive topics/ as the app carries on, there will not be a chance for our users to online abuse others)
 
+
+\subsubsection{Fairness}
+ Collect only necessary data for the app to run
+
+
+
+
+\subsection{Online hate crime}
 %----------------------------------------------------------------------------------------
 %	SECTION 7
 %----------------------------------------------------------------------------------------
