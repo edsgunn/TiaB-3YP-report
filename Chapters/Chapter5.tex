@@ -1,70 +1,74 @@
 % Chapter Template
-\documentclass{standalone}
- 
-% Required package
-\documentclass{beamer}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning}
-
 \chapter{Audio Processing} % Main chapter title
 
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 Before we feed the audio clip to our machine learning model, it is crucial to get rid of the noise as to achieve higher accuracy.
 The choice and implementation of noise filter will then be explained in \textbf{LINK TO SECTION 1}. We then feed the filtered output 
 to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key detection algorithm (KDA) \textbf{LINK TO SECTION 3}
- 
-\begin{frame}[fragile]
-\frametitle{General Settings 1}
-    \begin{figure}
-\tikzset{
-every edge/.style = {draw=cyan, line width=2mm, shorten >=1pt, shorten <=1pt,
-                     -{Triangle[scale=0.6]}},
-N/.style args = {#1/#2}{fill=#1, text width=#2, 
-                        font=\scriptsize, align=center},
-   N/.default = cyan/7em,
-}
-\newcommand\tn[1]{\textbf{\small #1}}
-    \begin{tikzpicture}[node distance=8mm]
-\node (n1) [N]  {\tn{User sings into our app}\\ 
-                 (Obtain input audio signal)}; 
-\node (n2) [N=cyan/8em, right=of n1] 
-                {\tn{Trim silence at the start/end of audio clip};
-\node (n3) [N, right=of n2] 
-                {\tn{Implement noise filter}};
-\node (n4) [N, below=of n3]
-                {\tn{Spectral reduction}};
-\node (n5) [N, right=of n4]
-                {\tn{Low-pass filter}};
-\node (n6) [N, right=of n3] 
-                {\tn{Implement PDA}};
-\node (n7) [N, right=of n6] 
-                {\tn{Implement KDA}};
-\node (n8) [N=red!30/8em, below=of n7]
-                {\tn{Pass the output to Ed's ML model}\\
-				(Notes and keys)};
+Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our project.
 
-\draw   (n1) edge (n2)
-        (n2) edge (n3)
-        (n3) edge (n4)
-		(n4) edge (n5)
-        (n3) edge (n6)
-        (n6) edge (n7)
-		(n7) edge (n8));
-    \end{tikzpicture}
-\end{figure}
-\end{frame}
+% \begin{figure}
+% \tikzset{
+% every edge/.style = {draw=cyan, line width=2mm, shorten >=1pt, shorten <=1pt,
+%                      -{Triangle[scale=0.6]}},
+% N/.style args = {#1/#2}{fill=#1, text width=#2, 
+%                         font=\scriptsize, align=center},
+%    N/.default = cyan/7em,
+% }
+% \newcommand\tn[1]{\textbf{\small #1}}
+%     \begin{tikzpicture}[node distance=8mm]
+% \node (n1) [N]  {\tn{User sings into our app}\\ 
+%                  (Obtain input audio signal)}; 
+% \node (n2) [N=cyan/8em, right=of n1] 
+%                 {\tn{Trim silence at the start/end of audio clip};
+% \node (n3) [N, right=of n2] 
+%                 {\tn{Implement noise filter}};
+% \node (n4) [N, below=of n3]
+%                 {\tn{Spectral reduction}};
+% \node (n5) [N, right=of n4]
+%                 {\tn{Low-pass filter}};
+% \node (n6) [N, right=of n3] 
+%                 {\tn{Implement PDA}};
+% \node (n7) [N, right=of n6] 
+%                 {\tn{Implement KDA}};
+% \node (n8) [N=red!30/8em, below=of n7]
+%                 {\tn{Pass the output to Ed's ML model}\\
+% 				(Notes and keys)};
+
+% \draw   (n1) edge (n2)
+%         (n2) edge (n3)
+%         (n3) edge (n4)
+% 		(n4) edge (n5)
+%         (n3) edge (n6)
+%         (n6) edge (n7)
+% 		(n7) edge (n8));
+%     \end{tikzpicture}
+% \end{figure}
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
 \section{Noise Filter}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
-
+Noise filtering is essential as it reducess or eliminates the noise present in the input signal.
+A conventional method to quantify noise is to use signal-to-noise ratio (SNR), which is often 
+represented in decibels.
+\[SNR=10*log_10((P_{signal})/(P_{noise}))\]
+As its name suggests, SNR is the power ratio between desired signal and undesired noise. Effectively,
+we would like to use noise filters to achieve a higher SNR.\\ 
+There is a few sources of noise when an user record himself with a microphone.
+Firstly, there exists self-noise, which is the instrument noise produced by the microphone itself.
+Noise may be induced or created when the signal passes through electronic componenets like transistors 
+and printed circuit boards.\cite{selfnoise} 
+The second source, ambient noise, contributes to a large portion of noise present in a recording.
+Room reflections, extraneous noise, electromagnetic interference and mechanical noise are some causes 
+to the existence of ambient noise. 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
+Most of the noise filters work in the frequency and spectral domain, 
+
+Spectral-domain models are not suitable for the estimation of extreme responses
 
 A. Low-pass filter
 Transform time-signal to frequency-signal using fourier transform
@@ -106,8 +110,7 @@ https://github.com/timsainb/noisereduce
 %-----------------------------------
 
 \subsection{Assumptions}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
-
+users use non-anc micrphones
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
