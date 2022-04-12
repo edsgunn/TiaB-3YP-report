@@ -51,8 +51,8 @@ Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our 
 \section{Assumptions}
 Before we delineate the approach to audio processing, there are some assumptions that our model
 is built on:
-\begin{itemize}[label=\textbf{\arabic*})]
-	\item{Assumption 1:} Users' audio input device does not contain active noise cancelling functions.
+\begin{itemize}
+	\item \textbf{Assumption 1:} Users' audio input device does not contain active noise cancelling functions.
 \end{itemize}
 
 These assumptions will be referred to later on in the section.
@@ -129,11 +129,7 @@ Disadvantages of DWT:
 	Poor directionality
 	Lack of phase information
 	Hard to choose an appropriate mother wavelet and number of decomposition levels
-
-C. PCA
-Computes eigenvalue, eigenvector pair. Then select the dominant values as principal component (since they explain most of the variance in the signal) and ignore the smaller eigenvalue and eigenvectors.
-The method helps reducing dimensionality but does not eliminate noise. It is also sensitive to relative scaling of other variables 
-
+s
 
 D. Spectral reduction
 Define our noisy audio y(n) = x(n) + d(n), for 0<= n <= N-1, where x(n) is our original signal (signal we wish to recover), d(n) is the noise, n is the time index, N is the number of samples. 
@@ -147,13 +143,6 @@ https://github.com/timsainb/noisereduce
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Assumptions}
-We 
-users use non-anc micrphones
-%-----------------------------------
-%	SUBSECTION 3
-%-----------------------------------
-
 \subsection{Implementation}
 LPF: Cutoff frequency selection: depending on the gender and age, chebyshev? elliptical?
 \begin{table}[]
@@ -164,7 +153,7 @@ LPF: Cutoff frequency selection: depending on the gender and age, chebyshev? ell
 	\end{tabular}
 \end{table}
 %-----------------------------------
-%	SUBSECTION 4
+%	SUBSECTION 3
 %-----------------------------------
 
 \subsection{Improvements}
@@ -176,24 +165,14 @@ use the silence to feed in spectral reduction
 
 \section{Pitch Detection Algorithm (PDA)}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
-
 %-----------------------------------
 %	SUBSECTION 2
-%-----------------------------------
-
-\subsection{Assumptions}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
-
-%-----------------------------------
-%	SUBSECTION 3
 %-----------------------------------
 
 \subsection{Implementation}
@@ -202,28 +181,15 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
-
 \section{Key Detection Algorithm (KDA)}
-
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
-
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Assumptions}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
-
-%-----------------------------------
-%	SUBSECTION 3
-%-----------------------------------
-
 \subsection{Implementation}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
