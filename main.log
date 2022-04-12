@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.21)  12 APR 2022 08:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.21)  12 APR 2022 09:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -960,24 +960,249 @@ Chapter 4.
 \openout2 = `Chapters/Chapter5.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex
-Chapter 5.
 
-Overfull \hbox (6.19704pt too wide) in paragraph at lines 22--26
-\T1/ppl/m/n/10.95 A. Low-pass fil-ter Trans-form time-signal to frequency-signal us-ing fourier trans-
- []
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:2: LaTeX Error: Can be used only in preamble.
 
-1: section
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \documentclass
+                  {standalone}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:5: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 \documentclass
+                  {beamer}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:6: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 \usepackage
+               {tikz}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:7: Undefined control sequence.
+l.7 \usetikzlibrary
+                   {arrows.meta, positioning}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 [14
 
 
 
+]
+Chapter 5.
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:17: Undefined control sequence.
+l.17 \frametitle
+                {General Settings 1}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:19: Undefined control sequence.
+<recently read> \tikzset 
+                         
+l.19 \tikzset
+             {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:22: You can't use `macro parameter character #' in horizontal mode.
+l.22 N/.style args = {#
+                       1/#2}{fill=#1, text width=#2,
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:22: You can't use `macro parameter character #' in horizontal mode.
+l.22 N/.style args = {#1/#
+                          2}{fill=#1, text width=#2,
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:22: You can't use `macro parameter character #' in horizontal mode.
+l.22 N/.style args = {#1/#2}{fill=#
+                                   1, text width=#2,
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:22: You can't use `macro parameter character #' in horizontal mode.
+l.22 N/.style args = {#1/#2}{fill=#1, text width=#
+                                                  2,
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:27: LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27     \begin{tikzpicture}
+                            [node distance=8mm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:28: Undefined control sequence.
+l.28 \node
+           (n1) [N]  {\tn{User sings into our app}\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:30: Undefined control sequence.
+l.30 \node
+           (n2) [N=cyan/8em, right=of n1]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:32: Undefined control sequence.
+l.32 \node
+           (n3) [N, right=of n2]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:34: Undefined control sequence.
+l.34 \node
+           (n4) [N, below=of n3]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:36: Undefined control sequence.
+l.36 \node
+           (n5) [N, right=of n4]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:38: Undefined control sequence.
+l.38 \node
+           (n6) [N, right=of n3]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:40: Undefined control sequence.
+l.40 \node
+           (n7) [N, right=of n6]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:42: Undefined control sequence.
+l.42 \node
+           (n8) [N=red!30/8em, below=of n7]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 20--45
+\T1/ppl/m/n/10.95 -Triangle[scale=0.6], N/.style args = 1/2fill=1, text width=2, font=\T1/ppl/m/n/8 , align=center\T1/ppl/m/n/10.95 ,
+ []
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:46: Undefined control sequence.
+l.46 \draw
+             (n1) edge (n2)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:53: LaTeX Error: \begin{figure} on input line 18 ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53     \end{tikzpicture}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.tex:53: Missing } inserted.
+<inserted text> 
+                }
+l.53     \end{tikzpicture}
+                          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (6.19704pt too wide) in paragraph at lines 69--73
+\T1/ppl/m/n/10.95 A. Low-pass fil-ter Trans-form time-signal to frequency-signal us-ing fourier trans-
+ []
+
+1: section
+[15
 
 ]
-Overfull \hbox (45.72583pt too wide) in paragraph at lines 49--56
+Overfull \hbox (45.72583pt too wide) in paragraph at lines 96--103
 \T1/ppl/m/n/10.95 no cor-re-la-tion, Y(omega)= Used by au-dac-ity https://github.com/timsainb/noisereduce
  []
 
-[15]) [16]
+[16] [17]) [18] [19]
 \openout2 = `Chapters/ChapterTutorial.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/ChapterTutorial.tex
@@ -987,7 +1212,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 29
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 1: section
-[17
+[20
 
 
 
@@ -1000,55 +1225,50 @@ Overfull \hbox (0.31374pt too wide) in paragraph at lines 56--57
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 58.
 
-LaTeX Warning: Reference `FillingFile' on page 18 undefined on input line 64.
+LaTeX Warning: Reference `FillingFile' on page 21 undefined on input line 64.
 
 
-LaTeX Warning: Reference `FillingFile' on page 18 undefined on input line 64.
+LaTeX Warning: Reference `FillingFile' on page 21 undefined on input line 64.
 
 
-LaTeX Warning: Reference `ThesisConventions' on page 18 undefined on input line 64.
+LaTeX Warning: Reference `ThesisConventions' on page 21 undefined on input line 64.
 
-[18]
+[21]
 Overfull \hbox (1.37473pt too wide) in paragraph at lines 72--74
 \T1/ppl/m/n/10.95 style file at his site, here: [][]$\T1/cmtt/m/n/10.95 http : / / www . ecs . soton . ac . uk / ~srg / softwaretools /
  []
 
-[19] [20]
+[22] [23]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 136.
+ [24] [25]
+
+LaTeX Warning: Citation 'Reference1' on page 26 undefined on input line 194.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 161.
-
-[21] [22]
-
-LaTeX Warning: Citation 'Reference1' on page 23 undefined on input line 194.
+LaTeX Warning: Citation 'Reference2' on page 26 undefined on input line 194.
 
 
-LaTeX Warning: Citation 'Reference2' on page 23 undefined on input line 194.
+LaTeX Warning: Citation 'Reference1' on page 26 undefined on input line 194.
 
 
-LaTeX Warning: Citation 'Reference1' on page 23 undefined on input line 194.
+LaTeX Warning: Citation 'Reference3' on page 26 undefined on input line 194.
 
+[26]
 
-LaTeX Warning: Citation 'Reference3' on page 23 undefined on input line 194.
+LaTeX Warning: Reference `tab:treatments' on page 27 undefined on input line 244.
 
-[23]
-
-LaTeX Warning: Reference `tab:treatments' on page 24 undefined on input line 244.
-
-[24]
-<Figures/Electron.pdf, id=237, 398.3386pt x 284.52756pt>
+[27]
+<Figures/Electron.pdf, id=257, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
 <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf  used on input line 262.
 (pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
 
 
-LaTeX Warning: Reference `fig:Electron' on page 25 undefined on input line 270.
+LaTeX Warning: Reference `fig:Electron' on page 28 undefined on input line 270.
 
-[25 </Users/kittyfung/Desktop/3YP/GitHub/Figures/Electron.pdf>]
+[28 </Users/kittyfung/Desktop/3YP/GitHub/Figures/Electron.pdf>]
 Overfull \hbox (0.12802pt too wide) in paragraph at lines 280--282
 \T1/ppl/m/n/10.95 loaded from: [][]$\T1/cmtt/m/n/10.95 ftp : / / ftp . ams . org / pub / tex / doc / amsmath / short-[]math-[]guide .
  []
@@ -1058,14 +1278,14 @@ Overfull \hbox (10.82521pt too wide) in paragraph at lines 310--311
 []\T1/ppl/m/n/10.95 The Ta-ble of Con-tents should only list the sec-tions to three (3) lev-els. A [][]\T1/cmtt/m/n/10.95 chapter{}
  []
 
-[26]) [27]
+[29]) [30]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (/Users/kittyfung/Desktop/3YP/GitHub/Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[28
+[31
 
 
 
@@ -1089,9 +1309,6 @@ or  <return>  to continue without it.
 
 (/Users/kittyfung/Desktop/3YP/GitHub/main.aux (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter1.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter2.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter3.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter4.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/Chapter5.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Chapters/ChapterTutorial.aux) (/Users/kittyfung/Desktop/3YP/GitHub/Appendices/AppendixA.aux))
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were undefined references.
 
 
@@ -1104,7 +1321,7 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  9E25C45BDD73DE1D85FBD78E0F4165BC;9157.
+(rerunfilecheck)             After:  96A5C96F450800C96E42773C2B30980A;9906.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -1119,18 +1336,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 ### semi simple group (level 1) entered at line 151 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 26202 strings out of 478994
- 546240 string characters out of 5858184
+ 26211 strings out of 478994
+ 546313 string characters out of 5858184
  1062703 words of memory out of 5000000
- 43187 multiletter control sequences out of 15000+600000
- 467102 words of font info for 149 fonts, out of 8000000 for 9000
+ 43188 multiletter control sequences out of 15000+600000
+ 466786 words of font info for 148 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,20n,102p,1854b,1937s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/kittyfung/Desktop/3YP/GitHub/main.pdf (33 pages, 286884 bytes).
+Output written on /Users/kittyfung/Desktop/3YP/GitHub/main.pdf (36 pages, 291946 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 408 PDF objects out of 1000 (max. 8388607)
+ 347 compressed objects within 4 object streams
+ 131 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

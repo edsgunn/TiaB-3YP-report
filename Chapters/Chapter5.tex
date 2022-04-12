@@ -1,11 +1,58 @@
 % Chapter Template
+\documentclass{standalone}
+ 
+% Required package
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
 
 \chapter{Audio Processing} % Main chapter title
 
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 Before we feed the audio clip to our machine learning model, it is crucial to get rid of the noise as to achieve higher accuracy.
+The choice and implementation of noise filter will then be explained in \textbf{LINK TO SECTION 1}. We then feed the filtered output 
+to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key detection algorithm (KDA) \textbf{LINK TO SECTION 3}
+ 
+\begin{frame}[fragile]
+\frametitle{General Settings 1}
+    \begin{figure}
+\tikzset{
+every edge/.style = {draw=cyan, line width=2mm, shorten >=1pt, shorten <=1pt,
+                     -{Triangle[scale=0.6]}},
+N/.style args = {#1/#2}{fill=#1, text width=#2, 
+                        font=\scriptsize, align=center},
+   N/.default = cyan/7em,
+}
+\newcommand\tn[1]{\textbf{\small #1}}
+    \begin{tikzpicture}[node distance=8mm]
+\node (n1) [N]  {\tn{User sings into our app}\\ 
+                 (Obtain input audio signal)}; 
+\node (n2) [N=cyan/8em, right=of n1] 
+                {\tn{Trim silence at the start/end of audio clip};
+\node (n3) [N, right=of n2] 
+                {\tn{Implement noise filter}};
+\node (n4) [N, below=of n3]
+                {\tn{Spectral reduction}};
+\node (n5) [N, right=of n4]
+                {\tn{Low-pass filter}};
+\node (n6) [N, right=of n3] 
+                {\tn{Implement PDA}};
+\node (n7) [N, right=of n6] 
+                {\tn{Implement KDA}};
+\node (n8) [N=red!30/8em, below=of n7]
+                {\tn{Pass the output to Ed's ML model}\\
+				(Notes and keys)};
 
-
+\draw   (n1) edge (n2)
+        (n2) edge (n3)
+        (n3) edge (n4)
+		(n4) edge (n5)
+        (n3) edge (n6)
+        (n6) edge (n7)
+		(n7) edge (n8));
+    \end{tikzpicture}
+\end{figure}
+\end{frame}
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
@@ -68,11 +115,47 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 \subsection{Implementation}
 Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
 
+%-----------------------------------
+%	SUBSECTION 4
+%-----------------------------------
+
+\subsection{Improvements}
+use the silence to feed in spectral reduction
+
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
-\section{Pitch Detection Algorithm}
+\section{Pitch Detection Algorithm (PDA)}
+
+Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+
+%-----------------------------------
+%	SUBSECTION 1
+%-----------------------------------
+\subsection{Possible Models}
+
+Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+
+%-----------------------------------
+%	SUBSECTION 2
+%-----------------------------------
+
+\subsection{Assumptions}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+%-----------------------------------
+%	SUBSECTION 3
+%-----------------------------------
+
+\subsection{Implementation}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+
+\section{Key Detection Algorithm (KDA)}
 
 Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
 
