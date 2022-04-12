@@ -2,7 +2,8 @@
 \chapter{Audio Processing} % Main chapter title
 
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-Before we feed the audio clip to our machine learning model, it is crucial to get rid of the noise as to achieve higher accuracy.
+Before we feed the audio clip to our machine learning model, it is crucial to pre-process the signal as to achieve higher accuracy
+and avoid further deterioration.
 The choice and implementation of noise filter will then be explained in \textbf{LINK TO SECTION 1}. We then feed the filtered output 
 to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key detection algorithm (KDA) \textbf{LINK TO SECTION 3}
 Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our project.
@@ -45,6 +46,17 @@ Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our 
 %     \end{tikzpicture}
 % \end{figure}
 %----------------------------------------------------------------------------------------
+%	SECTION 0
+%----------------------------------------------------------------------------------------
+\section{Assumptions}
+Before we delineate the approach to audio processing, there are some assumptions that our model
+is built on:
+\begin{itemize}[label=\textbf{\arabic*})]
+	\item{Assumption 1:} Users' audio input device does not contain active noise cancelling functions.
+\end{itemize}
+
+These assumptions will be referred to later on in the section.
+%----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
@@ -69,23 +81,49 @@ to the existence of ambient noise.
 Most of the noise filters work in the frequency and spectral domain, 
 
 Spectral-domain models are not suitable for the estimation of extreme responses
+\begin{enumerate}
+	\item Low-pass filter (LPF)\\
+	LPF passes signals with \(f<f_{c}\), where \(f_{c}\) is the cut-off frequency, and attenuates
+	signals with \(f>fc\). 
+	\[H(f) = rect(f/(2*B))\]
+	\[h(t))= \mathfrak{F}^-1{H(f)} = \int_-B^B e^(2*pi*i*f*t)\,df = 2*B*sinc(2*B*t)\]
+	In order to implement an LPF, we have to transform signal from time domain to 
+	frequency domain using fourier transform. An ideal LPF would completely remove frequencies that are
+	higher than \(f_{c}\) and is a non-ca)sual linear time-invariant system. The impulse
+	response of an LPF is a sinc function that extends to [$\infty$,-$\infty$]. This is why it is impossible to 
+	realize an ideal LPF since that will take infinite time and memory.\\
+	LPF avoids aliasing since it removes the high-frequency content but not the desired signal
 
-A. Low-pass filter
-Transform time-signal to frequency-signal using fourier transform
-Cutoff frequency selection: depending on the gender and age
-Window function: (most simple) rectangular function/ hamming/ hanning window
-
-B. Wavelet transform
-Wavelet transform creates a representation of the signal in both time and frequency domain so localized information of the signal can be efficiently accessed. Fourier transform (FT) has limitations: 
-	For windowed FT, if the feature is larger or shorter than the window, it cannot be captured completely.
-	Time resolution for high frequencies is the same for low frequencies. As frequency increases, rate of change of the signal increases, and high frequency signals contain more information in a window than that of low frequency, thus we need a higher time resolution for that.
-Usually for stationary signals, we use traditional fourier transform, but for non-stationary ones, we can use wavelet transform, in particular continuous wavelet transform (CWT) which gives better time-scale information compared to short-time fourier transform (STFT). 
+	\item Wavelet transform\\
+	Wavelet transform creates a representation of the signal in both time and frequency domain so localized 
+	information of the signal can be efficiently accessed. It is often compared with fourier transform (FT), which
+	has the below limitations: 
+	\begin{enumerate}
+		\item For windowed FT, if the feature is larger or shorter than the window, it cannot be captured completely.
+		\item Time resolution for high frequencies is the same for low frequencies. As frequency increases, rate of 
+		change of the signal increases, and high frequency signals contain more information in a window than that of 
+		low frequency, thus we need a higher time resolution for that.
+	\end{enumerate}
+	A wavelet is a function that divides the signal into different scale components which 
+	
+	
+	It is more appropriate to describe the process of using wavelet transform to remove noise as a decomposition,rather 
+	than a filter.
+	Usually for stationary signals, we use conventional frequency-based filters, but for non-stationary ones, we can 
+	use wavelet transform, in particular continuous wavelet transform (CWT) which gives better time-scale information
+	compared to short-time fourier transform (STFT). 
  
-Wavelet transform analyses a signal into different frequencies at different resolution (multiresolution analysis). 
+	Wavelet transform analyses a signal into different frequencies at different resolution (multiresolution analysis). 
 
 Advantages of DWT:
-	The wavelet expansion allows a more accurate local description and separation of signal characteristics. A Fourier coefficient represents a component that lasts for all time and, therefore, temporary events must be described by a phase characteristic that allows cancellation or reinforcement over large time periods. A wavelet expansion coefficient represents a component that is itself local and is easier to interpret. The wavelet expansion may allow a separation of components of a signal whose Fourier description overlap in both time and frequency.
-	Wavelets are adjustable and adaptable. Because there is not just one wavelet, they can be designed to fit individual applications. They are ideal for adaptive systems that adjust themselves to suit the signal.
+	The wavelet expansion allows a more accurate local description and separation of signal characteristics. A 
+	Fourier coefficient represents a component that lasts for all time and, therefore, temporary events must be 
+	described by a phase characteristic that allows cancellation or reinforcement over large time periods. 
+	A wavelet expansion coefficient represents a component that is itself local and is easier to interpret. 
+	The wavelet expansion may allow a separation of components of a signal whose Fourier description overlap in both time and frequency.
+	
+	Wavelets are adjustable and adaptable. Because there is not just one wavelet, they can be designed to fit 
+	individual applications. They are ideal for adaptive systems that adjust themselves to suit the signal.
 Disadvantages of DWT:
 	Sensitive to shifting
 	Poor directionality
@@ -104,20 +142,27 @@ Used by audacity
 https://github.com/timsainb/noisereduce
 	Did a really good job, able to filter white noise, but not sudden background noise (I accidentally used an audio with a sharp squeal in the beginning and it didn’t get filtered, which makes sense if we think about spectral subtraction, it is impossible to subtract an unexpected frequency)
 	Will use spectral reduction in our project!!! 
-
+\end{enumerate}
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 \subsection{Assumptions}
+We 
 users use non-anc micrphones
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
 
 \subsection{Implementation}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
-
+LPF: Cutoff frequency selection: depending on the gender and age, chebyshev? elliptical?
+\begin{table}[]
+	\begin{tabular}{lll}
+																				 & Male   & Female  \\
+	Pitch range (Hz)                                                             & 60-180 & 160-300 \\
+	\begin{tabular}[c]{@{}l@{}}Praat pitch parameters \\ range (Hz)\end{tabular} & 50-300 & 100-600
+	\end{tabular}
+\end{table}
 %-----------------------------------
 %	SUBSECTION 4
 %-----------------------------------
