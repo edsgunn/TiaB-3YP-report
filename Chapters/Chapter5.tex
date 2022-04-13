@@ -143,28 +143,15 @@ compare 3 noise reduction mechanisms.
 		\label{fig:test}
 	\end{figure}
 	
-	% \begin{equation*} 
-	% 	\text{DWT}(\mathrm{n},\mathrm{a}^{\mathrm{j})=\sum_{\mathrm{m}=0}^{\mathrm{N}-1}\mathrm{x}[\mathrm{m}].{\psi_{\mathrm{j}}}^{*}[\mathrm{m}-\mathrm{n}],\\ 
-	% 	\psi_{\mathrm{j}}[\mathrm{n}]=\frac{1}{\sqrt{\mathrm{a}^{\mathrm{f}}}}\psi\left(\frac{\mathrm{n}}{\mathrm{a}^{\mathrm{f}}}\right) 
-	% \end{equation*}
 	\begin{align*} &\text{DWT}\ [\mathrm{n},\mathrm{a}^{\mathrm{j}}]=\sum_{\mathrm{m}=0}^{\mathrm{N}-1}\mathrm{x}[\mathrm{m}].{\psi_{\mathrm{j}}}^{*}[\mathrm{m}-\mathrm{n}],\\ &\psi_{\mathrm{j}}[\mathrm{n}]=\frac{1}{\sqrt{\mathrm{a}^{\mathrm{f}}}}\psi\left(\frac{\mathrm{n}}{\mathrm{a}^{\mathrm{f}}}\right) \tag{2} \end{align*}
 	where $n$ is delay parameter, $N$ is the length of signal, $\psi$ is the discretized mother wavelet. \cite{wavelet_denoise}
 
 	We will focus on DWT since computation is done on discrete wavelets so it requires less computational resources.
-	% It is more appropriate to describe the process of using wavelet transform to remove noise as a decomposition, rather 
-	% than a filter.
 	% Usually for stationary signals, we use conventional frequency-based filters, but for non-stationary ones, we can 
 	% use wavelet transform, in particular continuous wavelet transform (CWT) which gives better time-scale information
 	% compared to short-time fourier transform (STFT). 
  
 	% Wavelet transform analyses a signal into different frequencies at different resolution (multiresolution analysis). 
-
-% Advantages of DWT:
-% 	The wavelet expansion allows a more accurate local description and separation of signal characteristics. A 
-% 	Fourier coefficient represents a component that lasts for all time and, therefore, temporary events must be 
-% 	described by a phase characteristic that allows cancellation or reinforcement over large time periods. 
-% 	A wavelet expansion coefficient represents a component that is itself local and is easier to interpret. 
-% 	The wavelet expansion may allow a separation of components of a signal whose Fourier description overlap in both time and frequency.
 	
 % 	Wavelets are adjustable and adaptable. Because there is not just one wavelet, they can be designed to fit 
 % 	individual applications. They are ideal for adaptive systems that adjust themselves to suit the signal.
@@ -178,17 +165,20 @@ compare 3 noise reduction mechanisms.
 	\item Spectral reduction\\
 Suppose noise is additive, and we can represent our noisy audio 
 \begin{equation} \label{eq:1}
-\y(n) = x(n) + d(n), for 0<= n <= N-1 
+\y(n) = x(n) + d(n), for 0 <= n <= N-1 
 \end{equation}
 where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 $N$ is the number of samples. 
-Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation 1:
-\[Y(\omega,k)= S(\omega,k) + D(\omega,k)\]
+Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \textbf{CHANGE!!!1}:
+\[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
 where $k$ is the frame number, which can be dropped if we assume the signal is segmented. Each segment will be of
-length $N$ and 
-
-
-Spectral-domain models are not suitable for the estimation of extreme responses
+length $N$. We then have the desired signal in frequency domain:
+\[X(\omega) = Y(\omega) - N(\omega)\]
+Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
+noise spectrum using parts of the recording that only contain ambient noise. \cite{reductionmanual}
+\[\hat{N(\omega)} = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
+We then get the estimated signal spectrum
+\[\hat{X(\omega)} = Y(\omega) - \hat{N(\omega)}\]
 
 \end{enumerate}
 %-----------------------------------
@@ -196,9 +186,13 @@ Spectral-domain models are not suitable for the estimation of extreme responses
 %-----------------------------------
 
 \subsection{Choice of model and implementation}
-After trying to implement all 3 methods, a major difficulty encountered is that it is hard to set the threshold to 
-implement into the method. For example, finding an appropriate $f_c$ that separates desired frequencies from undesired
-ones is hard, and $f_c$ depends on the pitch range of the user and the melody he is inputting. 
+After trying to implement all 3 methods, a major difficulty encountered is that it is hard to set the parameters to 
+implement for LPF and wavelet transform. For example, since $f_c$ depends on the pitch range of the user and the melody he/ she
+is inputting, finding an adequate $f_c$ that separates desired frequencies from undesired ones is hard.
+As for wavelet transform, finding an adequate mother wavelet is a difficult task.\\
+Although wavelet transform works better for real-life non-stationary signals compared to conventional frequency-based filters, if we
+do not feed a suitable mother wavelet, the performance is unsatisfactory, the model cannot distinguish between desired and undesired 
+signals and will decrease $P_signal$ at the same time, which is unfavourable when it comes to improving the SNR.\\
 Spectral reduction works the best in removing the ambient noise. As for wavelet transform, it is extremely sensitive to
 
 
@@ -208,6 +202,7 @@ Spectral reduction works the best in removing the ambient noise. As for wavelet 
 %-----------------------------------
 
 \subsection{Improvements}
+The only problem with spectral reduction is that it does not handle extreme responses nicely.
 
 
 LPF: Cutoff frequency selection: depending on the gender and age, chebyshev? elliptical?
