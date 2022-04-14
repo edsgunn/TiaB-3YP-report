@@ -49,6 +49,158 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 2}
+\section{Project management}
 
 Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+\section{Tech strat}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+\section{Risk}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+\section{Finance}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
+%----------------------------------------------------------------------------------------
+\section{Ethics}
+From the National Society of Professional Engineers Code of Ethics \cite{codeofethics}, Engineering
+work impacts life directly, thus it is of the utmost importance to ensure service 
+upholds honesty, impartiality, fairness, and equity, and must be dedicated to the protection of
+the public health, safety, and welfare. Since our design interacts with users
+through a mobile application, ethical concerns have arisen regarding the interactions between users 
+as well as data handling on our end. In this section we will address issues related to data ethics 
+and online hate crime.
+
+\subsection{Data ethics}
+Governmental organisations have published regulations \cite{EUdataregulations2018} and frameworks
+\cite{framework} that are minimum standards for handling data ethically. The core values of data ethics 
+is to treat data responsibly and righteously.
+\\
+There are 3 overarching principles\cite{framework} to adhere to but in short, we as the developer should treat our 
+users\textsc{\char13} data as we would for our own.
+
+\subsubsection{Transparency}
+We should be clear and publish specifications of our project in a way that users can understand and access
+easily. It is necessary to delineate a privacy policy and makes sure users read and agree to it before they use
+our application and keep the policy at a prominent location, i.e. in the footer for webpage, in the developer
+section of the app listing or on the sign-in interface of the app.\\We would include the following items in our privacy policy:
+\begin{enumerate}
+    \item Company licence and registration reference number: Registration at the Information Commissioner's Office is required
+    before collecting data from the public
+    \item Details and purpose of data collected: We should limit data collection to what is necessary and to an explicit purpose.
+    Thus, we will collect
+    \begin{description}
+        \item[Personal details -] Name and email address are the necessary fields, gender, age and profile picture are optional data
+        that will help improve user experience and accuracy of the model. 
+        \item[Audio data -] Audio signal and metadata to feed in our machine learning model to improve accuracy.
+        \item[Networks and connections -] for our interactive community features
+        \item[Usage -] Contents and functions that the users have viewed or engaged with, as well as the duration.
+        \item[Device information -] Device attributes like signal strength, battery levels, version of operating system
+        \item[Cookie data -] Both first- and third-party cookies are needed. For the first-party cookies, to personalise and optimise user
+        experience, we would save their usage preference like language, dark or light background mode. 
+        \\There are 2 purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
+        these advertising companies will be able to place cookies on our app for standard users, but not the premium users who subscribed to our services. 
+        Secondly, we will be implementing social sign-on so users do not have to create a new account on our end. In this case, the social media 
+        platform will be placing their third-party cookies on our app.
+        \\It is important to note that users have the right to know the third parties that have access to their data.
+    \end{description}
+    \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when an user deactivated
+    his account or when the data is no longer necessary to collect. Moreover, we would have to erase or rectify inaccurate data without delay. Although 
+    there is no limitation on data storage, we will have to act ethically and
+    decide the timeframe based on the genuine motivation of retaining the data. Data shtould only be collected when it is vital in the context
+    of app operation, thus we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
+    would have to either delete it or anonymise it. If we are to delete the data, we have to ensure all digital and hard copies of the data are destroyed. 
+    This action requires careful documentation of data storage from the date we collect data from users as traces may often reside in forgotten databases.
+    Anonymising data means that the information cannot be associated with an identity, which will not help with improving user experience, but still can be used
+    to monitor the entire application performance.
+    \item Access rights within the team: Different team members of our project will have access rights to different types of data collected from
+    the users, and we should delineate who will be responsible for which part of the data we store.
+    \item Rights that users have over their data: Users should have the right to request a copy of data provided, request us to delete the data and object to our data processing.
+    \item Notification of changes to privacy policy: We will contact users to review and accept the revised policy through email.
+    \item Security standards: We should specify the encryption standards and the processes in place to test the confidentiality, integrity and availability of 
+    our system.
+    \item Contact information: Organisation contact number, email address, office and postal address
+\end{enumerate}
+
+\subsubsection{Accountability} 
+We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications.\cite{principles} 
+This can be done by creating a department that overviews the entire project and ensures data is managed ethically throughout the process. As we have an interactive community 
+feature, we must ensure that our app does no harm in any way. A new Online Safety Bill is being drafted recently to fight online hate crime, and online companies are liable for failures to
+deal with inappropriate material postsed online.\cite{francis} \cite{parliamentlaw} Companies have the responsibilities to confine illegal and harmful discussions and a conventional and efficient method
+to guarantee this is to implement algorithmic censorship. \\Moreover, to be publicly accountable, effective governance and oversight mechanisms that can be exercised by the public are necessary. 
+We can enact this by hiring an independent third-party audit review our data processing.
+
+\subsubsection{Fairness}
+When processing data, we should ensure no societal, racial or health bias is involved. Our project collects minimal personal data so the problem of differential processing for distinct groups can be avoided. 
+On the other hand, another perspective of fairness can be manifested in the form of \textbf{Responsible Research and Innovation (RRI)}:
+
+RRI is a process that seeks to promote creativity and opportunities for science and innovation that are socially desirable and undertaken in the public interest.\cite{ukri} Not only does research bring novelty 
+and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences to society. Thus it is key to put emphasis on innovating responsibly and creating changes that
+have positive societal and environmental impacts.\\ There are a few areas of RRI that we should keep in mind:
+\begin{enumerate}
+    \item Anticipation: We should vision the consequences of our research and innovation conducted. It is to ensure that the consequences of undertaking the research are considered and reflected in the research 
+    design. Although in this project we are not creating physical technology, we are building a platform that allows users to communicate with each other and if not dealt carefully, our app may become a breeding 
+    ground for online hate crime.
+    \item Reflection: researchers should always reflect on the research question they are investigating, the type of data collected, the method used to analyse the data and the implications of the findings.
+    They should also judge if the research is required. An organisation can force reflection through organisational processes and structures like a project advisory board or quality assurance reviews. Reflection 
+    allows researchers to review the project from a macroscopic point of view.
+    \item Ethics: Researchers should uphold integrity and prevent misconduct. They should take accountability for both the undergoing research and behaviour.
+    \item Gender Equality: Since male engineers still dominate the engineering industry, it is easy to be biased in a project design, i.e. building models and interfaces that better suit male users. Thus it is 
+    paramount to have opinions from the underrepresented group as to create a comprehensive innovation.
+    \item Open Access: Making the research output publicly available to everyone so the whole society can be benefitted by reducing wasteful duplication, increasing transparency and reproducibility of results.
+    \item Governance: Organisations should establish practices that foster RRI, i.e. 
+    \begin{itemize}
+        \item Having transparent and reflective internal procedures
+        \item Promoting participatory governance
+        \item Fostering stakeholder engagement exercises
+        \item Encouraging future-oriented governance
+        \item Valuing responsiveness
+    \end{itemize}
+    \item Public Engagement: Researchers should settle upon a motivation and suitable audience before any public engagement. For our project, the goal would be to allow amateurs to enjoy composing music without
+    music professionalism.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 7
+%----------------------------------------------------------------------------------------
+\section{Sustainability}
+As technology advances, energy consumed by computers and digital personal devices is taking up a larger portion in worldwide energy consumption. 
+There are about 8,918,157,500 active mobile devices consuming about 2 kWh energy per year\cite{energy}.
+While a lot of effort has been put into reducing the energy consumption from the hardware perspective,
+it is also prime to focus on the impact that software implementation has on the energy consumption of a program.
+Other than writing energy-efficient codes (i.e. optimised searching and sorting algorithms), the programming language 
+chosen can make a substantial difference too. Energy, time and memory size are classified as the major resources required for running a program.
+At first glance, since \(Energy = Power * Time\), there seems to be a correlation between energy and time. Yet,
+Pereira et al. 2017\cite{energyplanguage} suggests that since \(Power\) is not a constant, we cannot draw the conclusion that
+when \(Time\) increases, \(Energy\) must increase. 
+Pereira ranked the performance of different programming languages according to its energy, time and memory size consumption (p.7). 
+Surprisingly, there is no strong correlation between these 3 components. 
+Instead, the performance depends on the category of the programming language.
+The programming languages can be divided into 3 execution types: compiler, interpreter and virtual machine.
+\begin{description}
+    \item Compiler converts the entire high-level language code to machine-readable language all at once. Some examples are C, C++, Rust and Go. 
+    \item Interpreter translates one statement of the high-level language code to machine-readable language at a time. Common interpreted languages are PHP, Python and JavaScript.
+    Thus, even if an interpreter takes less time to analyze the source code, it takes longer time to execute the process.
+    \item Virtual machine executes an intermediate code translated from the high-level language inputted. Some of the popular languages that uses virtual machines are Java, Scala, JRuby.
+\end{description}
+Since our application has no requirements on the computational time and memory size, we can solely focus on the energy consumption between 
+different languages. Even though the energy needed to run different algorithms varies for different languages, it is certain that
+compiled language requires less energy compared to virtual machine and interpreted languages thus it would make sense to use C/ C++/ Rust to code.\\
+Also, since we plan to employ a cloud network architecture and host most of the operation on cloud, we would be creating an enormous carbon footprint.
+Carbon3IT estimates datacentres account for at least 12\% of UK electricity consumption, which is equivalent to 41.11TWh a year \cite{carbon}
+Therefore, we should not underestimate the 
+
+%----------------------------------------------------------------------------------------
+%	SECTION 8
+%----------------------------------------------------------------------------------------
+\section{Legality}
