@@ -1,0 +1,1119 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{selfnoise}{misc}{}
+    \field{extradate}{2}
+    \field{labeldatesource}{nodate}
+    \verb{url}
+    \verb https://mynewmicrophone.com/self-noise/
+    \endverb
+  \endentry
+
+  \entry{parliamentlaw}{article}{}
+    \list{publisher}{2}{%
+      {Department for Digital, Culture, Media &amp; Sport}%
+      {The Rt Hon Nadine Dorries MP}%
+    }
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \verb{url}
+    \verb https://www.gov.uk/government/news/world-first-online-safety-laws-int
+    \verb roduced-in-parliament
+    \endverb
+    \field{journaltitle}{World-first online safety laws introduced in
+  Parliament}
+    \field{year}{2022}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{EUdataregulations2018}{online}{}
+    \list{organization}{1}{%
+      {European Commission}%
+    }
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{2}
+    \field{sortinithash}{2}
+    \field{title}{2018 reform of EU data protection rules}
+    \verb{url}
+    \verb https://ec.europa.eu/commission/sites/beta-political/files/data-prote
+    \verb ction-factsheet-changes_en.pdf
+    \endverb
+    \field{day}{25}
+    \field{month}{05}
+    \field{year}{2018}
+    \field{urlday}{17}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{principles}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={Author:Dataethics},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Data ethics principles}
+    \verb{url}
+    \verb https://dataethics.eu/data-ethics-principles/
+    \endverb
+    \field{journaltitle}{Dataetisk TÃ¦nkehandletank}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{bessel}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Bessel filter}
+    \verb{url}
+    \verb https://www.sciencedirect.com/topics/engineering/bessel-filter
+    \endverb
+    \field{journaltitle}{Bessel Filter - an overview | ScienceDirect Topics}
+  \endentry
+
+  \entry{MLForChords}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CZ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Ziheng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=QJ}{%
+         family={Qi},
+         familyi={Q\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CZQJ1}
+    \strng{fullhash}{CZQJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Machine Learning in Automatic Music Chords Generation}
+    \field{year}{2015}
+  \endentry
+
+  \entry{codeofethics}{misc}{}
+    \list{publisher}{1}{%
+      {National Society of Professional Engineers}%
+    }
+    \field{labeltitlesource}{title}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Code of ethics}
+    \verb{url}
+    \verb https://www.nspe.org/resources/ethics/code-ethics#:~:text=Engineering
+    \verb %20has%20a%20direct%20and,health%2C%20safety%2C%20and%20welfare.
+    \endverb
+    \field{journaltitle}{Code of Ethics | National Society of Professional
+  Engineers}
+  \endentry
+
+  \entry{ChordPrediction}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CUS}{%
+         family={CUNHA},
+         familyi={C\bibinitperiod},
+         given={URAQUITAN\bibnamedelima SIDNEY},
+         giveni={U\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={RAMALHO},
+         familyi={R\bibinitperiod},
+         given={GEBER},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{CUSRG1}
+    \strng{fullhash}{CUSRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1999}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1017/S1355771899002071
+    \endverb
+    \field{number}{2}
+    \field{pages}{115â€“119}
+    \field{title}{An intelligent hybrid model for chord prediction}
+    \field{volume}{4}
+    \field{journaltitle}{Organised Sound}
+    \field{year}{1999}
+  \endentry
+
+  \entry{wavelet_denoise}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=DÃP}{%
+         family={Dautov},
+         familyi={D\bibinitperiod},
+         given={Ã‡iÄŸdem\bibnamedelima Polat},
+         giveni={Ã\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=ÃMS}{%
+         family={Ã–zerdem},
+         familyi={Ã\bibinitperiod},
+         given={Mehmet\bibnamedelima SiraÃ§},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DÃPÃMS1}
+    \strng{fullhash}{DÃPÃMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{2018 26th Signal Processing and Communications
+  Applications Conference (SIU)}
+    \verb{doi}
+    \verb 10.1109/SIU.2018.8404418
+    \endverb
+    \field{pages}{1\bibrangedash 4}
+    \field{title}{Wavelet transform and signal denoising using Wavelet method}
+    \field{year}{2018}
+  \endentry
+
+  \entry{carbon}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DF}{%
+         family={Doidge},
+         familyi={D\bibinitperiod},
+         given={Fleur},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DF1}
+    \strng{fullhash}{DF1}
+    \field{labelnamesource}{author}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{url}
+    \verb https://www.computerweekly.com/feature/Datacentre-energy-efficiency-I
+    \verb s-the-time-now-for-a-big-switch-off
+    \endverb
+    \field{journaltitle}{Datacentre energy efficiency: Is the time now for a
+  big switch-off?}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{ukri}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Framework for Responsible Innovation}
+    \verb{url}
+    \verb https://www.ukri.org/about-us/epsrc/our-policies-and-standards/framew
+    \verb ork-for-responsible-innovation/
+    \endverb
+    \field{journaltitle}{UKRI}
+    \field{year}{2022}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{francis}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FP}{%
+         family={Francis},
+         familyi={F\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FP1}
+    \strng{fullhash}{FP1}
+    \field{labelnamesource}{author}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \verb{url}
+    \verb https://www.kentonline.co.uk/kent/news/new-law-will-curb-online-abuse
+    \verb -and-harassment-259155/
+    \endverb
+    \field{journaltitle}{Online Safety Bill: The government is promising
+  tougher rules on abuse and harassment}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{praat}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=GL}{%
+         family={Goldstein},
+         familyi={G\bibinitperiod},
+         given={Louis},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GL1}
+    \strng{fullhash}{GL1}
+    \field{labelnamesource}{author}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{url}
+    \verb https://www.fon.hum.uva.nl/praat/manual/Intro_4_2__Configuring_the_pi
+    \verb tch_contour.html
+    \endverb
+    \field{journaltitle}{Measuring F0 Contours using Praat}
+  \endentry
+
+  \entry{GANs}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=GI}{%
+         family={Goodfellow},
+         familyi={G\bibinitperiod},
+         given={Ian},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=PAJ}{%
+         family={Pouget-Abadie},
+         familyi={P\bibinithyphendelim A\bibinitperiod},
+         given={Jean},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Mirza},
+         familyi={M\bibinitperiod},
+         given={Mehdi},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=XB}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Bing},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=WFD}{%
+         family={Warde-Farley},
+         familyi={W\bibinithyphendelim F\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Ozair},
+         familyi={O\bibinitperiod},
+         given={Sherjil},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Courville},
+         familyi={C\bibinitperiod},
+         given={Aaron},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \name{editor}{5}{}{%
+      {{hash=GZ}{%
+         family={Ghahramani},
+         familyi={G\bibinitperiod},
+         given={Z.},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=WM}{%
+         family={Welling},
+         familyi={W\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Cortes},
+         familyi={C\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LN}{%
+         family={Lawrence},
+         familyi={L\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=WKQ}{%
+         family={Weinberger},
+         familyi={W\bibinitperiod},
+         given={K.\bibnamedelima Q.},
+         giveni={K\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Curran Associates, Inc.}%
+    }
+    \strng{namehash}{GI+1}
+    \strng{fullhash}{GIPAJMMXBWFDOSCABY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Advances in Neural Information Processing Systems}
+    \field{title}{Generative Adversarial Nets}
+    \verb{url}
+    \verb https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c
+    \verb 97b1afccf3-Paper.pdf
+    \endverb
+    \field{volume}{27}
+    \field{year}{2014}
+  \endentry
+
+  \entry{LSTMs}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HS}{%
+         family={Hochreiter},
+         familyi={H\bibinitperiod},
+         given={Sepp},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schmidhuber},
+         familyi={S\bibinitperiod},
+         given={JÃ¼rgen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSSJ1}
+    \strng{fullhash}{HSSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1997}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1162/neco.1997.9.8.1735
+    \endverb
+    \field{pages}{1735\bibrangedash 80}
+    \field{title}{Long Short-term Memory}
+    \field{volume}{9}
+    \field{journaltitle}{Neural computation}
+    \field{month}{12}
+    \field{year}{1997}
+  \endentry
+
+  \entry{audacity}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{How audacity noise reduction works}
+    \verb{url}
+    \verb https://wiki.audacityteam.org/wiki/How_Audacity_Noise_Reduction_Works
+    \verb #:~:text=The%20noise%20reduction%20algorithm%20uses,noise%20in%20your
+    \verb %20sound%20file.
+    \endverb
+    \field{journaltitle}{How Audacity Noise Reduction Works - Audacity Wiki}
+  \endentry
+
+  \entry{spectralflowchart}{article}{}
+    \name{author}{4}{}{%
+      {{hash=KM}{%
+         family={Karam},
+         familyi={K\bibinitperiod},
+         given={Marc},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KHF}{%
+         family={Khazaal},
+         familyi={K\bibinitperiod},
+         given={Hasan\bibnamedelima F.},
+         giveni={H\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=AH}{%
+         family={Aglan},
+         familyi={A\bibinitperiod},
+         given={Heshmat},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Cole},
+         familyi={C\bibinitperiod},
+         given={Cliston},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM+1}
+    \strng{fullhash}{KMKHFAHCC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.4236/jsip.2014.52006
+    \endverb
+    \field{number}{02}
+    \field{pages}{32â€“41}
+    \field{title}{Noise removal in speech processing using spectral
+  subtraction}
+    \field{volume}{05}
+    \field{journaltitle}{Journal of Signal and Information Processing}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Adam}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=KDP}{%
+         family={Kingma},
+         familyi={K\bibinitperiod},
+         given={Diederik\bibnamedelima P.},
+         giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Ba},
+         familyi={B\bibinitperiod},
+         given={Jimmy},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Machine Learning (cs.LG), FOS: Computer and information sciences,
+  FOS: Computer and information sciences}
+    \strng{namehash}{KDPBJ1}
+    \strng{fullhash}{KDPBJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1412.6980
+    \endverb
+    \field{title}{Adam: A Method for Stochastic Optimization}
+    \verb{url}
+    \verb https://arxiv.org/abs/1412.6980
+    \endverb
+    \field{year}{2014}
+  \endentry
+
+  \entry{BLSTM}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=LH}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Hyungui},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Rhyu},
+         familyi={R\bibinitperiod},
+         given={Seungyeon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Kyogu},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Sound (cs.SD), Machine Learning (cs.LG), Audio and Speech Processing
+  (eess.AS), FOS: Computer and information sciences, FOS: Computer and
+  information sciences, FOS: Electrical engineering, electronic engineering,
+  information engineering, FOS: Electrical engineering, electronic engineering,
+  information engineering}
+    \strng{namehash}{LHRSLK1}
+    \strng{fullhash}{LHRSLK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1712.01011
+    \endverb
+    \field{title}{Chord Generation from Symbolic Melody Using BLSTM Networks}
+    \verb{url}
+    \verb https://arxiv.org/abs/1712.01011
+    \endverb
+    \field{year}{2017}
+  \endentry
+
+  \entry{ChordGAN}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LC}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Conan},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DS}{%
+         family={Dubnov},
+         familyi={D\bibinitperiod},
+         given={Shlomo},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LCDS1}
+    \strng{fullhash}{LCDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{ChordGAN: Symbolic Music Style Transfer with Chroma Feature
+  Extraction}
+    \field{year}{2021}
+  \endentry
+
+  \entry{womenprange}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MRE}{%
+         family={McGlone},
+         familyi={M\bibinitperiod},
+         given={Robert\bibnamedelima E.},
+         giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hollien},
+         familyi={H\bibinitperiod},
+         given={Harry},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MREHH1}
+    \strng{fullhash}{MREHH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1963}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1044/jshr.0602.164
+    \endverb
+    \verb{eprint}
+    \verb https://pubs.asha.org/doi/pdf/10.1044/jshr.0602.164
+    \endverb
+    \field{number}{2}
+    \field{pages}{164\bibrangedash 170}
+    \field{title}{Vocal Pitch Characteristics of Aged Women}
+    \verb{url}
+    \verb https://pubs.asha.org/doi/abs/10.1044/jshr.0602.164
+    \endverb
+    \field{volume}{6}
+    \field{journaltitle}{Journal of Speech and Hearing Research}
+    \field{year}{1963}
+  \endentry
+
+  \entry{CGANs}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=MM}{%
+         family={Mirza},
+         familyi={M\bibinitperiod},
+         given={Mehdi},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Osindero},
+         familyi={O\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Machine Learning (cs.LG), Artificial Intelligence (cs.AI), Computer
+  Vision and Pattern Recognition (cs.CV), Machine Learning (stat.ML), FOS:
+  Computer and information sciences, FOS: Computer and information sciences}
+    \strng{namehash}{MMOS1}
+    \strng{fullhash}{MMOS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1411.1784
+    \endverb
+    \field{title}{Conditional Generative Adversarial Nets}
+    \verb{url}
+    \verb https://arxiv.org/abs/1411.1784
+    \endverb
+    \field{year}{2014}
+  \endentry
+
+  \entry{reductionmanual}{misc}{}
+    \list{publisher}{2}{%
+      {Multimedia Systems Department, Gdansk University of Technology}%
+      {Air Force Academy in Deblin}%
+    }
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Noise Reduction}
+    \verb{url}
+    \verb https://sound.eti.pg.gda.pl/denoise/noise.html#:~:text=The%20spectral
+    \verb %20subtraction%20method%20is,ratio%20(SNR)%20is%20improved.
+    \endverb
+    \field{journaltitle}{Multitask Noisy Speech Enhancement System}
+    \field{year}{2004}
+  \endentry
+
+  \entry{framework}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=OCD}{%
+         family={Office},
+         familyi={O\bibinitperiod},
+         given={Central\bibnamedelima Digital},
+         giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=D}{%
+         family={Data},
+         familyi={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {GOV.UK}%
+    }
+    \strng{namehash}{OCDD1}
+    \strng{fullhash}{OCDD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Data Ethics Framework}
+    \verb{url}
+    \verb https://www.gov.uk/government/publications/data-ethics-framework
+    \endverb
+    \field{journaltitle}{GOV.UK}
+    \field{year}{2020}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{oinkina}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=O}{%
+         family={Oinkina},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{O1}
+    \strng{fullhash}{O1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Understanding LSTM networks}
+    \verb{url}
+    \verb https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+    \endverb
+    \field{journaltitle}{Understanding LSTM Networks -- colah's blog}
+    \field{month}{08}
+    \field{year}{2015}
+  \endentry
+
+  \entry{energyplanguage}{inproceedings}{}
+    \name{author}{7}{}{%
+      {{hash=PR}{%
+         family={Pereira},
+         familyi={P\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Couto},
+         familyi={C\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Ribeiro},
+         familyi={R\bibinitperiod},
+         given={Francisco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RR}{%
+         family={Rua},
+         familyi={R\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Cunha},
+         familyi={C\bibinitperiod},
+         given={J{\'a}come},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Fernandes},
+         familyi={F\bibinitperiod},
+         given={Jo{\~a}o},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Saraiva},
+         familyi={S\bibinitperiod},
+         given={Jo{\~a}o},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PR+1}
+    \strng{fullhash}{PRCMRFRRCJFJSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{doi}
+    \verb 10.1145/3136014.3136031
+    \endverb
+    \field{pages}{256\bibrangedash 267}
+    \field{title}{Energy efficiency across programming languages: how do
+  energy, time, and memory relate?}
+    \field{month}{10}
+    \field{year}{2017}
+  \endentry
+
+  \entry{MySong}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SI}{%
+         family={Simon},
+         familyi={S\bibinitperiod},
+         given={Ian},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Morris},
+         familyi={M\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Basu},
+         familyi={B\bibinitperiod},
+         given={Sumit},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{hidden markov models, music}
+    \strng{namehash}{SIMDBS1}
+    \strng{fullhash}{SIMDBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{abstract}{%
+    We introduce MySong, a system that automatically chooses chords to
+  accompany a vocal melody. A user with no musical experience can create a song
+  with instrumental accompaniment just by singing into a microphone, and can
+  experiment with different styles and chord patterns using interactions
+  designed to be intuitive to non-musicians.We describe the implementation of
+  MySong, which trains a Hidden Markov Model using a music database and uses
+  that model to select chords for new melodies. Model parameters are
+  intuitively exposed to the user. We present results from a study
+  demonstrating that chords assigned to melodies using MySong and chords
+  assigned manually by musicians receive similar subjective ratings. We then
+  present results from a second study showing that thirteen users with no
+  background in music theory are able to rapidly create musical accompaniments
+  using MySong, and that these accompaniments are rated positively by
+  evaluators.%
+    }
+    \field{booktitle}{Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems}
+    \verb{doi}
+    \verb 10.1145/1357054.1357169
+    \endverb
+    \field{isbn}{9781605580111}
+    \field{pages}{725â€“734}
+    \field{series}{CHI '08}
+    \field{title}{MySong: Automatic Accompaniment Generation for Vocal
+  Melodies}
+    \verb{url}
+    \verb https://doi.org/10.1145/1357054.1357169
+    \endverb
+    \list{location}{1}{%
+      {Florence, Italy}%
+    }
+    \field{year}{2008}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{f0age}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SE}{%
+         family={Stathopoulos},
+         familyi={S\bibinitperiod},
+         given={Elaine},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Huber},
+         familyi={H\bibinitperiod},
+         given={Jessica},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Sussman},
+         familyi={S\bibinitperiod},
+         given={Joan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SEHJSJ1}
+    \strng{fullhash}{SEHJSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1044/1092-4388(2010/10-0036)
+    \endverb
+    \field{pages}{1011\bibrangedash 21}
+    \field{title}{Changes in Acoustic Characteristics of the Voice Across the
+  Life Span: Measures From Individuals 4-93 Years of Age}
+    \field{volume}{54}
+    \field{journaltitle}{Journal of speech, language, and hearing research :
+  JSLHR}
+    \field{month}{08}
+    \field{year}{2011}
+  \endentry
+
+  \entry{wavelet}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TS}{%
+         family={Talebi},
+         familyi={T\bibinitperiod},
+         given={Shawhin},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TS1}
+    \strng{fullhash}{TS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Fourier vs. wavelet transform: What's the difference?}
+    \verb{url}
+    \verb https://builtin.com/data-science/wavelet-transform
+    \endverb
+    \field{journaltitle}{Built In}
+  \endentry
+
+  \entry{Transformers}{article}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={Vaswani},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Parmar},
+         familyi={P\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Uszkoreit},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Gomez},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={Kaiser},
+         familyi={K\bibinitperiod},
+         given={Lukasz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Polosukhin},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLPI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \verb{eprint}
+    \verb 1706.03762
+    \endverb
+    \field{title}{Attention Is All You Need}
+    \verb{url}
+    \verb http://arxiv.org/abs/1706.03762
+    \endverb
+    \field{volume}{abs/1706.03762}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2017}
+  \endentry
+
+  \entry{energy}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{We need to grow green - the global energy consumption of
+  Information Technologies [infographic]}
+    \verb{url}
+    \verb https://www.go-globe.com/we-need-to-grow-green-the-global-energy-cons
+    \verb umption-of-information-technologies-infographic/
+    \endverb
+    \field{journaltitle}{GO}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{ReinforcementLearning}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZT}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Te},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LFCM}{%
+         family={Lau},
+         familyi={L\bibinitperiod},
+         given={Francis C.\bibnamedelima M.},
+         giveni={F\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZTLFCM1}
+    \strng{fullhash}{ZTLFCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{abstract}{%
+    We present a novel reinforcement learning architecture that learns a
+  structured representation for use in symbolic melody harmonization.
+  Probabilistic models are predominant in melody harmonization tasks, most of
+  which only treat melody notes as independent observations and do not take
+  note of substructures in the melodic sequence. To fill this gap, we add
+  substructure discovery as a crucial step in automatic chord generation. The
+  proposed method consists of a structured representation module that generates
+  hierarchical structures for the symbolic melodies, a policy module that
+  learns to break a melody into segments (whose boundaries concur with chord
+  changes) and phrases (the subunits in segments) and a harmonization module
+  that generates chord sequences for each segment. We formulate the structure
+  discovery process as a sequential decision problem with a policy gradient RL
+  method selecting the boundary of each segment or phrase to obtain an
+  optimized structure. We conduct experiments on our preprocessed HookTheory
+  Lead Sheet Dataset, which has 17,979 melody/chord pairs. The results
+  demonstrate that our proposed method can learn task-specific representations
+  and, thus, yield competitive results compared with state-of-the-art
+  baselines.%
+    }
+    \verb{doi}
+    \verb 10.3390/electronics10202469
+    \endverb
+    \field{issn}{2079-9292}
+    \field{number}{20}
+    \field{title}{Automatic Melody Harmonization via Reinforcement Learning by
+  Exploring Structured Representations for Melody Sequences}
+    \verb{url}
+    \verb https://www.mdpi.com/2079-9292/10/20/2469
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Electronics}
+    \field{year}{2021}
+  \endentry
+\enddatalist
+\endinput

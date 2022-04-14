@@ -68,7 +68,6 @@ These assumptions will be referred to later on in the section.
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-
 \section{Noise Filter}
 Noise filtering is essential as it reducess or eliminates the noise present in the input signal.
 A conventional method to quantify noise is to use signal-to-noise ratio (SNR), which is often 
@@ -83,6 +82,7 @@ and printed circuit boards.\cite{selfnoise}
 The second source, ambient noise, contributes to a large portion of noise present in a recording.
 Room reflections, extraneous noise, electromagnetic interference and mechanical noise are some causes 
 to the existence of ambient noise. 
+
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
@@ -297,20 +297,26 @@ Thus, Bessel filter is preferred in this context.
 		\caption{Bessel filter frequency response \cite{bessel}}
 		\label{fig:sub3}
 	\end{subfigure}
-  
 \end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
-
 \section{Pitch Detection Algorithm (PDA)}
-
+After removing noise, we pass the processed signal to a PDA to estimate the fundamental frequency ($f0$) of
+the signal.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
+There are 4 approaches to detect $f0$, again can be classified into time domain and frequency domain.
+
+\begin{enumerate}
+	\item Zero crossings (time domain)
+	\item YIN algorithm/ autocorrelation (time domain)
+	\item CREPE (Convolutional Representation for Pitch Estimation)
+\end{enumerate}
 
 %-----------------------------------
 %	SUBSECTION 2
