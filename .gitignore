@@ -1,0 +1,16 @@
+*.aux
+*.gz
+*.bbl
+*.blg
+*.fls
+*.out
+*.lof
+*.log
+*.lot
+*.fdb_latexmk
+*.pdf
+*.toc
+*.xml
+.DS_Store
+*.synctex(busy)
+main-blx.bib
