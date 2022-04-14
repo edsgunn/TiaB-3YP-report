@@ -11,3 +11,4 @@
 *.pdf
 *.toc
 *.xml
+.DS_Store
