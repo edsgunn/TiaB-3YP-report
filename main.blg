@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: Chapters/Chapter1.aux
+A level-1 auxiliary file: Chapters/Chapter2.aux
+A level-1 auxiliary file: Chapters/Chapter3.aux
+A level-1 auxiliary file: Chapters/Chapter4.aux
+A level-1 auxiliary file: Chapters/Chapter5.aux
+A level-1 auxiliary file: Chapters/ChapterTutorial.aux
+A level-1 auxiliary file: Appendices/AppendixA.aux
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: main-blx.bib
+Database file #2: example.bib
+Warning--I didn't find a database entry for "Reference1"
+Warning--I didn't find a database entry for "Reference2"
+Warning--I didn't find a database entry for "Reference3"
+Biblatex version: 3.16
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 13 entries,
+            6393 wiz_defined-function locations,
+            1313 strings with 14481 characters,
+and the built_in function-call counts, 91724 in all, are:
+= -- 6627
+> -- 1602
+< -- 462
++ -- 2415
+- -- 638
+* -- 6897
+:= -- 10247
+add.period$ -- 0
+call.type$ -- 13
+change.case$ -- 243
+chr.to.int$ -- 51
+cite$ -- 24
+duplicate$ -- 9811
+empty$ -- 8079
+format.name$ -- 980
+if$ -- 18538
+int.to.chr$ -- 0
+int.to.str$ -- 32
+missing$ -- 0
+newline$ -- 556
+num.names$ -- 626
+pop$ -- 4466
+preamble$ -- 1
+purify$ -- 333
+quote$ -- 0
+skip$ -- 2583
+stack$ -- 0
+substring$ -- 11379
+swap$ -- 2282
+text.length$ -- 397
+text.prefix$ -- 12
+top$ -- 1
+type$ -- 430
+warning$ -- 0
+while$ -- 1455
+width$ -- 0
+write$ -- 544
+(There were 3 warnings)
