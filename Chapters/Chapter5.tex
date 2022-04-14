@@ -8,43 +8,52 @@ The choice and implementation of noise filter will then be explained in \textbf{
 to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key detection algorithm (KDA) \textbf{LINK TO SECTION 3}
 Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our project.
 
-% \begin{figure}
-% \tikzset{
-% every edge/.style = {draw=cyan, line width=2mm, shorten >=1pt, shorten <=1pt,
-%                      -{Triangle[scale=0.6]}},
-% N/.style args = {#1/#2}{fill=#1, text width=#2, 
-%                         font=\scriptsize, align=center},
-%    N/.default = cyan/7em,
-% }
-% \newcommand\tn[1]{\textbf{\small #1}}
-%     \begin{tikzpicture}[node distance=8mm]
-% \node (n1) [N]  {\tn{User sings into our app}\\ 
-%                  (Obtain input audio signal)}; 
-% \node (n2) [N=cyan/8em, right=of n1] 
-%                 {\tn{Trim silence at the start/end of audio clip};
-% \node (n3) [N, right=of n2] 
-%                 {\tn{Implement noise filter}};
-% \node (n4) [N, below=of n3]
-%                 {\tn{Spectral reduction}};
-% \node (n5) [N, right=of n4]
-%                 {\tn{Low-pass filter}};
-% \node (n6) [N, right=of n3] 
-%                 {\tn{Implement PDA}};
-% \node (n7) [N, right=of n6] 
-%                 {\tn{Implement KDA}};
-% \node (n8) [N=red!30/8em, below=of n7]
-%                 {\tn{Pass the output to Ed's ML model}\\
-% 				(Notes and keys)};
+% \begin{tikzpicture}[>=latex', overlay]
+% 	\tikzset{
+% 		block/.style= {draw, rectangle, fill=white, align=center,minimum width=2cm,minimum height=1cm},
+%         fbox/.style = {rectangle, draw, densely dashed, inner sep=4mm},
+% 		input/.style={ % requires library shapes.geometric
+%         draw,
+%         trapezium,
+%         trapezium left angle=60,
+%         trapezium right angle=120,
+%         minimum width=2cm,
+%         align=center,
+%         minimum height=1cm},
+%     }
 
-% \draw   (n1) edge (n2)
-%         (n2) edge (n3)
-%         (n3) edge (n4)
-% 		(n4) edge (n5)
-%         (n3) edge (n6)
-%         (n6) edge (n7)
-% 		(n7) edge (n8));
-%     \end{tikzpicture}
-% \end{figure}
+% 	\node (n1) [block]  {User sings into our app\\ 
+%                  (Obtain input audio signal)}; 
+% 	%\node (n2) [block, right=1cm of n1] 
+%     %            {Trim silence at the start/\\end of audio clip};
+% 	% \node (n3) [block, right=1cm of n1] 
+%     %             {Implement noise filter};
+% 	\node (n4) [block, right=1cm of n1]
+%                 {Spectral reduction};
+% 	\node (n5) [block, right=0.5cm of n4]
+% 				{Low-pass filter};
+% 	\begin{scope}[blend mode=overlay,overlay]
+% 		\node (n3) [fbox, fit=(n4) (n5), fill=beige]  
+% 				{Implement noise filter};
+% 	\end{scope}
+% 	\node (n6) [block, below=1.8cm of n1] 
+%                 {Implement PDA};
+% 	\node (n7) [block, right=1cm of n6] 
+%                 {Implement KDA};
+% 	\node (n8) [block, draw=red, right=1cm of n7]
+%                 {Pass the output to Ed's ML model\\
+% 				(Notes and keys)};
+% 	\node [coordinate, below right =1cm and 4cm of n5] (right) {};  %% Coordinate on right and middle
+% 	\node [coordinate, above left =1cm and 1cm of n6] (left) {};  %% Coordinate on left and middle
+% 	\path[draw,->]   (n1) edge (n3)
+%         		%(n2) edge (n3)
+%         		(n3) edge (n4)
+% 				(n4) edge (n5)
+%         		(n5) -| (right) -- (left) |-  (n6)
+%         		(n6) edge (n7)
+% 				(n7) edge (n8);
+% \end{tikzpicture}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 0
 %----------------------------------------------------------------------------------------
@@ -123,19 +132,19 @@ compare 3 noise reduction mechanisms.
 		\centering
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=\linewidth]{haar.png}
+		  \includegraphics[width=1.1\linewidth]{haar.png}
 		  \caption{Haar wavelet}
 		  \label{Haar}
 		\end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 			\centering
-			\includegraphics[width=\linewidth]{order2gaussian.png}
+			\includegraphics[width=1.1\linewidth]{order2gaussian.png}
 			\caption{Gaussian wavelet of order 1}
 			\label{order1}
 		  \end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=\linewidth]{order2gaussian.png}
+		  \includegraphics[width=1.1\linewidth]{order2gaussian.png}
 		  \caption{Ricker wavelet - Gaussian wavelet of order 2}
 		  \label{Ricker}
 		\end{subfigure}%
@@ -147,72 +156,150 @@ compare 3 noise reduction mechanisms.
 	where $n$ is delay parameter, $N$ is the length of signal, $\psi$ is the discretized mother wavelet. \cite{wavelet_denoise}
 
 	We will focus on DWT since computation is done on discrete wavelets so it requires less computational resources.
-	% Usually for stationary signals, we use conventional frequency-based filters, but for non-stationary ones, we can 
-	% use wavelet transform, in particular continuous wavelet transform (CWT) which gives better time-scale information
-	% compared to short-time fourier transform (STFT). 
- 
-	% Wavelet transform analyses a signal into different frequencies at different resolution (multiresolution analysis). 
 	
-% 	Wavelets are adjustable and adaptable. Because there is not just one wavelet, they can be designed to fit 
-% 	individual applications. They are ideal for adaptive systems that adjust themselves to suit the signal.
-% Disadvantages of DWT:
-% 	Sensitive to shifting
-% 	Poor directionality
-% 	Lack of phase information
-% 	Hard to choose an appropriate mother wavelet and number of decomposition levels
-
-%more on wavelet denoise: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.206.5126&rep=rep1&type=pd
 	\item Spectral reduction\\
-Suppose noise is additive, and we can represent our noisy audio 
-\begin{equation} \label{eq:1}
-\y(n) = x(n) + d(n), for 0 <= n <= N-1 
-\end{equation}
-where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
-$N$ is the number of samples. 
-Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \textbf{CHANGE!!!1}:
-\[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
-where $k$ is the frame number, which can be dropped if we assume the signal is segmented. Each segment will be of
-length $N$. We then have the desired signal in frequency domain:
-\[X(\omega) = Y(\omega) - N(\omega)\]
-Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
-noise spectrum using parts of the recording that only contain ambient noise. \cite{reductionmanual}
-\[\hat{N(\omega)} = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
-We then get the estimated signal spectrum
-\[\hat{X(\omega)} = Y(\omega) - \hat{N(\omega)}\]
-
+	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
+	fact, this method is used by Audacity in its noise reduction algorithm. \cite{audacity}
+	Suppose noise is additive, and we can represent our noisy audio 
+	\begin{equation} \label{eq:1}
+	\y(n) = x(n) + d(n), for 0 <= n <= N-1 
+	\end{equation}
+	where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
+	$N$ is the number of samples. 
+	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \textbf{CHANGE!!!1}:
+	\[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
+	where $k$ is the frame number, which can be dropped if we assume the signal is segmented. Each segment will be of
+	length $N$. We then have the desired signal in frequency domain:
+	\[X(\omega) = Y(\omega) - N(\omega)\]
+	Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
+	noise spectrum using parts of the recording that only contain ambient noise. \cite{reductionmanual}
+	\[\hat{N(\omega)} = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
+	We then get the estimated signal spectrum
+	\[\hat{X(\omega)} = Y(\omega) - \hat{N(\omega)}\]
+	We then set a gain control for each frequency band so if the sound exceeded the threshold, the gain is set to 0 dB or a user-defined
+	constant.
 \end{enumerate}
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
-
 \subsection{Choice of model and implementation}
 After trying to implement all 3 methods, a major difficulty encountered is that it is hard to set the parameters to 
-implement for LPF and wavelet transform. For example, since $f_c$ depends on the pitch range of the user and the melody he/ she
+implement for LPF and wavelet transform whilst spectral reduction works the best in removing the ambient noise. 
+For example, since $f_c$ depends on the pitch range of the user and the melody he/ she
 is inputting, finding an adequate $f_c$ that separates desired frequencies from undesired ones is hard.
 As for wavelet transform, finding an adequate mother wavelet is a difficult task.\\
 Although wavelet transform works better for real-life non-stationary signals compared to conventional frequency-based filters, if we
 do not feed a suitable mother wavelet, the performance is unsatisfactory, the model cannot distinguish between desired and undesired 
 signals and will decrease $P_signal$ at the same time, which is unfavourable when it comes to improving the SNR.\\
-Spectral reduction works the best in removing the ambient noise. As for wavelet transform, it is extremely sensitive to
+According to (D SHUKLA, 2003), there are 2 major concerns with using wavelet transform. 
+Firstly, it is sensitive to shifting in time, even a minor shift will cause unpredictable change in transform coefficients which will 
+then cause variations in the output signal. Secondly, wavelet transform suffers from poor directionality easily. For example, 
+a 2-D DWT can only reveal 3 spatial-domain feature orientations, which limits the optimal representation of the signal. 
 
-
+Therefore, we decided to use spectral reduction as our noise filter algorithm. The implementation of spectral noise gating can be 
+summarised according to (Karam et al., 2014)
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35]{spectralprocess.png}
+	\caption{Spectral noise gating flowchart \cite{spectralflowchart}}
+	\label{flowchart}
+\end{figure}
+The noise spectrum $N(\omega)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
+before they sing into the app.
+Note that half-wave rectification is necessary after noise removal process of subtracting the average magnitude of noise spectrum.
+This is to target frequencies that have a higher average magnitude of noise spectrum $\textbf{E}[|N(\omega)|]$ compared to that of 
+the noisy speech spectrum $|\hat{X(\omega)}|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
+rectification.
 
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
 
 \subsection{Improvements}
-The only problem with spectral reduction is that it does not handle extreme responses nicely.
+A drawback with spectral reduction is that it does not handle extreme responses nicely. It does not reduce noises like
+squeaks. Also, since a half-wave rectification is included in the implementation process, (Rao \& Sreelatha, 2014) has 
+pointed out that residual noise will be created during the process of spectral reduction. Half-wave rectification introduces
+nonlinearity in the $\hat{X(\omega)}$ spectrum and results in frequencies changing abruptly between frames.
+
+As mentioned above, spectral reduction is built on the assumption that the noise is a stationary or slowly-varying. Yet in reality,
+there may be sudden squeaky noise in the background which is not recorded in the noise profile. In this case, spectral reduction 
+cannot remove the squeak. To improve the situation, we will introduce a low-pass filter to filter out high-frequency noise. The reason
+for choosing LPF over a band-pass filter is that ambient noise is ususally low frequency and spectral reduction is effective 
+in targeting the reduction of ambient noise. Thus as to avoid removing low-frequency desirable features, a low-pass filter will suffice.
+
+To determine $f_c$ for the LPF, it would be plausible to refer to biological features of the users, i.e. their age and gender.
+For males, the pitch level generally reduces from infancy to middle age, while a reversal of trend occurs after middle age. \cite{womenprange}
+On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 30s and 40s showed obviously lower frequencies than those in their
+20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
 
-LPF: Cutoff frequency selection: depending on the gender and age, chebyshev? elliptical?
-\begin{table}[]
-	\begin{tabular}{lll}
-																				 & Male   & Female  \\
-	Pitch range (Hz)                                                             & 60-180 & 160-300 \\
-	\begin{tabular}[c]{@{}l@{}}Praat pitch parameters \\ range (Hz)\end{tabular} & 50-300 & 100-600
-	\end{tabular}
+\begin{table}
+	\begin{minipage}{0.4\linewidth}
+		\label{table:praat}
+		\centering
+		\begin{tabular}{lrr}		& Male   & Female  \\
+			Pitch range (Hz)            & 60-180 & 160-300 \\
+			Praat pitch range (Hz) 		& 50-300 & 100-600
+		\end{tabular}
+		\caption{Praat pitch range}
+		\end{minipage}\hfill
+	\begin{minipage}{0.55\linewidth}
+		\centering
+		\includegraphics[scale=0.45]{f0vage.jpeg}
+		\label{f0vage_chart}
+		\captionof{figure}{Scatter plot of fundamental frequency by age \cite{f0age}}
+	\end{minipage}
 \end{table}
+
+After referring to the measurements taken from 192 participants (Stathopoulos et al., 2011) and the pitch range
+set by Praat (a software for speech analysis) \cite{praat}, a simple modelling of $f_c$ according to age and gender
+is as below:
+\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 <= n <= 93\]
+\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 <= n <= 93\]
+In deciding which filter to implement, there are 3 filters in consideration:
+\begin{enumerate}[label=(\alph*)]
+	\item Type 1 Chebyshev filter
+	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+\varepsilon^{2} T_{n}^{2}(\omega/\omega_{0})}}}\]
+	where $\varepsilon$  is the ripple factor, $\omega _{0}$ is the cut-off frequency
+	and $T_{n}$ is a Chebyshev polynomial of the $n$th order.
+	\item Butterworth filter
+	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{sqrt{1+(\omega/\omega_{0})^{2n})}}}\]
+	where $\omega _{0}$ is the cut-.off frequency and $n$ is the order of filter.
+	\item Bessel filter
+	\[G_{n}(\omega) = |H_{n}(j\omega)| ={\frac {\theta _{n}(0)}{\theta _{n}(j\omega/\omega _{0})}}\]
+	where $\theta _{n}(j\omega)$ is a reverse Bessel polynomial and $\omega _{0}$ is the cut-off frequnecy
+\end{enumerate}
+
+Chebyshev filter has a steeper roll-off compared to Butterworth and Bessel filter, but it also brings passband and stopband ripples, 
+unlike Butterworth and Bessel filter which have a flat passband and stopband as they roll-offs towards zero. Moreover, Butterworth 
+and Bessel filters have a better step response. Meanwhile, Bessel filter performs the best in step response since the overshoot is
+minimal. Also, an important characteristics Bessel filter has is that it introduces a linear-phase/ constant delay for $f<f_c$. This
+feature allows us to preserve the waveshape since all frequencies are delayed by the same amount.
+Thus, Bessel filter is preferred in this context.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.32\textwidth}
+	  	\centering
+	  	\includegraphics[width=1.1\linewidth]{chebyshev.jpeg}
+	  	\caption{Type 1 Chebyshev filter frequency response}
+	  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.32\textwidth}
+	  	\centering
+	  	\includegraphics[width=1.1\linewidth]{butterworth.jpeg}
+	  	\caption{Butterworth filter frequency response}
+	  	\label{fig:sub2}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=1.1\linewidth]{bessel.jpg}
+		\caption{Bessel filter frequency response \cite{bessel}}
+		\label{fig:sub3}
+	\end{subfigure}
+  
+\end{figure}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------

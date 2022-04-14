@@ -1,0 +1,71 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{ii}{section*.1}%
+\contentsline {chapter}{\numberline {1}Project Definition}{2}{chapter.5}%
+\contentsline {section}{\numberline {1.1}Introduction}{2}{section.6}%
+\contentsline {subsection}{\numberline {1.1.1}Musical terminology}{3}{subsection.7}%
+\contentsline {subsection}{\numberline {1.1.2}Subsection 2}{3}{subsection.8}%
+\contentsline {section}{\numberline {1.2}Project management}{3}{section.9}%
+\contentsline {section}{\numberline {1.3}Tech strat}{4}{section.10}%
+\contentsline {section}{\numberline {1.4}Risk}{4}{section.11}%
+\contentsline {section}{\numberline {1.5}Finance}{4}{section.12}%
+\contentsline {section}{\numberline {1.6}Ethics}{4}{section.13}%
+\contentsline {subsection}{\numberline {1.6.1}Data ethics}{4}{subsection.14}%
+\contentsline {subsubsection}{Transparency}{4}{section*.15}%
+\contentsline {subsubsection}{Accountability}{6}{section*.24}%
+\contentsline {subsubsection}{Fairness}{7}{section*.25}%
+\contentsline {section}{\numberline {1.7}Sustainability}{8}{section.33}%
+\contentsline {section}{\numberline {1.8}Legality}{9}{section.34}%
+\contentsline {chapter}{\numberline {2}Product Design}{10}{chapter.35}%
+\contentsline {section}{\numberline {2.1}Main Section 1}{10}{section.36}%
+\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{10}{subsection.37}%
+\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{10}{subsection.38}%
+\contentsline {section}{\numberline {2.2}Main Section 2}{11}{section.39}%
+\contentsline {chapter}{\numberline {3}Data}{12}{chapter.40}%
+\contentsline {section}{\numberline {3.1}Main Section 1}{12}{section.41}%
+\contentsline {subsection}{\numberline {3.1.1}Subsection 1}{12}{subsection.42}%
+\contentsline {subsection}{\numberline {3.1.2}Subsection 2}{12}{subsection.43}%
+\contentsline {section}{\numberline {3.2}Main Section 2}{13}{section.44}%
+\contentsline {chapter}{\numberline {4}Model}{14}{chapter.45}%
+\contentsline {section}{\numberline {4.1}Main Section 1}{14}{section.46}%
+\contentsline {subsection}{\numberline {4.1.1}Subsection 1}{14}{subsection.47}%
+\contentsline {subsection}{\numberline {4.1.2}Subsection 2}{14}{subsection.48}%
+\contentsline {section}{\numberline {4.2}Main Section 2}{15}{section.49}%
+\contentsline {chapter}{\numberline {5}Audio Processing}{16}{chapter.50}%
+\contentsline {section}{\numberline {5.1}Assumptions}{16}{section.51}%
+\contentsline {section}{\numberline {5.2}Noise Filter}{16}{section.52}%
+\contentsline {subsection}{\numberline {5.2.1}Possible Models}{17}{subsection.53}%
+\contentsline {subsection}{\numberline {5.2.2}Choice of model and implementation}{20}{subsection.63}%
+\contentsline {subsection}{\numberline {5.2.3}Improvements}{21}{subsection.65}%
+\contentsline {section}{\numberline {5.3}Pitch Detection Algorithm (PDA)}{24}{section.71}%
+\contentsline {subsection}{\numberline {5.3.1}Possible Models}{24}{subsection.72}%
+\contentsline {subsection}{\numberline {5.3.2}Implementation}{24}{subsection.73}%
+\contentsline {subsection}{\numberline {5.3.3}Improvements}{24}{subsection.74}%
+\contentsline {section}{\numberline {5.4}Key Detection Algorithm (KDA)}{24}{section.75}%
+\contentsline {subsection}{\numberline {5.4.1}Possible Models}{24}{subsection.76}%
+\contentsline {subsection}{\numberline {5.4.2}Implementation}{24}{subsection.77}%
+\contentsline {chapter}{\numberline {6}Chapter Title Here}{25}{chapter.78}%
+\contentsline {section}{\numberline {6.1}Welcome and Thank You}{25}{section.79}%
+\contentsline {section}{\numberline {6.2}Learning \LaTeX {}}{25}{section.80}%
+\contentsline {subsection}{\numberline {6.2.1}A (not so short) Introduction to \LaTeX {}}{26}{subsection.81}%
+\contentsline {subsection}{\numberline {6.2.2}A Short Math Guide for \LaTeX {}}{26}{subsection.82}%
+\contentsline {subsection}{\numberline {6.2.3}Common \LaTeX {} Math Symbols}{26}{subsection.83}%
+\contentsline {subsection}{\numberline {6.2.4}\LaTeX {} on a Mac}{27}{subsection.84}%
+\contentsline {section}{\numberline {6.3}Getting Started with this Template}{27}{section.85}%
+\contentsline {subsection}{\numberline {6.3.1}About this Template}{27}{subsection.86}%
+\contentsline {section}{\numberline {6.4}What this Template Includes}{28}{section.87}%
+\contentsline {subsection}{\numberline {6.4.1}Folders}{28}{subsection.88}%
+\contentsline {subsection}{\numberline {6.4.2}Files}{29}{subsection.89}%
+\contentsline {section}{\numberline {6.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{30}{section.90}%
+\contentsline {section}{\numberline {6.6}The \texttt {main.tex} File Explained}{31}{section.91}%
+\contentsline {section}{\numberline {6.7}Thesis Features and Conventions}{32}{section.92}%
+\contentsline {subsection}{\numberline {6.7.1}Printing Format}{32}{subsection.93}%
+\contentsline {subsection}{\numberline {6.7.2}Using US Letter Paper}{33}{subsection.94}%
+\contentsline {subsection}{\numberline {6.7.3}References}{33}{subsection.95}%
+\contentsline {subsubsection}{A Note on bibtex}{34}{section*.97}%
+\contentsline {subsection}{\numberline {6.7.4}Tables}{34}{subsection.98}%
+\contentsline {subsection}{\numberline {6.7.5}Figures}{35}{subsection.100}%
+\contentsline {subsection}{\numberline {6.7.6}Typesetting mathematics}{36}{subsection.102}%
+\contentsline {section}{\numberline {6.8}Sectioning and Subsectioning}{37}{section.104}%
+\contentsline {section}{\numberline {6.9}In Closing}{38}{section.105}%
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{39}{appendix.106}%
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{39}{section.107}%
