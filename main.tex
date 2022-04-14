@@ -42,8 +42,14 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{amsmath, amssymb}
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\usepackage{graphicx}
+\graphicspath{ {./Figures/} }	%all images/figures are kept under the Figures folder
+\usepackage{caption}
+\usepackage{subcaption}
 
 \addbibresource{example.bib} % The filename of the bibliography
 
