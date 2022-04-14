@@ -12,3 +12,5 @@
 *.toc
 *.xml
 .DS_Store
+*.synctex(busy)
+main-blx.bib
