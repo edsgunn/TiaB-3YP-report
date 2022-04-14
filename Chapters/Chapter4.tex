@@ -33,8 +33,9 @@ In order to find the best model we evaluate these attempts against a defined cri
 
 
 \section{Model Requirements}
+\label{sec:Evaluation}
 \subsection{MVP Requrements}
-
+\label{sec:MVPRequirements}
 The MVP requirements were defined at the beginning of the project to ensure it is compatible with the other parts of the product that were simaltaniously in development and to ensure the possibbility of the creation of the prototye for proof of concept. 
 We required the model to be a black box in which we could input a melody and it would output chords which sounded good.
 The notion of sounding good is intentionally vague as what sounds good or bad is usually down to individual taste in music.
@@ -261,6 +262,8 @@ Specifically they propose the Scaled dot-product attention shown in \ref{eq:Atte
     \label{eq:Attention}
 \end{equation}
 where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $d_k$ is the dimension or queries and keys.
+\textbf{Finish transformers section}
+
 \begin{figure}
     \centering
     \includegraphics[width=0.4\columnwidth]{Figures/Transformer}
@@ -271,10 +274,46 @@ where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $
 
 \section{Our Model}
 
-We propose the use of a conditional BLSTM GAN to learn the association between melodies and chords.
+We propose the use of a conditional GAN to learn the association between melodies and chords.
+It is well demonstrated that a GAN is capable of generating high quality imitations of real data and as a non-deterministic model it fits the criterial outlined in \ref{sec:MVPRequirements}.
 The Discriminator consists of a number of LSTM layers followed by a linear output layer.
 The Generator consists of a linear layer followed by a number of LSTM layers and then by another linear layer.
-The Binary Cross Entropy loss is used to determine the Discriminator loss for each example. This is averaged across every measure and then between real and generated examples
+% The Binary Cross Entropy loss is used to determine the Discriminator loss for each example. This is averaged across every measure and then between real and generated examples
+\subsection{Components}
+
+\subsubsection{GAN}
+\subsubsection{Generator}
+In essence the Generator functions as a non-deterministic translator, from a sequence of melody vectors to a sequence of chord vectors, and thus models from the NLP space would function appropriately.
+Since the LSTM, a common model used in NLP, performed best in \ref{sec:Evaluation} and is strongly affected by the temporal relationship between inputs, we chose to use it in our Generator.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/Generator}
+    \decoRule
+    \caption{The architecture of our Generator}
+    \label{fig:Generator}
+\end{figure}
+
+\subsubsection{Discriminator}
+The Discriminator is fundementally a binary sequence classifier.
+It takes as input a tensor of dimensions $(b,n,37)$ where b is the batch size and n is the number of measures in the song.
+Each batch is treated independantly and identically so we will proceed discussing the treatment of the 2nd and 3rd dimensions and it can be assumend this is repeated $b$ times.
+Thus we effectively input a tensor of dimensions $(n,37)$ into the first layer of the Discriminator.
+The first $k$ layers of the Discriminator are bidirectional LSTMs. 
+In the first layer each pair of LSTM cells, one for the forward direction and one for the reverse direction, takes an input vector of length 37, representing a melody vector concatinated with a chord vector and outputs a vector of length $h$ corresponding to the size of the hidden layers.
+The LSTM cells in the subsequenct $k-1$ layers have both input and output sizes of $h$.
+The fully connected layer takes and input of size $2 \times n \times h$ and outputs a vector of size 1.
+The output is passed through a sigmoid activation function thus converting it to represent the probability that the input melody sequence, chord sequence pair was from a real song.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/Discriminator}
+    \decoRule
+    \caption{The architecture of our Discriminator}
+    \label{fig:Discriminator}
+\end{figure}
+
+
 \subsection{Model Functionality}
 
 As proof of concept for the design we developed a command line based interface for the model such that it was easy to train, vary parameters and test. 
@@ -309,31 +348,56 @@ The options available in the interface are show in table \ref{tab:parameters}
 \end{tabular}
 \end{table}
  
+\paragraph{DataLoader} 
+We created a MusicDataset class inheriting from a PyTorch Dataset to load in the data in a useable form.
+Since our model takes a fixed sequence length and not all songs are of equal length we zero-pad all songs such that their length is equal to that of the longest song.
+The chords are padded with vectors representing a rest.
 
 \section{Training}
 
-\paragraph{Optimiser}
-We used the Adam optimiser \cite{Adam} which is recommended in the Stanford \href{https://cs231n.github.io/}{CS231n: Convolutional Neural Networks for Visual Recognition}\footnote{https://cs231n.github.io/} as the default optimiser.
-\textbf{EXPLAIN ADAM WHEN NOT FALLING ASLEEP}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\columnwidth]{Figures/ModelTraining}
+    \decoRule
+    \caption{The training of the model}
+    \label{fig:ModelTraining}
+\end{figure}
 
 \paragraph{Loss}
-As we are using a GAN we use the Binary Cross Entropy or BCE as our loss function
-
+A loss function is used to gain a measure of how different the output of the model is from the desired output.
+For best results a loss function is often coupled with the activation function of the linear layers.
+An example of this coupling is the sigmoid activation function and the binary cross entropy. \textbf{EXPAND ON THIS}
+As we are using a GAN we use the Binary Cross Entropy or BCE as our loss function for the Discriminator as we are dealing with a binary problem, is the input real or generated?
+The Discriminator loss is averaged across its performance between real and generated examples.
+For the Generator we use the complement of the Discriminator loss on generated examples.
+The BCE loss can be calculated as in \ref{eq:BCELoss}.
 \begin{equation}
-\frac{1}{N} \sum_{i=1}^N log(p(y_i))
+    \label{eq:BCELoss}
+    \frac{1}{N} \sum_{i=1}^N log(p(y_i))
 \end{equation}
-which for the disciminator takes the form
+    which for the disciminator takes the form
 \begin{equation}
     \frac{1}{N} \sum_{i=1}^N log(D(conc(x_i,z_i))) + log(1-D(conc(G(z_i),z_i)))
 \end{equation}
-where $x_i$ is are the real examples, $z_i$ are the melodies and the $conc$ function concatinates the two vector arguments.
-The loss is the sum of the loss of the discriminator on real data and generated data.
-The generator loss is
+    where $x_i$ are the real examples, $z_i$ are the melodies and the $conc$ function concatinates the two vector arguments.
+    The loss is the sum of the loss of the discriminator on real data and generated data.
+    The generator loss is
 \begin{equation}
     -\frac{1}{N} \sum_{i=1}^N log(1-D(conc(G(z_i),z_i)))
 \end{equation}
-which results in tring to maximise the loss of the discriminator on generated data.
-This is equivalent to finding the discriminator loss on generated data when labeled as real which is the method we use in our implementation.
+    which results in tring to maximise the loss of the discriminator on generated data.
+    This is equivalent to finding the discriminator loss on generated data when labeled as real which is the method we use in our implementation.
+
+    
+\paragraph{Optimiser}
+An optimiser is used to determine the changes of model parameters that need to be made to minimise the loss of a model.
+Optimisers usually involve the use of the gradient of the model with respect to different parameters.
+The standard tool to find the gradients is the backpropagation alogrithm \textbf{REFERENCE BACKPROP} which is very easy to use with PyTorch.
+Gradient descent is an example of a basic optimiser.
+We used the Adam optimiser \cite{Adam} which is recommended in the Stanford \href{https://cs231n.github.io/}{CS231n: Convolutional Neural Networks for Visual Recognition}\footnote{https://cs231n.github.io/} as the default optimiser.
+\textbf{EXPLAIN ADAM WHEN NOT FALLING ASLEEP}
+
+
 
 \subsection{Avoiding Overfitting}
 Dropout
@@ -347,4 +411,8 @@ Softmaxing of outputs of generator
 Device managment
 
 \subsection{Testing}
+Accuracy \\
+Confusion Matrix\\
+Subjective
 \section{Results}
+Bad Sad face
