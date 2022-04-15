@@ -318,7 +318,7 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\[f0 = \frac{P_{zcr}f_s}{2N}\]
 	where $P_{Zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
 	$N$ is the number of samples
-	\begin{figure}{.6\textwidth}
+	\begin{figure}
 		\includegraphics{zcr.png}
 		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
 	\end{figure}
@@ -341,13 +341,13 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{acf.png}
-			\caption{$r_t(\tau)$ calculated from figure \textbf{INSERT} using normal ACF}
+			\caption{$r_t(\tau)$ calculated from figure \ref{signal}  using normal ACF}
 			\label{acf}
 		  \end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 		  \centering
 		  \includegraphics[width=1\linewidth]{taperedacf.png}
-		  \caption{$r_t(\tau)$ calculated with the equation \textbf{INSERT}}
+		  \caption{$r_t(\tau)$ calculated with the equation \ref{signal}}
 		  \label{taped}
 		\end{subfigure}%
 		\label{fig}
@@ -370,11 +370,12 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
 	which the peaks corresponds to $f0$ with other peaks indicating the harmonic components of integer multiples of $f0$. 
 	Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them wiht the original spectrum as shown in figure 
-	\textbf{INSERT}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
+	\ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
 	
-	\begin{figure}{.6\textwidth}
-		\includegraphics{HPS.png}
+	\begin{figure}
+		\includegraphics[width=0.5\textwidth]{HPS.png}
 		\caption{Harmonically compressed log spectra \cite{HPS}}
+		\label{HPS}
 	\end{figure}
 	
 	Firstly, we convolve the signal with a Hanning window to segment the input:
@@ -387,14 +388,15 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\item CREPE (Convolutional Representation for Pitch Estimation)
 	CREPE is a data-driven algorithm developed by (Kim et al., 2018) that operates directly on the time-domain.
 	It consists of a deep convolutional neural network trained by synthesized audio from the RWC Music Database \cite{rwcdb}
-	and MedleyDB \cite{medleydb}. %REFERENCE?
+	and MedleyDB \cite{medleydb}. 
 
 	The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
-	There are 6 convolutional layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
+	As shown in \ref{CREPE}, there are 6 convolutional layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
 
-	\begin{figure}{.6\textwidth}
-		\includegraphics{CREPE.png}
+	\begin{figure}
+		\includegraphics[width=0.5\textwidth]{CREPE.png}
 		\caption{The architecture of the CREPE algorithm \cite{CREPE}}
+		\label{CREPE}
 	\end{figure}
 
 
