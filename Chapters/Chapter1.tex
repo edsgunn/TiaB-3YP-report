@@ -9,10 +9,10 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
-
+\label{Chap1Sec1}
 The process of writing music often begins with and idea for a melody which is followed by the development of chords to accompany it.
 The matching of chords to a melody is a skill which usually requires years of training in musical techniques such as harminisation.
-There is a large market of amateur musicians who lack the necessary training for this task but would otherwise enjoy the experience of developing music.  
+As shown in Chapter \ref{marketresearch}, there is a large market of amateur musicians who lack the necessary training for this task but would otherwise enjoy the experience of developing music.  
 In this report we will detail the design of \textbf{INSERT NAME HERE}, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
 Users are able to record a melody using their microphone and regenerate the chord sequence until they feel the they have found one suitable for the intended feel of their song.
 Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature. \\
@@ -42,22 +42,62 @@ The use of \textbf{melody} refers to a monophonic melody in which only one note 
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+\subsection{Market Research}
+\label{marketresearch}
+Research into our target demographic shows promising statistics. In the United Kingdom, the percentage of children who know how to play a musical instrument increased from 45\% in 1993 to 76\% in 2014, with 21\% of these children having never had lessons \cite{abrsm2014}. Furthermore, 34\% of young people in the UK in 2021 create music on their own \cite{abrsm2021}. In the United States, 22\% of people surveyed who play a music instrument said that they were self-taught \cite{gallup2003}. Hence, it can be concluded that a not insignificant proportion of musicians lack formal musical training, and that they have an interest in making music. In fact, self-taught musicians are more likely to create their own music \cite{compareguitarpiano}. Additionally, 20\% of children in the UK have created music using a smartphone or tablet in 2014 \cite{abrsm2014}, with 15\% of young people doing the same in 2021 \cite{abrsm2021}. This implies that musicians would be receptive to creating music with digital applications. More importantly, given the time gap of seven years, the previous two statistics would be covering the same generation (many of the same children in 2014 would be youths in 2021). Yet, the numbers only decreased slightly from 20\% to 15\%. This is encouraging since it shows a sustained interest in creating music via digital means, which translates to a more stable and permanent consumer base for any digital music creation applications. Indeed, the percentage of adults who create music digitally barely dropped from 14\% in 2014 to 13\% in 2021 \cite{abrsm2021}.
+ 
+There is also evidence that self-taught musicians teach themselves through digital tools as well as peer-to-peer networks \cite{abrsm2014} \cite{bookreview}. There also seems to be a strong interest in creating and playing music with peers, with 40\% of children in the UK in 2014 creating music with friends outside of school \cite{abrsm2014}. Self-taught musicians often play with other more experienced and better musicians to improve themselves in the process by learning from them \cite{marketresearch5}. Thus, it seems that self-taught musicians would be interested in having access to a community of like-minded peers. 
+ 
+Moreover, a YouGov survey \cite{YouGovMR} shows that 42\% of musicians professed to be singers, with more than half being self-taught. Guitar was the second most popular instrument behind piano, and 74\% of people who play the guitar said they were self-taught. This justifies the focus on converting singing to guitar chords for amateur musicians, since there is a substantial number of singers and guitar players who are self-taught.  
 
+\subsection{Core functionalities of product}
+\label{coreproduct}
+
+Given the findings in Chapter \ref{marketresearch}, we can identify two main needs of our target market that our product can aim to meet. Firstly, our product has to be able to take vocals as inputs, and generate chords to accompany the singing. Secondly, our product has to provide a platform for a community of musicians that fosters collaboration and creativity.
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
 \section{Project management}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
-
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
-\section{Tech strat}
+\section{Technology Strategy}
+
+Technology strategy refers to an organisation's plan which contains technology-related goals, concepts, and methods \cite{techstratdefinition}. Drafting and implementing the right technology strategy is critical to the success of any product or project. Given that this is a design project and that our group is in the early stages of creating the product, our technology strategy would not be very detailed. Nevertheless, there remains many tools that are useful at this stage of our project.
+
+\subsection{The Lean Start-up Loop}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{Figures/Lean Startup loop}
+    \decoRule
+    \caption{The Lean Start-up Loop, adopted from \protect\cite{leanstartuploop}}
+    \label{fig:leanloop}
+    \end{figure}
+    
+
+This loop, which is shown in Figure \ref{fig:leanloop}, is a depiction of the various potential stages of this project. The current scope of our project covers the 'Need', 'Idea', and 'Minimum Viable Product' stages. These three stages were covered in Chapter \ref{marketresearch}, Chapter \ref{Chap1Sec1} and Chapter \ref{coreproduct} respectively. Chapter \ref{marketresearch} identified potential target customers and their needs. It also highlighted the target customers' likely openness to and acceptance of our digital product. Chapter \ref{Chap1Sec1} gave a brief outline of this entire design project, which would also introduce the idea we came up with to address our target market needs. Chapter \ref{coreproduct} gives the specifications for our Minimum Viable Product, which is the actual implementation of our idea. 
+
+For the Data stage, the Minimum Viable Product will be used to gauge consumer response. Specifically, we will be testing two hypotheses: the value hypothesis and the growth hypothesis. The value hypothesis is a test of whether our product will be delivering any value to customers. In other words, we want to check if our product is actually fulfilling its function of converting vocals to chords as well as providing an online platform for a community of amateur musicians. We will also want to find out what price customers are willing to pay for our product and its services; specfically, customer response to our subscription-based model (?) outlined in Chapter \textbf{REFERENCE WAN DI's PART}.  The growth hypothesis is a test of our strategy for acquiring new customers for our product. This is with regards to our tactics such as a refer-a-friend programme that will be introduced in Chapter \textbf{REFERENCE WAN DI's PART}. While we would collect user feedback, we would also choose objective metrics that will enable informed learning and measure the customers' actual behaviour and not just rely on what they say.
+
+\begin{itemize}
+    \item Surveys and interviews (user feedback)
+    \item Number of downloads from the AppStore
+    \item Number of songs for which chords were generated
+    \item Number of users (with the number of users who paid for premium services)
+    \item Number of posts on the ReChordTogether online platform (with data trends)
+    \item Revenue generated from advertisements
+    \item Revenue generated from subscription-based model
+    \item Number of new users obtained through the refer-a-friend programme
+  \end{itemize}
+
+  Gathering all this information will allow us to learn more about our target market, which leads us to the 'Learning' stage. In this stage, we use the data obtained to determine if our initial assumptions about the target market were valid. This leads us back to the 'Need' stage, where we gain a better understanding the market needs based on what we learned from the data in the previous stage. We can go through this loop multiple times, each time tweaking certain aspects of our product and its services to better serve the customers' needs while maximising profits. In the event our product is not actually feasible, we can pivot to another product or service.
+
+
+%\subsubsection{Market Research}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
