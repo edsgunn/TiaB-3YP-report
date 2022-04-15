@@ -310,20 +310,42 @@ the signal.
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
-There are 4 approaches to detect $f0$, again can be classified into time domain and frequency domain.
+There are 4 approaches to detect $f0$, which again can be classified into time domain and frequency domain.
 
 \begin{enumerate}
 	\item Zero crossings (time domain)
+	This is the most intuitive method to detecting pitch although it suffers from low accuracy.
+	Assuming the input is monophonic, the fundamental frequency is estimated as:
+	\[f0 = \frac{P_{zcr}f_s}{2N}\]
+	where $P_{Zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
+	$N$ is the number of samples
+	\begin{figure}
+		\includegraphics{zcr.png}
+		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
+	\end{figure}
 	\item YIN algorithm/ autocorrelation (time domain)
+	As outlined by (de Cheveigné & Kawahara, 2002), YIN algorithm is based on the autocorrelation method:
+	\[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
+	where r_t(\tau) is the autocorrelation function of lag \tau calculated at time index $t$, $W$ is the integration
+	window size
+
+
+
+
+
+
+	\item Harmonics (frequency domain)
 	\item CREPE (Convolutional Representation for Pitch Estimation)
 \end{enumerate}
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
+\subsection{Comparison between models and implementation}
+The zero crossings method will not be considered since it heavily relies on the assumption that the input audio is of pure tone. Yet,
 
-\subsection{Implementation}
 
+"the human voice is not a pure tone (as produced by a tuning fork); rather, it is composed of a fundamental tone (or frequency of vibration) and a series of higher frequencies called upper harmonics," \cite{humanmono}
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
