@@ -232,7 +232,6 @@ For males, the pitch level generally reduces from infancy to middle age, while a
 On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 30s and 40s showed obviously lower frequencies than those in their
 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
-
 \begin{table}
 	\begin{minipage}{0.4\linewidth}
 		\label{table:praat}
@@ -319,24 +318,89 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\[f0 = \frac{P_{zcr}f_s}{2N}\]
 	where $P_{Zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
 	$N$ is the number of samples
-	\begin{figure}
+	\begin{figure}{.6\textwidth}
 		\includegraphics{zcr.png}
 		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
 	\end{figure}
+	
 	\item YIN algorithm/ autocorrelation (time domain)
-	As outlined by (de Cheveigné & Kawahara, 2002), YIN algorithm is based on the autocorrelation method:
+	As outlined by (de Cheveigné & Kawahara, 2002), YIN algorithm is based on a slightly altered autocorrelation method:
 	\[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
-	where r_t(\tau) is the autocorrelation function of lag \tau calculated at time index $t$, $W$ is the integration
-	window size
+	where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
+	window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in figure 
+	\textbf{INSERT}
 
+	\begin{figure}
+		\centering
+		\begin{subfigure}{.3\textwidth}
+		  \centering
+		  \includegraphics[width=1\linewidth]{signalwaveform.png}
+		  \caption{Signal waveform}
+		  \label{signal}
+		\end{subfigure}%
+		\begin{subfigure}{.3\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{acf.png}
+			\caption{$r_t(\tau)$ calculated from figure \textbf{INSERT} using normal ACF}
+			\label{acf}
+		  \end{subfigure}%
+		\begin{subfigure}{.3\textwidth}
+		  \centering
+		  \includegraphics[width=1\linewidth]{taperedacf.png}
+		  \caption{$r_t(\tau)$ calculated with the equation \textbf{INSERT}}
+		  \label{taped}
+		\end{subfigure}%
+		\label{fig}
+	\end{figure}
+	
+	We then select the highest peak by exhaustive search within an user-defined range of lags, the corresponding time lag will be
+	the inverse of our estimated $f0$
 
+	To improve the error rates and target periodicity, de Cheveigné & Kawahara introduced a cumulative mean normalized difference function (CMNDF)
+	to replace ACF. 
+	\[CMNDF(\tau) =  
+	\begin{cases}
+		1,              & \text{if } \tau \eq 0\\ 
+    	\frac{DF(\tau)}{(1/\tau)\sum_{j=1}{\tau}DF(j)}, & \text{otherwise.} \\
+	\end{cases}
+	\]
+	We then find $\tau$ that minimises $CMNDF(\tau)$ and the corresponding $f0$.
 
+	\item Harmonic Product Spectrum (HPS) (frequency domain)
+	As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
+	which the peaks corresponds to $f0$ with other peaks indicating the harmonic components of integer multiples of $f0$. 
+	Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them wiht the original spectrum as shown in figure 
+	\textbf{INSERT}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
+	
+	\begin{figure}{.6\textwidth}
+		\includegraphics{HPS.png}
+		\caption{Harmonically compressed log spectra \cite{HPS}}
+	\end{figure}
+	
+	Firstly, we convolve the signal with a Hanning window to segment the input:
+	\[w(n) = \frac{1+cos(2\pi n/N-1)}{2}, for 0<= n<= N-1\], where $N$ is the number of samples.
+	We then convert it from time-domain to frequency-domain by computing the short-time Fourier Transform:
+	\[STFT \{x[n]\}(k,\omega) = X(k,\omega )= \sum _{n=-\infty }^{\infty }x[n]w[n-k]e^{-j\omega n}\]
+	Lastly we compute the product of spectrum at harmonics of a frequency and $f0$ is estimated by:
+	\[f0 = argmax\prod_{k=1}^{n}|X(kf)|\] 
 
-
-
-	\item Harmonics (frequency domain)
 	\item CREPE (Convolutional Representation for Pitch Estimation)
+	CREPE is a data-driven algorithm developed by (Kim et al., 2018) that operates directly on the time-domain.
+	It consists of a deep convolutional neural network trained by synthesized audio from the RWC Music Database \cite{rwcdb}
+	and MedleyDB \cite{medleydb}. %REFERENCE?
+
+	The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
+	There are 6 convolutional layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
+
+	\begin{figure}{.6\textwidth}
+		\includegraphics{CREPE.png}
+		\caption{The architecture of the CREPE algorithm \cite{CREPE}}
+	\end{figure}
+
+
 \end{enumerate}
+
+
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -346,6 +410,20 @@ The zero crossings method will not be considered since it heavily relies on the 
 
 
 "the human voice is not a pure tone (as produced by a tuning fork); rather, it is composed of a fundamental tone (or frequency of vibration) and a series of higher frequencies called upper harmonics," \cite{humanmono}
+
+acf- range of lags have to be considered ( if too small, choose zero lag peak. if too high, erroneously choose a higher order peak that is far apart)
+
+HPS - Pros: HPS is simple to implement, does well under a wide range of conditions, and runs in real-time.
+
+Cons: low frequency resolution must be enhanced by zero-padding, so that the spectrum can be interpolated to the nearest semitone. This means that high frequencies are also being unecessarily interpolated.
+
+only works well for signals that have a full set of harmonics with sufficient magnitudes.
+or can add a suitably large non-zero floor to all harmonic magnitudes being multiplied together.
+
+Another severe shortfall of the HPS method is that it its resolution is only as good as the length of the FFT used to calculate the spectrum. If we perform a short and fast FFT, we are limited in the number of discrete frequencies we can consider. In order to gain a higher resolution in our output (and therefore see less graininess in our pitch output), we need to take a longer FFT which requires more time.
+
+
+
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
