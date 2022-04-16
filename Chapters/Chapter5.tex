@@ -6,53 +6,56 @@ Before we feed the audio clip to our machine learning model, it is crucial to pr
 and avoid further deterioration.
 The choice and implementation of noise filter will then be explained in \textbf{LINK TO SECTION 1}. We then feed the filtered output 
 to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key detection algorithm (KDA) \textbf{LINK TO SECTION 3}
-Figure \textbf{UPDATE!} shows the flowchart of the audio processing part of our project.
 
-% \begin{tikzpicture}[>=latex', overlay]
-% 	\tikzset{
-% 		block/.style= {draw, rectangle, fill=white, align=center,minimum width=2cm,minimum height=1cm},
-%         fbox/.style = {rectangle, draw, densely dashed, inner sep=4mm},
-% 		input/.style={ % requires library shapes.geometric
-%         draw,
-%         trapezium,
-%         trapezium left angle=60,
-%         trapezium right angle=120,
-%         minimum width=2cm,
-%         align=center,
-%         minimum height=1cm},
-%     }
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[>=latex', overlay]
+		\tikzset{
+			block/.style= {draw, rectangle, fill=white, align=center,minimum width=2cm,minimum height=1cm},
+			fbox/.style = {rectangle, draw, densely dashed, inner sep=4mm},
+			input/.style={ % requires library shapes.geometric
+			draw,
+			trapezium,
+			trapezium left angle=60,
+			trapezium right angle=120,
+			minimum width=2cm,
+			align=center,
+			minimum height=1cm},
+		}
+		
+		%nodes
+		\node (n1) [block]  {User sings into our app\\ 
+					(Obtain input audio signal)}; 
+		%beige bg
+		\node (bg) [right 0.3cm of n1, anchor=center, draw=none, fill=beige, minimum width=4.5cm,minimum height=2cm]{};
+		\node (bglabel) [above = 0cm of bg]{Implement noise filter};
+		
+		\node (n2) [block, right=1cm of n1]
+					{Spectral reduction};
+		\node (n3) [block, right=0.5cm of n2]
+					{Low-pass filter};
+		\node (n4) [block, below=1.8cm of n1] 
+					{Implement PDA};
+		\node (n5) [block, right=1cm of n4] 
+					{Implement KDA};
+		\node (n6) [block, draw=red, right=1cm of n5]
+					{Pass the output to Ed's ML model\\
+					(Notes and keys)};
+		\node [coordinate, below right =1cm and 4cm of n5] (right) {};  %% Coordinate on right and middle
+		\node [coordinate, above left =1cm and 1cm of n6] (left) {};  %% Coordinate on left and middle
+		\path[draw,->]   (n1) edge (n2)
+					(n2) edge (n3)
+					(n3) -| (right) -- (left) |-  (n4)
+					(n4) edge (n5)
+					(n5) edge (n6);
 
-% 	\node (n1) [block]  {User sings into our app\\ 
-%                  (Obtain input audio signal)}; 
-% 	%\node (n2) [block, right=1cm of n1] 
-%     %            {Trim silence at the start/\\end of audio clip};
-% 	% \node (n3) [block, right=1cm of n1] 
-%     %             {Implement noise filter};
-% 	\node (n4) [block, right=1cm of n1]
-%                 {Spectral reduction};
-% 	\node (n5) [block, right=0.5cm of n4]
-% 				{Low-pass filter};
-% 	\begin{scope}[blend mode=overlay,overlay]
-% 		\node (n3) [fbox, fit=(n4) (n5), fill=beige]  
-% 				{Implement noise filter};
-% 	\end{scope}
-% 	\node (n6) [block, below=1.8cm of n1] 
-%                 {Implement PDA};
-% 	\node (n7) [block, right=1cm of n6] 
-%                 {Implement KDA};
-% 	\node (n8) [block, draw=red, right=1cm of n7]
-%                 {Pass the output to Ed's ML model\\
-% 				(Notes and keys)};
-% 	\node [coordinate, below right =1cm and 4cm of n5] (right) {};  %% Coordinate on right and middle
-% 	\node [coordinate, above left =1cm and 1cm of n6] (left) {};  %% Coordinate on left and middle
-% 	\path[draw,->]   (n1) edge (n3)
-%         		%(n2) edge (n3)
-%         		(n3) edge (n4)
-% 				(n4) edge (n5)
-%         		(n5) -| (right) -- (left) |-  (n6)
-%         		(n6) edge (n7)
-% 				(n7) edge (n8);
-% \end{tikzpicture}
+	\end{tikzpicture}
+	\caption{Flowchart of audio processing}
+	\label{flowchart}
+\end{figure}
+
+Figure \ref{flowchart} shows the flowchart of the audio processing part of our project.
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 0
@@ -132,19 +135,19 @@ compare 3 noise reduction mechanisms.
 		\centering
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=1.1\linewidth]{haar.png}
+		  \includegraphics[width=1\linewidth]{haar.png}
 		  \caption{Haar wavelet}
 		  \label{Haar}
 		\end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 			\centering
-			\includegraphics[width=1.1\linewidth]{order2gaussian.png}
+			\includegraphics[width=1\linewidth]{order2gaussian.png}
 			\caption{Gaussian wavelet of order 1}
 			\label{order1}
 		  \end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=1.1\linewidth]{order2gaussian.png}
+		  \includegraphics[width=1\linewidth]{order2gaussian.png}
 		  \caption{Ricker wavelet - Gaussian wavelet of order 2}
 		  \label{Ricker}
 		\end{subfigure}%
@@ -161,12 +164,12 @@ compare 3 noise reduction mechanisms.
 	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
 	fact, this method is used by Audacity in its noise reduction algorithm. \cite{audacity}
 	Suppose noise is additive, and we can represent our noisy audio 
-	\begin{equation} \label{eq:1}
+	\begin{equation} \label{sreduction}
 	\y(n) = x(n) + d(n), for 0 <= n <= N-1 
 	\end{equation}
 	where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
-	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \textbf{CHANGE!!!1}:
+	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
 	\[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
 	where $k$ is the frame number, which can be dropped if we assume the signal is segmented. Each segment will be of
 	length $N$. We then have the desired signal in frequency domain:
@@ -202,7 +205,7 @@ summarised according to (Karam et al., 2014)
 	\centering
 	\includegraphics[scale=0.35]{spectralprocess.png}
 	\caption{Spectral noise gating flowchart \cite{spectralflowchart}}
-	\label{flowchart}
+	\label{spectralflowchart}
 \end{figure}
 The noise spectrum $N(\omega)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
 before they sing into the app.
@@ -233,9 +236,10 @@ On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 3
 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
 \begin{table}
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}{0.5\linewidth}
 		\label{table:praat}
 		\centering
+		\small
 		\begin{tabular}{lrr}		& Male   & Female  \\
 			Pitch range (Hz)            & 60-180 & 160-300 \\
 			Praat pitch range (Hz) 		& 50-300 & 100-600
@@ -244,7 +248,7 @@ On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 3
 		\end{minipage}\hfill
 	\begin{minipage}{0.55\linewidth}
 		\centering
-		\includegraphics[scale=0.45]{f0vage.jpeg}
+		\includegraphics[scale=0.4]{f0vage.jpeg}
 		\label{f0vage_chart}
 		\captionof{figure}{Scatter plot of fundamental frequency by age \cite{f0age}}
 	\end{minipage}
@@ -253,8 +257,10 @@ On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 3
 After referring to the measurements taken from 192 participants (Stathopoulos et al., 2011) and the pitch range
 set by Praat (a software for speech analysis) \cite{praat}, a simple modelling of $f_c$ according to age and gender
 is as below:
+
 \[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 <= n <= 93\]
 \[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 <= n <= 93\]
+
 In deciding which filter to implement, there are 3 filters in consideration:
 \begin{enumerate}[label=(\alph*)]
 	\item Type 1 Chebyshev filter
@@ -280,19 +286,19 @@ Thus, Bessel filter is preferred in this context.
 	\centering
 	\begin{subfigure}{.32\textwidth}
 	  	\centering
-	  	\includegraphics[width=1.1\linewidth]{chebyshev.jpeg}
+	  	\includegraphics[width=1\linewidth]{chebyshev.jpeg}
 	  	\caption{Type 1 Chebyshev filter frequency response}
 	  	\label{fig:sub1}
 	\end{subfigure}%
 	\begin{subfigure}{.32\textwidth}
 	  	\centering
-	  	\includegraphics[width=1.1\linewidth]{butterworth.jpeg}
+	  	\includegraphics[width=1\linewidth]{butterworth.jpeg}
 	  	\caption{Butterworth filter frequency response}
 	  	\label{fig:sub2}
 	\end{subfigure}
 	\begin{subfigure}{.32\textwidth}
 		\centering
-		\includegraphics[width=1.1\linewidth]{bessel.jpg}
+		\includegraphics[width=1\linewidth]{bessel.jpg}
 		\caption{Bessel filter frequency response \cite{bessel}}
 		\label{fig:sub3}
 	\end{subfigure}
@@ -322,13 +328,32 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 		\includegraphics{zcr.png}
 		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
 	\end{figure}
+
+	\item Harmonic Product Spectrum (HPS) (frequency domain)
+	As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
+	which the peaks corresponds to $f0$ with other peaks indicating the harmonic components of integer multiples of $f0$. 
+	Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them wiht the original spectrum as shown in figure 
+	\ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
 	
+	\begin{figure}
+		\includegraphics[width=0.5\textwidth]{HPS.png}
+		\caption{Harmonically compressed log spectra \cite{HPS}}
+		\label{HPS}
+	\end{figure}
+	
+	Firstly, we convolve the signal with a Hanning window to segment the input:
+	\[w(n) = \frac{1+cos(2\pi n/N-1)}{2}, for 0<= n<= N-1\], where $N$ is the number of samples.
+	We then convert it from time-domain to frequency-domain by computing the short-time Fourier Transform:
+	\[STFT \{x[n]\}(k,\omega) = X(k,\omega )= \sum _{n=-\infty }^{\infty }x[n]w[n-k]e^{-j\omega n}\]
+	Lastly we compute the product of spectrum at harmonics of a frequency and $f0$ is estimated by:
+	\[f0 = argmax\prod_{k=1}^{n}|X(kf)|\] 
+
 	\item YIN algorithm/ autocorrelation (time domain)
 	As outlined by (de Cheveigné & Kawahara, 2002), YIN algorithm is based on a slightly altered autocorrelation method:
 	\[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
 	where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
 	window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in figure 
-	\textbf{INSERT}
+	\ref{taped}
 
 	\begin{figure}
 		\centering
@@ -350,7 +375,7 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 		  \caption{$r_t(\tau)$ calculated with the equation \ref{signal}}
 		  \label{taped}
 		\end{subfigure}%
-		\label{fig}
+		\label{YIN}
 	\end{figure}
 	
 	We then select the highest peak by exhaustive search within an user-defined range of lags, the corresponding time lag will be
@@ -366,27 +391,8 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\]
 	We then find $\tau$ that minimises $CMNDF(\tau)$ and the corresponding $f0$.
 
-	\item Harmonic Product Spectrum (HPS) (frequency domain)
-	As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
-	which the peaks corresponds to $f0$ with other peaks indicating the harmonic components of integer multiples of $f0$. 
-	Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them wiht the original spectrum as shown in figure 
-	\ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
-	
-	\begin{figure}
-		\includegraphics[width=0.5\textwidth]{HPS.png}
-		\caption{Harmonically compressed log spectra \cite{HPS}}
-		\label{HPS}
-	\end{figure}
-	
-	Firstly, we convolve the signal with a Hanning window to segment the input:
-	\[w(n) = \frac{1+cos(2\pi n/N-1)}{2}, for 0<= n<= N-1\], where $N$ is the number of samples.
-	We then convert it from time-domain to frequency-domain by computing the short-time Fourier Transform:
-	\[STFT \{x[n]\}(k,\omega) = X(k,\omega )= \sum _{n=-\infty }^{\infty }x[n]w[n-k]e^{-j\omega n}\]
-	Lastly we compute the product of spectrum at harmonics of a frequency and $f0$ is estimated by:
-	\[f0 = argmax\prod_{k=1}^{n}|X(kf)|\] 
-
 	\item CREPE (Convolutional Representation for Pitch Estimation)
-	CREPE is a data-driven algorithm developed by (Kim et al., 2018) that operates directly on the time-domain.
+	CREPE is a data-driven algorithm developed by Kim et al. that operates directly on the time-domain.
 	It consists of a deep convolutional neural network trained by synthesized audio from the RWC Music Database \cite{rwcdb}
 	and MedleyDB \cite{medleydb}. 
 
@@ -399,39 +405,62 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 		\label{CREPE}
 	\end{figure}
 
-
 \end{enumerate}
-
-
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 \subsection{Comparison between models and implementation}
-The zero crossings method will not be considered since it heavily relies on the assumption that the input audio is of pure tone. Yet,
+The zero crossings method will not be considered though it has the cheapest computational cost. One limitation is that
+the threshold is fixed at 0, it is susceptible to noise and the vocal timbre of the user. Moreover, the method heavily relies on
+the assumption that the input audio is of pure tone but unlike a tuning fork, human voice is not a pure tone. It is 
+composed of a fundamental frequency and upper harmonics. \cite{humanmono} This characteristic makes this method extremely
+unreliable.
 
+Like the zero-crossings method, HPS is intuitive and has little computational cost. But since it builds on the characteristics 
+that the signal contains amplitudes at harmonics, if the input signal does not have sufficient magnitudes at other harmonics, the 
+performance of HPS will suffer. Moreover, the resolution of the method depends on the length of short-time Fourier Transform, which
+determines the number of discrete frequencies that we can consider. But if we want a higher resolution and less graininess in our 
+pitch output, more time is needed in performing the transform.
 
-"the human voice is not a pure tone (as produced by a tuning fork); rather, it is composed of a fundamental tone (or frequency of vibration) and a series of higher frequencies called upper harmonics," \cite{humanmono}
+YIN has a more satisfactory performance but when the pitch varies rapidly (for example if the user has a breathy timbre), it cannot 
+estimate the pitch correctly as the algorithm uses a constant threshold. On the other hand, Kim et al. mentioned CREPE has a higher 
+tolerance for inputs with different timbres since CREPE is trained with MedleyDB which contains recordings heterogeneous timbres. Figure 
+\ref{CREPEperf} concludes the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and other 2 PDA by Kim et al. and we will choose CREPE 
+to implement in our model.
 
-acf- range of lags have to be considered ( if too small, choose zero lag peak. if too high, erroneously choose a higher order peak that is far apart)
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{CREPEperf.png}
+	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al. \cite{CREPE}}
+	\label{CREPEperf}
+\end{figure}
 
-HPS - Pros: HPS is simple to implement, does well under a wide range of conditions, and runs in real-time.
+The CREPE code uploaded by Kim et al. takes in the samples $y$, sampling rate $sr$ and a boolean parameter (True/ False) for viterbi, which is a smoothing algorithm. 
+It calculates pitch every 10 ms and outputs the timestamp, estimated frequency $\hat{f0}$, confidence $c$ and an activation matrix for visualization of outputs. 
 
-Cons: low frequency resolution must be enhanced by zero-padding, so that the spectrum can be interpolated to the nearest semitone. This means that high frequencies are also being unecessarily interpolated.
+The sampling rate of training data used by CREPE is at 16 kHz thus our input audio will need to be resampled to 16 kHz if the original $sr \neq 16 kHz$. If the user is using iPhone 
+built-in microphone to record, we need to set the preferred sampling rate to 16 kHz \cite{iphoneaud} when coding for our iOS app.
 
-only works well for signals that have a full set of harmonics with sufficient magnitudes.
-or can add a suitably large non-zero floor to all harmonic magnitudes being multiplied together.
+One thing to note is that the algorithm centers the first frame at $t=0$ instead of starting the first frame at $t=0$ to avoid misalignment.
 
-Another severe shortfall of the HPS method is that it its resolution is only as good as the length of the FFT used to calculate the spectrum. If we perform a short and fast FFT, we are limited in the number of discrete frequencies we can consider. In order to gain a higher resolution in our output (and therefore see less graininess in our pitch output), we need to take a longer FFT which requires more time.
+Continuing from the noise filtered signal, we use [y, sr]= scipy.io.wavfile.read(filename, mmap=False) function to read the input and feed $y$ and $sr$ into crepe.predict(y, sr, viterbi=True)
+The output will be of the form [timestamp, $\hat{f0}$, $c$, activation matrix].
 
-
-
+We then manipulate the $\hat{f0}$ array such that
+\[\hat{f0}= 
+\begin{dcases}
+    \hat{f0},		& \text{if } c\geq 0.5\\
+    0,              & \text{otherwise}
+\end{dcases}
+\]
+and omit frequencies that lasted less than 10 timeframes (0.1s).
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-
 \subsection{Improvements}
-(find an algorithm to take in users’ singing frequency to improve accuracy of the model ( perhaps adjust the likelihood of the crepe model?) ( look into automl)
+
+(find an algorithm to take in users’ singing frequency to improve accuracy of the model ( perhaps adjust the likelihood of the crepe model?)
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
