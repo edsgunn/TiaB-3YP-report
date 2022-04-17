@@ -27,7 +27,7 @@ to a pitch detection algorithm (PDA) \textbf{lINK TO SECTION 2} and then a key d
 		\node (n1) [block]  {User sings into our app\\ 
 					(Obtain input audio signal)}; 
 		%beige bg
-		\node (bg) [right 0.3cm of n1, anchor=center, draw=none, fill=beige, minimum width=4.5cm,minimum height=2cm]{};
+		\node (bg) [right =0.3cm of n1, anchor=center, draw=none, fill=beige, minimum width=4.5cm,minimum height=2cm]{};
 		\node (bglabel) [above = 0cm of bg]{Implement noise filter};
 		
 		\node (n2) [block, right=1cm of n1]
@@ -165,7 +165,7 @@ compare 3 noise reduction mechanisms.
 	fact, this method is used by Audacity in its noise reduction algorithm. \cite{audacity}
 	Suppose noise is additive, and we can represent our noisy audio 
 	\begin{equation} \label{sreduction}
-	\y(n) = x(n) + d(n), for 0 <= n <= N-1 
+		\y(n) = x(n) + d(n), \textit{for} 0 \leq n \leq N-1 
 	\end{equation}
 	where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
@@ -257,10 +257,10 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 After referring to the measurements taken from 192 participants (Stathopoulos et al., 2011) and the pitch range
 set by Praat (a software for speech analysis) \cite{praat}, a simple modelling of $f_c$ according to age and gender
 is as below:
-
-\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 <= n <= 93\]
-\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 <= n <= 93\]
-
+\begin{align}
+	\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 <= n <= 93\] \label{male}\\
+	\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 <= n <= 93\] \label{female}
+\end{align}
 In deciding which filter to implement, there are 3 filters in consideration:
 \begin{enumerate}[label=(\alph*)]
 	\item Type 1 Chebyshev filter
@@ -381,7 +381,7 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	We then select the highest peak by exhaustive search within an user-defined range of lags, the corresponding time lag will be
 	the inverse of our estimated $f0$
 
-	To improve the error rates and target periodicity, de Cheveigné & Kawahara introduced a cumulative mean normalized difference function (CMNDF)
+	To improve the error rates and target periodicity, de Cheveigné \& Kawahara introduced a cumulative mean normalized difference function (CMNDF)
 	to replace ACF. 
 	\[CMNDF(\tau) =  
 	\begin{cases}
@@ -398,19 +398,27 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 
 	CNN is often seen in image-processing application and is a network that makes use of convolution instead of the typical matrix multiplication..
 	It consists of an input layer, hidden layers and an output layer. Hidden layers includes convolution layers, pooling layers and fully connected layers.
+	
+	As shown in figure \ref{CREPE}, there are 6 hidden layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
+
 	Convolution layer are the building blocks of CNN since it performs feature extraction through convolution and activation function like $ReLU$.
+	There are 2 hyperparameters that define a convolution operation, which are the kernel size and number of kernels. Kernels in the convolutional layer context are convolutional
+	filters, so that kernel size refers to the size of filter mask and number of kernels relates to the number of output features desired. Figure \ref{CREPE} shows the hyperparameters
+	used in CREPE.
 
-
-	Max pooling is often used in the operation of pooling layer and is the operation used in CREPE. It outputs the maximum value in a patch extracted from the input tensor and discards the non-maximum values. 
+	Max pooling is often used in the operation of pooling layer and is the operation used in CREPE. It outputs the maximum value in a patch extracted from the
+	input tensor and discards the non-maximum values. 
 	One advantage of using max pooling is that it suppresses noise better than other dimensionality reduction methods like average pooling.
-	The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
-	As shown in \ref{CREPE}, there are 6 convolutional layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
+
+	A fully connected layer maps all extracted features in one layer to every activation unit of the next layer. In the context of CNN, it is often seen in the
+	last few layers to compile the features for final output.
 
 	\begin{figure}
 		\includegraphics[width=0.5\textwidth]{CREPE.png}
 		\caption{The architecture of the CREPE algorithm \cite{CREPE}}
 		\label{CREPE}
 	\end{figure}
+	%The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
 
 \end{enumerate}
 
@@ -450,15 +458,15 @@ built-in microphone to record, we need to set the preferred sampling rate to 16 
 
 One thing to note is that the algorithm centers the first frame at $t=0$ instead of starting the first frame at $t=0$ to avoid misalignment.
 
-Continuing from the noise filtered signal, we use [y, sr]= scipy.io.wavfile.read(filename, mmap=False) function to read the input and feed $y$ and $sr$ into crepe.predict(y, sr, viterbi=True)
+Continuing from the noise filtered signal, we use \emph{[y, sr]= scipy.io.wavfile.read(filename, mmap=False)} function to read the input and feed $y$ and $sr$ into \emph{crepe.predict(y, sr, viterbi=True)}
 The output will be of the form [timestamp, $\hat{f0}$, $c$, activation matrix].
 
 We then manipulate the $\hat{f0}$ array such that
 \[\hat{f0}= 
-\begin{dcases}
+\begin{cases}
     \hat{f0},		& \text{if } c\geq 0.5\\
     0,              & \text{otherwise}
-\end{dcases}
+\end{cases}
 \]
 and omit frequencies that lasted less than 10 timeframes (0.1s).
 %-----------------------------------
@@ -466,10 +474,21 @@ and omit frequencies that lasted less than 10 timeframes (0.1s).
 %-----------------------------------
 \subsection{Improvements}
 
-On top of the convolutional neural network model, we can i
-(find an algorithm to take in users’ singing frequency to improve accuracy of the model ( perhaps adjust the likelihood of the crepe model?)
+On top of the convolutional neural network model, we can integrate Bayesian statistics into 
+improve the model.
 
+Bayes' rule states: 
+\[P(A\mid B)=\frac {P(B\mid A)P(A)}{P(B)}\]
+where $P(A\mid B)$ is the posterior probability or the updated probability with the consideration of evidence.
+$P(B\mid A)$ is the likelihood, which is the probability of observing the evidence given the event has happened.
+$P(A)$ is the prior probability, which is the probability before taking consideration the evidence.
+$P(B)$ is known as the marginal probability, which is the probability of an event irrespective of outcomes of any evidence. 
 
+With enough audio samples sung by the user, we can collect the range of pitches that he/she manages to sing. Then we can model 
+the probability distribution $P(x)$ to update the likelihood of observing a certain pitch given the previous audio samples.
+
+The prior $P(A)$ can be obtained from the demographic characteristics collected, i.e. age and gender, with the afore modelled equation
+\ref{male} and equation \ref{female}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
