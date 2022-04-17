@@ -232,7 +232,7 @@ in targeting the reduction of ambient noise. Thus as to avoid removing low-frequ
 
 To determine $f_c$ for the LPF, it would be plausible to refer to biological features of the users, i.e. their age and gender.
 For males, the pitch level generally reduces from infancy to middle age, while a reversal of trend occurs after middle age. \cite{womenprange}
-On the other hand, as pointed out by (Nishio & Niimi, 2008), "Females in their 30s and 40s showed obviously lower frequencies than those in their
+On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 30s and 40s showed obviously lower frequencies than those in their
 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
 \begin{table}
@@ -349,7 +349,7 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\[f0 = argmax\prod_{k=1}^{n}|X(kf)|\] 
 
 	\item YIN algorithm/ autocorrelation (time domain)
-	As outlined by (de Cheveigné & Kawahara, 2002), YIN algorithm is based on a slightly altered autocorrelation method:
+	As outlined by (de Cheveigné \& Kawahara, 2002), YIN algorithm is based on a slightly altered autocorrelation method:
 	\[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
 	where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
 	window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in figure 
@@ -393,9 +393,16 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 
 	\item CREPE (Convolutional Representation for Pitch Estimation)
 	CREPE is a data-driven algorithm developed by Kim et al. that operates directly on the time-domain.
-	It consists of a deep convolutional neural network trained by synthesized audio from the RWC Music Database \cite{rwcdb}
+	It consists of a deep convolutional neural network (CNN) trained by synthesized audio from the RWC Music Database \cite{rwcdb}
 	and MedleyDB \cite{medleydb}. 
 
+	CNN is often seen in image-processing application and is a network that makes use of convolution instead of the typical matrix multiplication..
+	It consists of an input layer, hidden layers and an output layer. Hidden layers includes convolution layers, pooling layers and fully connected layers.
+	Convolution layer are the building blocks of CNN since it performs feature extraction through convolution and activation function like $ReLU$.
+
+
+	Max pooling is often used in the operation of pooling layer and is the operation used in CREPE. It outputs the maximum value in a patch extracted from the input tensor and discards the non-maximum values. 
+	One advantage of using max pooling is that it suppresses noise better than other dimensionality reduction methods like average pooling.
 	The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
 	As shown in \ref{CREPE}, there are 6 convolutional layers and each layer is followed by a dropout layer with dropout probability of 0.25. 
 
@@ -459,7 +466,9 @@ and omit frequencies that lasted less than 10 timeframes (0.1s).
 %-----------------------------------
 \subsection{Improvements}
 
+On top of the convolutional neural network model, we can i
 (find an algorithm to take in users’ singing frequency to improve accuracy of the model ( perhaps adjust the likelihood of the crepe model?)
+
 
 
 %----------------------------------------------------------------------------------------
