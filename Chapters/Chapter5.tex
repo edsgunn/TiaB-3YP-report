@@ -164,9 +164,7 @@ compare 3 noise reduction mechanisms.
 	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
 	fact, this method is used by Audacity in its noise reduction algorithm. \cite{audacity}
 	Suppose noise is additive, and we can represent our noisy audio 
-	\begin{equation} \label{sreduction}
-		\y(n) = x(n) + d(n), \textit{for} 0 \leq n \leq N-1 
-	\end{equation}
+	\[y(n) = x(n) + d(n), \textit{for} 0 \leq n \leq N-1 \label{sreduction} \]
 	where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
 	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
@@ -239,14 +237,14 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 	\begin{minipage}{0.5\linewidth}
 		\label{table:praat}
 		\centering
-		\small
+		\scalebox{0.7}{
 		\begin{tabular}{lrr}		& Male   & Female  \\
 			Pitch range (Hz)            & 60-180 & 160-300 \\
 			Praat pitch range (Hz) 		& 50-300 & 100-600
-		\end{tabular}
+		\end{tabular}}
 		\caption{Praat pitch range}
 		\end{minipage}\hfill
-	\begin{minipage}{0.55\linewidth}
+	\begin{minipage}{0.6\linewidth}
 		\centering
 		\includegraphics[scale=0.4]{f0vage.jpeg}
 		\label{f0vage_chart}
@@ -257,10 +255,8 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 After referring to the measurements taken from 192 participants (Stathopoulos et al., 2011) and the pitch range
 set by Praat (a software for speech analysis) \cite{praat}, a simple modelling of $f_c$ according to age and gender
 is as below:
-\begin{align}
-	\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 <= n <= 93\] \label{male}\\
-	\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 <= n <= 93\] \label{female}
-\end{align}
+\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 \leq n\leq 93 \label{male} \] 
+\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 \leq n \leq 93 \label{female} \] 
 In deciding which filter to implement, there are 3 filters in consideration:
 \begin{enumerate}[label=(\alph*)]
 	\item Type 1 Chebyshev filter
@@ -268,8 +264,8 @@ In deciding which filter to implement, there are 3 filters in consideration:
 	where $\varepsilon$  is the ripple factor, $\omega _{0}$ is the cut-off frequency
 	and $T_{n}$ is a Chebyshev polynomial of the $n$th order.
 	\item Butterworth filter
-	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{sqrt{1+(\omega/\omega_{0})^{2n})}}}\]
-	where $\omega _{0}$ is the cut-.off frequency and $n$ is the order of filter.
+	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+(\omega/\omega_{0})^{2n})}}}\]
+	where $\omega _{0}$ is the cut-off frequency and $n$ is the order of filter.
 	\item Bessel filter
 	\[G_{n}(\omega) = |H_{n}(j\omega)| ={\frac {\theta _{n}(0)}{\theta _{n}(j\omega/\omega _{0})}}\]
 	where $\theta _{n}(j\omega)$ is a reverse Bessel polynomial and $\omega _{0}$ is the cut-off frequnecy
@@ -325,7 +321,8 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	where $P_{Zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
 	$N$ is the number of samples
 	\begin{figure}
-		\includegraphics{zcr.png}
+		\centering
+		\includegraphics[width=0.5\textwidth]{zcr.png}
 		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
 	\end{figure}
 
@@ -336,6 +333,7 @@ There are 4 approaches to detect $f0$, which again can be classified into time d
 	\ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
 	
 	\begin{figure}
+		\centering
 		\includegraphics[width=0.5\textwidth]{HPS.png}
 		\caption{Harmonically compressed log spectra \cite{HPS}}
 		\label{HPS}
