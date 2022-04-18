@@ -186,7 +186,7 @@ As mentioned above, we first use \emph{Pandas} to clean up the data. A nested lo
 Now that the dataset has been preprocessed, it can now be converted into a format that is appropriate for input to the machine learning model.
 
 \subsection{LSTM format}
-The LSTM data input format is a matrix with 37 columns, with each row containing informaion about a single measure. The first 12 columns represent the 12 note (C,C\#, etc.), the next 24 columns represent the 12 major chords and the 12 minor chords, and the last column correspond to the absence of a chord. If a particular note exists within a particular measure, the element that corresponds to that particular measure (row) and particular note (column) will be the normalised duration of that note. Similarly, the element that corresponds to the chord of a particular measure will be a '1'. Notes and chords that are not present within that measure will be marked with a '0'. If no chords are present within a measure, the last column will be marked as a '1'. A pictorial representation of the transformation is shown in Figure \ref{fig:LSTM}.
+The LSTM data input format is a matrix with 37 columns, with each row containing informaion about a single measure. The first 12 columns represent the 12 note (C,C\#, etc.), the next 24 columns represent the 12 major chords and the 12 minor chords, and the last column correspond to the absence of a chord. If a particular note exists within a particular measure, the element that corresponds to that particular measure (row) and particular note (column) will be the normalised duration of that note. Similarly, the element that corresponds to the chord of a particular measure will be a '1'. Notes and chords that are not present within that measure will be marked with a '0'. If no chords are present within a measure, the last column will be marked as a '1'. A pictorial representation of the transformation is shown in Figure \ref{fig:LSTMData}.
 
 \subsubsection{Code}
 We again use a nested loop to loop through each DataFrame row for each song. Two 1 by 37 arrays \emph{LSTM\_data} and \emph{new\_row} are initialised. As we loop through each row, we keep track of the meaasure. As long as the measure does not change, \emph{new\_row} is progressively updated with the normalised note durations of the present notes in this manner: $\emph{new\_row}[0,\emph{note}-1] = \emph{new\_row}[0,\emph{note}-1] + \emph{normalised\_note\_duration}$, where \emph{note} is the numerical representation of the note present in each DataFrame row and \emph{normalised\_note\_duration} is the normalised note duration of that note. This works because the mapping between the notes and their numerial representation starts at 1 and ends at 12 (as can be seem in Table \ref{tab:note_map}) and indexing starts at zero in Python. Hence, the (\emph{note}-1)\textsuperscript{th} column of the LSTM format (and thereby \emph{new\_row}) will correspond to \emph{note}.
@@ -199,15 +199,15 @@ Once the measure changes, the now complete \emph{new\_row} for the previous meas
     \includegraphics[scale=0.3]{Figures/LSTM pictorial 4}
     \decoRule
     \caption{Transforming DataFrame to LSTM data input format.}
-    \label{fig:LSTM}
-    \end{figure}
+    \label{fig:LSTMData}
+\end{figure}
     
 
 
 \subsection{Transformer format}
-The transformer requires two data inputs: a single sequence of notes for each song, and a separate sequence of chords for eaach song. Both sequences are constructed by going down the Dataframe rows, and adding the notes/chords of each row to the respective sequences based on the \emph{note\_duration} value, e.g. a sequence of 4 'C\#'s for a 'C\#' with a \emph{note\_duration} of 4.0, and a sequence of 16 'Bmaj' for a 'B major' of \emph{note\_duration} of 16.0. Another example is presented in Figure \ref{fig:Transformer}. Of course, this means that only integer values of \emph{note\_duration} are accepted and measures with non-integer values have to be removed beforehand.
+The transformer requires two data inputs: a single sequence of notes for each song, and a separate sequence of chords for eaach song. Both sequences are constructed by going down the Dataframe rows, and adding the notes/chords of each row to the respective sequences based on the \emph{note\_duration} value, e.g. a sequence of 4 'C\#'s for a 'C\#' with a \emph{note\_duration} of 4.0, and a sequence of 16 'Bmaj' for a 'B major' of \emph{note\_duration} of 16.0. Another example is presented in Figure \ref{fig:TransformerData}. Of course, this means that only integer values of \emph{note\_duration} are accepted and measures with non-integer values have to be removed beforehand.
 
-It is obvious that the sequences will be very long given that just the three rows in Figure \ref{fig:Transformer} resulted in 16 elements for each sequence. As shown in Chapter 4, the time complexity of the Transformer is ${n}^2$. Hence, it is crucial to reduce the sequence length to shorten the training time. This can be achieved by dividing all \emph{note\_duration} by their largest common factor for all measures within a single song. This may not reduce the length of the sequences for all songs (songs with \emph{note\_duration of 1.0} will have a trivial largest common factor of 1.0), but it will still reduce the sequence length for some songs, as shown in Figure \ref{fig:Transformer LCF}, which will decrease the training time significantly.
+It is obvious that the sequences will be very long given that just the three rows in Figure \ref{fig:TransformerData} resulted in 16 elements for each sequence. As shown in Chapter 4, the time complexity of the Transformer is ${n}^2$. Hence, it is crucial to reduce the sequence length to shorten the training time. This can be achieved by dividing all \emph{note\_duration} by their largest common factor for all measures within a single song. This may not reduce the length of the sequences for all songs (songs with \emph{note\_duration of 1.0} will have a trivial largest common factor of 1.0), but it will still reduce the sequence length for some songs, as shown in Figure \ref{fig:Transformer LCF}, which will decrease the training time significantly.
 
 
 \begin{figure}
@@ -215,7 +215,7 @@ It is obvious that the sequences will be very long given that just the three row
     \includegraphics[scale=0.3]{Figures/Transformer 2}
     \decoRule
     \caption{Converting DataFrame to Transformer data input format.}
-    \label{fig:Transformer}
+    \label{fig:TransformerData}
     \end{figure}
 
 \begin{figure}

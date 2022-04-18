@@ -10,24 +10,25 @@
 
 \section{Introduction}
 
-The process of writing music often begins with and idea for a melody which is followed by the development of chords to accompany it.
-The matching of chords to a melody is a skill which usually requires years of training in musical techniques such as harminisation.
+The process of writing music often begins with an idea for a melody which is followed by the development of chords to accompany it.
+The matching of chords to a melody is a skill which usually requires years of training in musical techniques such as harmonisation.
 There is a large market of amateur musicians who lack the necessary training for this task but would otherwise enjoy the experience of developing music.  
-In this report we will detail the design of \textbf{INSERT NAME HERE}, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
+In this report we will detail the design of ReChorder, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
 Users are able to record a melody using their microphone and regenerate the chord sequence until they feel the they have found one suitable for the intended feel of their song.
 Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature. \\
 The problem of converting a recorded melody to a set of chords can be decomposed into a set of simpler sub-probblems, these being:
-The conversion of the recorded melody into a form which numerically represents its features. 
-The generation of a set of chords from this numerical representation.
-The latter of these two problems can be solved in many ways many of which require a detailed knowlege of music to find patterns in melodies to match to chords.  
-\textbf{WHY IS THIS A PROBELM FOR US}
-A method which requires little knowlege of music is the used of a machine learning model to extract these patters from data of known chord melody pairings from professionally composed music. 
+the conversion of the recorded melody into a form which numerically represents its features,
+and the generation of a set of chords from this numerical representation,
+The latter of these two problems can be solved in a variety of ways, many of which require a detailed knowlege of music to find patterns in melodies to match to chords.  
+\textbf{WHY IS THIS A PROBLEM FOR US}
+A method which requires little knowlege of music is the use of a machine learning model to extract these patterns from data of known chord melody pairings from professionally composed music. 
 The curation and processing of an appropriate dataset requires significant effort and care in itself.
 This leads to a natural division of labour across the project into the catagories of:
-User Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
-Curation and preparation of a dataset in an appropriate format - detailed in \ref{Chapter3} by Terence Tan;
-The design of an appropriate machine learning model - detailed in \ref{Chapter4} by Edward Gunn;
-The conversion of recorded melody to the same format as expressed in the dataset - detailed in \ref{Chapter5} by Kitty Fung.
+\label{sec:Introduction}
+user Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
+curation and preparation of a dataset in an appropriate format - detailed in \ref{Chapter3} by Terence Tan;
+the design of an appropriate machine learning model - detailed in \ref{Chapter4} by Edward Gunn;
+the conversion of recorded melody to the same format as expressed in the dataset - detailed in \ref{Chapter5} by Kitty Fung.
 
 
 %-----------------------------------
@@ -35,15 +36,26 @@ The conversion of recorded melody to the same format as expressed in the dataset
 %-----------------------------------
 \subsection{Musical terminology}
 
-Throught this report we will use a variety of musical terminoligy which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
+Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
 We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes, the justification for this is explained in \textbf{reference to explanation}.
 The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+\subsection{Project Overview and Software Design}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/MVPOverview}
+    \decoRule
+    \caption[]{A diagram of the end to end proccessing for the product}
+    \label{fig:MVPOverview}
+\end{figure}
+As stated in \ref{sec:Introduction} the project is modularised into a number of independent parts.
+The interface of each module has been pre-defined such that regardless of module implementation the modules can function togeather. 
+For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
+These modules can be connected in the given order to produce and end to end system which allows for the conversion of recorded melody to the playback of the melody with appropriate accompaniment.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -51,8 +63,16 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 
 \section{Project management}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
-
+The project was conducted with an agile approach. 
+At the beginning of the project we clearly defined our objectives and wrote an MVP specification of a product we hoped to produce as proof of concept.
+As stated in the introduction \ref{sec:Introduction} we divided the work into four distinct sections suited to the skills and exerience each team member posessed and was interested in expanding.
+Using the defined objectives and division of responsibilities we produced and prioritsed a backlog of work to be completed and created a timeline for this work to be completed in the form of a Gantt chart.
+We organised week long sprints with a meeting at the end of each sprint to track our progress and adjust pace on lessons learned. 
+Any work not compelted in one sprint was carried over to the next.
+A cadance of completeing once piece of work each from the backlog per sprint was established.
+Minutes were taken in the weekly meetings to record important decisions.
+To ensure collaboration within the team we kept centralised repositiories of resources from which we were able to easily access other peoples work and track changes to our code bases.
+These repositiories took the form of a shared OneDrive folder, for project documents and relevant academic papers, and two git repositories, one to manage our code and one to manage the writing of our report.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
