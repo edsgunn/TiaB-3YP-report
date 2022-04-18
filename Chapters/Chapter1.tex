@@ -82,13 +82,47 @@ These repositiories took the form of a shared OneDrive folder, for project docum
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Risk}
+\section{Risk and Data Security}
+For data security reason, these two are typically encrypted by default. Data is also ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t give itself permission to access anything – that’s why the permissions system pops up messages saying “so-and-so app would like to access your location, contacts and camera.” That prevents the app from reading data from other apps, or with the phone’s operating system, unless you’ve given the app permission. It’s on developers to make sure that their apps only request the access they need.
+\\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that server and app authenticate each other before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous assessment of network security and compliance with security standards.
+\\Because finding defects in production is expensive! The key reason why people perform risk analysis during software testing is to better understand what can really go wrong with an application before it goes into production. A risk analysis performed during software testing helps to identify areas where software flaws could result in serious issues in production. By identifying areas of concern early, developers are able to proactively remediate and reduce the overall risk of a production defect.
+\\ talk about stability 
 
+\subsection {flows}
+identification, causes, impacts, action required
+\\ identification: leakage
+\\ identification: attacks 
+\\ more
 
+\subsection {GDPR Compliance} 
+important sections
+\\ how to
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
-\section{Finance}
+\section{Finance and Monetisation}
+
+\subsection{Cost Break-down}
+
+As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple AppStore} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
+\\ 99 US dollar developer account fee 
+\\ The transaction fee through the Bank will be 2.9\%
+
+\subsection{Source of Cash Inflow}
+There are two main sources of cash inflow through our app, advertisements and subscription fee.
+\\ \textbf{Advertisament}
+\\ \textbf{Subscription}
+
+
+\subsection{Pricing Strategy}
+Applicable:
+\\Psychological pricing
+\\Dynamic pricing
+\\Value-based pricing
+
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
