@@ -23,49 +23,49 @@
 
 
 The problem of generation of a set of chords from a melody is very similar to that of translating one language to another. 
-The translation problem is one that is very popular in machine learning research and thus there is many resources on it.  
-However the music related problem is harder to solve due to the extra dimension each of its elements contains. 
-Each element in a melody has both pitch, represented by a descrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or words.  
-Therefore in order to use techniques developed for natural language processing it is necessary to encode the melody and chords in such a way that their dimensions are collapsed into one. 
+The translation problem is one that is very popular in machine learning research and thus there are many resources on it.  
+However, the music related problem is harder to solve due to the extra dimension each of its elements contains. 
+Each element in a melody has both pitch, represented by a discrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or words.  
+Therefore, in order to use techniques developed for natural language processing, it is necessary to encode the melody and chords in such a way that their dimensions are collapsed into one. 
 Since this collapsing of dimensions has already been conducted in \textbf{REF TO DATA CHAPTER} we are able to take full advanatges of NLP techniques.
-There has been many attempts to apply some of these techniques to the chord generation problem. 
-In order to find the best model we evaluate these attempts against a defined criteria and develop a novel model to evalutate against the same criteria.
+There have been many attempts to apply some of these techniques to the chord generation problem. 
+In order to find the best model we evaluate these attempts against a defined criteria and develop a novel model to evaluate against the same criteria.
 
 
 \section{Model Requirements}
 \label{sec:Evaluation}
-\subsection{MVP Requrements}
+\subsection{MVP Requirements}
 \label{sec:MVPRequirements}
-The MVP requirements were defined at the beginning of the project to ensure it is compatible with the other parts of the product that were simaltaniously in development and to ensure the possibbility of the creation of the prototye for proof of concept. 
+The MVP requirements were defined at the beginning of the project to ensure it is compatible with the other parts of the product that were simultaniously in development and to ensure the possibbility of the creation of the prototye for proof of concept. 
 We required the model to be a black box in which we could input a melody and it would output chords which sounded good.
 The notion of sounding good is intentionally vague as what sounds good or bad is usually down to individual taste in music.
 There is never a definitive answer to which chords would sound the best.
 However, we felt \textbf{NEED STRONGER PROOF} that even people without any musical training would be able to judge whether chords fit the melody relatively accurately.
 Within this overarching requirement we defined tighter constraints for the sake of both practicality and user experience. 
 The model would have to be designed for sequential data such that the temporal relationship of the different notes being played were taken into account.
-It would be possible to simply learn a function where for a given measure a chord suited to the notes played within that measure was generated without taking into account surrounding measures.
+It would be possible to simply learn a function where, for a given measure, a chord suited to the notes played within that measure was generated without taking into account surrounding measures.
 This approach could produce reasonable results and be significantly more simple that other options, however, the quality and variation of chords generated would be lower than that of a model for sequential data, hence our choice to forego it.
-The model would also have to be conditional. For a given input it should produce a catered output. This is an obious contraint however for models such as a GAN it recquires changes to the format of the input data.
+The model would also have to be conditional. For a given input it should produce a catered output. This is an obious contraint however for models such as a GAN it requires changes to the format of the input data.
 To maximise user experience the models should be non-deterministic. This allows users to regenerate the accompaniment multiple times to obtain new chords and thus means they can choose what they feel is best.
 For practicality sake we constrained our MVP to only require one chord to be played each measure as the problem of determining when a chord should be played is of similar difficulty to choosing which chord to play.
 \subsection{Other possible Requrements}
 
-There were some constraints which were not used in our project which would provide better quality chords but provided too large a practical barrier to be implemented.
+There were some constraints which were not used in our project which would provide better quality chords but this provided too large a practical barrier to be implemented.
 The act of collapsing the pitch and duration of the notes into a single dimension removes information from the melody.
 In our case this information is the order in which the notes are played and the rhythmic intention of the composer.
 It is likely a model would be able to produce more suitable chords given this information.
-Thus, for a stricter set of constrains we could include the requirement that the order and duration of notes are both maintained in the data.
+Thus, for a stricter set of constraints we could include the requirement that the order and duration of notes are both maintained in the data.
 The accompaniment for music is not limited to a single chord played at the start of each bar.
 A much more interesting accompaniment would be generated if it were not limited to this restrictive format.
 As shown in \cite{ReinforcementLearning} it is possible to create a model which learns the divisons within the music and thus learns when would be most appropriate to play a chord.
-Therfore, in order to allow for more interesting accompaniment, the requirement of one chord per bar could be changed such that chords should be played with closer freedom to that of a human composer.
+Therfore, in order to allow for more interesting accompaniment, the requirement of one chord per bar could be changed such that chords are played with closer freedom to that of a human composer.
 % Strongly temporal
 
 \subsection{Evaluation criteria}
 \paragraph{Approach}
-Many attempts to solve the chord generation problem have been made each of which containing variants on models and implementations which result in large variations in mertrics used for evaluation.
+Many attempts to solve the chord generation problem have been made each of which contain variants on models and implementations which result in large variations in metrrics used for evaluation.
 There is also a large variation in features for which quantative evaluation is impossible. 
-As it would be impractical to implement each relevent model ourselves to allow for full standardistation of evaluation we will evaluate models built ourselves and from previous work based on a set of criteria defined below.
+As it would be impractical to implement each relevent model ourselves to allow for full standardisation of evaluation, we will evaluate models built ourselves and from previous work based on a set of criteria defined below.
 \paragraph{Data}
 One of the biggest influences on the effectiveness of a model is the dataset on which it is trained. 
 In general a larger dataset results in a better generalisation of learning \textbf{Need proof}.
@@ -74,9 +74,9 @@ Many datasets are then further divided down into measures in which there is one 
 Thus for best comparison the number of measures used in the dataset is a good criterion for evaluation.
 This is a particularly important area for evaluation as it will strongly affect the output of the model and thus the results of other 
 
-\paragraph{Quantiative Evalutaion}
+\paragraph{Quantitative Evalutaion}
 There is difficulty in quantative evaluation for this problem as there is no strictly correct chords for a given melody and thus comparison to any specific set of chords gives a skewed interpretation of the output.
-However, the use of conventional quantative evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords and thus can be cautionsly used in evalution.
+However, the use of conventional quantative evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords and thus can be cautiously used in evalution.
 The test set from the data can be used to compare the outputs from the model to previously assigned chords. Accuracy can be found by finding the number of chords successfully predicted and dividing by the total number of chords produced.
 \begin{equation}
     \text{Accuracy} = \frac{\text{Number of Chords Correctly Assigned}}{\text{Total Number of Chords Generated}}
@@ -86,7 +86,7 @@ As this was the only quantative measure consistently used across previous implem
 \paragraph{Qualitative Evaluation}
 Some previous work \cite{MySong}, \cite{BLSTM} carried out experiments to judge the sentiment of untrained musicicans to the generated chords.
 Participants were played the melody accompanied by a varying set of chords and asked to judge which chords they felt were best out of a set containing chords generated by models and some human written accompaniment.
-The results from these experiements can be used to compare models to each other as well as evlauate them relative to the standard set by human written chords.
+The results from these experiments can be used to compare models to each other as well as evlauate them relative to the standard set by human written chords.
 As well as evaluation based on the quality of chords produced we will discuss extra functionality made possible by some models and the effect this has on other evaluation metrics.
 
 \paragraph{Criteria}
@@ -99,21 +99,21 @@ The final criteria used for evaluation are thus:
 \end{itemize}
 \section{Models}
 
-The generation of chords to accompany a monphonic melody is an area which has developed as machine learning techniques are improved. 
-An early approach to this problem from \cite{ChordPrediction} used a standard MLP to learn the relationship between melodies and accompanying chords.
-MySong, the first attempt focusing specifically on a vocal melody in \cite{MySong} used an augment hidden markov model with parameters such that users could adjust the "Happy factor" and "Jazz factor" to alter the mood of the generated chords to their preference.
-A weakness of the hidden markov model is that at each timestep only the previous timestep is considers when suggesting a chord. 
-\cite{BLSTM} utilises a BLSTM to increase the effect of long term dependencies on the output rather than relying only on the previous output.
-\cite{MLForChords} tested and evaluated a number of more simple models such a Logistic Regression, Naive Bayes, SVM and Random Forest trained on data from 43 lead sheets \\
-\cite{ReinforcementLearning} proposed a model  that learns a structured representation for use in symbolic melody harmonization. It utilises two layers of LSTMs to detemine when each chord should be played then utilise a policy gradient RL method to select each chord.
-MuseGAN \\      
-ChordGAN \\       
-CLSTMGAN for melody Generation \\
+% The generation of chords to accompany a monphonic melody is an area which has developed as machine learning techniques are improved. 
+% An early approach to this problem from \cite{ChordPrediction} used a standard MLP to learn the relationship between melodies and accompanying chords.
+% MySong, the first attempt focusing specifically on a vocal melody in \cite{MySong} used an augmented hidden markov model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
+% A weakness of the hidden markov model is that at each timestep only the previous timestep is considered when suggesting a chord. 
+% \cite{BLSTM} utilises a BLSTM to increase the effect of long term dependencies on the output rather than relying only on the previous output.
+% \cite{MLForChords} tested and evaluated a number of more simple models such a Logistic Regression, Naive Bayes, SVM and Random Forest trained on data from 43 lead sheets \\
+% \cite{ReinforcementLearning} proposed a model  that learns a structured representation for use in symbolic melody harmonization. It utilises two layers of LSTMs to detemine when each chord should be played then utilises a policy gradient RL method to select each chord.
+% MuseGAN \\      
+% ChordGAN \\       
+% CLSTMGAN for melody Generation \\
 
 \subsection{Model evaluation template}
 Model explanation/history - why is it generally applicable \\
-Previous implementaitions \\
-    General backgorund \\
+Previous implementations \\
+    General background \\
     Evaluation \\
         Data \\
         Quantative \\
@@ -123,29 +123,29 @@ Previous implementaitions \\
 \label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
 Hidden Markov Models or HMMs were first put forward by Leonard E. Baum in a series of statistical papers \textbf{list papers from wikipedia}. 
-They model a stochasitc process in which the desired states, $\boldsymbol{X}$, are not directly observable but related states, $\boldsymbol{Y}$, which directly influence the desired states are. 
+They model a stochasitic process in which the desired states, $\boldsymbol{X}$, are not directly observable but related states, $\boldsymbol{Y}$, which directly influence the desired states are. 
 By modeling the $\boldsymbol{X}$ and $\boldsymbol{Y}$ Markov Processes \textbf{references?} we are able to infer the hidden state.
 To apply an HMM to our problem we take the hidden state, $\boldsymbol{X}$, to be the chords played, and the observable state $\boldsymbol{Y}$ to be the Melody.
 It is notable that the conditional probability distribution of the hidden variable $x(t)$ at time t, only depends on that of the previous time step $x(t-1)$ and that $y(t)$ only depends on the hidden distribution at the current time step $x(t)$.
-For our puroses this limits the "memory" the model could have to a single measure and thus seriously reduces the effect of relationship between chords across time.
+For our purposes this limits the "memory" the model could have to a single measure and thus seriously reduces the effect of relationship between chords across time.
 
 \subsubsection{Implementations}
 
-\paragraph{MySong} The first application of an HMM to this problem while also being the the first attempt focusing specifically on a vocal melody from \cite{MySong} used an augmented hidden markov model with parameters such that users could adjust the "Happy factor" and "Jazz factor" to alter the mood of the generated chords to their preference.
-No measure was given for the accuracy of the model, however a study which compared the quality of MySong to Manually assigned chords was carried out. 
+\paragraph{MySong} The first application of an HMM to this problem whilest also being the the first attempt focusing specifically on a vocal melody from \cite{MySong} used an augmented hidden markov model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
+No measure was given for the accuracy of the model, however a study which compared the quality of MySong to manually assigned chords was carried out. 
 In 264 comparisons the participants prefered MySon 95 times, manual 121 times and had no preference 48 times
-The additional user input possible with the "Happy factor" and "Jazz factor" parameters are reported to significantly improve the user experience, however, this is thier only implementation and so nothing can be infered about the quality of the HMM itself.
+The additional user input possible with the "Happy factor" and "Jazz factor" parameters are reported to significantly improve the user experience, however, this is their only implementation and so nothing can be infered about the quality of the HMM itself.
 
 \paragraph{Chord Generation from Symbolic Melody}  As a comparison for the main model in \cite{BLSTM} an HMM was implemented. 
-The HMM is trained on a reduced version of the \textbf{Include link?} wikifonia.org dataset which includes and array of Western music genres with 2,252 lead sheets, 1802 of which are used for training. 
+The HMM is trained on a reduced version of the \textbf{Include link?} wikifonia.org dataset which includes an array of Western music genres with 2,252 lead sheets, 1802 of which are used for training. 
 This overall comes to 72,418 measures for the training set and 17,768 for the test set. 
-They tested the accuracy of the HMM on sequences of length 4, 8, 12, and 16 bars long gaining an accuracy of $0.4033$, $0.4043$, $0.4041$, and $0.4045$ respectively and an average accuracy of $0.4041$.
+They tested the accuracy of the HMM on sequences of length 4, 8, 12, and 16 bars long, gaining an accuracy of $0.4033$, $0.4043$, $0.4041$, and $0.4045$ respectively and an average accuracy of $0.4041$.
 They also carried out a user subjective test with 25 participants each evaluating 18 sets, each set containing a melody acompanied by three generated chord sequences and an original chord sequence.
 The users would listen to the music played and judge the accompaniment on a scale of 1, being not appropriate, and 5, being very appropriate.
 The HMM achieved an average score of $2.31$ and the original chords achieved an average score of $4.04$.
 
 \paragraph{Machine Learning in Automatic Music Chords Generation} An HMM was tested in \cite{MLForChords} along with other simpler models. It was trained on 43 lead sheets, with 813 measures total. 
-An accuracy of $0.4844$ was achieved, however an choice of only 7 chords were used unlike the usual 24.
+An accuracy of $0.4844$ was achieved, however, a choice of only 7 chords were used unlike the usual 24.
 
 % \paragraph{Autoarrangement System of Accompaniment Chords} An HMM with improved PCP feature extraction was used in \cite{HMMswithML} 
 
@@ -170,13 +170,13 @@ On the user subjective test the DNN-HMM achieved a score of $2.48$.
 Generative Adversarial Netwoks or GANs were first proposed in the landmark paper \cite{GANs}. Unlike most models GANs consist of two separate agents working against each other.
 The first model, the Generator, takes an input of random noise and outputs data which mimics the training data. 
 The second model, the Discriminator, takes as input an example from the training data or an output from the Generator and outputs a value between 0 and 1 indicating whether it thinks the input is real or generated.
-The Binary Cross Entropy loss is used for the Discriminator avaraged across real and generate examples. The loss for the Generator is the log complement of that for the Discriminator. Thus the two models play the following minmax game:
+The Binary Cross Entropy loss is used for the Discriminator averaged across real and generate examples. The loss for the Generator is the log complement of that for the Discriminator. Thus the two models play the following minmax game:
 \begin{equation}
 \underset{D}{\text{min}} \underset{G}{\text{max}} V(D,G) = \mathbf{E}_{x\sim p_{data}(\mathbf{x})}[logD(\mathbf{x})] + \mathbf{E}_{z\sim p_{data}(\mathbf{z})}[log(1-D(G(\mathbf{z})))]
 \end{equation} 
-Theoretically the Generator and Discriminator can be any differentaible function thus leaving much room for flexibility.
-The problem with GANs for our uses is that they are not conditional, the only input to the Generator is noise. A proposed remody for this was presented in \cite{CGANs}.
-By concatinating the label data, in our case the melody, with the noise as input to the Generator and doing the same with the training data and the label data, in our case a chord and melody, as input to the Discriminator GANs can be made conditional. 
+Theoretically the Generator and Discriminator can be any differentiable function thus leaving much room for flexibility.
+The problem with GANs for our uses is that they are not conditional, the only input to the Generator is noise. A proposed remedy for this was presented in \cite{CGANs}.
+By concatenating the label data, in our case the melody, with the noise as input to the Generator and doing the same with the training data and the label data, in our case a chord and melody, as input to the Discriminator GANs can be made conditional. 
 Thus they would be suitable for our uses. 
 
 \subsubsection{Implementations}
@@ -192,7 +192,7 @@ They are structured much like a normal MLP, however, they contain an extra conne
 This means that the state of the network at each timestep depends that of the previous timestep and thus the state at the current timestep is affected by the state in all previous timesteps.
 This makes RNNs ideal for processing sequential data as temporal relationships are taken into account.
 The gradient of RNNs can be found using a variation of the backpropagation algorithm usually know as backpropagation through time.
-RNNs that operate on large sequences often experience the probblems of exploding or vanishing gradients leading to a saturation of learning.
+RNNs that operate on large sequences often experience the problems of exploding or vanishing gradients leading to a saturation of learning.
 
 \begin{figure}
     \centering
@@ -205,9 +205,9 @@ RNNs that operate on large sequences often experience the probblems of exploding
 \subsection{LSTMs}
 
 The Long Short Term Memory model or LSTM was proposed in \cite{LSTMs} in order to overcome the gradient problems related to RNNs and thus allow for faster training on long sequences.
-They are also capable or learning longer dependencies due to their internal memory. An LSTM cell has three gates: input, forget, and output.
+They are also capable of learning longer dependencies due to their internal memory. An LSTM cell has three gates: input, forget, and output.
 The state of these gates determines whether the cell allows new input, forgets old information, and affects the output at the current timestep.
-At timeset t, the states of the gates are given by:
+At timestep t, the states of the gates are given by:
 \begin{equation}
     i_t=\sigma(w_i[h_{t-1},x_t]+b_i)
 \end{equation}
@@ -241,12 +241,12 @@ The current output of the cell is computed by:
 \subsubsection{Implementations}
 
 \paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \ref{subsec:HMM} and \ref{subsec:DNN-HMMs}.
-They build a bidirection LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probaility that each of the 24 chords is played.
+They build a bidirection LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probability that each of the 24 chords is played.
 The same dataset as the HMM and DNN-HMM was used and an accuracy of $0.5055$, $0.5032$, $0.4923$, and $0.4990$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.5000$.
 On the user subjective test the DNN-HMM achieved a score of $3.55$.
 
-\paragraph{Automatic Melody Harmonization} A particularly interesting model heaviliy relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
-The simultaniously trained a Structured Representation Module responsible for learning note-level, phrase-level and segment level representaitions, a Segmentation Module acting as a reinforcement learning agent to decide whether the current note is the boundary of a phrase or segment and a Harmonisation Module responsible for generating chords for each segment.
+\paragraph{Automatic Melody Harmonization} A particularly interesting model heavily relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
+They simultaneously trained a Structured Representation Module responsible for learning note-level, phrase-level and segment level representaitions, a Segmentation Module acting as a reinforcement learning agent to decide whether the current note is the boundary of a phrase or segment and a Harmonisation Module responsible for generating chords for each segment.
 They used the Hooktheory Lead Sheet Dataset with 10,000 songs, no number of measures is given but with the differnece in model architecture so drastic a comparison on this metric would be inappropriate anyway.
 The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and BLSTM with blocked Gibbs sampling which achieved an accuracy of $0.2516$, $0.2664$, $0.2802$, $0.2933$ respectively.
 % The inclusion of variable numbers of chords in each measure greatly expands the possibilities with music composition
@@ -272,6 +272,7 @@ where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $
     \label{fig:Transformer}
 \end{figure}
 
+\textbf{Benefits of mask with transformer in being able to specify given chords using mask}
 \section{Our Model}
 
 We propose the use of a conditional GAN to learn the association between melodies and chords.
@@ -297,7 +298,7 @@ Since the LSTM, a common model used in NLP, performed best in \ref{sec:Evaluatio
 \subsubsection{Discriminator}
 The Discriminator is fundementally a binary sequence classifier.
 It takes as input a tensor of dimensions $(b,n,37)$ where b is the batch size and n is the number of measures in the song.
-Each batch is treated independantly and identically so we will proceed discussing the treatment of the 2nd and 3rd dimensions and it can be assumend this is repeated $b$ times.
+Each batch is treated independently and identically so we will proceed discussing the treatment of the 2nd and 3rd dimensions and it can be assumend this is repeated $b$ times.
 Thus we effectively input a tensor of dimensions $(n,37)$ into the first layer of the Discriminator.
 The first $k$ layers of the Discriminator are bidirectional LSTMs. 
 In the first layer each pair of LSTM cells, one for the forward direction and one for the reverse direction, takes an input vector of length 37, representing a melody vector concatinated with a chord vector and outputs a vector of length $h$ corresponding to the size of the hidden layers.
@@ -318,7 +319,7 @@ The output is passed through a sigmoid activation function thus converting it to
 
 As proof of concept for the design we developed a command line based interface for the model such that it was easy to train, vary parameters and test. 
 In production the user would be able utilise a subset of this interface, such as the option to generate accompaniment and have it played back, through a graphical user interface.
-The options available in the interface are show in table \ref{tab:parameters}
+The options available in the interface are shown in table \ref{tab:parameters}
 
 \begin{table}
     \caption{The parameters of the command line iterface for the model}
@@ -328,14 +329,14 @@ The options available in the interface are show in table \ref{tab:parameters}
     \toprule
     \tabhead{Parameter} & \tabhead{Options} & \tabhead{Default} & \tabhead{Description} \\
     \midrule
-    \code{-input\_size} & \code{[input\_size]} & $12$ & The size of the input vector to the discrimiator representing the melody  \\
+    \code{-input\_size} & \code{[input\_size]} & $12$ & The size of the input vector to the discriminator representing the melody  \\
     \code{-output\_size} & \code{[output\_size]} & $25$ & The size of the output vector representing the chord played in each measure \\
     \code{-h\_size} & \code{[h\_size]} & $128$ & The size of the hidden layers in the LSTM layers \\
     \code{-n\_layers} & \code{[n\_layers]} & $2$ & The number of LSTM layers in the generator and discriminator \\
     \code{-noise\_size} & \code{[noise\_size]} & $12$ & The size of the noise vector concatinated with the input vector to the generator \\
     \code{-max\_seqlen} & \code{[max\_seqlen]} & $200$ & The maximum length of song in measures used in training \\
     \code{-src\_data} & \code{[src\_data]} &  & The default path to the training data \\
-    \code{-batch\_size} & \code{[batch\_size]} & $10$ & The size of the batches used in the stochasitc gradient descent algorithm \\
+    \code{-batch\_size} & \code{[batch\_size]} & $10$ & The size of the batches used in the stochasitic gradient descent algorithm \\
     \code{-epochs} & \code{[epochs]} & $100$ & The number of epochs used in training \\
     \code{-printevery} & \code{[printevery]} & $10$ & The number of epochs between printing an example during training \\
     \code{-load} & & False & Whether to load a model in or not \\
@@ -405,8 +406,8 @@ GAN techniques
 Reducing number of LSTM layers
 \subsection{Issues}
 Training is conducted in batches of a given size.
-It is unlikely that the size of the dataset is divisble by the batch size so the final batch is likely to be shorter than the others.
-This initially casued problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
+It is unlikely that the size of the dataset is divisible by the batch size so the final batch is likely to be shorter than the others.
+This initially caused problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
 Softmaxing of outputs of generator
 Device managment
 
