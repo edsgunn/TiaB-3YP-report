@@ -27,6 +27,7 @@ As can be seen in Figure \ref{fig:CSV_DF}, the rows each contain information abo
 %	SECTION 2
 %-----------------------------------
 \section{Preprocessing of dataset}
+\label{preprocessing}
 
 The dataset can be preprocessed to remove unnecessary information in order to make the dataset cleaner and ready for conversion into input formats that are compatible with our machine learning models. Many of the steps listed below are based on the preprocessing done in the other similar papers, particularly the paper \cite{BLSTM} from which we obtained our dataset.
 
@@ -65,7 +66,7 @@ Using Table \ref{tab:kf_map} \& \ref{tab:note_map}, we can list all the major ke
 The next step is to convert all the chord types to either major or minor chords using the mapping shown in Table \ref{tab:chords}. This mapping has been checked by the supervisors of this project and deemed to be reasonable. Do also note that Table \ref{tab:chords} does not contain an exhaustive list of all chords in existence, but only those that were found to be present within the dataset.
 
 \subsection{Code}
-As mentioned above, we first use \emph{Pandas} to clean up the data. A nested loop can then used to loop through each DataFrame row for each song. The steps outlined above can then be applied to each row. At the end of the nested loop, the dataset is now fully preprocessed.
+As mentioned above, we first use \emph{Pandas} to clean up the data. A nested loop can then be used to loop through each DataFrame row for each song. The steps outlined above in Chapter \ref{preprocessing} can then be applied to each row. At the end of the nested loop, the dataset is now fully preprocessed.
 
 %\begin{figure}
  %   \centering
@@ -210,6 +211,7 @@ We again use a nested loop to loop through each DataFrame row for each song. Two
 
 Once the measure changes, the now complete \emph{new\_row} for the previous measure is concatenated with \emph{LSTM\_row} along the row axis, i.e. \emph{new\_row} is added to the bottom of \emph{LSTM\_row}. The elements of \emph{new\_row} are reset to zero before \emph{new\_row} is updated with the note and chord information of the current measure. The note information can be updated as explained earlier. For the chord information, we can use \emph{if} statements to set $\emph{new\_row}[0, \emph{chord}+11] = 1$ if \emph{chordtype} = 'major', or to set $\emph{new\_row}[0, \emph{chord}+23] = 1$ if \emph{chordtype} = 'minor', or to set $\emph{new\_row}[0, -1] = 1$ otherwise (no chord present), where \emph{chord} is the numerical representation of \emph{chord\_root} (mapped using Table \ref{tab:note_map}). Since we know that there is only one chord type per measure, we only have to update the chord information for \emph{new\_row} once, at the start of a new measure. The start of the first measure can be taken to be a special case of a measure change (in this case, transition from a measure initialised as 'unknown' to the first measure of the DataFrame).
 
+Note that we could have combined this section with the preproccessing steps in Chapter \ref{preprocessing} such that we only have to loop through each DataFrame row for each song once instead of doing it twice as we actually did. This would have reduced the time needed to run the entire code by eliminating redundant loops. However, the time saved for a dataset of this size is insignificant. Additionally, keeping the two code blocks separate made it easier to test and debug, which is why we decided not to integrate them together. Nonetheless, integration of the code is definitely something to take into consideration for any future extensions of this project.
 %$\emph{new\_row}[0,\emph{note}-1] = \emph{new\_row}[0,\emph{note}-1] + \emph{normalised\_note\_duration}$
 \begin{figure}
     \centering
@@ -219,7 +221,8 @@ Once the measure changes, the now complete \emph{new\_row} for the previous meas
     \label{fig:LSTMData}
 \end{figure}
     
-
+\subsubsection{Sanity Check}
+We know that each row of the LSTM data input format corresponds to a single measure. We also know that the preprocessing done in Chapter \ref{preprocessing} would have removed unnecessary measures from some of the songs. Hence, the LSTM data cannot possibly have more measures than the original dataset for each song. By comparing the number of rows of the LSTM data and the highest value of \emph{measure} in the original Dataframe for each song, we can perform a simple check of the correctness of our code.
 
 \subsection{Transformer format}
 The transformer requires two data inputs: a single sequence of notes for each song, and a separate sequence of chords for eaach song. Both sequences are constructed by going down the Dataframe rows, and adding the notes/chords of each row to the respective sequences based on the \emph{note\_duration} value, e.g. a sequence of 4 'C\#'s for a 'C\#' with a \emph{note\_duration} of 4.0, and a sequence of 16 'Bmaj' for a 'B major' of \emph{note\_duration} of 16.0. Another example is presented in Figure \ref{fig:TransformerData}. Of course, this means that only integer values of \emph{note\_duration} are accepted and measures with non-integer values have to be removed beforehand.
