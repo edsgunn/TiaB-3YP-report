@@ -36,9 +36,9 @@ Figure \ref{flowchart} shows the flowchart of the audio processing part of our p
 		\node (n3) [block, right=0.5cm of n2]
 					{Low-pass filter};
 		\node (n4) [block, below=1.8cm of n1] 
-					{Implement PDA};
+					{PDA};
 		\node (n5) [block, right=1cm of n4] 
-					{Implement KDA};
+					{KDA};
 		\node (n6) [block, draw=red, right=1cm of n5]
 					{Pass the output to Ed's ML model\\
 					(Notes and keys)};
@@ -73,19 +73,19 @@ These assumptions will be referred to later on in the section.
 %----------------------------------------------------------------------------------------
 \section{Noise Filter}
 \label{sec:NF}
-Noise filtering is essential as it reducess or eliminates the noise present in the input signal.
+Noise filtering is essential as it reduces or eliminates the noise present in the input signal.
 A conventional method to quantify noise is to use signal-to-noise ratio (SNR), which is often 
 represented in decibels.
-\[SNR=10*log_10((P_{signal})/(P_{noise}))\]
+\[SNR=10*log_{10}(\frac{P_{signal}}{P_{noise})}\]
 As its name suggests, SNR is the power ratio between desired signal and undesired noise. Effectively,
 we would like to use noise filters to achieve a higher SNR.\\ 
-There is a few sources of noise when an user record himself with a microphone.
+There are a few sources of noise when a user records himself with a microphone.
 Firstly, there exists self-noise, which is the instrument noise produced by the microphone itself.
-Noise may be induced or created when the signal passes through electronic componenets like transistors 
+Noise may be induced or created when the signal passes through electronic components like transistors 
 and printed circuit boards.\cite{selfnoise} 
 The second source, ambient noise, contributes to a large portion of noise present in a recording.
 Room reflections, extraneous noise, electromagnetic interference and mechanical noise are some causes 
-to the existence of ambient noise. 
+of ambient noise. 
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -96,20 +96,21 @@ compare 3 noise reduction mechanisms.
 
 \begin{enumerate}
 	\item Low-pass filter (LPF)\\
-	LPF passes signals with \(f<f_{c}\), where \(f_{c}\) is the cut-off frequency, and attenuates
-	signals with \(f>fc\). 
-	\[H(f) = rect(f/(2*B))\]
-	\[h(t))= \mathfrak{F}^-1{H(f)} = \int_{-B}^{B} e^(2(\pi)ift)\,df = 2Bsinc(2Bt)\]
-	In order to implement an LPF, we have to transform signal from time domain to 
-	frequency domain using fourier transform. An ideal LPF would completely remove frequencies that are
-	higher than \(f_{c}\) and is a non-ca)sual linear time-invariant system. The impulse
-	response of an LPF is a sinc function that extends to [$\infty$,-$\infty$]. This is why it is impossible to 
-	realize an ideal LPF since that will take infinite time and memory.\\
-	LPF avoids aliasing since it removes the high-frequency content but not the desired signal
+	LPF passes signals with frequency \(f<f_{c}\), where \(f_{c}\) is the cut-off frequency, and attenuates
+	signals with \(f>f_{c}\). 
+	In order to implement an LPF, we have to transform the signal from time domain to 
+	frequency domain using Fourier Transform (FT). An ideal LPF would completely remove frequencies that are
+	higher than \(f_{c}\) and is a non-casual linear time-invariant system. 
+	\[H(f) = rect(\frac{f}{2B})\]
+	\[h(t))= \mathfrak{F}^{-1}{H(f)} = \int_{-B}^{B} e^{2(\pi)ift}\,df = 2Bsinc(2Bt)\]
+	The impulse response of an LPF is a sinc function that extends to [-$\infty$,$\infty$]. This is why it is 
+	impossible to realize an ideal LPF since that will take infinite time and memory.\\
+	LPF avoids aliasing since it removes the high-frequency content but not the desired signal.
+	$why is this sentence here$
 
 	\item Wavelet transform\\
 	Wavelet transform creates a representation of the signal in both time and frequency domain so localized 
-	information of the signal can be efficiently accessed. It is often compared with fourier transform (FT), which
+	information of the signal can be efficiently accessed. It is often compared with FT, which
 	has the below limitations: 
 	\begin{enumerate}
 		\item For windowed FT, if the feature is larger or shorter than the window, it cannot be captured completely.
@@ -121,7 +122,8 @@ compare 3 noise reduction mechanisms.
 	undiscovered at one resolution may be obvious at another. There are mainly 2 types of wavelet transforms, namely 
 	continuous wavelet transform (CWT) and discrete wavelet transform (DWT) and here are the mathematical representations
 	for the two transforms:
-	CWT finds how alike a wavelet is in a signal, given the above 2 properties that the wavelet has. \cite{wavelet}
+	$CHANGE$
+	CWT finds how alike a wavelet is in a signal, given the dilation and translation parameter of the wavelet. \cite{wavelet}
 	This can be found by convolving the mother wavelet with our signal.
 
 	\begin{equation*} 
@@ -159,14 +161,14 @@ compare 3 noise reduction mechanisms.
 	\begin{align*} &\text{DWT}\ [\mathrm{n},\mathrm{a}^{\mathrm{j}}]=\sum_{\mathrm{m}=0}^{\mathrm{N}-1}\mathrm{x}[\mathrm{m}].{\psi_{\mathrm{j}}}^{*}[\mathrm{m}-\mathrm{n}],\\ &\psi_{\mathrm{j}}[\mathrm{n}]=\frac{1}{\sqrt{\mathrm{a}^{\mathrm{f}}}}\psi\left(\frac{\mathrm{n}}{\mathrm{a}^{\mathrm{f}}}\right) \tag{2} \end{align*}
 	where $n$ is delay parameter, $N$ is the length of signal, $\psi$ is the discretized mother wavelet. \cite{wavelet_denoise}
 
-	We will focus on DWT since computation is done on discrete wavelets so it requires less computational resources.
+	DWT is often preferred in the context of real-time audio processing since computation is done on discrete wavelets which requires less computational resources.
 	
 	\item Spectral reduction\\
 	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
 	fact, this method is used by Audacity in its noise reduction algorithm. \cite{audacity}
 	Suppose noise is additive, and we can represent our noisy audio 
-	\[y(n) = x(n) + d(n), \textit{for} 0 \leq n \leq N-1 \label{sreduction} \]
-	where $x(n)$ is our original signal (signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
+	\[y(n) = x(n) + d(n), \textit{for } 0 \leq n \leq N-1 \label{sreduction} \]
+	where $x(n)$ is our original signal (the signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
 	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
 	\[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
@@ -175,9 +177,9 @@ compare 3 noise reduction mechanisms.
 	\[X(\omega) = Y(\omega) - N(\omega)\]
 	Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
 	noise spectrum using parts of the recording that only contain ambient noise. \cite{reductionmanual}
-	\[\hat{N(\omega)} = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
+	\[\hat{N}(\omega) = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
 	We then get the estimated signal spectrum
-	\[\hat{X(\omega)} = Y(\omega) - \hat{N(\omega)}\]
+	\[\hat{X}(\omega) = Y(\omega) - \hat{N}(\omega)\]
 	We then set a gain control for each frequency band so if the sound exceeded the threshold, the gain is set to 0 dB or a user-defined
 	constant.
 \end{enumerate}
@@ -186,47 +188,50 @@ compare 3 noise reduction mechanisms.
 %-----------------------------------
 \subsection{Choice of model and implementation}
 After trying to implement all 3 methods, a major difficulty encountered is that it is hard to set the parameters to 
-implement for LPF and wavelet transform whilst spectral reduction works the best in removing the ambient noise. 
+implement for LPF and wavelet transform.
 For example, since $f_c$ depends on the pitch range of the user and the melody he/ she
 is inputting, finding an adequate $f_c$ that separates desired frequencies from undesired ones is hard.
 As for wavelet transform, finding an adequate mother wavelet is a difficult task.\\
 Although wavelet transform works better for real-life non-stationary signals compared to conventional frequency-based filters, if we
 do not feed a suitable mother wavelet, the performance is unsatisfactory, the model cannot distinguish between desired and undesired 
-signals and will decrease $P_signal$ at the same time, which is unfavourable when it comes to improving the SNR.\\
-According to (D SHUKLA, 2003), there are 2 major concerns with using wavelet transform. 
+signals and will decrease $P_{signal}$ at the same time, which is unfavourable when it comes to improving the SNR.\\
+According to (D SHUKLA, 2003), there are 2 major concerns with using wavelet transform. $PROVE PLEASE$ 
 Firstly, it is sensitive to shifting in time, even a minor shift will cause unpredictable change in transform coefficients which will 
 then cause variations in the output signal. Secondly, wavelet transform suffers from poor directionality easily. For example, 
 a 2-D DWT can only reveal 3 spatial-domain feature orientations, which limits the optimal representation of the signal. 
 
-Therefore, we decided to use spectral reduction as our noise filter algorithm. The implementation of spectral noise gating can be 
-summarised according to (Karam et al., 2014)
+Therefore, we decided to use spectral reduction as our noise filter algorithm since it is the most effective in removing the ambient noise. 
+The implementation of spectral noise gating can be 
+summarised according to \cite{spectralflowchart} as shown in \autoref{spectralflowchart}
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.35]{spectralprocess.png}
-	\caption{Spectral noise gating flowchart \cite{spectralflowchart}}
+	\caption{Spectral noise gating flowchart}
 	\label{spectralflowchart}
 \end{figure}
 The noise spectrum $N(\omega)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
 before they sing into the app.
 Note that half-wave rectification is necessary after noise removal process of subtracting the average magnitude of noise spectrum.
 This is to target frequencies that have a higher average magnitude of noise spectrum $\textbf{E}[|N(\omega)|]$ compared to that of 
-the noisy speech spectrum $|\hat{X(\omega)}|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
+the noisy speech spectrum $|\hat{X}(\omega)|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
 rectification.
 
 %-----------------------------------
 %	SUBSECTION 3
 %-----------------------------------
-
 \subsection{Improvements}
 A drawback with spectral reduction is that it does not handle extreme responses nicely. It does not reduce noises like
 squeaks. Also, since a half-wave rectification is included in the implementation process, (Rao \& Sreelatha, 2014) has 
 pointed out that residual noise will be created during the process of spectral reduction. Half-wave rectification introduces
-nonlinearity in the $\hat{X(\omega)}$ spectrum and results in frequencies changing abruptly between frames.
+nonlinearity in the $\hat{X}(\omega)$ spectrum and results in frequencies changing abruptly between frames.
 
 As mentioned above, spectral reduction is built on the assumption that the noise is a stationary or slowly-varying. Yet in reality,
 there may be sudden squeaky noise in the background which is not recorded in the noise profile. In this case, spectral reduction 
 cannot remove the squeak. To improve the situation, we will introduce a low-pass filter to filter out high-frequency noise. The reason
-for choosing LPF over a band-pass filter is that ambient noise is ususally low frequency and spectral reduction is effective 
+for choosing LPF over a band-pass filter is that ambient noise is ususally low frequency and
+$INCLUDE WHY NOT BPF$
+
+spectral reduction is effective 
 in targeting the reduction of ambient noise. Thus as to avoid removing low-frequency desirable features, a low-pass filter will suffice.
 
 To determine $f_c$ for the LPF, it would be plausible to refer to biological features of the users, i.e. their age and gender.
@@ -235,7 +240,7 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
 \begin{table}
-	\begin{minipage}{0.5\linewidth}
+	\begin{minipage}{0.45\linewidth}
 		\label{table:praat}
 		\centering
 		\scalebox{0.7}{
@@ -245,7 +250,7 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 		\end{tabular}}
 		\caption{Praat pitch range}
 		\end{minipage}\hfill
-	\begin{minipage}{0.6\linewidth}
+	\begin{minipage}{0.65\linewidth}
 		\centering
 		\includegraphics[scale=0.4]{f0vage.jpeg}
 		\label{f0vage_chart}
@@ -256,25 +261,26 @@ On the other hand, as pointed out by (Nishio \& Niimi, 2008), "Females in their 
 After referring to the measurements taken from 192 participants (Stathopoulos et al., 2011) and the pitch range
 set by Praat (a software for speech analysis) \cite{praat}, a simple modelling of $f_c$ according to age and gender
 is as below:
-\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, for  4 \leq n\leq 93 \label{male} \] 
-\[f_{c,female}(n) = 0.02n^2 - 3n + 287, for  4 \leq n \leq 93 \label{female} \] 
+\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, \text{for } 4 \leq n\leq 93 \label{male} \] 
+\[f_{c,female}(n) = 0.02n^2 - 3n + 287, \text{for } 4 \leq n \leq 93 \label{female} \] 
+where $n$ is the age of the user
 In deciding which filter to implement, there are 3 filters in consideration:
 \begin{enumerate}[label=(\alph*)]
 	\item Type 1 Chebyshev filter
-	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+\varepsilon^{2} T_{n}^{2}(\omega/\omega_{0})}}}\]
+	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+\varepsilon^{2} T_{n}^{2}(\frac{\omega/}{\omega_{0}})}}}\]
 	where $\varepsilon$  is the ripple factor, $\omega _{0}$ is the cut-off frequency
 	and $T_{n}$ is a Chebyshev polynomial of the $n$th order.
 	\item Butterworth filter
-	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+(\omega/\omega_{0})^{2n})}}}\]
+	\[G_{n}(\omega) = |H_{n}(j\omega)| = {\frac{1}{\sqrt{1+(\frac{\omega}{\omega_{0}})^{2n}}}}\]
 	where $\omega _{0}$ is the cut-off frequency and $n$ is the order of filter.
 	\item Bessel filter
-	\[G_{n}(\omega) = |H_{n}(j\omega)| ={\frac {\theta _{n}(0)}{\theta _{n}(j\omega/\omega _{0})}}\]
+	\[G_{n}(\omega) = |H_{n}(j\omega)| ={\frac {\theta _{n}(0)}{\theta _{n}(\frac{j\omega}{\omega _{0}})}}\]
 	where $\theta _{n}(j\omega)$ is a reverse Bessel polynomial and $\omega _{0}$ is the cut-off frequnecy
 \end{enumerate}
 
 Chebyshev filter has a steeper roll-off compared to Butterworth and Bessel filter, but it also brings passband and stopband ripples, 
-unlike Butterworth and Bessel filter which have a flat passband and stopband as they roll-offs towards zero. Moreover, Butterworth 
-and Bessel filters have a better step response. Meanwhile, Bessel filter performs the best in step response since the overshoot is
+unlike Butterworth and Bessel filter which have a flat passband and stopband as they roll off towards zero. Moreover, Butterworth 
+and Bessel filters have a better step response. Meanwhile, Bessel filters perform the best in step response since the overshoot is
 minimal. Also, an important characteristics Bessel filter has is that it introduces a linear-phase/ constant delay for $f<f_c$. This
 feature allows us to preserve the waveshape since all frequencies are delayed by the same amount.
 Thus, Bessel filter is preferred in this context.
@@ -313,14 +319,14 @@ the signal.
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Possible Models}
-There are 4 approaches to detect $f_0$, which again can be classified into time domain and frequency domain.
+There are 4 approaches to detect $f_0$, which can be classified into time domain and frequency domain.
 
 \begin{enumerate}
-	\item Zero crossings (time domain)
+	\item Zero crossings (time domain)\\
 	This is the most intuitive method to detecting pitch although it suffers from low accuracy.
 	Assuming the input is monophonic, the fundamental frequency is estimated as:
 	\[f_0 = \frac{P_{zcr}f_s}{2N}\]
-	where $P_{Zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
+	where $P_{zcr}$ is the number of zero-crossing points, $f_s$ is the sampling rate,
 	$N$ is the number of samples
 	\begin{figure}
 		\centering
@@ -328,13 +334,13 @@ There are 4 approaches to detect $f_0$, which again can be classified into time 
 		\caption{An example signal with zero-crossings marked in dotted lines \cite{zcr}}
 	\end{figure}
 
-	\item Harmonic Product Spectrum (HPS) (frequency domain)
+	\item Harmonic Product Spectrum (HPS) (frequency domain)\\
 	As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
 	which the peaks corresponds to $f_0$ with other peaks indicating the harmonic components of integer multiples of $f_0$. 
 	Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them wiht the original spectrum as shown in figure 
 	\ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{HPS.png}
 		\caption{Harmonically compressed log spectra \cite{HPS}}
@@ -342,13 +348,13 @@ There are 4 approaches to detect $f_0$, which again can be classified into time 
 	\end{figure}
 	
 	Firstly, we convolve the signal with a Hanning window to segment the input:
-	\[w(n) = \frac{1+cos(2\pi n/N-1)}{2}, for 0<= n<= N-1\], where $N$ is the number of samples.
+	\[w(n) = \frac{1+cos(2\pi n/N-1)}{2}, \text{for } 0<= n<= N-1\] where $N$ is the number of samples.\\
 	We then convert it from time-domain to frequency-domain by computing the short-time Fourier Transform:
 	\[STFT \{x[n]\}(k,\omega) = X(k,\omega )= \sum _{n=-\infty }^{\infty }x[n]w[n-k]e^{-j\omega n}\]
-	Lastly we compute the product of spectrum at harmonics of a frequency and $f_0$ is estimated by:
+	Lastly we compute the product of spectrum at harmonics of various frequencies and $f_0$ is estimated by:
 	\[f_0 = argmax\prod_{k=1}^{n}|X(kf)|\] 
 
-	\item YIN algorithm/ autocorrelation (time domain)
+	\item YIN algorithm/ autocorrelation (time domain)\\
 	As outlined by (de Cheveigné \& Kawahara, 2002), YIN algorithm is based on a slightly altered autocorrelation method:
 	\[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
 	where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
@@ -392,7 +398,7 @@ There are 4 approaches to detect $f_0$, which again can be classified into time 
 	
 	We then find $\tau$ that minimises $CMNDF(\tau)$ and the corresponding $f_0$.
 
-	\item CREPE (Convolutional Representation for Pitch Estimation)
+	\item CREPE (Convolutional Representation for Pitch Estimation) (Machine learning method)\\
 	CREPE is a data-driven algorithm developed by Kim et al. that operates directly on the time-domain.
 	It consists of a deep convolutional neural network (CNN) trained by synthesized audio from the RWC Music Database \cite{rwcdb}
 	and MedleyDB \cite{medleydb}. 
@@ -415,6 +421,7 @@ There are 4 approaches to detect $f_0$, which again can be classified into time 
 	last few layers to compile the features for final output.
 
 	\begin{figure}
+		\centering
 		\includegraphics[width=0.5\textwidth]{CREPE.png}
 		\caption{The architecture of the CREPE algorithm \cite{CREPE}}
 		\label{CREPE}
@@ -428,7 +435,7 @@ There are 4 approaches to detect $f_0$, which again can be classified into time 
 %-----------------------------------
 \subsection{Comparison between models and implementation}
 The zero crossings method will not be considered though it has the cheapest computational cost. One limitation is that
-the threshold is fixed at 0, it is susceptible to noise and the vocal timbre of the user. Moreover, the method heavily relies on
+the threshold is fixed at 0, making it susceptible to noise and the vocal timbre of the user. Moreover, the method heavily relies on
 the assumption that the input audio is of pure tone but unlike a tuning fork, human voice is not a pure tone. It is 
 composed of a fundamental frequency and upper harmonics. \cite{humanmono} This characteristic makes this method extremely
 unreliable.
@@ -445,21 +452,22 @@ tolerance for inputs with different timbres since CREPE is trained with MedleyDB
 \ref{CREPEperf} concludes the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and other 2 PDA by Kim et al. and we will choose CREPE 
 to implement in our model.
 
-\begin{figure}
+\begin{figure}[h]
+	\centering
 	\includegraphics[width=0.5\textwidth]{CREPEperf.png}
 	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al. \cite{CREPE}}
 	\label{CREPEperf}
 \end{figure}
 
 The CREPE code uploaded by Kim et al. takes in the samples $y$, sampling rate $sr$ and a boolean parameter (True/ False) for viterbi, which is a smoothing algorithm. 
-It calculates pitch every 10 ms and outputs the timestamp, estimated frequency $\hat{f0}$, confidence $c$ and an activation matrix for visualization of outputs. 
+It calculates pitch every 10 ms and outputs the timestamp, estimated frequency $\hat{f_0}$, confidence $c$ and an activation matrix for visualization of outputs. 
 
 The sampling rate of training data used by CREPE is at 16 kHz thus our input audio will need to be resampled to 16 kHz if the original $sr \neq 16 kHz$. If the user is using iPhone 
 built-in microphone to record, we need to set the preferred sampling rate to 16 kHz \cite{iphoneaud} when coding for our iOS app.
 
 One thing to note is that the algorithm centers the first frame at $t=0$ instead of starting the first frame at $t=0$ to avoid misalignment.
 
-Continuing from the noise filtered signal, we use \emph{[y, sr]= scipy.io.wavfile.read(filename, mmap=False)} function to read the input and feed $y$ and $sr$ 
+Continuing from the noise filtered signal, we use \emph{[y, sr]= scipy.io.wavfile.read(filename, mmap=False)} function to read the input and feed $[y, sr]$ 
 into \emph{crepe.predict(y, sr, viterbi=True)}
 The output will be of the form [timestamp, $\hat{f_0}$, $c$, activation matrix].
 
@@ -477,14 +485,14 @@ and omit frequencies that lasted less than 10 timeframes (0.1s).
 %-----------------------------------
 \subsection{Improvements}
 
-On top of the convolutional neural network model, we can integrate Bayesian statistics into 
+On top of the convolutional neural network model, we can integrate Bayesian statistics to 
 improve the model.
 
 Bayes' rule states: 
 \[P(A\mid B)=\frac {P(B\mid A)P(A)}{P(B)}\]
 where $P(A\mid B)$ is the posterior probability or the updated probability with the consideration of evidence.
 $P(B\mid A)$ is the likelihood, which is the probability of observing the evidence given the event has happened.
-$P(A)$ is the prior probability, which is the probability before taking consideration the evidence.
+$P(A)$ is the prior probability, which is the probability before taking into consideration the evidence.
 $P(B)$ is known as the marginal probability, which is the probability of an event irrespective of outcomes of any evidence. 
 
 With enough audio samples sung by the user, we can collect the range of pitches that he/she manages to sing. Then we can model 
@@ -501,7 +509,7 @@ The prior $P(A)$ can be obtained from the demographic characteristics collected,
 Other than detection the pitch/ note of the input audio, it is also necessary to estimate the key of the music so as to help with the identification
 of chords with the model in \textbf{INSERT}
 
-From a musical theory point of view, the most intuitive method to know the key of a piece is to look at the key signature which contains the number of sharps/ flats
+From a music theory point of view, the most intuitive method to identify the key of a piece is to look at the key signature which contains the number of sharps/ flats
 in a piece, and the number defines which key the piece is in. But since our app targets amateurs, we will not expect them to be able to know what key will they be singing
 in.
 
