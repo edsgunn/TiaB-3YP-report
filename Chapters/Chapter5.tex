@@ -42,12 +42,16 @@ Figure \ref{flowchart} shows the flowchart of the audio processing part of our p
 		\node (n6) [block, draw=red, right=1cm of n5]
 					{Pass the output to Ed's ML model\\
 					(Notes and keys)};
-		\node [coordinate, below right =1cm and 1cm of n3] (right) {};  %% Coordinate on right and middle
-		\node [coordinate, above left =0.8cm and 1cm of n4] (left) {};  %% Coordinate on left and middle
+		\node [coordinate, below right =1cm and 1cm of n3] (right1) {};  %% Coordinate on right and middle
+		\node [coordinate, above left =0.8cm and 1cm of n4] (left1) {};  %% Coordinate on left and middle
+
+		\node [coordinate, below =0.5cm of n4] (n4coor) {};  %% Coordinate on right and middle
+		\node [coordinate, below =0.5cm of n6] (n6coor) {};  %% Coordinate on left and middle
 		\path[draw,->]   (n1) edge (n2)
 					(n2) edge (n3)
-					(n3) -| (right) -- (left) |-  (n4)
+					(n3) -| (right1) -- (left1) |-  (n4)
 					(n4) edge (n5)
+					(n4) -| (n4coor) -- (n6coor) |-  (n6)
 					(n5) edge (n6);
 
 	\end{tikzpicture}
@@ -120,9 +124,8 @@ compare 3 noise reduction mechanisms.
 	\end{enumerate}
 	Wavelet transform analyzes a signal by its different frequency components at multiple resolution so features that are 
 	undiscovered at one resolution may be obvious at another. There are mainly 2 types of wavelet transforms, namely 
-	continuous wavelet transform (CWT) and discrete wavelet transform (DWT) and here are the mathematical representations
-	for the two transforms:
-	$CHANGE$
+	continuous wavelet transform (CWT) and discrete wavelet transform (DWT).
+	
 	CWT finds how alike a wavelet is in a signal, given the dilation and translation parameter of the wavelet. \cite{wavelet}
 	This can be found by convolving the mother wavelet with our signal.
 
@@ -158,6 +161,7 @@ compare 3 noise reduction mechanisms.
 		\label{fig:test}
 	\end{figure}
 	
+	$what is dwt?$
 	\begin{align*} &\text{DWT}\ [\mathrm{n},\mathrm{a}^{\mathrm{j}}]=\sum_{\mathrm{m}=0}^{\mathrm{N}-1}\mathrm{x}[\mathrm{m}].{\psi_{\mathrm{j}}}^{*}[\mathrm{m}-\mathrm{n}],\\ &\psi_{\mathrm{j}}[\mathrm{n}]=\frac{1}{\sqrt{\mathrm{a}^{\mathrm{f}}}}\psi\left(\frac{\mathrm{n}}{\mathrm{a}^{\mathrm{f}}}\right) \tag{2} \end{align*}
 	where $n$ is delay parameter, $N$ is the length of signal, $\psi$ is the discretized mother wavelet. \cite{wavelet_denoise}
 
@@ -231,8 +235,7 @@ cannot remove the squeak. To improve the situation, we will introduce a low-pass
 for choosing LPF over a band-pass filter is that ambient noise is ususally low frequency and
 $INCLUDE WHY NOT BPF$
 
-spectral reduction is effective 
-in targeting the reduction of ambient noise. Thus as to avoid removing low-frequency desirable features, a low-pass filter will suffice.
+spectral reduction is effective in targeting the reduction of ambient noise. Thus as to avoid removing low-frequency desirable features, a low-pass filter will suffice.
 
 To determine $f_c$ for the LPF, it would be plausible to refer to biological features of the users, i.e. their age and gender.
 For males, the pitch level generally reduces from infancy to middle age, while a reversal of trend occurs after middle age. \cite{womenprange}
