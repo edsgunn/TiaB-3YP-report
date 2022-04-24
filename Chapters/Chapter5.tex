@@ -69,6 +69,8 @@ is built on:
 	\item \textbf{Assumption 1:} Users' audio input device does not contain active noise cancelling functions.
 	\item \textbf{Assumption 2:} Users do not sing with the technique of polyphonic overtone singing.
 	\item \textbf{Assumption 3:} Signal and noise are uncorrelated.
+	\item \textbf{Assumption 4:} Noise is a stationary or slowly varying process.
+	\item \textbf{Assumption 5:} Noise spectrum does not change drastically during the recording.
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
@@ -206,7 +208,10 @@ Firstly, it is sensitive to shifting in time, even a minor shift will cause unpr
 then cause variations in the output signal. Secondly, wavelet transform suffers from poor directionality easily. For example, 
 a 2-D DWT can only reveal 3 spatial-domain feature orientations, which limits the optimal representation of the signal. 
 
-Therefore, we decided to use spectral reduction as our noise filter algorithm since it is the most effective in removing the ambient noise. 
+Therefore, we decided to use spectral reduction as our noise filter algorithm since it is the most effective in removing the ambient noise 
+and wideband noise. Note that this method heavily relies on the assumption that the noise spectrum magnitude is staying locally 
+stationary. If this assumption is not satisfied, this method will result in poor performance of either not being able to filter a majority of 
+the broadband noise or removing the features of the signal.
 The implementation of spectral noise gating can be summarised according to \cite{spectralflowchart} as shown in \autoref{spectralflowchart}
 \begin{figure}
 	\centering
