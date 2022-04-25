@@ -141,21 +141,21 @@ compare three noise reduction mechanisms.
 		\centering
 		\begin{subfigure}{.4\textwidth}
 		  \centering
-		  \includegraphics[width=\linewidth]{haar.png}
+		  \includegraphics[width=\linewidth]{Figures/haar.png}
 		  \caption{Haar wavelet}
 		  \label{Haar}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}{.4\textwidth}
 			\centering
-			\includegraphics[width=\linewidth]{order1gaussian.png}
+			\includegraphics[width=\linewidth]{Figures/order1gaussian.png}
 			\caption{Gaussian wavelet \\of order 1}
 			\label{order1}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}{.4\textwidth}
 		  \centering
-		  \includegraphics[width=\linewidth]{order2gaussian.png}
+		  \includegraphics[width=\linewidth]{Figures/order2gaussian.png}
 		  \caption{Ricker wavelet - Gaussian \\wavelet of order 2}
 		  \label{Ricker}
 		\end{subfigure}
@@ -215,7 +215,7 @@ the broadband noise or removing the features of the signal.
 The implementation of spectral noise gating can be summarised according to \cite{spectralflowchart} as shown in \autoref{spectralflowchart}
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35]{spectralprocess.png}
+	\includegraphics[scale=0.35]{Figures/spectralprocess.png}
 	\caption{Spectral noise gating flowchart}
 	\label{spectralflowchart}
 \end{figure}
@@ -259,7 +259,7 @@ On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s a
 		\end{minipage}\hfill
 	\begin{minipage}{0.65\linewidth}
 		\centering
-		\includegraphics[scale=0.4]{f0vage.jpeg}
+		\includegraphics[scale=0.4]{Figures/f0vage.jpeg}
 		\label{f0vage_chart}
 		\captionof{figure}{Scatter plot of\\fundamental frequency by age}
 	\end{minipage}
@@ -296,20 +296,20 @@ Thus, Bessel filter is preferred in this context.
 	\centering
 	\begin{subfigure}{.32\textwidth}
 	  	\centering
-	  	\includegraphics[width=1\linewidth]{chebyshev.jpeg}
+	  	\includegraphics[width=1\linewidth]{Figures/chebyshev.jpeg}
 	  	\caption{Type 1 Chebyshev filter \\frequency response}
 	  	\label{fig:sub1}
 	\end{subfigure}
 	\begin{subfigure}{.32\textwidth}
 	  	\centering
-	  	\includegraphics[width=1\linewidth]{butterworth.jpeg}
+	  	\includegraphics[width=1\linewidth]{Figures/butterworth.jpeg}
 	  	\caption{Butterworth filter frequency response}
 	  	\label{fig:sub2}
 	\end{subfigure}
 	\begin{subfigure}{.32\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{bessel.jpg}
-		\caption{Bessel filter frequency\\response %\footfullcite{bessel}%}
+		\includegraphics[width=1\linewidth]{Figures/bessel.jpg}
+		\caption{Bessel filter frequency\\response} %\footfullcite{bessel}%}
 		\label{fig:sub3}
 	\end{subfigure}
 \end{figure}
@@ -337,7 +337,7 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 	$N$ is the number of samples.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5\textwidth]{zcr.png}
+		\includegraphics[width=0.5\textwidth]{Figures/zcr.png}
 		\caption{An example signal with zero-crossings marked in dotted lines \footfullcite{zcr}}
 	\end{figure}
 
@@ -349,7 +349,7 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5\textwidth]{HPS.png}
+		\includegraphics[width=0.5\textwidth]{Figures/HPS.png}
 		\caption{Harmonically compressed log spectra \footfullcite{HPS}}
 		\label{HPS}
 	\end{figure}
@@ -372,19 +372,19 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 		\centering
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=1\linewidth]{signalwaveform.png}
+		  \includegraphics[width=1\linewidth]{Figures/signalwaveform.png}
 		  \caption{Signal waveform}
 		  \label{signal}
 		\end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 			\centering
-			\includegraphics[width=1\linewidth]{acf.png}
+			\includegraphics[width=1\linewidth]{Figures/acf.png}
 			\caption{$r_t(\tau)$ calculated from \\figure \ref{signal} using normal ACF}
 			\label{acf}
 		  \end{subfigure}%
 		\begin{subfigure}{.3\textwidth}
 		  \centering
-		  \includegraphics[width=1\linewidth]{taperedacf.png}
+		  \includegraphics[width=1\linewidth]{Figures/taperedacf.png}
 		  \caption{$r_t(\tau)$ calculated with equation \ref{signal}}
 		  \label{taped}
 		\end{subfigure}%
@@ -429,7 +429,7 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 
 	\begin{figure}
 		\centering
-		\includegraphics[scale=1.5]{CREPE.png}
+		\includegraphics[scale=1.5]{Figures/CREPE.png}
 		\caption{The architecture of the CREPE algorithm\footfullcite{CREPE}}
 		\label{CREPE}
 	\end{figure}
@@ -461,7 +461,7 @@ to implement in our model.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1.5]{CREPEperf.png}
+	\includegraphics[scale=1.5]{Figures/CREPEperf.png}
 	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al. \footfullcite{CREPE}}
 	\label{CREPEperf}
 \end{figure}
