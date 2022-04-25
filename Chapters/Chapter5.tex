@@ -28,7 +28,7 @@ Figure \ref{flowchart} shows the flowchart of the audio processing part of our p
 		\node (n1) [block]  {User sings into our app\\ 
 					(Obtain input audio signal)}; 
 		%beige bg
-		\node (bg) [right= 4cm of n1, anchor=center, draw=none, fill={rgb:orange,1;yellow,2;pink,5}, minimum width=7.5cm,minimum height=2.5cm]{};
+		\node (bg) [right= 4.5cm of n1, anchor=center, draw=none, fill={rgb:orange,1;yellow,2;pink,5}, minimum width=7.5cm,minimum height=2.5cm]{};
 		\node (bglabel) [above = -0.8cm of bg]{Implement noise filter};
 		
 		\node (n2) [block, right=1cm of n1]
@@ -175,7 +175,7 @@ compare three noise reduction mechanisms.
 	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
 	fact, this method is used by Audacity in its noise reduction algorithm\footfullcite{audacity}. 
 	Suppose noise is additive, and we can represent our noisy audio 
-	\[y(n) = x(n) + d(n), \textit{for } 0 \leq n \leq N-1 \label{sreduction} \]
+	\[y(n) = x(n) + d(n), \textit{ for } 0 \leq n \leq N-1 \label{sreduction} \]
 	where $x(n)$ is our original signal (the signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
 	Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
@@ -268,8 +268,8 @@ On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s a
 After referring to the measurements taken from 192 participants\footfullcite{f0age} and the pitch range
 set by Praat\footfullcite{praat} (a software for speech analysis), a simple modelling of $f_c$ according to age and gender
 is as below:
-\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, \text{for } 4 \leq n\leq 93 \label{male} \] 
-\[f_{c,female}(n) = 0.02n^2 - 3n + 287, \text{for } 4 \leq n \leq 93 \label{female} \] 
+\[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, \text{ for } 4 \leq n\leq 93 \label{male} \] 
+\[f_{c,female}(n) = 0.02n^2 - 3n + 287, \text{ for } 4 \leq n \leq 93 \label{female} \] 
 where $n$ is the age of the user
 In deciding which filter to implement, there are 3 filters in consideration:
 \begin{enumerate}[label=(\alph*)]
@@ -294,21 +294,21 @@ Thus, Bessel filter is preferred in this context.
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}{.32\textwidth}
+	\begin{subfigure}{.4\textwidth}
 	  	\centering
 	  	\includegraphics[width=1\linewidth]{chebyshev.jpeg}
 	  	\caption{Type 1 Chebyshev filter \\frequency response}
 	  	\label{fig:sub1}
 	\end{subfigure}
-
-	\begin{subfigure}{.32\textwidth}
+	\hfill
+	\begin{subfigure}{.4\textwidth}
 	  	\centering
 	  	\includegraphics[width=1\linewidth]{butterworth.jpeg}
 	  	\caption{Butterworth filter frequency response}
 	  	\label{fig:sub2}
 	\end{subfigure}
-
-	\begin{subfigure}{.32\textwidth}
+	\hfill
+	\begin{subfigure}{.4\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{bessel.jpg}
 		\caption{Bessel filter frequency\\response}
@@ -388,7 +388,7 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 		\begin{subfigure}{.3\textwidth}
 		  \centering
 		  \includegraphics[width=1\linewidth]{taperedacf.png}
-		  \caption{$r_t(\tau)$ calculated with equation \ref{signal}}
+		  \caption{$r_t(\tau)$ calculated with \\equation \ref{signal}}
 		  \label{taped}
 		\end{subfigure}%
 		\label{YIN}
@@ -432,7 +432,7 @@ There are 4 approaches to detect $f_0$, which can be classified into time domain
 
 	\begin{figure}
 		\centering
-		\includegraphics[scale=1.5]{CREPE.png}
+		\includegraphics[scale=0.35]{CREPE.png}
 		\caption{The architecture of the CREPE algorithm\footfullcite{CREPE}}
 		\label{CREPE}
 	\end{figure}
@@ -464,7 +464,7 @@ to implement in our model.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1.5]{CREPEperf.png}
+	\includegraphics[scale=0.5]{CREPEperf.png}
 	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al. \footfullcite{CREPE}}
 	\label{CREPEperf}
 \end{figure}
