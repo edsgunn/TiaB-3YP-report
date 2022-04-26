@@ -124,6 +124,10 @@ Memory based approaches are also often referred to as neighbourhood collaborativ
 
 
 \\\textbf{Item-item Collaborative Filtering}
+\\This method was first invented and used by amazon in 1998. 
+Rather than matching the user to similar customers, item-to-item collaborative filtering matches each of the user’s purchased and rated items to similar items, then combines those similar items into a recommendation list. Now, let us discuss how it works.
+\\ \textbf{Algorithm}:
+\\Instead of applying cosine similarity, the better approah will be using pearson correlation coeffient
 \\We find the group of similar items based on your similarity metric choice.
 \\Select up to the top-k most similar item to recommend.
 
