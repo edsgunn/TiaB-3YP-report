@@ -25,7 +25,7 @@ A method which requires little knowlege of music is the use of a machine learnin
 The curation and processing of an appropriate dataset requires significant effort and care in itself.
 This leads to a natural division of labour across the project into the catagories of:
 \label{sec:Introduction}
-user Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
+User Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
 curation and preparation of a dataset in an appropriate format - detailed in \ref{Chapter3} by Terence Tan;
 the design of an appropriate machine learning model - detailed in \ref{Chapter4} by Edward Gunn;
 the conversion of recorded melody to the same format as expressed in the dataset - detailed in \ref{Chapter5} by Kitty Fung.
@@ -39,24 +39,79 @@ the conversion of recorded melody to the same format as expressed in the dataset
 Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
 We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes, the justification for this is explained in \textbf{reference to explanation}.
 The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
+\textbf{Tempo} will refer to the speed of the music usually measured in beats per minute or bpm
+\textbf{Time Signature} refers to an interger pair specifiying in the top element the number of beats in a bar and in the bottom element the length of note which will represent a beat.
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 
-\subsection{Project Overview and Software Design}
-
+\subsection{Project Overview}
 \begin{figure}
     \centering
     \includegraphics[width=0.8\columnwidth]{Figures/MVPOverview}
     \decoRule
-    \caption[]{A diagram of the end to end proccessing for the product}
+    \caption[]{An overview of the internal workings of ReChorder}
     \label{fig:MVPOverview}
 \end{figure}
-As stated in \ref{sec:Introduction} the project is modularised into a number of independent parts.
-The interface of each module has been pre-defined such that regardless of module implementation the modules can function togeather. 
+
+\paragraph{Overview}
+To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monphonic melody, allowing amateur musicians to compse music quickly and easily.
+As stated in \ref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
 For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
-These modules can be connected in the given order to produce and end to end system which allows for the conversion of recorded melody to the playback of the melody with appropriate accompaniment.
+In the desired final product these are accessed through a purpose built user interface.
+
+\paragraph{Recording Processor}
+
+The function of the recording processor is to allow the user to specify a given time signature and tempo and record a melody to be passed to the voice processor.
+When the recording is started a digital metronome can be played to guide the users tempo. 
+Although not necessary in the MVP a feature of the recording processor could be added such that if the metronome is used its influence on the recording is subtracted thus giving a clearer recording at a consistent tempo.
+Using a high quality setup for recording this problem could protentially be solved by simply subtracting the know waveform of the metronome from the waveform of the recording but this is an area for future work.
+Once the recording is complete it is passed to the Voice Processor along with the time signature and tempo of the piece.
+
+\paragraph{Voice Processor}
+
+The function of the voice processor is to extract from a noisy recording of the users melody the musical features present in our Model's training dataset and put these in the same form as the raw dataset.
+This processing involves three main steps: filtering, pitch detection and key detection.
+The recoding must first be filtered to remove noise.
+Then the pitch detection algorithm is used.
+For each submeasure, determined by the time signature and tempo, the note played is determined thus giving the notes that are played, which measure they are in and a rough estimate of the duration for which they are played.
+The finaly step is to use the key detection algorithm to determine the key in which the piece is played.
+The data is then passed to the data processor in the same form as the dataset for further processing.
+
+\paragraph{Data Processor}
+
+The function of the data processor is to convert the data into a format which can be used to train the model or used as input in production.
+In training we encode both the melody and chord data, putting it into vector format which can be inputted into the model so the loss can be caluclated by comparing the genreated chords to the true chords.
+In production we endode the melody data such that it can be inputted into the model to generate chords.
+
+\paragraph{Model}
+
+The function of the model is fundementally that of a sequence translator, translating from a sequence of melody vectors to a sequence of chord vectors.
+We make use of machine learning to achieve this. 
+The model is trained using the dataset to imitate real chord sequences which in production can be used to produce accompaniment for the input melodies.
+The model passes its output to the playback processor.
+\paragraph{Playback Processor}
+
+The playback processor takes as input the output chords from the model and the recorded melody and plays these togeather, allowing the user to hear their generated accompaniment.
+
+\subsection{Software Design}
+
+The design for the software to implement each part of the project is healily modularised, inkeeping with the philosiphy of object oriented programming.
+The interface of each module has been pre-defined such that regardless of module implementation the modules can function togeather. 
+A UML diagram outlining the design can be seen in figure \ref{fig:SoftwareOverview}.
+The main functions for the app are concentrated in the ReChorder class.
+These functions could be called directly from the user interface.
+The ReChorder class has instances of all the necessary modules which are defined as abstract classes such that they can be implemented in many different ways, such as with a different type of model, and still function correctly.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/SoftwareOverview}
+    \decoRule
+    \caption[]{An overview of the software design of ReChorder}
+    \label{fig:SoftwareOverview}
+\end{figure}
+
 
 \subsection{Market Research}
 \label{marketresearch}
@@ -66,11 +121,11 @@ There is also evidence that self-taught musicians teach themselves through digit
  
 Moreover, a YouGov survey \cite{YouGovMR} shows that 42\% of musicians professed to be singers, with more than half being self-taught. Guitar was the second most popular instrument behind piano, and 74\% of people who play the guitar said they were self-taught. This justifies the focus on converting singing to guitar chords for amateur musicians, since there is a substantial number of singers and guitar players who are self-taught.  
 
-\subsection{Core functionalities of product}
-\label{coreproduct}
+% \subsection{Core functionalities of product}
+% \label{coreproduct}
 
 
-Given the findings in Chapter \ref{marketresearch}, we can identify two main needs of our target market that our product can aim to meet. Firstly, our product has to be able to take vocals as inputs, and generate chords to accompany the singing. Secondly, our product has to provide a platform for a community of musicians that fosters collaboration and creativity.
+% Given the findings in Chapter \ref{marketresearch}, we can identify two main needs of our target market that our product can aim to meet. Firstly, our product has to be able to take vocals as inputs, and generate chords to accompany the singing. Secondly, our product has to provide a platform for a community of musicians that fosters collaboration and creativity.
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------

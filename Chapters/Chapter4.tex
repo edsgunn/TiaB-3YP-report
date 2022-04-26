@@ -110,15 +110,15 @@ The final criteria used for evaluation are thus:
 % ChordGAN \\       
 % CLSTMGAN for melody Generation \\
 
-\subsection{Model evaluation template}
-Model explanation/history - why is it generally applicable \\
-Previous implementations \\
-    General background \\
-    Evaluation \\
-        Data \\
-        Quantative \\
-        Qualitative \\
-        Extra features \\
+% \subsection{Model evaluation template}
+% Model explanation/history - why is it generally applicable \\
+% Previous implementations \\
+%     General background \\
+%     Evaluation \\
+%         Data \\
+%         Quantative \\
+%         Qualitative \\
+%         Extra features \\
 \subsection{HMMs}
 \label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
@@ -412,8 +412,28 @@ Softmaxing of outputs of generator
 Device managment
 
 \subsection{Testing}
-Accuracy \\
-Confusion Matrix\\
-Subjective
+The Model can be tested using the test set as this will reveal any overfitting from training. 
+We can evaluate the model as stated \ref{sec:Evaluation} using the accuracy of the model across the test set.
+Another way we can evaluate the model to get a better sense of where and how the model is going wrong is by using a confusion matrix.
+We enumerate the generated chords and the true chords. 
+For each melody we add one to the element in the (generated chord, true chord) coordinate. 
+Thus an ideal output would be a diagonal matrix such that the generated chord was always the same as the true chord, however, this would also suggest overfitting.
+An example of a confusion matrix is shown in \textbf{MAKE CONF MATRIX FIGURES}
+Another form of testing that could be performed is a subjective study like those in \cite{MySong} and \cite{BLSTM}.
+Ideally the studies would be carried out as similarly as possible to the others such that the models they are testing can be reliably compared.
+
 \section{Results}
-Bad Sad face
+Unfortunatley due to implementation difficulties followed by the sudden death of the machine we were using to train the model we were unable to obtain any valid results.
+While the machine affectionately know as boop was still running we conducted some preliminary training attempts where convergence  of the GAN illuded us like social skills to an engineer.
+The discriminator quickly learned to distinguish between the real and generated chords and the generator was never able to improve sufficiently to counter this.
+The loss of the models can be seen in figure \ref{fig:ModelLoss}.
+It was noticed that the generator converged to predict the same chord on every output. 
+This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss was effectivelty zero.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\columnwidth]{Figures/ModelLoss}
+    \decoRule
+    \caption{The loss of the Generator and Discriminator, blue and orange respectively}
+    \label{fig:ModelLoss}
+\end{figure}
