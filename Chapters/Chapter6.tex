@@ -76,9 +76,9 @@ the resemblance bewteen $\theta j$ and each $x(i)$ in post-feature matrix.
 \begin{equation*}
 \text{Cosine Similarity} = cos(\theta) = \frac{A \cdot B}{||A|| ||B||}
 \end{equation*}
-\\Our system can then recommend posts to our user$j$ based on the similarity socres.
+\\Our system can then recommend posts to our user$j$ based on the similarity socres.\\
 
-\\The biggest problem here in our design is how can we determine the subjective features of the content, such as, genre, vibe, mood, and etc. Our current solution to this problem is including "tags" in the posts, and give limit number of choices for our users to choose from, 
+The biggest problem here in our design is how can we determine the subjective features of the content, such as, genre, vibe, mood, and etc. Our current solution to this problem is including "tags" in the posts, and give limit number of choices for our users to choose from, 
 and a percentage meter to indicate the degree of the features for them to set. Therefore the post-feature metrix will intensively rely on our users and it can suffer from high variance of subjectiveness.
 %However, we believe this design gives our users more freedom and space to show the feelings behind the song.
 \\They’re ineffective for providing recommendations for new users. When building a model you require a history of explicit / implicit user level data for the items. It’s generally important to have a large dataset of ratings available to make robust predictions without overfitting.
@@ -100,7 +100,7 @@ The underlying intuition behind collaborative filtering is that if user A and B 
 \\We can divide collaborative filtering system into model-based approach and memory-based approach, and the memory-based approach can 
 further be divided into item-based and user-based systems.
 
-\\Before we dive into algorithm, we first need to construct the user-post interaction matrix \autoref{fig:UtilityM}. 
+Before we dive into algorithm, we first need to construct the user-post interaction matrix \autoref{fig:UtilityM}. 
 \begin{table}[ht]
 \centering
 \begin{tabular}{ |c|c|c|c|c|c|} 
@@ -125,7 +125,7 @@ We denote that:
 \\$r(i,j) = 1$,  if user $i$ rated item $j$ ( $0$,  otherwise.)
 \\$y^{(i,j)}$ \text{is the rating by user $j$ on item $i$}
 
-\\The first question will be faced in this approach, that's how can we get ratings $y^{(i,j)}$, the music posts are different from the movie rating system. Considering our user experience,
+The first question will be faced in this approach, that's how can we get ratings $y^{(i,j)}$, the music posts are different from the movie rating system. Considering our user experience,
 we cannot ask our user to rate each post, the more sensible way is to give "Like"s. However, inspired by a Chinese video-steaming app, Bilibili, we can make some changes to the "like" system. 
 Instead of "like" or "not give like", we introduce a "super like" that our user can give to a post.
 \\Now we want to construct a rating function $y^{(i,j)}(L,S,T)$
@@ -145,7 +145,7 @@ This can be further split into user based collaborative filtering and item based
 User based essentially means that likeminded users are going to yield strong and similar recommendations. Item based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
 \\The memory-based approach is so simple that It calculates the similarity matrix directly from the user-item matrix. There are two branches in memory based approaches, Item-item collaborative filtering and user-user collaborative filtering.
 
-\\Pearson Correlation: The most well-known similarity metric for the linear relation is person correlation. It measures how similar two samples are based on the direction of how the value changes.
+Pearson Correlation: The most well-known similarity metric for the linear relation is person correlation. It measures how similar two samples are based on the direction of how the value changes.
 \\The method for finding the similarity between two vectors is also called \textbf{Centred Cosine Similarity}. The word "Centred" means we will normalise utility matrix first by subtracting row mean, it solves the problem when we made the assumption by assuming unrated item by user will be rated 0. 
 \begin{equation*}
 \text{Pearson Correlation Coefficient} = \frac{\sum(x_{i} - \bar{x})(y_{i} - \bar{y})} {\sqrt{\sum(x_{i} - \bar{x})^{2} \sum{(y_{i} - \bar{y})^{2} }}}
@@ -153,7 +153,7 @@ User based essentially means that likeminded users are going to yield strong and
 
 
 \subsubsection{Item-based Collaborative Filtering}
-\\This method was first invented and used by amazon in 1998. 
+This method was first invented and used by amazon in 1998. 
 Rather than matching the user to similar customers, item-to-item collaborative filtering matches each of the user’s purchased and rated items to similar items, then combines those similar items into a recommendation list. Now, let us discuss how it works.
 \\ \textbf{Algorithm}:
 \\Instead of applying cosine similarity, the better approah will be using pearson correlation coeffient
@@ -162,7 +162,7 @@ Rather than matching the user to similar customers, item-to-item collaborative f
 
 
 \subsubsection{User-based Collaborative Filtering}
-\\We find the group of similar users (the group size is arbitrary) based on your similarity metric choice.
+We find the group of similar users (the group size is arbitrary) based on your similarity metric choice.
 \\We average the rating of each item based on the group of similar users
 \\Rank the item based on the descending average rating, and recommend the target user with the item they never interacted with before.
 
@@ -271,7 +271,7 @@ The objective our Collaborative optimisation algorithm is that:
 \sum_{k = 1}^{n}(\theta^{(j)})^{2}
 \end{equation*}
 
-\\\textbf{Advantages}
+\textbf{Advantages}
 \\The main advantage to using collaborative filtering models is its simplicity to implement and the high level coverage they provide. It is also beneficial because it captures subtle characteristics (very true for latent factor models) and does not require understanding of the item content.
 \\ \textbf{Disadvantages}
 \\The main disadvantage to this model is that it’s not friendly for recommending new items, this is because there has been no user/item interaction with it. This is referred to as the cold start problem. Memory based algorithms are known to perform poorly on highly sparse datasets.
