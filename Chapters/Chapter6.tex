@@ -3,90 +3,104 @@
 \chapter{Recommendation Engine}% Main chapter title
 \label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-As one of our goals for this software project is to create a community for the amateur singers or song-writers to share their works, a community page has been included in the design of our app. The main community page is where the posts are recommended to our users, recommendation engine determines the quality of posts recommended to our users, which helps to achieve higher traffic to our app.
-\\ A recent study by Epsilon found that 90\% of consumers find personalisation appealing. Plus, a further 80\% claim they are more likely to do business with a company when offered personalised experiences.The study also found that these consumers are 10x more likely to become VIP customers, who make more than 15 purchases per year.\footfullcite{epsilon}
-\\Based on the types of recommendation, we can divide it into personalised and non-personalised, and personalised recommendation system can be further divided into content-based filtering system and collaborative filtering system.
+
+The quality of recommendation system design determines the qulaity of the the posts recommended to our users.
+\\ A recent study by Epsilon found that 90\% of consumers find personalisation appealing. Plus, a further 80\% claim they are more likely to do business with a company when offered personalised experiences.
+The study also found that these consumers are 10x more likely to become VIP customers, who make more than 15 purchases per year.\footfullcite{epsilon} 
+That means a well-designed recommendation system can benefit the monetisation of our app in the future.
+\\Based on the types of recommendation, we can divide it into personalised and non-personalised, and personalised recommendation system can be further divided into content-based filtering system and collaborative filtering system. 
+The overview of recommendation system can be seen figure. \autoref{overrecomm}
 \begin{figure}[ht]
 \centering
-\includegraphics[scale = 0.60]{Overview}
+\includegraphics[scale = 0.60]{overview11.png}
 \caption{Overview of recommendation system}
+\label{overrecomm}
 \end{figure}
-
 
 
 %-----------------------------------------------------------------------------------------------------------------------------Popularity-Based Recommendation System
 \section{Popularity Based Recommendation System}
-It is a type of recommendation system which works on the principle of popularity and or anything which is in trend. These systems check about the product or movie which are in trend or are most popular among the users and directly recommend those. Instead of recommending posts only based on the number of likes it got, we can give weighting to each parameter involves in our decision, and generate a more suitable algorithm for final recommended posts.
-\\Inspired by Netflix, one of the most online video streaming company.
-\\Example:
+It is a type of recommendation system which works on the principle of popularity and or anything which is in trend. These systems check about the product or movie which are in trend or are most popular among the users and directly recommend those. 
+Instead of recommending posts only based on the number of likes that the posts received, we can give weighting to each parameter involves in our decision and one of the weighted rating system examples is shown below.
 \begin{equation}
-\textbf{Rating} = \frac{v}{v+m} \times R + \frac{m}{v+m} \times C
+\textbf{Rating}(v,m,R,C) = \frac{v}{v+m} \times R + \frac{m}{v+m} \times C
 \end{equation}
-Where 
-
-
+Where:
+\\$R$ is the average rating for the item.
+\\$v$ is the number of votes for the item.
+\\$m$ is the minimum votes required to be listed in the popular items(defined by > percentile 80 of total votes).
+\\$C$ is the average rating across the whole dataset.
+THis example is used to caculate ratig scores by IMDB, which is an online database of information related to films, televison series and etc. 
+Inspired by the example above, we can introduce the non-linearity in algoritms for calculate the scores of the posts to build our popularity-based recommendation system.
+We wanna to construct $f(L,C,m,g)$, where $L$ is the number of likes the post received, $C$ is the number of comments the post received, 
+$m$ is the minimum of likes to be listed as a popular item, $g$ is the gradient of change in number of likes in w.r.t time in recent period time.
+\\The disadvantages of popularity based system is the non-personlisation.
 
 
 
 
 %-----------------------------------------------------------------------------------------------------------------------------Content-Based Recommendation System
 \section{Content Based Recommendation System}
-Content Based Recommendation System are based on a description of the item and a profile of the user's preferences. These methods are best suited to situations where there is known data on an item (name, location, description, etc.), but not on the user. Content-based recommenders treat recommendation as a user-specific classification problem and learn a classifier for the user's likes and dislikes based on an item's features.
-\\ \textbf{Assumption:} There are available features that captures the content.
-
-\\ First we need to obtain the user parameter.
+Content Based Recommendation System are based on a description of the item and a profile of the user's preferences. 
+These methods are best suited to situations where there is known data on an item (name, location, description, etc.), but not on the user. 
+Content-based recommenders treat recommendation as a user-specific classification problem and learn a classifier for the user's likes and dislikes based on an item's features.
+\\ Before we can dive into the algorithm, we must assume that there are available features that captures the content of the item.
+\\ First we need to obtain the item-feature vectors, 
 \begin{table}[ht]
 \centering
 \begin{tabular}{ |c|c|c|c|c|c|} 
  \hline
- \diagbox{Items}{Features}&Feature1&Feature 2&Feature 3&$\cdots$&Features$j$\\
+ \diagbox{Posts}{Features}&Feature1&Feature 2&Feature 3&$\cdots$&Features$j$\\
  \hline
- Item1&&&&&\\
+ Post1&&&&&\\
  \hline
- Item2&&&&&\\
+ Post2&&&&&\\
  \hline
  $\vdots$&&&&&\\
  \hline
- Item $i$&&&&&\\
+ Post $i$&&&&&\\
  \hline
  \end{tabular}
- \caption{Item Feature Matrix}
+ \caption{Post Feature Matrix}
  \centering
  \end{table}
+The ratings given in the table measures the degree of the features in the posts, and we can assume the matrix is not sparse, which we mean the matrix is fully filled.
+\\We denote that each row is the feature vector $x(i)$ for post$i$.
 %
-\\User parameter vector 
+\\In addition, we need to get the profile of each individual users, which means we need to know and analyze the preference of our users, 
+so we need to obtain the user parameter vector for each individual user and it reflects how the user responds to the features.
 %
+\\After we have post-feature matrix and user parameter vector $\theta j$ of user j, we apply similarity metrics, here we use cosine similarity to measure 
+the resemblance bewteen $\theta j$ and each $x(i)$ in post-feature matrix.
 \\Cosine Similarity:  As the name mentioned, It measures the cosine angle of the two vectors in the multi-dimensional space. Two things can be similar together in terms of direction rather than magnitude.
-\\We assume that 
-\begin{equation}
-y^{(i,j)} = 0 \textbf{ if } r(i,j) = 0
-\end{equation}
 \begin{equation*}
 \text{Cosine Similarity} = cos(\theta) = \frac{A \cdot B}{||A|| ||B||}
 \end{equation*}
+\\Our system can then recommend posts to our user$j$ based on the similarity socres.
 
-\\ We can calculate the similarity between each pair of posts
-\\Or we can calculate the similarity between the user parameter vector and each item feature vector, since our user may have not given any rating to a certain feature.
+\\The biggest problem here in our design is how can we determine the subjective features of the content, such as, genre, vibe, mood, and etc. Our current solution to this problem is including tags in the posts, and give limit number of choices for our users to choose from,
+and a percentage meter to indicate the degree of the features. Therefore the post-feature metrix will intensively rely on our users and it can suffer from high variance of subjectiveness.
+%However, we believe this design gives our users more freedom and space to show the feelings behind the song.
 
-\\\textbf{Advantages}
+
+\\They’re ineffective for providing recommendations for new users. When building a model you require a history of explicit / implicit user level data for the items. It’s generally important to have a large dataset of ratings available to make robust predictions without overfitting.
+\\The solution to it can be solved by an UX/UI deisgn, which is inspird by Apple Music, YouTube Music and Xiaohongshu, we would pop out a page for our users to choose preference from given choices, the bubbles will have 3 sizes to indicate 'interested in', 'like' and 'very like' levels of preferences. 
+\\This solves the problem with the initialisation of user parameter vector.
+
 \\Content based models are most advantageous for recommending items when there is an insufficient amount of rating data available. This is because other items with similar attributes might have been rated by the user. Hence, a model should be able to leverage the ratings along with the item attributes to generate recommendations even when there isn’t a lot of data.
-\\\textbf{Disadvantages}
 \\There are two main disadvantages of content based systems.
 \\The recommendations provided are “obvious” based on the items / content the user has consumed. This is a disadvantage because if the user has never interacted with a particular type of item, that item will never be recommended to the user. For example, if you’ve never read mystery books, then through this approach, you will never be recommended mystery books. This is because the model is user specific and doesn’t leverage knowledge from similar users. This reduces the diversity of the recommendations, this is a negative outcome for many businesses.
-\\They’re ineffective for providing recommendations for new users. When building a model you require a history of explicit / implicit user level data for the items. It’s generally important to have a large dataset of ratings available to make robust predictions without overfitting.
-\\Applicability to our design:
-\\Our design is for the amateurs, so which makes getting the feature vectors difficult and unreliable. 
-\\Therefore, this approach may not be applicable.
-
-
-
-
+\\Also people's perference will change, considering user experience, we can not ask our users to update their preference everyday or everyweek, 
+and most of the time, users don't their prefernece clearly as well.
 
 %-----------------------------------------------------------------------------------------------------------------------------Collaborative Recommendation System
 \section{Collaborative Filtering Recommendation System}
-Collaborative filtering is the process of predicting the interests of a user by identifying preferences and information from many users. This is done by filtering data for information or patterns using techniques involving collaboration among multiple agents, data sources, etc. The underlying intuition behind collaborative filtering is that if user A and B have similar taste in a product, then A and B are likely to have similar taste in other products as well.
+Collaborative filtering is the process of predicting the interests of a user by identifying preferences and information from many users. 
+This is done by filtering data for information or patterns using techniques involving collaboration among multiple agents, data sources, etc. 
+The underlying intuition behind collaborative filtering is that if user A and B have similar taste in a product, then A and B are likely to have similar taste in other products as well.
 \\It has a interesting property, feature learning which is that it can learn for itself what features to use.
 
+\\Before we dive into algorithm, we first need to construct the user-post interaction matrix.
 \begin{table}[ht]
 \centering
 \begin{tabular}{ |c|c|c|c|c|c|} 
@@ -105,16 +119,17 @@ Collaborative filtering is the process of predicting the interests of a user by 
  \hline
  \end{tabular}
  \caption{User-Item Interaction Matrix}
- \centering
  \end{table}
 Denote that:
 \\$r(i,j) = 1$,  if user $i$ rated item $j$ ( $0$,  otherwise.)
 \\$y^{(i,j)}$ \text{is the rating by user $j$ on item $i$}
-
+\\The first problem becomes
 
 %-----------------------------------------------------------------------------------------------------------------------------Memory-based CF
 \subsection{Memory Based Approaches}
-Memory based approaches are also often referred to as neighbourhood collaborative filtering. Essentially, ratings of user-item combinations are predicted on the basis of their neighbourhoods. This can be further split into user based collaborative filtering and item based collaborative filtering. User based essentially means that likeminded users are going to yield strong and similar recommendations. Item based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
+Memory based approaches are also often referred to as neighbourhood collaborative filtering. Essentially, ratings of user-item combinations are predicted on the basis of their neighbourhoods. 
+This can be further split into user based collaborative filtering and item based collaborative filtering. 
+User based essentially means that likeminded users are going to yield strong and similar recommendations. Item based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
 \\The memory-based approach is so simple that It calculates the similarity matrix directly from the user-item matrix. There are two branches in memory based approaches, Item-item collaborative filtering and user-user collaborative filtering.
 \\Pearson Correlation: The most well-known similarity metric for the linear relation is person correlation. It measures how similar two samples are based on the direction of how the value changes.
 \\The method for finding the similarity between two vectors is also called \textbf{Centred Cosine Similarity}. The word "Centred" means we will normalise utility matrix first by subtracting row mean, it solves the problem when we made the assumption by assuming unrated item by user will be rated 0. 
@@ -276,18 +291,18 @@ Now, instead of direct computation with the user-item interaction matrix. We wil
 \section{Hybrid Recommendation System}
 Various methods of recommendations systems have their own benefits and flaws. Often, many of these methods may seem restrictive when used in isolation, especially when multiple sources of data is available for the problem. Hybrid recommender systems are ones designed to use different available data sources to generate robust inferences.
 \\Hybrid recommendation systems have two predominant designs, parallel and sequential. The parallel design provides the input to multiple recommendation systems, each of those recommendations are combined to generate one output. The sequential design provides the input parameters to a single recommendation engine, the output is passed on to the following recommender in a sequence. Refer to the figure below for a visual representation of both designs.
-\begin{figure}[ht]
-\centering
-\includegraphics[scale = 0.5]{padesign}
-\caption{Parallel design of Hybrid Recommendation System, figure here to be changed}
-\centering
-\end{figure}
-\begin{figure}[ht]
-\centering
-\includegraphics[scale = 0.5]{sedesign}
-\caption{Sequential design of Hybrid Recommendation System, figure here to be changed}
-\centering
-\end{figure}
+% \begin{figure}[ht]
+% \centering
+% \includegraphics[scale = 0.5]{padesign}
+% \caption{Parallel design of Hybrid Recommendation System, figure here to be changed}
+% \centering
+% \end{figure}
+% \begin{figure}[ht]
+% \centering
+% \includegraphics[scale = 0.5]{sedesign}
+% \caption{Sequential design of Hybrid Recommendation System, figure here to be changed}
+% \centering
+% \end{figure}
 
 \textbf{Advantages}
 \\Hybrid systems combine different models to combat the disadvantages of one model with another. This overall reduces the weaknesses of using individual models and aids in generating more robust recommendations. This yields more robust and personalised recommendations for users.
@@ -342,26 +357,26 @@ Hybrid system:
 \\ As we can see all the algorithm above have become an minimisation problem that we can solve by gradient descent, the typical way to solve it is to apply \textbf{Batch gradient descent}, which promises gradual approach to the global minimum . The demerit part of Batch gradient descent is that it becomes expensive when the dataset is huge, which is our current situation.
 \\ \textbf{algorithm explained here}
 
-\begin{figure}[ht]
-     \centering
-     \hspace{8mm}
-     \begin{subfigure}[b]{0.4\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{batde}
-         \caption{Batch gradient descent}
-         \label{batde}
-     \end{subfigure}
-     \hfill
-          \begin{subfigure}[b]{0.4\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{stode}
-         \caption{Stochastic gradient descent}
-         \label{Stochastic gradient descent}
-     \end{subfigure}
-          \hspace{8mm}
-        \caption{Different Approaches, graph here to be recreated}
-        \label{Approaches}
-\end{figure}
+% \begin{figure}[ht]
+%      \centering
+%      \hspace{8mm}
+%      \begin{subfigure}[b]{0.4\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{batde}
+%          \caption{Batch gradient descent}
+%          \label{batde}
+%      \end{subfigure}
+%      \hfill
+%           \begin{subfigure}[b]{0.4\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{stode}
+%          \caption{Stochastic gradient descent}
+%          \label{Stochastic gradient descent}
+%      \end{subfigure}
+%           \hspace{8mm}
+%         \caption{Different Approaches, graph here to be recreated}
+%         \label{Approaches}
+% \end{figure}
 Another approach can be {Stochastic gradient descent}, which randomly shuffle the training examples 
 \\ \textbf{algorithm explained here}
 
