@@ -4,15 +4,18 @@
 
 \label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\section{App Design}
-App design combines User interface (UI) and User Experience (UX), while UI concerns about how the app pages look like and feel, such as the fonts, colours and arrangements of icons, UX focuses on the functionality and usability. The best app design process comprises research, ideation, problem identification, design, feedback and problem evaluation. \textbf{(need explanation)} Currently, we only focus on the mobile app design or specifically IOS design based on Apple Platform and Android Design. 
+App design combines User interface (UI) and User Experience (UX), while UI concerns about how the app pages look like and feel, such as the fonts, colours and arrangements of icons, UX focuses on the functionality and usability. The best app design process comprises research, 
+ideation, problem identification, design, feedback and problem evaluation. \textbf{(need explanation)} Currently, we only focus on the mobile app design or specifically IOS design based on Apple Platform and Android Design. 
 
-\subsection{UX Design}
+%-----------------------------------------------------------------------------------------------------------------------------UX
+\section{UX Design}
 UX Design is the process of deciding how someone will use an app and creating a viable product. It’s during the UX process that mobile app design ideas are generated and validated, with an aim to make sure that all your choices are going to work so that our app works. 
 \\The quality of user experience is the crucial factor measuring the quality of the design and usually it's the key distinguishing a successful app design from a bad one. Customers are becoming more and more picky about which app to use and so quick to abandon the app which they don not enjoy, so it's essential to invest time and effort in creating a great user experience.
-\subsubsection{Minimum Viable Product (MVP)}
-A minimum viable product, or MVP, is a product with enough features to attract early-adopter customers and validate a product idea early in the development cycle. To decide which features belong the MVP design, we use MoSCoW method to represent all the features we want to include in our design, while M (Must Have) o S (Should Have) C (Could Have) o W (Won’t Have). 
-\\We also take Impact Effort matrix and AARRR framework evaluation method into consideration, where Impact Effort matrix is shown in figure[]. AARRR stands for Acquisition, Activation, Retention, Referral, Revenue. \textbf{need to explain}
+\subsection{Minimum Viable Product (MVP)}
+A minimum viable product, or MVP, is a product with enough features to attract early-adopter customers and validate a product idea early in the development cycle. To decide which features belong the MVP design, we use MoSCoW method to represent all the features we want to include in our design, which M (Must Have) o S (Should Have) C (Could Have) o W (Won’t Have). 
+The table seperates the features for our MVP from the advance functions that we want to include in our design.
+\\We also take Impact Effort matrix and AARRR framework evaluation method into consideration, where Impact Effort matrix is shown in figure[]. 
+AARRR stands for Acquisition, Activation, Retention, Referral, Revenue. \textbf{need to explain}
 
 \begin{table}[ht]
 \centering
@@ -30,9 +33,9 @@ A minimum viable product, or MVP, is a product with enough features to attract e
  \hline
  Share posts & Message channel \\ 
  \hline
- Recommendation Engine &  \\ 
+ Recommendation Engine &  Lock Chords when regenerating\\ 
  \hline
- Help and support &  \\ 
+ Help and support &  Pitch Tracking\\ 
  \hline
  File storage& File backup \\ 
  \hline
@@ -41,18 +44,18 @@ A minimum viable product, or MVP, is a product with enough features to attract e
  \centering
  \end{table}
  
- \subsubsection{User Flow and Funtionality}
+ \subsection{User Flow and Funtionality}
 User flows are flowcharts that illustrate the movement or journey of a user through your app. User flow diagrams are indispensable in mastering user experience. They allow you to understand how users interact with your app or website, the steps they take to complete a task or achieve a goal on your website. This will help you create a superior user experience for the user and meet their needs more efficiently.  
 \\There are two user flow diagrams representing two of the most important journey, one is sign-in flow figure[---] and the other one is main function page flow figure[---]. We use rounded rectangle to represent the termination, diamond to represent the decision, rectangle to represent the process and arrow to represent the flow direction.
 
-\begin{figure}
-\centering
-\includegraphics[scale = 0.25]{Figures/Flow diagram1.png}
-\caption{User Flow Diagram for Login}
-\centering
-\end{figure}
+% \begin{figure}
+% \centering
+% \includegraphics[scale = 0.25]{MFpage.png}
+% \caption{User Flow Diagram for main function page, figure need to be improved here}
+% \end{figure}
 
-\subsubsection*{Main Functionality}
+
+\subsection*{Main Functionality}
 
 \begin{itemize}
 
@@ -68,60 +71,72 @@ User flows are flowcharts that illustrate the movement or journey of a user thro
 \item \textbf{Store and backup files on Cloud}
 \\The purpose is to enable better synchronisation between devices and accessibility to the files. 
 \\We will include CloudKit in our IOS design to allow users to store their saved files in iCloud, (merit: grate integration, recordings can also be stored)
-\\
 
 \item \textbf{Recording input}
-\\
+\\ 16khz
 
 \item \textbf{Chord generation and regeneration}
-Unlike Chordify, which generates the same chords each time for the same audio source, we provides the option for users to regenerate the chords and we aim to provides sightly different chords when regeneration button is pressed.
+\\Unlike Chordify, which generates the same chords each time for the same audio source, we provides the option for users to regenerate the chords and we aim to provides sightly different chords when regeneration button is pressed.
 
-\item \textbf{Share works in the community page}
+\item \textbf{Community Page}
+\\Inspired by the Chinese music app, NetEase, one of our goals is to create a community page for our users to share their works and collaborate, 
+we believe that the community element can will bring continuous traffic to our app, which can benefit the monetisation of our app in the future.
+As we mentioned before, the user experience is the key factor determing the successfullness of the app design and here the quality of the posts recommended to our users is a curcial element affecting our user experience. 
+Therefore, it reuqires our recommendation engine to be well designed. \autoref{Chapter6}
 
+\item \textbf{Message Channel}
+The message channel allows our users to contact each directly and share the orginal chord files 
 
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[scale = 0.25]{Figures/MFpage.png}
-\caption{User Flow Diagram for main function page, figure need to be improved here}
-\end{figure}
 
 
 
-\subsection{UI Design}
+%-----------------------------------------------------------------------------------------------------------------------------UI
+\section{UI Design}
 After having the map of user flow, we started to design the prototype using Figma.
 
-\begin{figure}[ht]
-     \centering
-     \hspace{16mm}
-     \begin{subfigure}[b]{0.2\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{Figures/grappp}
-         \caption{Log-in page}
-         \label{Log-in page}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.2\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{Figures/grappp}
-         \caption{Main function page}
-         \label{Main function page}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.2\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{Figures/grappp}
-         \caption{Community page}
-         \label{Community page}
-     \end{subfigure}
-     \hspace{16mm}
-        \caption{UI design for our app}
-        \label{fig:three graphs}
-\end{figure}
+% \begin{figure}[ht]
+%      \centering
+%      \hspace{16mm}
+%      \begin{subfigure}[b]{0.2\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{grappp}
+%          \caption{Log-in page}
+%          \label{Log-in page}
+%      \end{subfigure}
+%      \hfill
+%      \begin{subfigure}[b]{0.2\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{grappp}
+%          \caption{Main function page}
+%          \label{Main function page}
+%      \end{subfigure}
+%      \hfill
+%      \begin{subfigure}[b]{0.2\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{grappp}
+%          \caption{Community page}
+%          \label{Community page}
+%      \end{subfigure}
+%      \hspace{16mm}
+%         \caption{UI design for our app}
+%         \label{fig:three graphs}
+% \end{figure}
 
-\subsection{Testing}
+\section{Testing}
+Testing stage helps our to discover the problems in our current designs and 
+According to Compuware, 48\% of users are less likely to use an app again if they are troubled with the app’s performance.
+As reported by Compuware, only 16\% of users can give the app a try for a second or third time. \footfullcite{lowtole}
 
-\subsection{Programming and Data architecture}
+\\We divide testing stage into three stages, inside 
+
+\section{Programming and Data architecture}
 End point design
 \\talk about some security here to link with data security section
+
+
+
+
+
+
