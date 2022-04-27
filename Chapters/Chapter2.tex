@@ -4,32 +4,133 @@
 
 \label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+App design combines User interface (UI) and User Experience (UX), while UI concerns about how the app pages look like and feel, such as the fonts, colours and arrangements of icons, UX focuses on the functionality and usability. The best app design process comprises research, 
+ideation, problem identification, design, feedback and problem evaluation. \textbf{(need explanation)} Currently, we only focus on the mobile app design or specifically IOS design based on Apple Platform and Android Design. 
 
-\section{Main Section 1}
+%-----------------------------------------------------------------------------------------------------------------------------UX
+\section{UX Design}
+UX Design is the process of deciding how someone will use an app and creating a viable product. It’s during the UX process that mobile app design ideas are generated and validated, with an aim to make sure that all your choices are going to work so that our app works. 
+\\The quality of user experience is the crucial factor measuring the quality of the design and usually it's the key distinguishing a successful app design from a bad one. Customers are becoming more and more picky about which app to use and so quick to abandon the app which they don not enjoy, so it's essential to invest time and effort in creating a great user experience.
+\subsection{Minimum Viable Product (MVP)}
+A minimum viable product, or MVP,  is a product with enough features to attract early-adopter customers and validate a product idea early in the development cycle. To decide which features belong the MVP design, we use MoSCoW method to represent all the features we want to include in our design, which M (Must Have) o S (Should Have) C (Could Have) o W (Won’t Have). 
+The table seperates the features for our MVP from the advance functions that we want to include in our design.
+\\We also take Impact Effort matrix and AARRR framework evaluation method into consideration, where Impact Effort matrix is shown in figure \ref{moscow}. 
+AARRR stands for Acquisition, Activation, Retention, Referral, Revenue. \textbf{need to explain}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+\begin{table}[ht]
+\centering
+\begin{tabular}{ |c|c| } 
+ \hline
+\textbf{MUST HAVE FEATURES FOR MVP} & \textbf{SHOULD/ COULD HAVE FEATURES}\\ 
+ \hline
+ Sign-up and sign-in with email & Sign-in with third party accounts \\ 
+ \hline
+ Upload Audio & Real-time generation \\ 
+ \hline
+ Chord output & Chord regeneration \\ 
+ \hline
+ Chord layout &  Export to PDF \\ 
+ \hline
+ Share posts & Message channel \\ 
+ \hline
+ Recommendation Engine &  Lock Chords when regenerating\\ 
+ \hline
+ Help and support &  Pitch Tracking\\ 
+ \hline
+ File storage& File backup \\ 
+ \hline
+ \end{tabular}
+ \caption{MoSCoW Table}
+ \centering
+ \label{moscow}
+ \end{table}
+ 
+ \subsection{User Flow and Funtionality}
+User flows are flowcharts that illustrate the movement or journey of a user through your app. User flow diagrams are indispensable in mastering user experience. They allow you to understand how users interact with your app or website, the steps they take to complete a task or achieve a goal on your website. This will help you create a superior user experience for the user and meet their needs more efficiently.  
+\\There are two user flow diagrams representing two of the most important journey, one is sign-in flow figure[---] and the other one is main function page flow figure[---]. We use rounded rectangle to represent the termination, diamond to represent the decision, rectangle to represent the process and arrow to represent the flow direction.
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\subsection{Subsection 1}
+% \begin{figure}
+% \centering
+% \includegraphics[scale = 0.25]{MFpage.png}
+% \caption{User Flow Diagram for main function page, figure need to be improved here}
+% \end{figure}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+\subsection*{Main Functionality}
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+\begin{itemize}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
+\item \textbf{Sign-up and Sign-in with Email}
+\\From the start, our user can sig-up with their email and then login in with our app accounts. The reason why we want our user to create an account is that we can profile our users more easily.
 
-\section{Main Section 2}
+\item \textbf{Sign-in with with third-party Accounts}
+\\ The purpose is to reduce the barriers for our users to enter our app. OAuth (Open Authorisation) is an open standard for access delegation, commonly used as a way for internet users to grant websites or applications access to their information on other websites but without giving them the passwords.This mechanism is used by companies such as Amazon, Google, Facebook, Microsoft, and Twitter to permit the users to share information about their accounts with third-party applications or websites.
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+\item \textbf{Ask for song tag preference}
+\\After our user sign-in, a question with selective answers will show on the main page, the answers will be stored and feed to our recommendation engine, \textbf{Link to recommendation engine section}.
+
+\item \textbf{Store and backup files on Cloud}
+\\The purpose is to enable better synchronisation between devices and accessibility to the files. 
+\\We will include CloudKit in our IOS design to allow users to store their saved files in iCloud, (merit: grate integration, recordings can also be stored)
+
+\item \textbf{Recording input}
+\\ 16khz
+
+\item \textbf{Chord generation and regeneration}
+\\Unlike Chordify, which generates the same chords each time for the same audio source, we provides the option for users to regenerate the chords and we aim to provides sightly different chords when regeneration button is pressed.
+
+\item \textbf{Community Page}
+\\Inspired by the Chinese music app, NetEase, one of our goals is to create a community page for our users to share their works and collaborate, 
+we believe that the community element can will bring continuous traffic to our app, which can benefit the monetisation of our app in the future.
+As we mentioned before, the user experience is the key factor determing the successfullness of the app design and here the quality of the posts recommended to our users is a curcial element affecting our user experience. 
+Therefore, it reuqires our recommendation engine to be well designed. \autoref{Chapter6}
+
+\item \textbf{Message Channel}
+The message channel allows our users to contact each directly and share the orginal chord files 
+
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------------UI
+\section{UI Design}
+After having the map of user flow, we started to design the prototype using Figma, which is a design tool 
+
+\begin{figure}[ht]
+     \centering
+     \hspace{16mm}
+     \begin{subfigure}[b]{0.33\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{mianpage1.png}
+         \caption{Log-in page}
+         \label{Log-in page}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.33\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{grappp.png}
+         \caption{Main function page}
+         \label{Main function page}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.33\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{commupage.png}
+         \caption{Community page}
+         \label{Community page}
+     \end{subfigure}
+     \hspace{16mm}
+        \caption{UI design for our app}
+        \label{fig:three graphs}
+\end{figure}
+
+\section{Testing}
+Testing stage offers us an chance to discover the problems in our current designs and 
+According to Compuware, 48\% of users are less likely to use an app again if they are troubled with the app’s performance.
+As reported by Compuware, only 16\% of users can give the app a try for a second or third time. \footfullcite{lowtole}
+
+We divide testing stage into three stages, 
+
+
+
+
+
+
