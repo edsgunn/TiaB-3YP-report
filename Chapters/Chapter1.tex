@@ -196,13 +196,21 @@ The programming languages can be divided into 3 execution types: compiler, inter
 
 Since our application has no requirements on the computational time and memory size, we can solely focus on the energy consumption between 
 different languages. Even though the energy needed to run different algorithms varies for different languages, it is certain that
-compiled language requires less energy compared to virtual machine and interpreted languages thus it would make sense to use C/ C++/ Rust to code.\\
-Also, since we plan to employ a cloud network architecture and host most of the operations on cloud, we would be creating an enormous carbon footprint. 
-Carbon3IT estimates datacentres account for at least 12\% of UK electricity consumption, which is equivalent to 41.11TWh a year \footfullcite{carbon}
+compiled language requires less energy compared to virtual machine and interpreted languages. Our team has used Python for the design and implementation so 
+it is rational to switch from Python to C/ C++/ Rust to code in the future.
+
+Also, we can reduce energy consumption by 87\% by employing a cloud architecture
+Yet, researches have shown that cloud computing is more energy efficient than relying on local devices (i.e. using our private data centers, computing on
+users\textsc{\char13} smartphones).
+
+Firstly, taking Amazon Web Services (AWS), the leading service provider in the cloud infrastructure market as an example, it aims to fully power the operation with renewable
+energy by 2025\footfullcite{aws}. Since it is complex and cost-ineffective for individuals or small-scale companies to switch to clean energy, using the cloud services provided
+by eco-conscious companies would greatly reduce the carbon footprints.
+
+On the other hand,
+
+
+As mentioned in section (\textbf{link to tech section above!}), current smartphones have built-in machine learning capabilities so we can consider applying 
+our machine learning models locally (i.e. on the users' devices) as to reduce the energy usage.
+
 Therefore, we should carefully design our architecture and minimise carbon footprints.
-
-As mentioned in section (\textbf{link to tech section above!}), we can perform 
-%TERENCE SAY WE CAN DO ML ON PHONE!%
-
-
-%SO WE SHOULD CHANGE FROM PYTHON TO C/C++/RUST%
