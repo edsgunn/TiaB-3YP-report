@@ -5,7 +5,7 @@
 Before we feed the audio clip to our machine learning model, it is crucial to pre-process the signal as to achieve higher accuracy
 and avoid further deterioration.
 The choice and implementation of noise filter will then be explained in \autoref{sec:NF}. We then feed the filtered output 
-to a pitch detection algorithm (PDA) in \autoref{sec:PDA} and then a key detection algorithm (KDA) in \autoref{sec:KDA}
+to a pitch detection algorithm (PDA) in \autoref{sec:PDA} and then a key detection algorithm (KDA) in \autoref{sec:KDA}.
 Figure \ref{flowchart} shows the flowchart of the audio processing part of our project.
 
 \begin{figure}[h]
@@ -174,7 +174,7 @@ compare three noise reduction mechanisms.
 	\item Spectral reduction\\
 	Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
 	fact, this method is used by Audacity in its noise reduction algorithm\footfullcite{audacity}. 
-	Suppose noise is additive, and we can represent our noisy audio 
+	Suppose noise is additive, and we can represent our noisy audio as
 	\[y(n) = x(n) + d(n), \textit{ for } 0 \leq n \leq N-1 \label{sreduction} \]
 	where $x(n)$ is our original signal (the signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
 	$N$ is the number of samples. 
@@ -288,9 +288,9 @@ In deciding which filter to implement, there are 3 filters in consideration:
 Chebyshev filter has a steeper roll-off compared to Butterworth and Bessel filter, but it also brings passband and stopband ripples, 
 unlike Butterworth and Bessel filter which have a flat passband and stopband as they roll off towards zero. Moreover, Butterworth 
 and Bessel filters have a better step response. Meanwhile, Bessel filters perform the best in step response since the overshoot is
-minimal. Also, an important characteristics Bessel filter has is that it introduces a linear-phase and constant delay for $f<f_c$. This
+minimal. Another benefit Bessel filter has is it introduces a linear-phase and constant delay for $f<f_c$. This
 feature allows us to preserve the waveshape since all frequencies are delayed by the same amount.
-Thus, Bessel filter is preferred in this context.
+Thus, a Bessel filter is preferred in this context.
 
 \begin{figure}[h]
 	\centering
@@ -502,7 +502,7 @@ Bayes' rule states:
 where $P(A\mid B)$ is the posterior probability or the updated probability with the consideration of evidence.\\
 $P(B\mid A)$ is the likelihood, which is the probability of observing the evidence given the event has happened.\\
 $P(A)$ is the prior probability, which is the probability before taking into consideration the evidence.\\
-$P(B)$ is known as the marginal probability, which is the probability of an event irrespective of outcomes of any evidence. \\
+$P(B)$ is known as the marginal probability, which is the probability of an event irrespective of outcomes of any evidence.
 
 With enough audio samples sung by the user, we can collect the range of pitches that he/she manages to sing. Then we can model 
 the probability distribution $P(x)$ to update the likelihood of observing a certain pitch given the previous audio samples.
