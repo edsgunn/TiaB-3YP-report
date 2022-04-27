@@ -472,7 +472,7 @@ to implement in our model.
 The CREPE code uploaded by Kim et al. takes in the samples $y$, sampling rate $sr$ and a boolean parameter (True/ False) for Viterbi, which is a smoothing algorithm. 
 It calculates pitch every 10 ms and outputs the timestamp, estimated frequency $\hat{f_0}$, confidence $c$ and an activation matrix for visualization of outputs. 
 
-The sampling rate of training data used by CREPE is at \setword{16 kHz}{ssec:crepe} thus our input audio will need to be resampled to 16 kHz if the original $sr \neq 16 kHz$. If the user is using the iPhone 
+The sampling rate of training data used by CREPE is at 16 kHz thus our input audio will need to be resampled to 16 kHz if the original $sr \neq 16 kHz$. If the user is using the iPhone 
 built-in microphone to record, we need to set the preferred sampling rate to 16 kHz \footfullcite{iphoneaud} when coding for our iOS app.
 
 One thing to note is that the algorithm centers the first frame at $t=0$ instead of starting the first frame at $t=0$ to avoid misalignment.
