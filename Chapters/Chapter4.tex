@@ -123,7 +123,7 @@ The final criteria used for evaluation are thus:
 \subsection{HMMs}
 \label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
-Hidden Markov Models or HMMs were first put forward by Leonard E. Baum in a series of statistical papers \textbf{list papers from wikipedia}. 
+Hidden Markov Models or HMMs were first put forward by Leonard E. Baum in a series of statistical papers \cite{HMM1} \cite{HMM2} \cite{HMM3}. 
 They model a stochasitic process in which the desired states, $\boldsymbol{X}$, are not directly observable but related states, $\boldsymbol{Y}$, which directly influence the desired states are. 
 By modeling the $\boldsymbol{X}$ and $\boldsymbol{Y}$ Markov Processes %\textbf{references?} 
 we are able to infer the hidden state.
@@ -369,7 +369,7 @@ The chords are padded with vectors representing a rest.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\columnwidth]{Figures/GAN}
+    \includegraphics[width=0.8\columnwidth]{Figures/GAN}
     \decoRule
     \caption{The training of the model}
     \label{fig:ModelTraining}
@@ -378,7 +378,7 @@ The chords are padded with vectors representing a rest.
 \paragraph{Loss}
 A loss function is used to gain a measure of how different the output of the model is from the desired output.
 For best results a loss function is often coupled with the activation function of the linear layers.
-An example of this coupling is the sigmoid activation function and the binary cross entropy. \textbf{EXPAND ON THIS}
+An example of this coupling is the sigmoid activation function and the binary cross entropy. %\textbf{EXPAND ON THIS}
 As we are using a GAN we use the Binary Cross Entropy or BCE as our loss function for the Discriminator as we are dealing with a binary problem, is the input real or generated?
 The Discriminator loss is averaged across its performance between real and generated examples.
 For the Generator we use the complement of the Discriminator loss on generated examples.
