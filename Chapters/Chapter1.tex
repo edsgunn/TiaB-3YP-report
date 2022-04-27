@@ -209,39 +209,46 @@ Government policies have left music education in the UK in a precarious state \c
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Risk and Data Security}
-For data security reason, these two are typically encrypted by default. Data is also ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t give itself permission to access anything – that’s why the permissions system pops up messages saying “so-and-so app would like to access your location, contacts and camera.” That prevents the app from reading data from other apps, or with the phone’s operating system, unless you’ve given the app permission. It’s on developers to make sure that their apps only request the access they need.
-\\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that server and app authenticate each other before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous assessment of network security and compliance with security standards.
-\\Because finding defects in production is expensive! The key reason why people perform risk analysis during software testing is to better understand what can really go wrong with an application before it goes into production. A risk analysis performed during software testing helps to identify areas where software flaws could result in serious issues in production. By identifying areas of concern early, developers are able to proactively remediate and reduce the overall risk of a production defect.
-\\ talk about stability 
+% \section{Risk and Data Security}
+% For data security reason, these two are typically encrypted by default. Data is also ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t give itself permission to access anything – that’s why the permissions system pops up messages saying “so-and-so app would like to access your location, contacts and camera.” That prevents the app from reading data from other apps, or with the phone’s operating system, unless you’ve given the app permission. It’s on developers to make sure that their apps only request the access they need.
+% \\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that server and app authenticate each other before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous assessment of network security and compliance with security standards.
+% \\Because finding defects in production is expensive! The key reason why people perform risk analysis during software testing is to better understand what can really go wrong with an application before it goes into production. A risk analysis performed during software testing helps to identify areas where software flaws could result in serious issues in production. By identifying areas of concern early, developers are able to proactively remediate and reduce the overall risk of a production defect.
+% \\ talk about stability 
 
-\subsection {flows}
-identification, causes, impacts, action required
-\\ identification: leakage
-\\ identification: attacks 
-\\ more
+% identification, causes, impacts, action required
+% \\ identification: leakage
+% \\ identification: attacks 
+% \\ more
 
-\subsection {GDPR Compliance} 
-important sections
-\\ how to
+
+% important sections
+% \\ how to
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 \section{Finance and Monetisation}
-
+Like every other project, we need a budget for our app design project. A project budget is the total estimated cost of completing each project activity over each phase of a project. Based on the statistics published by SPDLoad, our project will take approximately 9 months to finish due to its high complexity, such as, machine learning integration.
 \subsection{Cost Break-down}
+Cost breakdown is the systematic process of identifying the individual elements that comprise the total cost of a good, service or package. Here we divide our costs into two types, direct costs and indirect costs.
 \subsubsection{Direct Costs}
-Here we define the direct costs are the costs which is proportional to the number of subscription our user registered.
-
+We define the direct costs are the costs which is proportional to the number of subscription our users registered.
 \begin{itemize}
 \item As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple AppStore} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
-\item The transaction fee through the Bank will be 2.9\%
+\item The average transaction fee through card payment will be approximately 2.9\%
 \end{itemize}
 
 
 \subsubsection{Indirect Costs}
+We define that the indirect costs are the costs which is not proportional to number of subscription our users registered. Those include:
 \begin{itemize}
-\item 99 US dollar developer account fee 
+\item \textbf{Labor cost}
+\\We will need a team for our app design, based on the post by SPDLoad, a typical app-design team must consist 1 project manager / product manager (£57,341/ year) , 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year),1 backend developer (£53,568/ year) and 1 quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average salaries in London published by Glassdoor, which is a website allow current and former employee to review their company and publish their salary rates.
+\item \textbf{Marketing cost}
+\\ Marketing costs are the all expenses that the company makes to market and sell its products and develop and promote its brand. We set our budget to be £100,000
+\item \textbf{Testing cost}
+\\ Testing cost is the costs associated with app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on .
+\item \textbf{Others}
+\\Those are the costs consisting app development account fee and other utilities. The estimate will be £15,000
 \end{itemize}
 
 Here we present those estimated costs in the table of annual cost sheet:
@@ -260,27 +267,32 @@ Here we present those estimated costs in the table of annual cost sheet:
  \hline
  &&\\
  \hline
- \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\
+ \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\\hline
  \multicolumn{1}{|c}{\textbf{Indirect Cost}} &\multicolumn{1}{c}{}&\\
  \hline
- &&\\
+ Labor Costs&&£229,396\\
+ \hline
+ Marketing&&£100,000\\
+ \hline
+ Testing&&£10,000\\
+ \hline
+ Others&&£15,000\\
+ \hline
+ \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\
+ \hline
+ \textbf{Total}&17.3\%&£354,396\\
  \hline
  \end{tabular}
  \caption{Annual cost sheet}
- \centering
  \end{table}
 
- \subsection{Source of Cash Inflow}
- There are two main sources of cash inflow through our app, advertisements revenue and subscription fee.
- \\ \textbf{Advertisament}
- \\ \textbf{Subscription}
- 
- 
- \subsection{Pricing Strategy}
- Applicable:
- \\Psychological pricing
- \\Dynamic pricing
- \\Value-based pricing
+
+\subsection{Source of Cash Inflow}
+There are two main sources of cash inflow through our app, advertisements revenue and subscription fee.
+\\ \textbf{Advertisament}
+\\ We decides to cooperate with other music-related companies and place their advertisements in our app pages, the revenue will be based on the number of clicks. We will use A/B Testing to decide the place and methods how we will place the advertisement and minimising the influence to user experience.
+\\ \textbf{Subscription}
+\\We consider subscription fee as the main source of income for our app, we aim to provide monthly subscription model for our users to access the premium functions, such as pitch tracking. research needed here
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
