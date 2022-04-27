@@ -291,7 +291,6 @@ The sequential design provides the input parameters to a single recommendation e
 % \caption{Sequential design of Hybrid Recommendation System}
 % \centering
 % \end{figure}
-
 \textbf{Advantages}
 \\Hybrid systems combine different models to combat the disadvantages of one model with another. This overall reduces the weaknesses of using individual models and aids in generating more robust recommendations. This yields more robust and personalised recommendations for users.
 \\\textbf{Disadvantages}
@@ -353,7 +352,8 @@ with one of the sub-systems is built with content-based and model-based filterin
 \\In addition, the input will be feed into content-based system to have ratings based on the similarity between users' perference and posts' features. 
 The reason why we also pass the output after the content-based system through a model-based collaborative filtering is to solve the limitations in last step, 
 which are that users parameters vector can not be updated and users will not be recommended the type of posts if they have not interact with it before.
-\\Furthermore, the input will pass through the user-based and item-based collaborative filtering system to have the ratings of posts based on the analysis of group behaviors.
+\\Furthermore, the input will pass through the user-based and item-based collaborative filtering system in parallel with other systems, 
+to have the ratings of posts based on the analysis of group behaviors.
 \\Finally after we have ratings after each system, we pass all the results into a weighting function, where we give weights to each sub-system output, and then apply a linear combination.
 The weights coefficients are calculated based on the performance and reliability of the sub-systems.
 
