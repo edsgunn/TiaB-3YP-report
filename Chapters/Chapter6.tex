@@ -4,11 +4,11 @@
 \label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 
-The quality of recommendation system design determines the qulaity of the the posts recommended to our users. 
-A recent study by Epsilon found that 90\% of consumers find personalisation appealing. Plus, a further 80\% claim they are more likely to do business with a company when offered personalised experiences.
-The study also found that these consumers are 10x more likely to become VIP customers, who make more than 15 purchases per year.\footfullcite{epsilon} 
-That means a well-designed recommendation system can benefit the monetisation of our app in the future.
-\\Based on the types of recommendation, we can divide it into personalised and non-personalised, and personalised recommendation system can be further divided into content-based filtering system and collaborative filtering system. 
+The quality of the recommendation system design determines the quality of the posts recommended to our users. 
+A recent study by Epsilon found that 90\% of consumers find personalisation appealing. Plus, a further 80\% claim they are more likely to cooperate with a company when offered personalised experiences.
+The study also found that these consumers are ten times more likely to become VIP customers, who make more than 15 purchases per year.\footfullcite{epsilon} 
+Thus a well-designed recommendation system can benefit the monetisation of our app in the future.
+\\Recommendation systems are divided into personalised and non-personalised ones, where personalised recommendation systems can be further divided into content-based filtering systems and collaborative filtering systems. 
 The overview of recommendation system can be seen in figure \ref{fig:overrecomm}.
 \begin{figure}[ht]
 \centering
@@ -19,8 +19,8 @@ The overview of recommendation system can be seen in figure \ref{fig:overrecomm}
 
 %-----------------------------------------------------------------------------------------------------------------------------Popularity-Based Recommendation System
 \section{Popularity Based Recommendation System}
-It is a type of recommendation system which works on the principle of popularity and or anything which is in trend. These systems check about the product or movie which are in trend or are most popular among the users and directly recommend those. 
-Instead of recommending posts only based on the number of likes that the posts received, we can give weighting to each parameter involves in our decision and one of the weighted rating system examples is shown below.
+It is a type of recommendation system which works on the principle of popularity and or anything which is in trend. These systems check the product or movies which are in trend or are most popular among the users and directly recommend those. 
+Instead of recommending posts only based on the number of likes that the posts received, we can give weighting to each parameter involved in our decision and one of the weighted rating system examples is shown below.
 \begin{equation}
 \textbf{Rating}(v,m,R,C) = \frac{v}{v+m} \times R + \frac{m}{v+m} \times C
 \end{equation}
@@ -29,11 +29,11 @@ Where:
 \\$v$ is the number of votes for the item.
 \\$m$ is the minimum votes required to be listed in the popular items(defined by > percentile 80 of total votes).
 \\$C$ is the average rating across the whole dataset.
-\\This example is used to caculate ratig scores by IMDB, which is an online database of information related to films, televison series and etc. 
-Inspired by the example above, we can introduce the non-linearity in algoritms for calculate the scores of the posts to build our popularity-based recommendation system.
+\\This example is used to calculate rating scores by IMDB, which is an online database of information related to films and television series.
+Inspired by the example above, we can introduce non-linearity in algorithms to calculate the scores of the posts to build our popularity-based recommendation system.
 We want to construct $f(L,C,m,g)$, where $L$ is the number of likes the post received, $C$ is the number of comments the post received, 
-$m$ is the minimum of likes to be listed as a popular item, $g$ is the gradient of change in number of likes in w.r.t time in recent period time.
-\\The most obvious disadvantage of popularity based system is the non-personlisation.
+$m$ is the minimum of likes to be listed as a popular item, $g$ is the gradient of change in the number of likes in w.r.t time in recent period time.
+\\The most obvious disadvantage of a popularity-based system is the non-personalisation.
 
 
 
@@ -41,7 +41,7 @@ $m$ is the minimum of likes to be listed as a popular item, $g$ is the gradient 
 %-----------------------------------------------------------------------------------------------------------------------------Content-Based Recommendation System
 \section{Content Based Recommendation System}
 \label{Content Based Recommendation System}
-Content Based Recommendation System are based on a description of the item and a profile of the user's preferences. 
+Content-Based Recommendation Systems are based on a description of the item and a profile of the user's preferences. 
 These methods are best suited to situations where there is known data on an item (name, location, description, etc.), but not on the user. 
 Content-based recommenders treat recommendation as a user-specific classification problem and learn a classifier for the user's likes and dislikes based on an item's features.
 \\ Before we can dive into the algorithm, we must assume that there are available features that captures the content of the item.
@@ -67,17 +67,17 @@ Content-based recommenders treat recommendation as a user-specific classificatio
 \\The ratings given in the table measures the degree of the features in the posts, and we can assume the matrix is not sparse, which we mean the matrix is fully filled.
 \\We denote that each row is the feature vector $x(i)$ for post $i$.
 %
-\\In addition, we need to get the profile of each individual users, which means we need to know and analyze the preference of our users, 
-so we need to obtain the user parameter vector for each individual user and it reflects how the user responds to the features.
+\\In addition, we need to get the profile of each users, which means we need to know and analyze the preference of our users, 
+so we need to obtain the user parameter vector for each user and it reflects how the user responds to the features.
 %
-\\After we have post-feature matrix and user parameter vector $\theta(j)$ of user j, we apply similarity metrics, here we use cosine similarity to measure 
-the resemblance bewteen $\theta(j)$ and each $x(i)$ in post-feature matrix.
+\\After we have the post-feature matrix and user parameter vector $\theta(j)$ of user j, we apply similarity metrics, here we use cosine similarity to measure 
+the resemblance between $\theta(j)$ and each $x(i)$ in the post-feature matrix.
 \\Cosine Similarity:  As the name mentioned, It measures the cosine angle of the two vectors in the multi-dimensional space. Two things can be similar together in terms of direction rather than magnitude.
 \begin{equation*}
 \text{Cosine Similarity} = cos(\theta) = \frac{A \cdot B}{||A|| ||B||}
 \end{equation*}
-\\Our system can then recommend posts to our user$j$ based on the similarity socres.
-\\The biggest problem here in our design is how can we determine the subjective features of the content, such as, genre, vibe, mood, and etc. Our current solution to this problem is including "tags" in the posts, and give limit number of choices for our users to choose from, 
+\\Our system can then recommend posts to our user$j$ based on the similarity scores.
+\\The biggest problem here in our design is how can we determine the subjective features of the content, such as genre, vibe, mood, and etc. Our current solution to this problem is including "tags" in the posts, and give limit number of choices for our users to choose from, 
 and a percentage meter to indicate the degree of the features for them to set. Therefore the post-feature metrix will intensively rely on our users and it can suffer from subjectiveness.
 However, we believe this design gives our users more freedom and space to show the feelings behind their songs.
 \\Content based models are most advantageous for recommending items when there is an insufficient amount of rating data available. This is because other items with similar attributes might have been rated by the user. Hence, a model should be able to leverage the ratings along with the item attributes to generate recommendations even when there isn’t a lot of data.
