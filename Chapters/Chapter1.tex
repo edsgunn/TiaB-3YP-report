@@ -9,21 +9,20 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
-
 The process of writing music often begins with an idea for a melody which is followed by the development of chords to accompany it.
 The matching of chords to a melody is a skill which usually requires years of training in musical techniques such as harmonisation.
 There is a large market of amateur musicians who lack the necessary training for this task but would otherwise enjoy the experience of developing music.  
-In this report we will detail the design of ReChorder, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody. \label{Chap1Sec1}
-Users are able to record a melody using their microphone and regenerate the chord sequence until they feel the they have found one suitable for the intended feel of their song.
+In this report we will detail the design of ReChorder, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
+Users are able to record a melody using their microphone and regenerate the chord sequence until they feel they have found one suitable for the intended feel of their song.
 Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature. \\
 The problem of converting a recorded melody to a set of chords can be decomposed into a set of simpler sub-probblems, these being:
 the conversion of the recorded melody into a form which numerically represents its features,
 and the generation of a set of chords from this numerical representation,
-The latter of these two problems can be solved in a variety of ways, many of which require a detailed knowlege of music to find patterns in melodies to match to chords.  
+The latter of these two problems can be solved in a variety of ways, many of which require a detailed knowledge of music to find patterns in melodies to match to chords.  
 %\textbf{WHY IS THIS A PROBLEM FOR US}
-A method which requires little knowlege of music is the use of a machine learning model to extract these patterns from data of known chord melody pairings from professionally composed music. 
+A method which requires little knowledge of music is the use of a machine learning model to extract these patterns from data of known chord melody pairings from professionally composed music. 
 The curation and processing of an appropriate dataset requires significant effort and care in itself.
-This leads to a natural division of labour across the project into the catagories of:
+This leads to a natural division of labour across the project into the categories of:
 \label{sec:Introduction}
 User Interface and general product design - detailed in \ref{Chapter2} by Di Wan;
 curation and preparation of a dataset in an appropriate format - detailed in \ref{Chapter3} by Terence Tan;
@@ -38,9 +37,9 @@ the conversion of recorded melody to the same format as expressed in the dataset
 
 Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
 We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes.%, the justification for this is explained in \textbf{reference to explanation}.
-The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
+ The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
 \textbf{Tempo} will refer to the speed of the music usually measured in beats per minute or bpm
-\textbf{Time Signature} refers to an interger pair specifiying in the top element the number of beats in a bar and in the bottom element the length of note which will represent a beat.
+\textbf{Time Signature} refers to an integer pair specifying in the top element the number of beats in a bar and in the bottom element the length of note which will represent a beat.
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
@@ -56,7 +55,7 @@ The use of \textbf{melody} refers to a monophonic melody in which only one note 
 \end{figure}
 
 \paragraph{Overview}
-To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monphonic melody, allowing amateur musicians to compse music quickly and easily.
+To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monophonic melody, allowing amateur musicians to compose music quickly and easily.
 As stated in \ref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
 For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
 In the desired final product these are accessed through a purpose built user interface.
@@ -64,45 +63,45 @@ In the desired final product these are accessed through a purpose built user int
 \paragraph{Recording Processor}
 
 The function of the recording processor is to allow the user to specify a given time signature and tempo and record a melody to be passed to the voice processor.
-When the recording is started a digital metronome can be played to guide the users tempo. 
+When the recording is started a digital metronome can be played to guide the user's tempo. 
 Although not necessary in the MVP a feature of the recording processor could be added such that if the metronome is used its influence on the recording is subtracted thus giving a clearer recording at a consistent tempo.
-Using a high quality setup for recording this problem could protentially be solved by simply subtracting the know waveform of the metronome from the waveform of the recording but this is an area for future work.
+Using a high quality setup for recording this problem could potentially be solved by simply subtracting the know waveform of the metronome from the waveform of the recording, but this is an area for future work.
 Once the recording is complete it is passed to the Voice Processor along with the time signature and tempo of the piece.
 
 \paragraph{Voice Processor}
 
-The function of the voice processor is to extract from a noisy recording of the users melody the musical features present in our Model's training dataset and put these in the same form as the raw dataset.
+The function of the voice processor is to extract from a noisy recording of the user's melody the musical features present in our Model's training dataset and put these in the same form as the raw dataset.
 This processing involves three main steps: filtering, pitch detection and key detection.
 The recoding must first be filtered to remove noise.
 Then the pitch detection algorithm is used.
 For each submeasure, determined by the time signature and tempo, the note played is determined thus giving the notes that are played, which measure they are in and a rough estimate of the duration for which they are played.
-The finaly step is to use the key detection algorithm to determine the key in which the piece is played.
+The final step is to use the key detection algorithm to determine the key in which the piece is played.
 The data is then passed to the data processor in the same form as the dataset for further processing.
 
 \paragraph{Data Processor}
 
 The function of the data processor is to convert the data into a format which can be used to train the model or used as input in production.
-In training we encode both the melody and chord data, putting it into vector format which can be inputted into the model so the loss can be caluclated by comparing the genreated chords to the true chords.
-In production we endode the melody data such that it can be inputted into the model to generate chords.
+In training, we encode both the melody and chord data, putting it into vector format which can be inputted into the model, so the loss can be calculated by comparing the generated chords to the true chords.
+In production, we encode the melody data such that it can be inputted into the model to generate chords.
 
 \paragraph{Model}
 
-The function of the model is fundementally that of a sequence translator, translating from a sequence of melody vectors to a sequence of chord vectors.
+The function of the model is fundamentally that of a sequence translator, translating from a sequence of melody vectors to a sequence of chord vectors.
 We make use of machine learning to achieve this. 
 The model is trained using the dataset to imitate real chord sequences which in production can be used to produce accompaniment for the input melodies.
 The model passes its output to the playback processor.
 \paragraph{Playback Processor}
 
-The playback processor takes as input the output chords from the model and the recorded melody and plays these togeather, allowing the user to hear their generated accompaniment.
+The playback processor takes as input the output chords from the model and the recorded melody and plays these together, allowing the user to hear their generated accompaniment.
 
 \subsection{Software Design}
 
-The design for the software to implement each part of the project is healily modularised, inkeeping with the philosiphy of object oriented programming.
-The interface of each module has been pre-defined such that regardless of module implementation the modules can function togeather. 
+The design for the software to implement each part of the project is heavily modularised, in keeping with the philosophy of object-oriented programming.
+The interface of each module has been pre-defined such that regardless of module implementation the modules can function together. 
 A UML diagram outlining the design can be seen in figure \ref{fig:SoftwareOverview}.
 The main functions for the app are concentrated in the ReChorder class.
 These functions could be called directly from the user interface.
-The ReChorder class has instances of all the necessary modules which are defined as abstract classes such that they can be implemented in many different ways, such as with a different type of model, and still function correctly.
+The ReChorder class has instances of all the necessary modules which are defined as abstract classes such that they can be implemented in many ways, such as with a different type of model, and still function correctly.
 
 \begin{figure}
     \centering
@@ -115,13 +114,13 @@ The ReChorder class has instances of all the necessary modules which are defined
 
 \subsection{Market Research}
 \label{marketresearch}
-As mentioned in Chapter \ref{Chap1Sec1}, our product ias aimed at amateur musicians. Research into our target demographic shows promising statistics. In the United Kingdom, the percentage of children who know how to play a musical instrument increased from 45\% in 1993 to 76\% in 2014, with 21\% of these children having never had lessons \cite{abrsm2014}. Furthermore, 34\% of young people in the UK in 2021 create music on their own \cite{abrsm2021}. In the United States, 22\% of people surveyed who play a music instrument said that they were self-taught \cite{gallup2003}. Hence, it can be concluded that a not insignificant proportion of musicians lack formal musical training, and that they have an interest in making music. In fact, self-taught musicians are more likely to create their own music \cite{compareguitarpiano}. Additionally, 20\% of children in the UK have created music using a smartphone or tablet in 2014 \cite{abrsm2014}, with 15\% of young people doing the same in 2021 \cite{abrsm2021}. This implies that musicians would be receptive to creating music with digital applications. More importantly, given the time gap of seven years, the previous two statistics would be covering the same generation (many of the same children in 2014 would be youths in 2021). Yet, the numbers only decreased slightly from 20\% to 15\%. This is encouraging since it shows a sustained interest in creating music via digital means, which translates to a more stable and permanent consumer base for any digital music creation applications. Indeed, the percentage of adults who create music digitally barely dropped from 14\% in 2014 to 13\% in 2021 \cite{abrsm2021}.
+As mentioned in Chapter \ref{sec:Introduction}, our product is aimed at amateur musicians. Research into our target demographic shows promising statistics. In the United Kingdom, the percentage of children who know how to play a musical instrument increased from 45\% in 1993 to 76\% in 2014, with 21\% of these children having never had lessons \cite{abrsm2014}. Furthermore, 34\% of young people in the UK in 2021 create music on their own \cite{abrsm2021}. In the United States, 22\% of people surveyed who play a music instrument said that they were self-taught \cite{gallup2003}. Hence, it can be concluded that a not insignificant proportion of musicians lack formal musical training, and that they have an interest in making music. In fact, self-taught musicians are more likely to create their own music \cite{compareguitarpiano}. Additionally, 20\% of children in the UK have created music using a smartphone or tablet in 2014 \cite{abrsm2014}, with 15\% of young people doing the same in 2021 \cite{abrsm2021}. This implies that musicians would be receptive to creating music with digital applications. More importantly, given the time gap of seven years, the previous two statistics would be covering the same generation (many of the same children in 2014 would be youths in 2021). Yet, the numbers only decreased slightly from 20\% to 15\%. This is encouraging since it shows a sustained interest in creating music via digital means, which translates to a more stable and permanent consumer base for any digital music creation applications. Indeed, the percentage of adults who create music digitally barely dropped from 14\% in 2014 to 13\% in 2021 \cite{abrsm2021}.
  
 There is also evidence that self-taught musicians teach themselves through digital tools as well as peer-to-peer networks \cite{abrsm2014} \cite{bookreview}. There also seems to be a strong interest in creating and playing music with peers, with 40\% of children in the UK in 2014 creating music with friends outside of school \cite{abrsm2014}. Self-taught musicians often play with other more experienced and better musicians to improve themselves in the process by learning from them \cite{marketresearch5}. Thus, it seems that self-taught musicians would be interested in having access to a community of like-minded peers. 
  
 Moreover, a YouGov survey \cite{YouGovMR} shows that 42\% of musicians professed to be singers, with more than half being self-taught. Guitar was the second most popular instrument behind piano, and 74\% of people who play the guitar said they were self-taught. This justifies the focus on converting singing to guitar chords for amateur musicians, since there is a substantial number of singers and guitar players who are self-taught.  
 
-Given this findings, we can identify two main needs of our target market that our product can aim to meet. Firstly, our product has to be able to take vocals as inputs, and generate chords to accompany the singing. Secondly, our product has to provide a platform for a community of musicians that fosters collaboration and creativity. These two needs is taken into account when designing our Minimum Viable Product (MVP) in Chapter \textbf{REFERENCE MOSCOW TABLE IN DI'S CHAPTER}.
+Given these findings, we can identify two main needs of our target market that our product can aim to meet. Firstly, our product has to be able to take vocals as inputs, and generate chords to accompany the singing. Secondly, our product has to provide a platform for a community of musicians that fosters collaboration and creativity. These two needs is taken into account when designing our Minimum Viable Product (MVP) in Chapter \textbf{REFERENCE MOSCOW TABLE IN DI'S CHAPTER}.
 
 %\subsection{Core functionalities of product}
 %\label{coreproduct}
@@ -135,14 +134,14 @@ Given this findings, we can identify two main needs of our target market that ou
 
 The project was conducted with an agile approach. 
 At the beginning of the project we clearly defined our objectives and wrote an MVP specification of a product we hoped to produce as proof of concept.
-As stated in the introduction \ref{sec:Introduction} we divided the work into four distinct sections suited to the skills and exerience each team member posessed and was interested in expanding.
-Using the defined objectives and division of responsibilities we produced and prioritsed a backlog of work to be completed and created a timeline for this work to be completed in the form of a Gantt chart.
+As stated in the introduction \ref{sec:Introduction} we divided the work into four distinct sections suited to the skills and experience each team member possessed and was interested in expanding.
+Using the defined objectives and division of responsibilities we produced and prioritised a backlog of work to be completed and created a timeline for this work to be completed in the form of a Gantt chart.
 We organised week long sprints with a meeting at the end of each sprint to track our progress and adjust pace on lessons learned. 
-Any work not compelted in one sprint was carried over to the next.
-A cadance of completeing once piece of work each from the backlog per sprint was established.
+Any work not completed in one sprint was carried over to the next.
+A cadence of completing once piece of work each from the backlog per sprint was established.
 Minutes were taken in the weekly meetings to record important decisions.
-To ensure collaboration within the team we kept centralised repositiories of resources from which we were able to easily access other peoples work and track changes to our code bases.
-These repositiories took the form of a shared OneDrive folder, for project documents and relevant academic papers, and two git repositories, one to manage our code and one to manage the writing of our report.
+To ensure collaboration within the team we kept centralised repositories of resources from which we were able to easily access other peoples work and track changes to our code bases.
+These repositories took the form of a shared OneDrive folder, for project documents and relevant academic papers, and two git repositories, one to manage our code and one to manage the writing of our report.
 
 
 %----------------------------------------------------------------------------------------
@@ -163,13 +162,13 @@ Technology strategy refers to an organisation's plan which contains technology-r
     \end{figure}
     
 
-This loop, which is shown in Figure \ref{fig:leanloop}, is a depiction of the various potential stages of this project. The current scope of our project covers the 'Need', 'Idea', and 'Minimum Viable Product' stages. These three stages were covered in Chapter \ref{marketresearch}, Chapter \ref{Chap1Sec1} and Chapter \textbf{REFERENCE MVP} respectively. Chapter \ref{marketresearch} identified potential target customers and their needs. It also highlighted the target customers' likely openness to and acceptance of our digital product. Chapter \ref{Chap1Sec1} gave a brief outline of this entire design project, which would also introduce the idea we came up with to address our target market needs. Chapter \textbf{REFERENCE MVP} gives the specifications for our Minimum Viable Product, which is the actual implementation of our idea. 
+This loop, which is shown in Figure \ref{fig:leanloop}, is a depiction of the various potential stages of this project. The current scope of our project covers the 'Need', 'Idea', and 'Minimum Viable Product' stages. These three stages were covered in Chapter \ref{marketresearch}, Chapter \ref{sec:Introduction} and Chapter \textbf{REFERENCE MVP} respectively. Chapter \ref{marketresearch} identified potential target customers and their needs. It also highlighted the target customers' likely openness to and acceptance of our digital product. Chapter \ref{sec:Introduction} gave a brief outline of this entire design project, which would also introduce the idea we came up with to address our target market needs. Chapter \textbf{REFERENCE MVP} gives the specifications for our Minimum Viable Product, which is the actual implementation of our idea. 
 
-For the Data stage, the Minimum Viable Product will be used to gauge consumer response. Specifically, we will be testing two hypotheses: the value hypothesis and the growth hypothesis. The value hypothesis is a test of whether our product will be delivering any value to customers. In other words, we want to check if our product is actually fulfilling its function of converting vocals to chords as well as providing an online platform for a community of amateur musicians. We will also want to find out what price customers are willing to pay for our product and its services; specfically, customer response to our subscription-based model (?) outlined in Chapter \textbf{REFERENCE WAN DI's PART}.  The growth hypothesis is a test of our strategy for acquiring new customers for our product. This is with regards to our tactics such as a refer-a-friend programme that will be introduced in Chapter \textbf{REFERENCE WAN DI's PART}. While we would collect user feedback, we would also choose objective metrics that will enable informed learning and measure the customers' actual behaviour and not just rely on what they say.
+For the Data stage, the Minimum Viable Product will be used to gauge consumer response. Specifically, we will be testing two hypotheses: the value hypothesis and the growth hypothesis. The value hypothesis is a test of whether our product will be delivering any value to customers. In other words, we want to check if our product is actually fulfilling its function of converting vocals to chords as well as providing an online platform for a community of amateur musicians. We will also want to find out what price customers are willing to pay for our product and its services; specifically, customer response to our subscription-based model (?) outlined in Chapter \textbf{REFERENCE WAN DI's PART}.  The growth hypothesis is a test of our strategy for acquiring new customers for our product. This is with regard to our tactics such as a refer-a-friend programme that will be introduced in Chapter \textbf{REFERENCE WAN DI's PART}. While we would collect user feedback, we would also choose objective metrics that will enable informed learning and measure the customers' actual behaviour and not just rely on what they say.
 
 \begin{itemize}
     \item Surveys and interviews (user feedback)
-    \item Number of downloads from the AppStore
+    \item Number of downloads from the App Store
     \item Number of songs for which chords were generated
     \item Number of users (with the number of users who paid for premium services)
     \item Number of posts on the ReChordTogether online platform (with data trends)
@@ -187,23 +186,23 @@ For the Data stage, the Minimum Viable Product will be used to gauge consumer re
   \subsubsection{Social}
   There has been a significant shift to digital music making, with the Coronavirus pandemic having accelerated this trend \cite{abrsm2021}. Furthermore, over one third of parents in the UK report their children taking up an instrument during lockdown, with two thirds reporting that their children practice more \cite{abrsm2021}. Hence, it appears that the pandemic has encouraged the younger generations to take up music. This does suggest that there will be a larger proportion of technology-savvy musicians in the future.
 
-  Interestingly, there may be a trend of consumers becoming less concerned with data privacy. In the UK, the number of respondents to a survey that stated that they were very concerned about the use of their data dropped from 47\% to 24\% \cite{DeloitteData}. This does mean that we could potentially be able to obtain a larger pool of user data that we can use to finetune the machine learning model or to further improve our business model. Of course, we will handle the data legally and ethically as highlighted in Chapter \ref{dataethics}.
+  Interestingly, there may be a trend of consumers becoming less concerned with data privacy. In the UK, the number of respondents to a survey that stated that they were very concerned about the use of their data dropped from 47\% to 24\% \cite{DeloitteData}. This does mean that we could potentially be able to obtain a larger pool of user data that we can use to fine-tune the machine learning model or to further improve our business model. Of course, we will handle the data legally and ethically as highlighted in Chapter \ref{dataethics}.
 
   \subsubsection{Technological}
   With advancements in the field of machine learning, we will be able to create better models in the future. These models would be better in the sense that they would generate chords that fit the vocals better, resulting in higher user satisfaction. Additionally, future models could be trained to identify the mood of songs solely from the vocals and then generate the mood-appropriate chords instead of having to have users select the mood themselves as in \cite{MySong}.
 
   Moreover, internet connectivity is projected to increase, from 51\% of the global population being internet users in 2018 to 66\% by 2023 \cite{cisco_2022}. In fact, 90\% of the projected world population of eight billion are expected to be internet users by 2030 \cite{cybersecurityventures}. This represents a larger potential user base in the near future.
 
-  Machine learning is also increasingly becoming integrated with smartphones, with Deep Learning frameworks such as Core ML from Apple \cite{applecoreml}, TensorFlow Lite from Google \cite{tensorflow}, and ncnn from Tencent \cite{tencent}. An estimated one third of smartphones shipped in 2020 possessed built-in machine learning capabilities \cite{counterpointML}. Built-in Deep Learning capabilities make user data more secure, allow for continued operation even with poor Internet access, and help mobile application developers to avoid paying for cloud computing \cite{10.1145/2644865.2541967} \cite{https://doi.org/10.48550/arxiv.1704.04861} \cite{DL3} \cite{7460664} \cite{10.1145/2750858.2804262} \cite{10.1145/3210240.3210337} \cite{10.1145/3241539.3241563} \cite{10.1145/3005448}. This is significant given the importance of data privacy as highlighted in Chapter \ref{dataethics}, and that almost half of the world has no access to the Internet \cite{cisco_2022}. Built-in machine learning capabilities also introduce the possbility of more individualised models that is personalised for each user based on their music tastes and preferences. Hence, this particular technological development is something we will have to pay close attention to in order for our product to gain as much competitive advantage as possible.
+  Machine learning is also increasingly becoming integrated with smartphones, with Deep Learning frameworks such as Core ML from Apple \cite{applecoreml}, TensorFlow Lite from Google \cite{tensorflow}, and ncnn from Tencent \cite{tencent}. An estimated one third of smartphones shipped in 2020 possessed built-in machine learning capabilities \cite{counterpointML}. Built-in Deep Learning capabilities make user data more secure, allow for continued operation even with poor Internet access, and help mobile application developers to avoid paying for cloud computing \cite{10.1145/2644865.2541967} \cite{https://doi.org/10.48550/arxiv.1704.04861} \cite{DL3} \cite{7460664} \cite{10.1145/2750858.2804262} \cite{10.1145/3210240.3210337} \cite{10.1145/3241539.3241563} \cite{10.1145/3005448}. This is significant given the importance of data privacy as highlighted in Chapter \ref{dataethics}, and that almost half of the world has no access to the Internet \cite{cisco_2022}. Built-in machine learning capabilities also introduce the possibility of more individualised models that is personalised for each user based on their music tastes and preferences. Hence, this particular technological development is something we will have to pay close attention to in order for our product to gain as much competitive advantage as possible.
 
 \subsubsection{Economic}
 There appears to be a shift from record labels to independent artists in the music industry \cite{worldwide2020}. The amount of money generated by independent musicians jumped 35\% from 2017 to 2018 to reach a total of 643 million USD \cite{independentartists}. In fact, independent artists are predicted to contribute about 25\% of the total global music industry revenues by 2026 \cite{rollingstone}. This trend could potentially mean a larger market for our product in the near future.
 
 \subsubsection{Environment}
-While this might seem irrelevant to our project, power consumption is actually something that we have to take into account as highlighted in Chapter \ref{Sustainability}. Given that more than half of respondents worldwide consider sustainability in consumer choices \cite{GlobalSurvey}, it is prudent to minimise our carbon footprint in order to grow our userbase.
+While this might seem irrelevant to our project, power consumption is actually something that we have to take into account as highlighted in Chapter \ref{Sustainability}. Given that more than half of respondents worldwide consider sustainability in consumer choices \cite{GlobalSurvey}, it is prudent to minimise our carbon footprint in order to grow our user base.
 
 \subsubsection{Political}
-Government policies have left music education in the UK in a precarious state \cite{perilousstate}. There have also been funding cuts to music education both on the tertiary and pre-tertiary levels \cite{weale2021} \cite{macdonald2021}. Consequently, music provision in schools have generally declined \cite{brown2018} \cite{weale2018}. Hence, it is reasonable to assume that amateur musicians in the future are more likely to not have in depth knowledge of music theory and would find the vocal-to-chords funcitonality provided by our product useful. This potentially represents a larger market that we can capture.
+Government policies have left music education in the UK in a precarious state \cite{perilousstate}. There have also been funding cuts to music education both on the tertiary and pre-tertiary levels \cite{weale2021} \cite{macdonald2021}. Consequently, music provision in schools have generally declined \cite{brown2018} \cite{weale2018}. Hence, it is reasonable to assume that amateur musicians in the future are more likely to not have in depth knowledge of music theory and would find the vocal-to-chords functionality provided by our product useful. This potentially represents a larger market that we can capture.
 %\subsubsection{Market Research}
 
 %----------------------------------------------------------------------------------------
@@ -233,7 +232,7 @@ Cost breakdown is the systematic process of identifying the individual elements 
 \subsubsection{Direct Costs}
 We define the direct costs are the costs which is proportional to the number of subscription our users registered.
 \begin{itemize}
-\item As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple AppStore} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
+\item As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple App Store} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
 \item The average transaction fee through card payment will be approximately 2.9\%
 \end{itemize}
 
@@ -241,12 +240,12 @@ We define the direct costs are the costs which is proportional to the number of 
 \subsubsection{Indirect Costs}
 We define that the indirect costs are the costs which is not proportional to number of subscription our users registered. Those include:
 \begin{itemize}
-\item \textbf{Labor cost}
+\item \textbf{Labour cost}
 \\We will need a team for our app design, based on the post by SPDLoad, a typical app-design team must consist 1 project manager / product manager (£57,341/ year) , 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year),1 backend developer (£53,568/ year) and 1 quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average salaries in London published by Glassdoor, which is a website allow current and former employee to review their company and publish their salary rates.
 \item \textbf{Marketing cost}
 \\ Marketing costs are the all expenses that the company makes to market and sell its products and develop and promote its brand. We set our budget to be £100,000
 \item \textbf{Testing cost}
-\\ Testing cost is the costs associated with app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on .
+\\ Testing cost is the costs associated with app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on.
 \item \textbf{Others}
 \\Those are the costs consisting app development account fee and other utilities. The estimate will be £15,000
 \end{itemize}
@@ -270,7 +269,7 @@ Here we present those estimated costs in the table of annual cost sheet:
  \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\\hline
  \multicolumn{1}{|c}{\textbf{Indirect Cost}} &\multicolumn{1}{c}{}&\\
  \hline
- Labor Costs&&£229,396\\
+ Labour Costs&&£229,396\\
  \hline
  Marketing&&£100,000\\
  \hline
@@ -289,10 +288,10 @@ Here we present those estimated costs in the table of annual cost sheet:
 
 \subsection{Source of Cash Inflow}
 There are two main sources of cash inflow through our app, advertisements revenue and subscription fee.
-\\ \textbf{Advertisament}
-\\ We decides to cooperate with other music-related companies and place their advertisements in our app pages, the revenue will be based on the number of clicks. We will use A/B Testing to decide the place and methods how we will place the advertisement and minimising the influence to user experience.
+\\ \textbf{Advertisement}
+\\ We decided to cooperate with other music-related companies and place their advertisements in our app pages, the revenue will be based on the number of clicks. We will use A/B Testing to decide the place and methods how we will place the advertisement and minimising the influence to user experience.
 \\ \textbf{Subscription}
-\\We consider subscription fee as the main source of income for our app, we aim to provide monthly subscription model for our users to access the premium functions, such as pitch tracking. research needed here
+\\We consider subscription fee as the main source of income for our app, we aim to provide monthly subscription model for our users to access the premium functions, such as pitch tracking. Research needed here
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
@@ -333,11 +332,11 @@ section of the app listing or on the sign-in interface of the app.\\We would inc
         experience, we would save their usage preferences like language, dark or light background mode. 
         \\There are 2 purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
         these advertising companies will be able to place cookies on our app for standard users, but not the premium users who subscribed to our services. 
-        Secondly, we will be implementing social sign-on so users do not have to create a new account on our end. In this case, the social media 
+        Secondly, we will be implementing social sign-on, so users do not have to create a new account on our end. In this case, the social media 
         platform will be placing their third-party cookies on our app.
         \\It is important to note that users have the right to know the third parties that have access to their data.
     \end{description}
-    \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when an user deactivated
+    \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when a user deactivated
     his account or when the data is no longer necessary to collect. Moreover, we would have to erase or rectify inaccurate data without delay. Although 
     there is no limitation on data storage, we will have to act ethically and
     decide the timeframe based on the genuine motivation of retaining the data. Data should only be collected when it is vital in the context
@@ -359,7 +358,7 @@ section of the app listing or on the sign-in interface of the app.\\We would inc
 We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications.\footfullcite{principles} 
 This can be done by creating a department that overviews the entire project and ensures data is managed ethically throughout the process. As we have an interactive community 
 feature, we must ensure that our app does no harm in any way. A new Online Safety Bill is being drafted recently to fight online hate crime, and online companies are liable for failures to
-deal with inappropriate material postsed online.\footfullcite{francis} \footfullcite{parliamentlaw} Companies have the responsibilities to confine illegal and harmful discussions and a conventional and efficient method
+deal with inappropriate material posted online.\footfullcite{francis} \footfullcite{parliamentlaw} Companies have the responsibilities to confine illegal and harmful discussions and a conventional and efficient method
 to guarantee this is to implement algorithmic censorship. \\Moreover, to be publicly accountable, effective governance and oversight mechanisms that can be exercised by the public are necessary. 
 We can enact this by hiring an independent third-party audit review our data processing.
 
@@ -368,7 +367,7 @@ When processing data, we should ensure no societal, racial or health bias is inv
 On the other hand, another perspective of fairness can be manifested in the form of \textbf{Responsible Research and Innovation (RRI)}:
 
 RRI is a process that seeks to promote creativity and opportunities for science and innovation that are socially desirable and undertaken in the public interest.\footfullcite{ukri} Not only does research bring novelty 
-and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences to society. Thus it is key to put emphasis on innovating responsibly and creating changes that
+and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences for society. Thus, it is key to put emphasis on innovating responsibly and creating changes that
 have positive societal and environmental impacts.\\ There are a few areas of RRI that we should keep in mind:
 \begin{enumerate}
     \item Anticipation: We should vision the consequences of our research and innovation conducted. It is to ensure that the consequences of undertaking the research are considered and reflected in the research 
@@ -378,9 +377,9 @@ have positive societal and environmental impacts.\\ There are a few areas of RRI
     They should also judge if the research is required. An organisation can force reflection through organisational processes and structures like a project advisory board or quality assurance reviews. Reflection 
     allows researchers to review the project from a macroscopic point of view.
     \item Ethics: Researchers should uphold integrity and prevent misconduct. They should take accountability for both the undergoing research and behaviour.
-    \item Gender Equality: Since male engineers still dominate the engineering industry, it is easy to be biased in a project design, i.e. building models and interfaces that better suit male users. Thus it is 
+    \item Gender Equality: Since male engineers still dominate the engineering industry, it is easy to be biased in a project design, i.e. building models and interfaces that better suit male users. Thus, it is 
     paramount to have opinions from the underrepresented group as to create a comprehensive innovation.
-    \item Open Access: Making the research output publicly available to everyone so the whole society can be benefitted by reducing wasteful duplication, increasing transparency and reproducibility of results.
+    \item Open Access: Making the research output publicly available to everyone, so the whole society can be benefitted by reducing wasteful duplication, increasing transparency and reproducibility of results.
     \item Governance: Organisations should establish practices that foster RRI, i.e. 
     \begin{itemize}
         \item Having transparent and reflective internal procedures
@@ -415,17 +414,17 @@ The programming languages can be divided into 3 execution types: compiler, inter
 \begin{description}
     \item Compiler converts the entire high-level language code to machine-readable language all at once. Some examples are C, C++, Rust and Go. 
     \item Interpreter translates one statement of the high-level language code to machine-readable language at a time. Common interpreted languages are PHP, Python and JavaScript.
-    Thus, even if an interpreter takes less time to analyze the source code, it takes longer time to execute the process.
+    Thus, even if an interpreter takes less time to analyse the source code, it takes longer time to execute the process.
     \item Virtual machine executes an intermediate code translated from the high-level language inputted. Some of the popular languages that uses virtual machines are Java, Scala, JRuby.
 \end{description}
 
 Since our application has no requirements on the computational time and memory size, we can solely focus on the energy consumption between 
 different languages. Even though the energy needed to run different algorithms varies for different languages, it is certain that
-compiled language requires less energy compared to virtual machine and interpreted languages. Our team has used Python for the design and implementation so 
+compiled language requires less energy compared to virtual machine and interpreted languages. Our team has used Python for the design and implementation, so 
 it is rational to switch from Python to C/ C++/ Rust to code in the future.
 
 Also, according to a research done by \cite{cloudpercent}, we can reduce energy consumption by 87\% by employing a cloud architecture.
-Yet, researches have shown that cloud computing is more energy efficient than relying on local devices (i.e. using our private data centers, computing on
+Yet, researches have shown that cloud computing is more energy efficient than relying on local devices (i.e. using our private data centres, computing on
 users\textsc{\char13} smartphones).
 
 Firstly, taking Amazon Web Services (AWS), the leading service provider in the cloud infrastructure market as an example, it aims to fully power the operation with renewable
@@ -433,7 +432,7 @@ energy by 2025\footfullcite{aws}. Since it is complex and cost-ineffective for i
 by eco-conscious companies would greatly reduce the carbon footprints.
 
 On the other hand, centralised cloud provider allocates resources more efficiently since there is a higher utilization rate. If we choose an on-premise computing method, we will suffer
-from low utilization rates since the purchased equipments may only be fully utilized when there are usage spikes. Yet, cloud providers have a huge customer base and it is paramount for 
-their busienss to optimise server usage. Thus sharing cloud servers can increase average server utilization to 50 percent or higher \footfullcite{cloud}.
+from low utilization rates since the purchased equipments may only be fully utilized when there are usage spikes. Yet, cloud providers have a huge customer base, and it is paramount for 
+their business to optimise server usage. Thus sharing cloud servers can increase average server utilization to 50 percent or higher \footfullcite{cloud}.
 
 % Therefore, we should carefully design our architecture and minimise carbon footprints.

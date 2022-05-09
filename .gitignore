@@ -18,3 +18,5 @@ main-blx.bib
 *.fig
 *.aux
 *.icloud
+.vscode/ltex.dictionary.en-GB.txt
+Chapters/.DS_Store
