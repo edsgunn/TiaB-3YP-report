@@ -7,7 +7,7 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-
+\tocdata{toc}{Edward Gunn}
 \section{Introduction}
 The process of writing music often begins with an idea for a melody which is followed by the development of chords to accompany it.
 The matching of chords to a melody is a skill which usually requires years of training in musical techniques such as harmonisation.
@@ -33,6 +33,7 @@ the conversion of recorded melody to the same format as expressed in the dataset
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
+\tocdata{toc}{Edward Gunn}
 \subsection{Musical terminology}
 
 Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
@@ -44,7 +45,7 @@ We will generally take a \textbf{measure} to mean a bar in the music, however it
 %	SUBSECTION 2
 %-----------------------------------
 
-
+\tocdata{toc}{Edward Gunn}
 \subsection{Project Overview}
 \begin{figure}
     \centering
@@ -56,7 +57,8 @@ We will generally take a \textbf{measure} to mean a bar in the music, however it
 
 \paragraph{Overview}
 To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monophonic melody, allowing amateur musicians to compose music quickly and easily.
-As stated in \ref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
+As seen in figure \ref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
+A minimum viable product (MVP) was defined to specify ReChorder's essential functionality.
 For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
 In the desired final product these are accessed through a purpose built user interface.
 
@@ -93,7 +95,7 @@ The model passes its output to the playback processor.
 \paragraph{Playback Processor}
 
 The playback processor takes as input the output chords from the model and the recorded melody and plays these together, allowing the user to hear their generated accompaniment.
-
+\tocdata{toc}{Edward Gunn}
 \subsection{Software Design}
 
 The design for the software to implement each part of the project is heavily modularised, in keeping with the philosophy of object-oriented programming.
@@ -105,13 +107,13 @@ The ReChorder class has instances of all the necessary modules which are defined
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\columnwidth]{Figures/SoftwareOverview}
+    \includegraphics[width=\columnwidth]{Figures/SoftwareOverview}
     \decoRule
     \caption[]{An overview of the software design of ReChorder}
     \label{fig:SoftwareOverview}
 \end{figure}
 
-
+\tocdata{toc}{Terence Tan}
 \subsection{Market Research}
 \label{marketresearch}
 As mentioned in Chapter \ref{sec:Introduction}, our product is aimed at amateur musicians. Research into our target demographic shows promising statistics. In the United Kingdom, the percentage of children who know how to play a musical instrument increased from 45\% in 1993 to 76\% in 2014, with 21\% of these children having never had lessons \cite{abrsm2014}. Furthermore, 34\% of young people in the UK in 2021 create music on their own \cite{abrsm2021}. In the United States, 22\% of people surveyed who play a music instrument said that they were self-taught \cite{gallup2003}. Hence, it can be concluded that a not insignificant proportion of musicians lack formal musical training, and that they have an interest in making music. In fact, self-taught musicians are more likely to create their own music \cite{compareguitarpiano}. Additionally, 20\% of children in the UK have created music using a smartphone or tablet in 2014 \cite{abrsm2014}, with 15\% of young people doing the same in 2021 \cite{abrsm2021}. This implies that musicians would be receptive to creating music with digital applications. More importantly, given the time gap of seven years, the previous two statistics would be covering the same generation (many of the same children in 2014 would be youths in 2021). Yet, the numbers only decreased slightly from 20\% to 15\%. This is encouraging since it shows a sustained interest in creating music via digital means, which translates to a more stable and permanent consumer base for any digital music creation applications. Indeed, the percentage of adults who create music digitally barely dropped from 14\% in 2014 to 13\% in 2021 \cite{abrsm2021}.
@@ -129,7 +131,7 @@ Given these findings, we can identify two main needs of our target market that o
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
-
+\tocdata{toc}{Edward Gunn}
 \section{Project management}
 
 The project was conducted with an agile approach. 
@@ -147,6 +149,7 @@ These repositories took the form of a shared OneDrive folder, for project docume
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
+\tocdata{toc}{Terence Tan}
 \section{Technology Strategy}
 
 Technology strategy refers to an organisation's plan which contains technology-related goals, concepts, and methods \cite{techstratdefinition}. Drafting and implementing the right technology strategy is critical to the success of any product or project. Given that this is a design project and that our group is in the early stages of creating the product, our technology strategy would not be very detailed. Nevertheless, there remains many tools that are useful at this stage of our project.
@@ -225,6 +228,7 @@ Government policies have left music education in the UK in a precarious state \c
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
+\tocdata{toc}{Di Wan}
 \section{Finance and Monetisation}
 Like every other project, we need a budget for our app design project. A project budget is the total estimated cost of completing each project activity over each phase of a project. Based on the statistics published by SPDLoad, our project will take approximately 9 months to finish due to its high complexity, such as, machine learning integration.
 \subsection{Cost Break-down}
@@ -296,6 +300,7 @@ There are two main sources of cash inflow through our app, advertisements revenu
 %----------------------------------------------------------------------------------------
 %	SECTION 6
 %----------------------------------------------------------------------------------------
+\tocdata{toc}{Kitty Fung}
 \section{Ethics}
 From the National Society of Professional Engineers Code of Ethics \footfullcite{codeofethics}, Engineering
 work impacts life directly, thus it is of the utmost importance to ensure service 
@@ -394,6 +399,7 @@ have positive societal and environmental impacts.\\ There are a few areas of RRI
 %----------------------------------------------------------------------------------------
 %	SECTION 7
 %----------------------------------------------------------------------------------------
+\tocdata{toc}{Kitty Fung}
 \section{Sustainability}
 \label{Sustainability}
 As technology advances, energy consumed by computers and digital personal devices is taking up a larger portion in worldwide energy consumption. 
