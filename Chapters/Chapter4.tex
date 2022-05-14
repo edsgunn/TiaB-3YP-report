@@ -2,7 +2,7 @@
 \tocdata{toc}{Edward Gunn}
 
 \chapter{Model} % Main chapter title
-
+\chaptermark{Model - Edward Gunn}
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
@@ -172,7 +172,7 @@ Thus, they would be suitable for our uses.
 They used three different data sets one for each Pop, Jazz and Classical music each shorter than 1600 measures (specific lengths are not given).
 The model achieved an accuracy of $0.68$, $0.74$ and $0.64$ respectively across the datasets.
 
-\subsection{RNNs}
+\subsection{Recurrent Neural Networks}
 
 Recurrent Neural Networks or RNNs have become a staple in the machine learning engineer's library of models. 
 They are structured much like a normal MLP, however, they contain an extra connection to the state of the network in the time step before.
@@ -230,7 +230,7 @@ The current output of the cell is computed by:
 \paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \autoref{subsec:HMM} and \autoref{subsec:DNN-HMMs}.
 They build a bidirectional LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probability that each of the 24 chords is played.
 The same dataset as the HMM and DNN-HMM was used and an accuracy of $0.5055$, $0.5032$, $0.4923$, and $0.4990$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.5000$.
-On the user subjective test the DNN-HMM achieved a score of $3.55$.
+On the user subjective test the LSTM achieved a score of $3.55$.
 
 \paragraph{Automatic Melody Harmonization} A particularly interesting model heavily relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
 They simultaneously trained a Structured Representation Module responsible for learning note-level, phrase-level and segment level representations, a Segmentation Module acting as a reinforcement learning agent to decide whether the current note is the boundary of a phrase or segment and a Harmonisation Module responsible for generating chords for each segment.
@@ -254,7 +254,7 @@ where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\columnwidth]{Figures/Transformer}
+    \includegraphics[width=0.6\columnwidth]{Figures/Transformer}
     \decoRule
     \caption{The architecture of a transformer from \cite{Transformers}}
     \label{fig:Transformer}
@@ -305,7 +305,7 @@ This is then passed through a softmax layer which gives the probability that eac
 \end{figure}
 
 \paragraph{Discriminator}
-The Discriminator is fundamentally a binary sequence classifier.
+The Discriminator is fundamentally a binary sequence classifier, outputting whether the input was real or generated.
 It takes as input a tensor of dimensions $(b,n,37)$ where $b$ is the batch size and $n$ is the number of measures in the song.
 Each batch is treated independently and identically, so we will proceed discussing the treatment of the 2nd and 3rd dimensions, and it can be assumed this is repeated $b$ times.
 Thus, we effectively input a tensor of dimensions $(n,37)$ into the first layer of the Discriminator.
@@ -366,7 +366,7 @@ The chords are padded with vectors representing a rest.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\columnwidth]{Figures/GAN}
+    \includegraphics[width=\columnwidth]{Figures/GAN}
     \decoRule
     \caption{The training of the model}
     \label{fig:ModelTraining}
@@ -421,12 +421,12 @@ This means that gradients do not vanish as fast, however, the output of the disc
 Another technique is reducing number of LSTM layers. 
 This reduces the complexity of the model and thus makes it harder to train it to overfit onto noise.
 
-\subsection{Issues}
-Training is conducted in batches of a given size.
-It is unlikely that the size of the dataset is divisible by the batch size, so the final batch is likely to be shorter than the others.
-This initially caused problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
-Softmaxing of outputs of generator
-Device management
+% \subsection{Issues}
+% Training is conducted in batches of a given size.
+% It is unlikely that the size of the dataset is divisible by the batch size, so the final batch is likely to be shorter than the others.
+% This initially caused problems, however, we were able to set the dimensions of relevant objects, such as the input noise to the generator, to be relative to the current batch size rather than the usual batch size thus solving the problem.
+% Softmaxing of outputs of generator
+% Device management
 
 \subsection{Testing}
 The Model can be tested using the test set as this will reveal any overfitting from training. 
@@ -453,7 +453,7 @@ While the machine was still running we conducted some preliminary training attem
 The discriminator quickly learned to distinguish between the real and generated chords and the generator was never able to improve sufficiently to counter this.
 The loss of the models can be seen in \autoref{fig:ModelLoss}.
 It was noticed that the generator converged to predict the same chord on every output. 
-This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss was effectively zero.
+This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss approached zero.
 A confusion matrix of these results can be seen in \autoref{fig:confusion_real}. The code for this project can be found \href{https://github.com/edsgunn/TerrenceInABox}{here}\footnote{https://github.com/edsgunn/TerrenceInABox}.
 \begin{figure}
     \centering
