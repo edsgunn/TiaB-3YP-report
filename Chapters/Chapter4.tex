@@ -268,7 +268,7 @@ Therefore, if a user were to particularly like a certain chord or set of chords 
 As, to our knowledge, no implementations of a transformer exist to solve this problem, we now outline how this could be achieved.
 Transformers require a symbol picked from a finite set. 
 In our case these input symbols would correspond to the note played on each submeasure.
-This results in the input data format discussed in \autoref{sec:TransformerDataFormat}.
+This results in the input data format discussed in \autoref{Transformer format for training}.
 The set of output symbols would then consist of the set of possible chords and there would be an output of one chord per submeasure resulting in the corresponding chord data format.
 The structure of the transformer can be that used in \cite{Transformers}.
 In order to train the model the Adam optimiser, \cite{Adam}, can be used and dropout can be used for regularisation.
