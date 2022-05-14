@@ -257,8 +257,8 @@ Then we can use the inner product of the user and item latent factor matrix for 
 %-----------------------------------------------------------------------------------------------------------------------------Hybrid Recommendation System
 \section{Hybrid Recommendation System}
 Various methods of recommendation systems have their benefits and flaws. Often, many of these methods may seem restrictive when used in isolation, especially when multiple data sources are available for the problem. Hybrid recommender systems use different public data sources to generate robust inferences.
-\\Hybrid recommendation systems have two predominant designs, parallel and sequential. A similar design provides the input to multiple recommendation systems, and each of those recommendations is combined to generate one output. 
-The sequential design provides the input parameters to a single recommendation engine, the output is passed on to the following recommender in a sequence. Refer to the figure below for a visual representation of both designs.
+\\Hybrid recommendation systems have two predominant designs, parallel and sequential. A parallel design provides the input to multiple recommendation systems, and each of those recommendations is combined to generate one output. 
+The sequential design provides the input parameters to a single recommendation engine, the output is passed on to the following recommender in a sequence.
 % \begin{figure}[ht]
 % \centering
 % \includegraphics[scale = 0.5]{padesign}
@@ -275,7 +275,7 @@ The sequential design provides the input parameters to a single recommendation e
 \\Hybrid systems combine different models to combat the disadvantages of one model with another. This overall reduces the weaknesses of using individual models and aids in generating more robust recommendations. This yields more robust and personalised recommendations for users.
 \\\textbf{Disadvantages}
 \\These types of models generally have high computational complexity and require a large database of ratings and other attributes to keep up to date. 
-Without up-to-date metrics (user engagement, ratings, etc.), it isn't easy to retrain and provide new recommendations with updated items and ratings from various users.
+Without up-to-date metrics (user engagement, ratings, etc.), it is difficult to retrain and provide new recommendations with updated items and ratings from various users.
 
 \section{Evaluation}
 Identifying what defines a good recommendation is a problem many companies struggle with. This definition of “good” recommendations helps evaluate the performance of the recommender you built. 
@@ -284,27 +284,18 @@ Accuracy is the fraction of correct recommendations out of the offered possible 
 The evaluation method of a recommendation is solely dependent on the dataset and approach used to generate the request. 
 Recommender systems share several conceptual similarities with the classification and regression modelling problem. 
 In an ideal situation, we would want to see how real users react to recommendations and track metrics around the user to improve your recommendation request. However, this isn't easy to accomplish. 
-CommonStandard statistical accuracy measures to evaluate the accuracy of a recommender are RMSD, MAE, and k fold cross-validation.
+Common standard statistical accuracy measures to evaluate the accuracy of a recommender are RMSD, MAE, and k fold cross-validation.
 
 \subsection{K Fold Cross Validation}
-This is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample.
-\begin{itemize}
-\item Imagine you’ve built a model that will predict how well a user will rate an item based on features. K fold cross-validation can be used to infer the results of the model through accuracy metrics
-\item Same idea as a train test split, except we create K many randomly assigned training and test sets
-\item Each training set/fold is used to train on the recommendation system independently and then measure the accuracy of the resulting systems against the test set
-\item We take the average accuracy score to see how well the recommendation system is learning
-\item This method is beneficial to prevent your model from overfitting; however, it is a computationally extensive process
-\end{itemize}
+This is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample. K fold cross-validation can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset, and each training set/fold is used to train on the recommendation system independently and then measure the accuracy of the resulting systems against the test set. Then we take the average accuracy score to see how well the recommendation system learns.
+\\This method is beneficial to prevent your model from overfitting; however, it is a computationally extensive process.
 
 \subsection{Mean Absolute Error (MAE)}
 Mean absolute error represents the average absolute value of each error in rating prediction
 \begin{equation*}
 \text{MAE} = \frac{\sum^{i=n}_{i=1}|y_{i} - x_{i}|}{n}
 \end{equation*}
-$y_{i}  = $ prediction
-\\$x_{i}  = $ True Value
-\\$n$ = total number of data points
-\\Lower the MAE score the better.
+where $y_{i} $ represents the prediction, $x_{i} $ is the true Value and $n$ is total number of data points.
 
 \subsection{Root Mean Square Deviation(RMSD)}
 \begin{equation*}
@@ -312,7 +303,7 @@ $y_{i}  = $ prediction
 \end{equation*}
 
 \begin{itemize}
-\item A similar metric to MAE but has a stronger penalty for when the prediction is very far from the true value and a weaker penalty for when the prediction is closer to the true value
+\item This is a similar metric to MAE but has a stronger penalty for when the prediction is very far from the true value, and a weaker penalty for when the prediction is closer to the true value
 \item Taking the squares off the difference between true and predicted values instead of the sum of the absolute values. This ensures that the resulting value is always positive and is larger when the difference is high and smaller when the difference is low.
 \end{itemize}
 
