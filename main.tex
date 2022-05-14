@@ -42,7 +42,10 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{mathpazo} % Use the Palatino font by default
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath,amsthm,amssymb} 
+             
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
 \usepackage{diagbox}
 \usepackage{commath}
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
@@ -65,6 +68,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage{enumitem}
 
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
 \makeatletter
 \newcommand{\setword}[2]{%
   \phantomsection

@@ -1,14 +1,13 @@
 % Chapter Template
 \tocdata{toc}{Kitty Fung}
+\chapter{Audio Pre-processing} % Main chapter title
 
-\chapter{Audio Processing} % Main chapter title
-
-\label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-Before we feed the audio clip to our machine learning model, it is crucial to pre-process the signal to achieve higher accuracy
-and avoid further deterioration.
-The choice and implementation of the noise filter will then be explained in \autoref{sec:NF}. We then feed the filtered output 
-to a pitch detection algorithm (PDA) in \autoref{sec:PDA} and then a key detection algorithm (KDA) in \autoref{sec:KDA}.
-Figure \ref{flowchart} shows the flowchart of the audio processing part of our project.
+\label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \cref{ChapterX}
+As the first point of contact (see \cref{fig:MVPOverview}), it is crucial to pre-process the signal to achieve higher accuracy
+for our machine learning model and avoid further deterioration.
+The choice and implementation of the noise filter will then be explained in \cref{sec:NF}. We then feed the filtered output 
+to a pitch detection algorithm (PDA) in \cref{sec:PDA} and then a key detection algorithm (KDA) in \cref{sec:KDA}.
+Figure \cref{flowchart} shows the flowchart of the audio processing part of our project.
 
 \begin{figure}[h]
     \centering
@@ -67,14 +66,27 @@ Figure \ref{flowchart} shows the flowchart of the audio processing part of our p
 \section{Assumptions}
 Before we delineate the approach to audio processing, there are some assumptions that our model
 is built on:
-\begin{itemize}
-    \item \textbf{Assumption 1:} Users' audio input device does not contain active noise cancelling functions.
-    \item \textbf{Assumption 2:} Users do not sing with the technique of polyphonic overtone singing.
-    \item \textbf{Assumption 3:} Signal and noise are uncorrelated.
-    \item \textbf{Assumption 4:} Noise is a stationary or slowly varying process.
-    \item \textbf{Assumption 5:} Noise spectrum does not change drastically during the recording.
-\end{itemize}
-They will be explained in the later sections.
+
+\begin{assumption}-\label{as:1}
+    Users' audio input device does not contain active noise cancelling functions.
+\end{assumption}
+
+\begin{assumption}-\label{as:2}
+    Users do not sing with the technique of polyphonic overtone singing.
+\end{assumption}
+
+\begin{assumption}-\label{as:3}
+    Signal and noise are uncorrelated.
+\end{assumption}
+
+\begin{assumption}-\label{as:4}
+    Noise is a stationary or slowly varying process.
+\end{assumption}
+
+\begin{assumption}-\label{as:5}
+    Noise spectrum does not change drastically during the recording.
+\end{assumption}
+They will be referred to and explained in the later sections.
 
 %----------------------------------------------------------------------------------------
 %   SECTION 1
@@ -90,7 +102,7 @@ we would like to use noise filters to achieve a higher SNR.\\
 There are a few sources of noise when a user records himself with a microphone.
 Firstly, there exists self-noise, which is the instrument noise produced by the microphone itself.
 Noise may be induced or created when the signal passes through electronic components like transistors 
-and printed circuit boards\footfullcite{selfnoise}.
+and printed circuit boards\footnote{selfnoise}.
 The second source, ambient noise, contributes to a large portion of noise present in a recording.
 Room reflections, extraneous noise, electromagnetic interference and mechanical noise are some causes 
 of ambient noise.  
@@ -102,7 +114,7 @@ of ambient noise.
 Most of the noise filters work in the frequency and spectral domain, here we are going to inspect and
 compare three noise reduction mechanisms.
 
-\begin{enumerate}
+\begin{enumerate}[label=\textbf{\arabic*})]
     \item Low-pass filter (LPF)\\
     LPF passes signals with frequency \(f<f_{c}\), where \(f_{c}\) is the cut-off frequency, and attenuates
     signals with \(f>f_{c}\). 
@@ -113,7 +125,6 @@ compare three noise reduction mechanisms.
     \[h(t))= \mathfrak{F}^{-1}{H(f)} = \int_{-B}^{B} e^{2(\pi)ift}\,df = 2Bsinc(2Bt)\]
     The impulse response of an LPF is a sinc function that extends to [-$\infty$,$\infty$]. This is why it is 
     impossible to realize an ideal LPF since that will take infinite time and memory.
-    %LPF avoids aliasing since it removes the high-frequency content but not the desired signal why is this sentence here%
 
     \item Wavelet transform\\
     Wavelet transform creates a representation of the signal in both time and frequency domain so localized 
@@ -129,14 +140,14 @@ compare three noise reduction mechanisms.
     undiscovered at one resolution may be obvious at another. There are mainly 2 types of wavelet transforms, namely 
     continuous wavelet transform (CWT) and discrete wavelet transform (DWT).
     
-    CWT finds how alike a wavelet is in a signal, given the dilation and translation parameter of the wavelet\footfullcite{wavelet}. 
+    CWT finds how alike a wavelet is in a signal, given the dilation and translation parameter of the wavelet\footnote{wavelet}. 
     This can be found by convolving the mother wavelet with our signal.
 
     \begin{equation*} 
         \text{CWT}(\mathrm{a},\mathrm{b}; \mathrm{x}(\mathrm{t}),\psi(\mathrm{t}))=\int_{-\infty}^{\infty}[\mathrm{x}(\mathrm{t})\frac{1}{\mathrm{a}}-\psi^{*}(\frac{\mathrm{t}-\mathrm{b}}{\mathrm{a}})]\text{dt}
     \end{equation*}
 
-    where $x(t)$ is the original signal, $\psi(t)$ is the mother wavelet, $a$ is a dilation parameter and $b$ is a translation parameter\footfullcite{wavelet_denoise}.
+    where \(x(t)\) is the original signal, \(\psi(t)\) is the mother wavelet, \(a\) is a dilation parameter and \(b\) is a translation parameter \footnote{waveletdenoise}.
     Dilation factor represents how dispersed the wavelet is (similar to scaling) while the translation factor tells us where the wavelet is
     positioned in time (similar to shifting). 
     
@@ -170,24 +181,24 @@ compare three noise reduction mechanisms.
     The major difference between DWT and CWT is how the scale parameter is discretized. DWT discretizes scale parameters to integer power of 2 while CWT is more refined since 
     the scale parameter is often raised to different fractional powers.
     \begin{align*} &\text{DWT}\ [\mathrm{n},\mathrm{a}^{\mathrm{j}}]=\sum_{\mathrm{m}=0}^{\mathrm{N}-1}\mathrm{x}[\mathrm{m}].{\psi_{\mathrm{j}}}^{*}[\mathrm{m}-\mathrm{n}],\\ &\psi_{\mathrm{j}}[\mathrm{n}]=\frac{1}{\sqrt{\mathrm{a}^{\mathrm{f}}}}\psi\left(\frac{\mathrm{n}}{\mathrm{a}^{\mathrm{f}}}\right) \tag{2} \end{align*}
-    where $n$ is delay parameter, $N$ is the length of signal, $\psi$ is the discretized mother wavelet\footfullcite{wavelet_denoise}. 
+    where \(n\) is delay parameter, \(N\) is the length of signal, \(\psi\) is the discretized mother wavelet. 
 
     DWT is often preferred in the context of real-time audio processing since computation is done on discrete wavelets which require less computational resources.
     
     \item Spectral reduction\\
     Spectral noise gating learns from a noise profile and removes slow-changing tonal noise or hiss from the signal. In 
-    fact, this method is used by Audacity in its noise reduction algorithm\footfullcite{audacity}. 
+    fact, this method is used by Audacity in its noise reduction algorithm\footnote{audacity}. 
     Suppose noise is additive, and we can represent our noisy audio as
     \[y(n) = x(n) + d(n), \textit{ for } 0 \leq n \leq N-1 \label{sreduction} \]
     where $x(n)$ is our original signal (the signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
     $N$ is the number of samples. 
-    Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
+    Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \cref{sreduction}:
     \[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
     where $k$ is the frame number. Each frame will be of
     length $N$. We then have the desired signal in frequency domain:
     \[X(\omega,k) = Y(\omega,k) - N(\omega,k)\]
     Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
-    noise spectrum using parts of the recording that only contain ambient noise\footfullcite{reductionmanual}. 
+    noise spectrum using parts of the recording that only contain ambient noise\footnote{reductionmanual}. 
     \[\hat{N}(\omega,k) = \textbf{E}[|N(\omega,k)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega,k)|\]
     We then get the estimated signal spectrum
     \[\hat{X}(\omega,k) = Y(\omega,k) - \hat{N}(\omega,k)\]
@@ -215,7 +226,7 @@ Therefore, we decided to use spectral reduction as our noise filter algorithm si
 and wideband noise. Note that this method heavily relies on the assumption that the noise spectrum magnitude is staying locally 
 stationary. If this assumption is not satisfied, this method will result in poor performance of either not being able to filter a majority of 
 the broadband noise or removing the features of the signal.
-The implementation of spectral noise gating can be summarised according to \cite{spectralflowchart} as shown in \autoref{spectralflowchart}
+The implementation of spectral noise gating can be summarised according to \cite{spectralflowchart} as shown in \cref{spectralflowchart}
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.35]{Figures/spectralprocess.png}
@@ -267,7 +278,7 @@ For males, the pitch level generally reduces from infancy to middle age, while a
 On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s and 40s showed obviously lower frequencies than those in their
 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
 
-\begin{table}
+\begin{table}[h]
 	\begin{minipage}{0.45\linewidth}
 		\label{table:praat}
 		\centering
@@ -276,18 +287,18 @@ On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s a
 			Pitch range (Hz)            & 60-180 & 160-300 \\
 			Praat pitch range (Hz) 		& 50-300 & 100-600
 		\end{tabular}}
-		\caption{Praat pitch range}
+		\caption{Praat pitch range \protect\footnote{praat}}
 		\end{minipage}\hfill
 	\begin{minipage}{0.65\linewidth}
 		\centering
 		\includegraphics[scale=0.4]{Figures/f0vage.jpeg}
 		\label{f0vage_chart}
-		\captionof{figure}{Scatter plot of\\fundamental frequency by age}
+		\captionof{figure}{Scatter plot of\\fundamental frequency by age\protect\footnote{f0age}}
 	\end{minipage}
 \end{table}
 
-After referring to the measurements taken from 192 participants\footfullcite{f0age} and the pitch range
-set by Praat\footfullcite{praat} (a software for speech analysis), a simple modelling of $f_c$ according to age and gender
+After referring to the measurements taken from 192 participants\footnote{f0age} and the pitch range
+set by Praat\footnote{praat} (a software for speech analysis), a simple modelling of $f_c$ according to age and gender
 is as below:
 \[f_{c,male}(n) = 0.07n^2 - 7.5n + 280, \text{ for } 4 \leq n\leq 93 \label{male} \] 
 \[f_{c,female}(n) = 0.02n^2 - 3n + 287, \text{ for } 4 \leq n \leq 93 \label{female} \] 
@@ -352,7 +363,7 @@ the signal.
 \subsection{Possible Models}
 There are 4 approaches to detect $f_0$, which can be classified into the time domain and frequency domain.
 
-\begin{enumerate}
+\begin{enumerate}[label=\textbf{\arabic*})]
     \item Zero crossings (time domain)\\
     This is the most intuitive method to detecting pitch although it suffers from low accuracy.
     Assuming the input is monophonic, the fundamental frequency is estimated as:
@@ -362,19 +373,19 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.5\textwidth]{Figures/zcr.png}
-        \caption{An example signal with zero-crossings marked in dotted lines \footfullcite{zcr}}
+        \caption{An example signal with zero-crossings marked in dotted lines \protect\footnote{Daoo, R. (2020, May 20). Algorithmic frequency/pitch detection series - part 1: Making a simple pitch tracker using zero... Medium. Retrieved May 14, 2022, from https://medium.com/the-seekers-project/algorithmic-frequency-pitch-detection-series-part-1-making-a-simple-pitch-tracker-using-zero-9991327897a4}}
     \end{figure}
 
     \item Harmonic Product Spectrum (HPS) (frequency domain)\\
     As aforementioned, human voice is not of pure tone, a musical note sung will consist of a series of peaks in its frequency spectrum,
     in which the peaks correspond to $f_0$ with other peaks indicating the harmonic components of integer multiples of $f_0$. 
     Exploiting this fact, HPS algorithm creates multiple downsampled signal spectrums and compares them with the original spectrum as shown in figure 
-    \ref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
+    \cref{HPS}. The strongest harmonic peak will line up no matter how many times we compress the spectrum.
     
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.5\textwidth]{Figures/HPS.png}
-        \caption{Harmonically compressed log spectra \footfullcite{HPS}}
+        \caption{Harmonically compressed log spectra \protect\footnote{QLH Andre, I Khelf, Q Leclere. (2017). Harmonic product spectrum revisited and adapted for rotating machine monitoring based on IAS}}
         \label{HPS}
     \end{figure}
     
@@ -390,7 +401,7 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
     \[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
     where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
     window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in figure 
-    \ref{taped}.
+    \cref{taped}.
 
     \begin{figure}
         \centering
@@ -403,13 +414,13 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
         \begin{subfigure}{.3\textwidth}
             \centering
             \includegraphics[width=1\linewidth]{Figures/acf.png}
-            \caption{$r_t(\tau)$ calculated from \\figure \ref{signal} using normal ACF}
+            \caption{$r_t(\tau)$ calculated from \\figure \cref{signal} using normal ACF}
             \label{acf}
           \end{subfigure}%
         \begin{subfigure}{.3\textwidth}
           \centering
           \includegraphics[width=1\linewidth]{Figures/taperedacf.png}
-          \caption{$r_t(\tau)$ calculated with \\equation \ref{signal}}
+          \caption{$r_t(\tau)$ calculated with \\equation \cref{signal}}
           \label{taped}
         \end{subfigure}%
         \label{YIN}
@@ -431,17 +442,17 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
     \label{sec:crepe}
     \item CREPE (Convolutional Representation for Pitch Estimation) (Machine learning method)\\
     CREPE is a data-driven algorithm developed by Kim et al. that operates directly on the time domain.
-    It consists of a deep convolutional neural network (CNN) trained by synthesized audio from the RWC Music Database \footfullcite{rwcdb}
-    and MedleyDB \footfullcite{medleydb}. 
+    It consists of a deep convolutional neural network (CNN) trained by synthesized audio from the RWC Music Database \footnote{rwcdb}
+    and MedleyDB \footnote{medleydb}. 
 
     CNN is often seen in image-processing applications and is a network that makes use of convolution instead of the typical matrix multiplication.
     It consists of an input layer, hidden layers and an output layer. Hidden layers include convolution layers, pooling layers and fully connected layers.
     
-    As shown in figure \ref{CREPE}, there are 6 hidden layers and each layer is followed by a dropout layer with a dropout probability of 0.25. 
+    As shown in figure \cref{CREPE}, there are 6 hidden layers and each layer is followed by a dropout layer with a dropout probability of 0.25. 
 
     Convolution layers are the building blocks of CNN since it performs feature extraction through convolution and activation functions like $ReLU$.
     Two hyperparameters defining a convolution operation are the kernel size and the number of kernels. Kernels in the convolutional layer context are convolutional
-    filters, so kernel size refers to the size of the filter mask and the number of kernels relates to the number of output features desired. Figure \ref{CREPE} shows the hyperparameters
+    filters, so kernel size refers to the size of the filter mask and the number of kernels relates to the number of output features desired. Figure \cref{CREPE} shows the hyperparameters
     used in CREPE.
 
     Max pooling is often used in the operation of the pooling layer and is the operation used in CREPE. It outputs the maximum value in a patch extracted from the
@@ -454,7 +465,7 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
     \begin{figure}
         \centering
         \includegraphics[width=0.8\columnwidth]{Figures/CREPE.png}
-        \caption{The architecture of the CREPE algorithm\footfullcite{CREPE}}
+        \caption{The architecture of the CREPE algorithm by \cite{crepepaper}}
         \label{CREPE}
     \end{figure}
     %The model is trained with 5-fold cross-validation and a 60/20/20 train, validation and test split.
@@ -472,7 +483,7 @@ In exchange, frequency domain models are less sensitive to noise and perform wel
 The zero crossings method will not be considered though it has the cheapest computational cost. One limitation is that
 the threshold is fixed at 0, making it susceptible to noise and the vocal timbre of the user. Moreover, the method heavily relies on
 the assumption that the input audio is of pure tone but unlike a tuning fork, human voice is not a pure tone. It is 
-composed of a fundamental frequency and upper harmonics\footfullcite{humanmono}.  This characteristic makes this method extremely
+composed of a fundamental frequency and upper harmonics\footnote{humanmono}.  This characteristic makes this method extremely
 unreliable.
 
 Like the zero-crossings method, HPS is intuitive and has a low computational cost. But since it builds on the characteristics 
@@ -484,13 +495,13 @@ pitch output, more time is needed in performing the transform.
 YIN has a more satisfactory performance but when the pitch varies rapidly (for example if the user has a breathy timbre), it cannot 
 estimate the pitch correctly as the algorithm uses a constant threshold. On the other hand, Kim et al. mentioned CREPE has a higher 
 tolerance for inputs with different timbres since CREPE is trained with MedleyDB which contains recordings of heterogeneous timbres. Figure 
-\ref{CREPEperf} concludes the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and other 2 PDA by Kim et al. and we will choose CREPE 
+\cref{CREPEperf} concludes the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and other 2 PDA by Kim et al. and we will choose CREPE 
 to implement in our model.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{Figures/CREPEperf.png}
-	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al. \footfullcite{CREPE}}
+	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al.}
 	\label{CREPEperf}
 \end{figure}
 
@@ -498,7 +509,7 @@ The CREPE code uploaded by Kim et al. takes in the samples $y$, sampling rate $s
 It calculates pitch every 10 ms and outputs the timestamp, estimated frequency $\hat{f_0}$, confidence $c$ and an activation matrix for visualization of outputs. 
 
 The sampling rate of training data used by CREPE is at 16 kHz thus our input audio will need to be resampled to 16 kHz if the original $sr \neq 16 kHz$. If the user is using the iPhone 
-built-in microphone to record, we need to set the preferred sampling rate to 16 kHz \footfullcite{iphoneaud} when coding for our iOS app.
+built-in microphone to record, we need to set the preferred sampling rate to 16 kHz \footnote{iphoneaud} when coding for our iOS app.
 
 One thing to note is that the algorithm centers the first frame at $t=0$ instead of starting the first frame at $t=0$ to avoid misalignment.
 
@@ -544,7 +555,7 @@ With enough audio samples sung by the user, we can collect the range of pitches 
 the probability distribution $P(x)$ to update the likelihood of observing a certain pitch given the previous audio samples.
 
 The prior $P(A)$ can be obtained from the demographic characteristics collected, i.e. age and gender, with the afore modelled equation
-\ref{male} and equation \ref{female}.
+\cref{male} and equation \cref{female}.
 
 %----------------------------------------------------------------------------------------
 %   SECTION 3
@@ -558,20 +569,30 @@ From a music theory point of view, the most intuitive method to identify the key
 in a piece, and the number defines which key the piece is in. But since our app targets amateurs, we will not expect them to be able to know what key will they be singing
 in.
 
-Krumhansl-Schmuckler algorithm (template-based) \footfullcite{template} is an experimentally measured tonal hierarchy is introduced by \cite{templatedata}, in which it contains 
-24 tonal profiles for major and minor keys in total.
+Krumhansl-Schmuckler algorithm (template-based) \footnote{template} is an experimentally measured tonal hierarchy is introduced by \cite{templatedata}, in which it contains 
+24 tonal profiles for major and minor keys in total. 
+
 Each of the profiles contains 12 values which correspond to 12 notes in an octave. The values were obtained from the experiment where they asked the listeners to judge how well
 a note fits in a key on a scale from 1 to 7 (1 stands for very bad, 7 stands for very good). We then calculate the correlation of distribution with these 12 major and 12 minor
-templates. The key with the highest correlation will be the estimated key.
+templates. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{Figures/profiles.png}
+	\caption{Probe tone rating for F\# and C major}
+	\label{probetone}
+\end{figure}
+\cref{probetone} serves as an example of the profiles, 
+
+The key with the highest correlation will be the estimated key.
 
 Yet, one drawback is that the sense of key changes over time as affected by the evolution of music. While the method can still be utilised, the template will have to be
 updated from time to time.
 
 \subsection{Implementation}
-Assuming we are using the template from Krumhansl and Kessler\footfullcite{templatedata} in our model and it is represented as 24 vectors $\vec{P_{i,k}} \in \mathbb{R}^{12 \times 1}$, 
+Assuming we are using the template from Krumhansl and Kessler\footnote{templatedata} in our model and it is represented as 24 vectors $\vec{P_{i,k}} \in \mathbb{R}^{12 \times 1}$, 
 where $i$ is the tone of the profile, $j$ indicates whether the profile is in major or minor.
 We also define the pitch class distribution (our input) as a vector $D \in \mathbb{R}^{12,1}$, where the 12 entries are the frequencies of the 12 notes that appeared in the audio.
-$\vec{D}$ can be obtained by looping over the $\hat{f_0}$ array obtained in \autoref{creperesult} and using the Python function \emph{collections.Counter([iterable-or-mapping])} to count the
+$\vec{D}$ can be obtained by looping over the $\hat{f_0}$ array obtained in \cref{creperesult} and using the Python function \emph{collections.Counter([iterable-or-mapping])} to count the
 number of occurrences. We then calculate the correlation between $\vec{P_{i,k}}$ and $\vec{D}$, which is essentially the dot product between the two.
 \[ corr(\vec{P_{i,k}},\vec{D}) = \vec{P_{i,k}} \cdot \vec{D} \]
 The estimated key ($i,j$) is found by looping over the 24 $\vec{P_{i,k}}$ vectors and finding the one that gives the maximum correlation.
