@@ -28,7 +28,7 @@ The translation problem is one that is very popular in machine learning research
 However, the music related problem is harder to solve due to the extra dimension each of its elements contains. 
 Each element in a melody has both pitch, represented by a discrete symbol or note, and duration whereas each element in the sequence of language is composed of only the discrete symbols or words.  
 Therefore, in order to use techniques developed for natural language processing, it is necessary to encode the melody and chords in such a way that their dimensions are collapsed into one. 
-Since this collapsing of dimensions has already been conducted in \ref{Chapter3} we are able to take full advantages of NLP techniques.
+Since this collapsing of dimensions has already been conducted in \autoref{Chapter3} we are able to take full advantages of NLP techniques.
 There have been many attempts to apply some of these techniques to the chord generation problem. 
 In order to find the best model we evaluate these attempts against defined criteria and develop a novel model to evaluate against the same criteria.
 
@@ -101,26 +101,9 @@ The final criteria used for evaluation are thus:
 \end{itemize}
 \section{Models}
 
-% The generation of chords to accompany a monphonic melody is an area which has developed as machine learning techniques are improved. 
-% An early approach to this problem from \cite{ChordPrediction} used a standard MLP to learn the relationship between melodies and accompanying chords.
-% MySong, the first attempt focusing specifically on a vocal melody in \cite{MySong} used an augmented hidden markov model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
-% A weakness of the hidden markov model is that at each timestep only the previous timestep is considered when suggesting a chord. 
-% \cite{BLSTM} utilises a BLSTM to increase the effect of long term dependencies on the output rather than relying only on the previous output.
-% \cite{MLForChords} tested and evaluated a number of more simple models such a Logistic Regression, Naive Bayes, SVM and Random Forest trained on data from 43 lead sheets \\
-% \cite{ReinforcementLearning} proposed a model  that learns a structured representation for use in symbolic melody harmonization. It utilises two layers of LSTMs to detemine when each chord should be played then utilises a policy gradient RL method to select each chord.
-% MuseGAN \\      
-% ChordGAN \\       
-% CLSTMGAN for melody Generation \\
+We now apply this evaluation criteria to a number of models suited to solving the chord generation problem. 
+Specifically we explore the implementations of models from other papers before discussing how a transformer could be implemented to solve this problem.
 
-% \subsection{Model evaluation template}
-% Model explanation/history - why is it generally applicable \\
-% Previous implementations \\
-%     General background \\
-%     Evaluation \\
-%         Data \\
-%         Quantative \\
-%         Qualitative \\
-%         Extra features \\
 \subsection{HMMs}
 \label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
@@ -163,7 +146,7 @@ This allows for the posterior to be learned in training.
 
 \subsubsection{Implementations}
 
-\paragraph{Chord Generation from Symbolic Melody} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \ref{subsec:HMM}.
+\paragraph{Chord Generation from Symbolic Melody} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \autoref{subsec:HMM}.
 The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
 On the user subjective test the DNN-HMM achieved a score of $2.48$.
 
@@ -244,7 +227,7 @@ The current output of the cell is computed by:
 
 \subsubsection{Implementations}
 
-\paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \ref{subsec:HMM} and \ref{subsec:DNN-HMMs}.
+\paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \autoref{subsec:HMM} and \autoref{subsec:DNN-HMMs}.
 They build a bidirectional LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probability that each of the 24 chords is played.
 The same dataset as the HMM and DNN-HMM was used and an accuracy of $0.5055$, $0.5032$, $0.4923$, and $0.4990$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.5000$.
 On the user subjective test the DNN-HMM achieved a score of $3.55$.
@@ -257,16 +240,17 @@ The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and 
 
 \subsection{Transformers}
 
+\subsubsection{Explanation and Applicability}
+
 Transformers have been a revolutionary development in the field of NLP, first proposed by \cite{Transformers} they have become very widely used and regularly produce state-of-the-art performance.
 Transformers utilise the encoder decoder model for sequence to sequence translation.
 They also heavily use attention which is a mechanism for weighting the importance of different elements of a sequence of data.
-Specifically they propose the Scaled dot-product attention shown in \ref{eq:Attention}
+Specifically they propose the Scaled dot-product attention shown in \autoref{eq:Attention}
 \begin{equation}
     \text{Attention}(Q,K,V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V
     \label{eq:Attention}
 \end{equation}
 where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $d_k$ is the dimension of queries and keys.
-\textbf{Finish transformers section}
 
 \begin{figure}
     \centering
@@ -276,19 +260,32 @@ where $Q$, $K$ and $V$ represent the queries, keys and values respectively and $
     \label{fig:Transformer}
 \end{figure}
 
-\textbf{Benefits of mask with transformer in being able to specify given chords using mask}
+The structure of a transformer is shown in \autoref{fig:Transformer}.
+The masked multi-head attention block is particularly useful for our use case as it allows for the pre specification of output chords.
+Therefore, if a user were to particularly like a certain chord or set of chords it would be possible to lock those in place and generate others around it.
+
+\subsubsection{Possible Implementation}
+As, to our knowledge, no implementations of a transformer exist to solve this problem, we now outline how this could be achieved.
+Transformers require a symbol picked from a finite set. 
+In our case these input symbols would correspond to the note played on each submeasure.
+This results in the input data format discussed in \autoref{sec:TransformerDataFormat}.
+The set of output symbols would then consist of the set of possible chords and there would be an output of one chord per submeasure resulting in the corresponding chord data format.
+The structure of the transformer can be that used in \cite{Transformers}.
+In order to train the model the Adam optimiser, \cite{Adam}, can be used and dropout can be used for regularisation.
+Given its success in natural language processing we hypothesise that results from a transformer on this problem would be promising.
+
 \section{Our Model}
 
 We propose the use of a conditional GAN to learn the association between melodies and chords.
-It is well demonstrated that a GAN is capable of generating high quality imitations of real data and as a non-deterministic model it fits the criterial outlined in \ref{sec:MVPRequirements}.
+It is well demonstrated that a GAN is capable of generating high quality imitations of real data and as a non-deterministic model it fits the criterial outlined in \autoref{sec:MVPRequirements}.
 The Discriminator consists of a number of LSTM layers followed by a linear output layer.
 The Generator consists of a linear layer followed by a number of LSTM layers and then by another linear layer.
 % The Binary Cross Entropy loss is used to determine the Discriminator loss for each example. This is averaged across every measure and then between real and generated examples
 \subsection{Components}
 
-\subsubsection{Generator}
+\paragraph{Generator}
 In essence the Generator functions as a non-deterministic translator, from a sequence of melody vectors to a sequence of chord vectors, and thus models from the NLP space would function appropriately.
-Since the LSTM, a common model used in NLP, performed best in \ref{sec:Evaluation} and is strongly affected by the temporal relationship between inputs, we chose to use it in our Generator.
+Since the LSTM, a common model used in NLP, performed best in \autoref{sec:Evaluation} and is strongly affected by the temporal relationship between inputs, we chose to use it in our Generator.
 It takes as input a tensor of dimensions $(b,n,12+l)$ where $b$ is the batch size, $n$ is the number of measures in the song and $l$ is the length of the noise vector.
 Each batch is treated independently and identically, so we will proceed discussing the treatment of the 2nd and 3rd dimensions, and it can be assumed this is repeated $b$ times.
 Thus, we effectively input a tensor of dimensions $(n,12+l)$ into the first layer of the Generator.
@@ -307,7 +304,7 @@ This is then passed through a softmax layer which gives the probability that eac
     \label{fig:Generator}
 \end{figure}
 
-\subsubsection{Discriminator}
+\paragraph{Discriminator}
 The Discriminator is fundamentally a binary sequence classifier.
 It takes as input a tensor of dimensions $(b,n,37)$ where $b$ is the batch size and $n$ is the number of measures in the song.
 Each batch is treated independently and identically, so we will proceed discussing the treatment of the 2nd and 3rd dimensions, and it can be assumed this is repeated $b$ times.
@@ -330,7 +327,7 @@ The output is passed through a sigmoid activation function thus converting it to
 
 As proof of concept for the design we developed a command line based interface for the model such that it was easy to train, vary parameters and test. 
 In production the user would be able to utilise a subset of this interface, such as the option to generate accompaniment and have it played back, through a graphical user interface.
-The options available in the interface are shown in table \ref{tab:parameters}
+The options available in the interface are shown in \autoref{tab:parameters}
 
 \begin{table}
     \caption{The parameters of the command line interface for the model}
@@ -382,7 +379,7 @@ An example of this coupling is the sigmoid activation function and the binary cr
 As we are using a GAN we use the Binary Cross Entropy or BCE as our loss function for the Discriminator as we are dealing with a binary problem, is the input real or generated?
 The Discriminator loss is averaged across its performance between real and generated examples.
 For the Generator we use the complement of the Discriminator loss on generated examples.
-The BCE loss can be calculated as in \ref{eq:BCELoss}.
+The BCE loss can be calculated as in \autoref{eq:BCELoss}.
 \begin{equation}
     \label{eq:BCELoss}
     \frac{1}{N} \sum_{i=1}^N log(p(y_i))
@@ -404,7 +401,7 @@ The BCE loss can be calculated as in \ref{eq:BCELoss}.
 \paragraph{Optimiser}
 An optimiser is used to determine the changes of model parameters that need to be made to minimise the loss of a model.
 Optimisers usually involve the use of the gradient of the model with respect to different parameters.
-The standard tool to find the gradients is the backpropagation algorithm \textbf{REFERENCE BACKPROP} 
+The standard tool to find the gradients is the backpropagation algorithm 
 which is very easy to use with PyTorch.
 Gradient descent is an example of a basic optimiser.
 We used the Adam optimiser \cite{Adam} which is recommended in the Stanford \href{https://cs231n.github.io/}{CS231n: Convolutional Neural Networks for Visual Recognition}\footnote{https://cs231n.github.io/} as the default optimiser.
@@ -433,12 +430,12 @@ Device management
 
 \subsection{Testing}
 The Model can be tested using the test set as this will reveal any overfitting from training. 
-We can evaluate the model as stated \ref{sec:Evaluation} using the accuracy of the model across the test set.
+We can evaluate the model as stated in \autoref{sec:Evaluation} using the accuracy of the model across the test set.
 Another way we can evaluate the model to get a better sense of where and how the model is going wrong is by using a confusion matrix.
 We enumerate the generated chords and the true chords. 
 For each melody we add one to the element in the (generated chord, true chord) coordinate. 
 Thus, an ideal output would be a diagonal matrix such that the generated chord was always the same as the true chord, however, this would also suggest overfitting.
-An example of a confusion matrix is shown in \ref{fig:confusion_ideal}
+An example of a confusion matrix is shown in \autoref{fig:confusion_ideal}
 Another form of testing that could be performed is a subjective study like those in \cite{MySong} and \cite{BLSTM}.
 Ideally the studies would be carried out as similarly as possible to the others such that the models they are testing can be reliably compared.
 
@@ -454,10 +451,10 @@ Ideally the studies would be carried out as similarly as possible to the others 
 Unfortunately due to implementation difficulties followed by the sudden death of the machine we were using to train the model we were unable to obtain any valid results.
 While the machine was still running we conducted some preliminary training attempts where convergence of the GAN illuded us.
 The discriminator quickly learned to distinguish between the real and generated chords and the generator was never able to improve sufficiently to counter this.
-The loss of the models can be seen in figure \ref{fig:ModelLoss}.
+The loss of the models can be seen in \autoref{fig:ModelLoss}.
 It was noticed that the generator converged to predict the same chord on every output. 
 This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss was effectively zero.
-A confusion matrix of these results can be seen in figure \ref{fig:confusion_real}
+A confusion matrix of these results can be seen in \autoref{fig:confusion_real}. The code for this project can be found \href{https://github.com/edsgunn/TerrenceInABox}{here}\footnote{https://github.com/edsgunn/TerrenceInABox}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\columnwidth]{Figures/ModelLoss}
