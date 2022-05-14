@@ -515,7 +515,7 @@ We then manipulate the $\hat{f_0}$ array such that
 
 In order to output the predicted frequencies as notes, we need to prepare a dictionary of notes with its corresponding frequencies, i.e. 
 \emph{notesdict = {"A4": 440, "A\#4": 466.16, "B4": 493.88,...}}
-and map the predicted frequency to the closest frequency that corresponds to a note with \emph{min(notesdict.items(), key=lambda (_, freq): abs(freq - $f_0$))}
+and map the predicted frequency to the closest frequency that corresponds to a note with \emph{min(notesdict.items(), key=lambda (\_, freq): abs(freq - $f_0$))}
  
 Finally, to target notes that lasted less than 10 timeframes (0.1s) (since they are likely to be misinterpreted/ noisy notes),
 we neglect the misinterpreted note and add half of its duration to the frequency in front and behind respectively, i.e.
