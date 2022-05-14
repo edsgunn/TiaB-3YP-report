@@ -226,10 +226,9 @@ The noise spectrum $N(\omega,k)$ and its statistical measures are obtained by as
 before they sing into the app.
 
 Note that half-wave rectification is necessary after the noise removal process of subtracting the average magnitude of the noise spectrum. 
-
 \begin{equation}
-    |\hat{X}(\omega,k)| = \begin{cases}
-        |\hat{X}(\omega,k)|   & \text{if \hat{X}(\omega,k) \leq 0}\\
+    \abs{\hat{X}(\omega,k)} = \begin{cases}
+        \abs{\hat{X}(\omega,k)}   & \text{if} \hat{X}(\omega,k) \leq 0\\
         0                     & \text{otherwise.}
     \end{cases}
 \end{equation}
@@ -251,9 +250,9 @@ To reduce the residual noise, we can modify the rectification so that when the e
 signal spectrum is negative (i.e. when the magnitude of noise spectrum is larger than that of the 
 noisy signal spectrum), we use the noisy signal spectrum magnitude.
 \begin{equation}
-    |\hat{X}(\omega,k)| = \begin{cases}
-        |\hat{X}(\omega,k)|   & \text{if \hat{X}(\omega,k) \leq 0}\\
-        ｜Y(\omega,k)｜                    & \text{otherwise.}
+    \abs{\hat{X}(\omega,k)} = \begin{cases}
+        \abs{\hat{X}(\omega,k)}   & \text{if} \hat{X}(\omega,k) \leq 0\\
+        \abs{Y(\omega,k)}                   & \text{otherwise.}
     \end{cases}
 \end{equation}
 
@@ -517,8 +516,8 @@ We then manipulate the $\hat{f_0}$ array such that
 \]
 
 In order to output the predicted frequencies as notes, we need to prepare a dictionary of notes with its corresponding frequencies, i.e. 
-\emph{notesdict = {"A4": 440, "A#4": 466.16, "B4": 493.88,...}}
-and map the predicted frequency to the closest frequency that corresponds to a note with \emph{min(notesdict.items(), key=lambda (_, freq): abs(freq - $f_0$))}
+\emph{notesdict = {"A4": 440, "A\#4": 466.16, "B4": 493.88,...}}
+and map the predicted frequency to the closest frequency that corresponds to a note with \emph{min(notesdict.items(), key=lambda (\_, freq): abs(freq - $f_0$))}
  
 Finally, to target notes that lasted less than 10 timeframes (0.1s) (since they are likely to be misinterpreted/ noisy notes),
 we neglect the misinterpreted note and add half of its duration to the frequency in front and behind respectively, i.e.
