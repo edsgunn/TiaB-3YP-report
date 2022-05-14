@@ -208,33 +208,23 @@ While this might seem irrelevant to our project, power consumption is actually s
 Government policies have left music education in the UK in a precarious state \cite{perilousstate}. There have also been funding cuts to music education both on the tertiary and pre-tertiary levels \cite{weale2021} \cite{macdonald2021}. Consequently, music provision in schools have generally declined \cite{brown2018} \cite{weale2018}. Hence, it is reasonable to assume that amateur musicians in the future are more likely to not have in depth knowledge of music theory and would find the vocal-to-chords functionality provided by our product useful. This potentially represents a larger market that we can capture.
 %\subsubsection{Market Research}
 
-%----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-% \section{Risk and Data Security}
-% For data security reason, these two are typically encrypted by default. Data is also ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t give itself permission to access anything – that’s why the permissions system pops up messages saying “so-and-so app would like to access your location, contacts and camera.” That prevents the app from reading data from other apps, or with the phone’s operating system, unless you’ve given the app permission. It’s on developers to make sure that their apps only request the access they need.
-% \\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that server and app authenticate each other before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous assessment of network security and compliance with security standards.
-% \\Because finding defects in production is expensive! The key reason why people perform risk analysis during software testing is to better understand what can really go wrong with an application before it goes into production. A risk analysis performed during software testing helps to identify areas where software flaws could result in serious issues in production. By identifying areas of concern early, developers are able to proactively remediate and reduce the overall risk of a production defect.
-% \\ talk about stability 
+ \section{Risk and Data Security}
+The two operating systems our design was developed for data security reasons are typically encrypted by default. Data is ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t permit itself to access anything, so the permissions system pops up messages asking for access to specific privacy functions such as photos and locations. That prevents the app from reading data from other apps or with the phone’s operating system unless users give the app permission. It’s on developers to make sure that apps only request the access they need.
+ \\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that the server and app authenticate before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we will test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous network security assessment and compliance with security standards.
+ \\Because finding defects in production is expensive, and people perform risk analysis during software testing to understand better what can go wrong with an application before it goes into production. A risk analysis performed during software testing helps identify areas where software flaws could result in severe issues in production. By identifying areas of concern early, developers are able tocan proactively remediate and reduce the overall risk of a production defect.
 
-% identification, causes, impacts, action required
-% \\ identification: leakage
-% \\ identification: attacks 
-% \\ more
-
-
-% important sections
-% \\ how to
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 \tocdata{toc}{Di Wan}
 \section{Finance and Monetisation}
-Like every other project, we need a budget for our app design project. A project budget is the total estimated cost of completing each project activity over each phase of a project. Based on the statistics published by SPDLoad, our project will take approximately 9 months to finish due to its high complexity, such as, machine learning integration.
+Like every other project, we need a budget for our app design project. A project budget is the estimated total cost of completing each project activity over each project phase. Based on the statistics published by SPDLoad, our project will take approximately nine months to finish due to its high complexity, such as machine learning integration and online cooperation.
 \subsection{Cost Break-down}
-Cost breakdown is the systematic process of identifying the individual elements that comprise the total cost of a good, service or package. Here we divide our costs into two types, direct costs and indirect costs.
+The cost breakdown is the systematic process of identifying the individual elements that comprise the total cost of a good, service or package. Here we divide our costs into two types, direct costs and indirect costs.
 \subsubsection{Direct Costs}
-We define the direct costs are the costs which is proportional to the number of subscription our users registered.
+We define the direct costs are the costs proportional to the number of subscriptions our users registered.
 \begin{itemize}
 \item As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple App Store} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
 \item The average transaction fee through card payment will be approximately 2.9\%
@@ -242,16 +232,16 @@ We define the direct costs are the costs which is proportional to the number of 
 
 
 \subsubsection{Indirect Costs}
-We define that the indirect costs are the costs which is not proportional to number of subscription our users registered. Those include:
+We define that the indirect costs are the costs which are not proportional to several subscriptions our users registered. Those include:
 \begin{itemize}
 \item \textbf{Labour cost}
 \\We will need a team for our app design, based on the post by SPDLoad, a typical app-design team must consist 1 project manager / product manager (£57,341/ year) , 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year),1 backend developer (£53,568/ year) and 1 quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average salaries in London published by Glassdoor, which is a website allow current and former employee to review their company and publish their salary rates.
 \item \textbf{Marketing cost}
-\\ Marketing costs are the all expenses that the company makes to market and sell its products and develop and promote its brand. We set our budget to be £100,000
+\\ Marketing costs are all expenses the company makes to market and sell its products and develop and promote its brand. We set our budget to be £100,000
 \item \textbf{Testing cost}
-\\ Testing cost is the costs associated with app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on.
+\\ Testing cost is the costs associated with the app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on.
 \item \textbf{Others}
-\\Those are the costs consisting app development account fee and other utilities. The estimate will be £15,000
+\\Those are the costs consisting of app development account fees and other utilities. The estimate will be £15,000
 \end{itemize}
 
 Here we present those estimated costs in the table of annual cost sheet:
@@ -264,9 +254,9 @@ Here we present those estimated costs in the table of annual cost sheet:
  \hline
 \multicolumn{1}{|c}{\textbf{Direct Cost}} &\multicolumn{1}{c}{}&\\
  \hline
- App store retailer fee&15\%&\\
+ App store retailer fee&$15\%\times N \times P$&\\
  \hline
- Payment transaction fee&2.3\%&\\
+ Payment transaction fee&$2.3\% \times N \times P$&\\
  \hline
  &&\\
  \hline
@@ -283,7 +273,7 @@ Here we present those estimated costs in the table of annual cost sheet:
  \hline
  \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\
  \hline
- \textbf{Total}&17.3\%&£354,396\\
+ \textbf{Total}&\multicolumn{1}{c}{$17.3\%\times N \times P + £354,396$}&\\
  \hline
  \end{tabular}
  \caption{Annual cost sheet}
@@ -293,9 +283,12 @@ Here we present those estimated costs in the table of annual cost sheet:
 \subsection{Source of Cash Inflow}
 There are two main sources of cash inflow through our app, advertisements revenue and subscription fee.
 \\ \textbf{Advertisement}
-\\ We decided to cooperate with other music-related companies and place their advertisements in our app pages, the revenue will be based on the number of clicks. We will use A/B Testing to decide the place and methods how we will place the advertisement and minimising the influence to user experience.
+\\ We have decided to cooperate with other music-related companies and place their advertisements on our app pages; the revenue will be based on the number of clicks. The estimated revenue through 
 \\ \textbf{Subscription}
-\\We consider subscription fee as the main source of income for our app, we aim to provide monthly subscription model for our users to access the premium functions, such as pitch tracking. Research needed here
+\\We consider subscription fee as the main source of income for our app; we aim to provide a monthly subscription model for our users to access the premium functions, such as pitch tracking.
+
+\subsection{Estimation}
+The leading apps we are competing with are Chordfy and Chord ai; both primary functions of these apps and our app are generating chords to accompany a melody.  Therefore it is reasonable to estimate the user size of our app based on $max$[user size of Chordify, user size of Chord ai]. However, there is no public data that reveals the user sizes of these two apps. We finally estimate our potential user size by adding the number of reviewers of Chorify and Chord ai and scaling the total number by 5, which is a good approximation of assuming only 20\% users gave reviews for apps. Thus we estimate our potential user size to be around 200,000 and further, we can calculate the subscription price of our app to be £ .
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
