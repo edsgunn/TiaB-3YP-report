@@ -74,6 +74,7 @@ is built on:
     \item \textbf{Assumption 4:} Noise is a stationary or slowly varying process.
     \item \textbf{Assumption 5:} Noise spectrum does not change drastically during the recording.
 \end{itemize}
+They will be explained in the later sections.
 
 %----------------------------------------------------------------------------------------
 %   SECTION 1
@@ -182,14 +183,14 @@ compare three noise reduction mechanisms.
     $N$ is the number of samples. 
     Assuming $d(n)$ and $x(n)$ have no correlation, and we perform a short-time fourier transform on equation \ref{sreduction}:
     \[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
-    where $k$ is the frame number, which can be dropped if we assume the signal is segmented. Each segment will be of
+    where $k$ is the frame number. Each frame will be of
     length $N$. We then have the desired signal in frequency domain:
-    \[X(\omega) = Y(\omega) - N(\omega)\]
+    \[X(\omega,k) = Y(\omega,k) - N(\omega,k)\]
     Since the statistics of the noise is unknown, we try to find an estimate of noise spectrum by calculating the time-averaged
     noise spectrum using parts of the recording that only contain ambient noise\footfullcite{reductionmanual}. 
-    \[\hat{N}(\omega) = \textbf{E}[|N(\omega)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega)|\]
+    \[\hat{N}(\omega,k) = \textbf{E}[|N(\omega,k)|] = (1/N)\sum_{i=0}^{N-1}|N_i(\omega,k)|\]
     We then get the estimated signal spectrum
-    \[\hat{X}(\omega) = Y(\omega) - \hat{N}(\omega)\]
+    \[\hat{X}(\omega,k) = Y(\omega,k) - \hat{N}(\omega,k)\]
     We then set a gain control for each frequency band so if the sound exceeded the threshold, the gain is set to 0 dB or a user-defined
     constant.
 \end{enumerate}
@@ -221,11 +222,20 @@ The implementation of spectral noise gating can be summarised according to \cite
 	\caption{Spectral noise gating flowchart}
 	\label{spectralflowchart}
 \end{figure}
-The noise spectrum $N(\omega)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
+The noise spectrum $N(\omega,k)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
 before they sing into the app.
-Note that half-wave rectification is necessary after the noise removal process of subtracting the average magnitude of the noise spectrum.
-This is to target frequencies that have a higher average magnitude of noise spectrum $\textbf{E}[|N(\omega)|]$ compared to that of 
-the noisy speech spectrum $|\hat{X}(\omega)|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
+
+Note that half-wave rectification is necessary after the noise removal process of subtracting the average magnitude of the noise spectrum. 
+
+\begin{equation}
+    |\hat{X}(\omega,k)| = \begin{cases}
+        |\hat{X}(\omega,k)|   & \text{if \hat{X}(\omega,k) \leq 0}\\
+        0                     & \text{otherwise.}
+    \end{cases}
+\end{equation}
+
+This is to target frequencies that have a higher average magnitude of noise spectrum $\textbf{E}[|N(\omega,k)|]$ compared to that of 
+the noisy speech spectrum $|\hat{X}(\omega,k)|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
 rectification.
 
 %-----------------------------------
@@ -235,9 +245,19 @@ rectification.
 A drawback with spectral reduction is that it does not handle extreme responses nicely. It does not reduce noises like
 squeaks. Also, since a half-wave rectification is included in the implementation process, \cite{spectral_drawback} has 
 pointed out that residual noise will be created during the process of spectral reduction. Half-wave rectification introduces
-nonlinearity in the $\hat{X}(\omega)$ spectrum and results in frequencies changing abruptly between frames.
+nonlinearity in the $\hat{X}(\omega,k)$ spectrum and results in frequencies changing abruptly between frames.
 
-As mentioned above, spectral reduction is built on the assumption that the noise is stationary or slowly varying. Yet in reality,
+To reduce the residual noise, we can modify the rectification so that when the estimated 
+signal spectrum is negative (i.e. when the magnitude of noise spectrum is larger than that of the 
+noisy signal spectrum), we use the noisy signal spectrum magnitude.
+\begin{equation}
+    |\hat{X}(\omega,k)| = \begin{cases}
+        |\hat{X}(\omega,k)|   & \text{if \hat{X}(\omega,k) \leq 0}\\
+        ｜Y(\omega,k)｜                    & \text{otherwise.}
+    \end{cases}
+\end{equation}
+
+On the other hand, as mentioned above, spectral reduction is built on the assumption that the noise is stationary or slowly varying. Yet in reality,
 there may be sudden squeaky noise in the background which is not recorded in the noise profile. In this case, spectral reduction 
 cannot remove the squeak. To improve the situation, we will introduce a low-pass filter to filter out high-frequency noise. The reason
 for choosing LPF over a bandpass filter is that spectral reduction is effective in targeting the reduction of ambient noise, which is
@@ -403,7 +423,7 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
     to replace ACF. 
     \begin{equation}
         CMNDF(\tau) = \begin{cases}
-             1             & \text{if $\tau = 0$} \\ 
+             1                                              & \text{if $\tau = 0$} \\ 
             \frac{DF(\tau)}{(1/\tau)\sum_{j=1}{\tau} DF(j)} & \text{otherwise.}
         \end{cases}
     \end{equation}
@@ -446,6 +466,10 @@ There are 4 approaches to detect $f_0$, which can be classified into the time do
 %   SUBSECTION 2
 %-----------------------------------
 \subsection{Comparison between models and implementation}
+Time domain models are more intuitive and easier to understand when compared to frequency domain models.
+Also, the time domain implementation often takes up less computational resources and time.
+In exchange, frequency domain models are less sensitive to noise and perform well on polyphonic singings.
+
 The zero crossings method will not be considered though it has the cheapest computational cost. One limitation is that
 the threshold is fixed at 0, making it susceptible to noise and the vocal timbre of the user. Moreover, the method heavily relies on
 the assumption that the input audio is of pure tone but unlike a tuning fork, human voice is not a pure tone. It is 
@@ -491,7 +515,18 @@ We then manipulate the $\hat{f_0}$ array such that
 \end{cases}
 \label{creperesult}
 \]
-and omit frequencies that lasted less than 10 timeframes (0.1s).
+
+In order to output the predicted frequencies as notes, we need to prepare a dictionary of notes with its corresponding frequencies, i.e. 
+\emph{notesdict = {"A4": 440, "A#4": 466.16, "B4": 493.88,...}}
+and map the predicted frequency to the closest frequency that corresponds to a note with \emph{min(notesdict.items(), key=lambda (_, freq): abs(freq - $f_0$))}
+ 
+Finally, to target notes that lasted less than 10 timeframes (0.1s) (since they are likely to be misinterpreted/ noisy notes),
+we neglect the misinterpreted note and add half of its duration to the frequency in front and behind respectively, i.e.
+\[T_{i-1} = T_{i-1} + \frac{T_i}{2}
+T_{i+1} = T_{i+1} + \frac{T_i}{2}
+    \]
+Where $T_i$ represents the duration of the $i$th frequency.
+
 %-----------------------------------
 %   SUBSECTION 3
 %-----------------------------------
@@ -541,3 +576,25 @@ $\vec{D}$ can be obtained by looping over the $\hat{f_0}$ array obtained in \aut
 number of occurrences. We then calculate the correlation between $\vec{P_{i,k}}$ and $\vec{D}$, which is essentially the dot product between the two.
 \[ corr(\vec{P_{i,k}},\vec{D}) = \vec{P_{i,k}} \cdot \vec{D} \]
 The estimated key ($i,j$) is found by looping over the 24 $\vec{P_{i,k}}$ vectors and finding the one that gives the maximum correlation.
+
+%----------------------------------------------------------------------------------------
+%   SECTION 4
+%----------------------------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:Summ}
+In this chapter, we presented methodologies to filter noise, detect pitch and key. We will compile the strengths and weaknesses
+in this section.
+\begin{table}[]
+    \begin{tabular}{lll}
+    Noise filter                                                         & Strengths                                                                                                                                                 & Limitations                                                                                                                                                                                          \\
+    Low Pass Filter                                                      & Easy and fast to implement                                                                                                                                & \begin{tabular}[c]{@{}l@{}}Cannot target broad band noise/ noise at low frequencies\\ Hard to set the cut-off frequency for different users at \\ different environments\end{tabular}                \\
+    Wavelet Transform                                                    & \begin{tabular}[c]{@{}l@{}}Based on both time and frequency domain so \\ localised information of the signal can be \\ efficiently accessed.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Sensitive to shifts in time\\ Poor directionality\\ Hard to set a mother wavelet\end{tabular}                                                                             \\
+    Spectral Reduction                                                   & \begin{tabular}[c]{@{}l@{}}Based on noise profile of the input recording\\ so it is more customized\end{tabular}                                          & \begin{tabular}[c]{@{}l@{}}Requires user to input a noise profile/ recording of \\ background noise\end{tabular}                                                                                     \\
+    \multicolumn{3}{l}{}                                                                                                                                                                                                                                                                                                                                                                                                                    \\
+    PDA                                                                  & Strengths                                                                                                                                                 & Limitations                                                                                                                                                                                          \\
+    Zero crossing                                                        & \begin{tabular}[c]{@{}l@{}}Intuitive\\ Cheapest to compute\end{tabular}                                                                                   & Susceptible to oise and vocal timbre                                                                                                                                                                 \\
+    \begin{tabular}[c]{@{}l@{}}Harmonic Product \\ Spectrum\end{tabular} & Low computational cost                                                                                                                                    & \begin{tabular}[c]{@{}l@{}}Unsatisfactory performance if other harmonics do not have a high enough amplitude\\ Performance relies heavily on the length of short-time Fourier Transform\end{tabular} \\
+    YIN/ Autocorrelation                                                 & \begin{tabular}[c]{@{}l@{}}Intuitive\\ Less susceptible to noise\end{tabular}                                                                             & Inflexible since it is based on a constant threshold                                                                                                                                                 \\
+    CREPE                                                                & \begin{tabular}[c]{@{}l@{}}Robust and tolerant to singing \\ with different timbres\end{tabular}                                                          & Hard to interpret since it is a black box model                                                                                                                                                     
+    \end{tabular}
+    \end{table}
