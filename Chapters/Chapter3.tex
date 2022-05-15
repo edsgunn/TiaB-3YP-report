@@ -5,14 +5,15 @@
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-As illustrated in \textbf{REFERENCE Figure 1.1}, the data from the voice processor will be passed to a data processor to convert it into the appropriate input data format for the machine learning model. But before that, the model has to be trained first in order to be of any use. Hence, we shall look at the dataset used to train and test the model before discussing the data processor in Section \ref{data processor}.
+As illustrated in \autoref{fig:MVPOverview}, the data from the voice processor will be passed to a data processor to convert it into the appropriate input data format for the machine learning model. But before that, the model has to be trained first in order to be of any use. Hence, we shall look at the dataset used to train and test the model before discussing the data processor in Section \ref{data processor}.
 
-The processing of the raw dataset into the training/testing dataset had been carried out; the code and resulting datasets can be found on \textbf{REFERENCE GITHUB}. The data processor itself has not been coded but would be easy to create by re-using the code used to process the raw dataset.
+The processing of the raw dataset into the training/testing dataset had been carried out; as mentioned in \autoref{Project management}, the code and resulting datasets can be found on our git repository \footnote{https://github.com/edsgunn/TerrenceInABox}. The data processor itself has not been coded but would be easy to create by re-using the code used to process the raw dataset.
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
 \section{Dataset}
+\label{Intro to Dataset}
 Papers that worked on similar chord generation problems \cite{MySong} \cite{BLSTM} \cite{MLForChords} obtained their dataset by collecting lead sheets from public and private sources and preprocessing them. Unfortunately, most of them did not publicly share their processed dataset. We could collect and preprocess our own lead sheets, of which there are quite a few possible sources such as MuseScore and the Million Song Dataset \cite{Bertin-Mahieux2011}. However, \cite{BLSTM} do provide their preprocessed dataset in which the features of the lead sheets have already been extracted. Given that extracting the musical features ourselves would be time-consuming, and that we are building a Minimum Viable Product that would not require an extensive dataset, we decided to use that dataset.
 
 There are 2252 songs in this dataset, 1802 of which had been categorised as the training set while the remaining 450 had been categorised as the test set. Each song is in major key and only have a single chord per bar. For each song, all the relevant features had been extracted and placed into a single \emph{CSV} file. These files can then be read and converted to DataFrame format using Python \emph{Pandas} as shown in Figure \ref{fig:CSV_DF}.
@@ -67,7 +68,7 @@ A pictorial representation of the steps above can be found in Figure \ref{fig:Al
 
 Using \emph{Pandas} to remove the unwanted measures mentioned above and to normalise the note durations is a straightforward task. However, shifting all the songs to C major key is trickier. We would need to know the original key of the song, and then transposed the \emph{note\_root} and \emph{chord\_root} appropriately to C major key. The original keys of the songs are stated implicitly by their \emph{key\_fifths}; since we know all the songs are in major key and that each major key has a unique number of sharps/flats, the numberical value of \emph{key\_fifths} can be mapped to a specific major key as shown in Table \ref{tab:kf_map}. Note that there exist more values of \emph{key\_fifths} than shown, but preliminary analysis of the dataset shows that only integer values of \emph{key\_fifths} from -6 to 7 are present within it. We also create a mapping of the 12 notes to a numerical representation as shown in Table \ref{tab:note_map} to make the processing easier later.
 
-Using Table \ref{tab:kf_map} \& \ref{tab:note_map}, we can list all the major keys present in the dataset and convert the pitches that exist within each major key into their numerical representations (which goes from 1 to 12 and then loops back to 1) as shown in Table \ref{tab:bigtable}. As expected, the differences between the pitches of the same key are consistent across all the major keys (e.g. the difference between Pitch 1 and Pitch 3 is always 4 for every major key), which shows that we can indeed tranpose a song to a different key by just shifting all the pitches equally. For each DataFrame row, we just have to convert \emph{key\_fifths} to the corresponding major key using \ref{tab:kf_map} to obtain the numerical representaion of Pitch 1 of that major key. We also convert \emph{note\_root} and \emph{chord\_root} to numbers using Table \ref{tab:note_map}. Next, the numerical representation of Pitch 1 $p_1$ is subtracted from those of \emph{note\_root} $n_r$ and \emph{chord\_root} $c_r$, and the differences are added to Pitch 1 of the C major key $p_{1,c}$ (which is equal to 1) to obtain the shifted pitches in notes $n_{r,shifted}$ and chords $c_{r,shifted}$ respectively: 
+Using Table \ref{tab:kf_map} \& \ref{tab:note_map}, we can list all the major keys present in the dataset and convert the pitches that exist within each major key into their numerical representations (which goes from 1 to 12 and then loops back to 1) as shown in Table \ref{tab:bigtable}. As expected, the differences between the pitches of the same key are consistent across all the major keys (e.g. the difference between Pitch 1 and Pitch 3 is always 4 for every major key), which shows that we can indeed tranpose a song to a different key by just shifting all the pitches equally. For each DataFrame row, we just have to convert \emph{key\_fifths} to the corresponding major key using \autoref{tab:kf_map} to obtain the numerical representaion of Pitch 1 of that major key. We also convert \emph{note\_root} and \emph{chord\_root} to numbers using Table \ref{tab:note_map}. Next, the numerical representation of Pitch 1 $p_1$ is subtracted from those of \emph{note\_root} $n_r$ and \emph{chord\_root} $c_r$, and the differences are added to Pitch 1 of the C major key $p_{1,c}$ (which is equal to 1) to obtain the shifted pitches in notes $n_{r,shifted}$ and chords $c_{r,shifted}$ respectively: 
 
 \begin{align} 
     \label{shift note 1}
@@ -231,11 +232,12 @@ As mentioned above, we first use \emph{Pandas} to clean up the data. A nested lo
 %----------------------------------------------------------------------------------------
 
 \section{Model input format}
-Now that the dataset has been preprocessed, it can now be converted into a format that is appropriate for input to the machine learning model. Since we are focusing on the LSTM and the Transformer, we will have to convert the data into formats that are appropriate for those two models.
+\label{Model input format}
+Now that the dataset has been preprocessed, it can now be converted into a format that is appropriate for input to our machine learning model which, as will be stated in \autoref{Our Model}, is a conditional Generative Adversarial Network with Long Short Term Memory \(LSTM\) layers; we shall refer to this model simply as LSTM for the rest of this chapter. In addition, we shall also discuss the data format of the Transformer, which is another strong candidate for the machine learning model that can be tested against the LSTM in future extensions of this project. Hence, we will convert the data into formats that are appropriate for two models: the LSTM and the Transformer.
 
 \subsection{LSTM format}
 \label{LSTM format for training}
-The LSTM data input format is a matrix with 37 columns, with each row containing information about a single measure. The first 12 columns represent the 12 note (C,C\#, etc.), the next 24 columns represent the 12 major chords and the 12 minor chords, and the last column correspond to the absence of a chord. If a particular note exists within a particular measure, the element that corresponds to that particular measure (row) and particular note (column) will be the normalised duration of that note. Similarly, the element that corresponds to the chord of a particular measure will be a '1'. Notes and chords that are not present within that measure will be marked with a '0'. If no chords are present within a measure, the last column will be marked as a '1'. A pictorial representation of the transformation is shown in Figure \ref{fig:LSTM training}.
+The LSTM data input format is a matrix with 37 columns, with each row containing information about a single measure. The first 12 columns represent the 12 note (C, C\#, etc.), the next 24 columns represent the 12 major chords and the 12 minor chords, and the last column corresponds to the absence of a chord. If a particular note exists within a particular measure, the element that corresponds to that particular measure (row) and particular note (column) will be the normalised duration of that note. Similarly, the element that corresponds to the chord of a particular measure will be a '1'. Notes and chords that are not present within that measure will be marked with a '0'. If no chords are present within a measure, the last column will be marked as a '1'. A pictorial representation of the transformation is shown in Figure \ref{fig:LSTM training}.
 
 \subsubsection{Code}
 We again use a nested loop to loop through each DataFrame row for each song. Two 1 by 37 arrays \emph{LSTM\_data} and \emph{new\_row} are initialised. As we loop through each row, we keep track of the measure. As long as the measure does not change, \emph{new\_row} is progressively updated with the normalised note durations of the present notes in this manner: 
@@ -329,7 +331,7 @@ Again, we manually check a random selection of sequences like we did in the sani
 
 \section{Data processor}
 \label{data processor}
-The data processor receives three pieces of information from the voice processor: note, music key, and note duration. Hence, the preprocessing needed is similar to the one in Section \ref{preprocessing} but simplified.
+As can be seen in the last block of \autoref{flowchart}, the data processor receives three pieces of information from the voice processor: note, note duration, and music key. Hence, the preprocessing needed is similar to the one in Section \ref{preprocessing} but simplified:
 
 \begin{enumerate}
     \item Convert the notes to their numerical representations using Table \ref{tab:note_map} to obtain $n_r$.
@@ -363,7 +365,8 @@ Similarly, we no longer have a sequence of chords since the chord information is
     \end{figure}
 
 \section{Music Mood Classification}
-Everything discussed above in this chapter is crucial to the creation of our Minimum Viable Product. However, there are additional features that we could add to our product if it proves to be successful. One possible additional functionality would be allowing users to select the music mood of the generated chords, or perhaps even have our machine learning model be able to identify the mood of their singing. This means that our model would need to be trained to identify music moods, which would require mood information in the training dataset. While datasets with expert annotations of music moods exist \cite{allmusic}, it would be useful to be able to assign a music mood to a song ourselves using some sort of algorithm or model.
+\label{Music Mood Classification}
+Everything discussed above in this chapter is crucial to the creation of our Minimum Viable Product. However, there are additional features that we could add to our product if it proves to be successful. As mentioned in \textbf{REFERENCE MOSCOW?} and under the Technological heading in \autoref{STEEP Drivers}, one possible additional functionality would be allowing users to select the music mood of the generated chords, or perhaps even have our machine learning model be able to identify the mood of their singing. This means that our model would need to be trained to identify music moods, which would require mood information in the training dataset. While datasets with expert annotations of music moods exist \cite{allmusic}, it would be useful to be able to assign a music mood to a song ourselves using some sort of algorithm or model.
 
 %\subsection{Human annotations}
 
@@ -387,7 +390,7 @@ Given that it can classify the greatest variety of music moods, the Tellegen-Wat
     \centering
     \includegraphics[scale=0.4]{Figures/Arousal-Valence model}
     \decoRule
-    \caption{Arousal-Valence model \cite{MoodIoT}}
+    \caption{Arousal-Valence model from \cite{MoodIoT}}
     \label{fig:circumplex}
     \end{figure}
 
@@ -396,7 +399,7 @@ Given that it can classify the greatest variety of music moods, the Tellegen-Wat
     \centering
     \includegraphics[scale=0.4]{Figures/Thayers model}
     \decoRule
-    \caption{Thayer's model \cite{circumplexbook}}
+    \caption{Thayer's model from \cite{circumplexbook}}
     \label{fig:Thayers}
     \end{figure}
 
@@ -404,8 +407,16 @@ Given that it can classify the greatest variety of music moods, the Tellegen-Wat
     \centering
     \includegraphics[scale=0.4]{Figures/TWC model}
     \decoRule
-    \caption{Tellegen-Watson-Clark model \cite{MoodIoT}}
+    \caption{Tellegen-Watson-Clark model from \cite{MoodIoT}}
     \label{fig:TWC}
     \end{figure}
 
-As for the machine learning model, we would use a Support Vector Machine, which is a classification algorithm. When tested against other popular classification algorithms such as deep neural network \cite{MoodDeepNeuralNetwork}, random forest \cite{Moodrandomforest}, and K-nearest neighbour \cite{MoodKNeighbour} \cite{MoodDeepNeuralNetwork}, the Support Vector Machine was best at classifying music moods \cite{MoodIoT}.
+As for the machine learning model, we would use a Support Vector Machine, which is a classification algorithm. When tested against other popular classification algorithms such as deep neural network \cite{MoodDeepNeuralNetwork}, random forest \cite{Moodrandomforest}, and K-nearest neighbour \cite{MoodKNeighbour} \cite{MoodDeepNeuralNetwork}, the Support Vector Machine was found to be the most accurate at classifying music moods \cite{MoodIoT}.
+
+\section{Summary}
+
+In this chapter, we started by looking at the dataset used to train and test the machine learning model in \autoref{Intro to Dataset} . We then went through the preprocessing steps for the dataset in \autoref{preprocessing}, as well as the conversion into formats that can be fed into a LSTM and a Transformer in \autoref{Model input format}; these are the only sections in this chapter that have actually been implemented. 
+
+In \autoref{data processor}, we looked at the data processor which takes in data from the voice processor and produces input data that is then fed into the machine learning model, as illustrated in \autoref{fig:MVPOverview}. Lastly, we explored the possibility of adding a music mood selection feature in our product, which would require our training/testing dataset to include music mood information. While we could datasets with human annotations of music mood, we explored the possibility of using an algorithm to classify music moods based on audio features. We concluded that using a Support Vector Machine in conjunction with the Tellegen-Watson-Clark model would probably produce the best results.
+
+In the next chapter, we shall look at the actual machine learning models which, as mentioned earlier, receives the output from the data processor.
