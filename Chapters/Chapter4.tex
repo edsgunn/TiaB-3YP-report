@@ -1,8 +1,8 @@
 % Chapter Template
 \tocdata{toc}{Edward Gunn}
 
-\chapter{Model} % Main chapter title
-\chaptermark{Model - Edward Gunn}
+\chapter{Chord Generation Model} % Main chapter title
+\chaptermark{Chord Generation Model - Edward Gunn}
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ Therefore, in order to allow for more interesting accompaniment, the requirement
 \subsection{Evaluation criteria}
 \paragraph{Approach}
 Many attempts to solve the chord generation problem have been made each of which contain variants on models and implementations which result in large variations in metrics used for evaluation.
-There is also a large variation in features for which quantative evaluation is impossible. 
+There is also a large variation in features for which quantitive evaluation is impossible. 
 As it would be impractical to implement each relevant model ourselves to allow for full standardisation of evaluation, we will evaluate models built ourselves and from previous work based on a set of criteria defined below.
 \paragraph{Data}
 One of the biggest influences on the effectiveness of a model is the dataset on which it is trained. 
@@ -74,16 +74,16 @@ In general a larger dataset results in a better generalisation of learning \cite
 Most datasets are comprised of lead sheets which can be translated into chord melody pairs.
 Many datasets are then further divided down into measures in which there is one chord played per measure and the melody within that measure is somehow encoded.
 Thus, for best comparison the number of measures used in the dataset is a good criterion for evaluation.
-This is a particularly important area for evaluation as it will strongly affect the output of the model and thus the results of other 
+This is a particularly important area for evaluation as it will strongly affect the output of the model and, therefore, the outcomes of evaluations on other criteria.
 
 \paragraph{Quantitative Evaluation}
-There is difficulty in quantative evaluation for this problem as there is no strictly correct chords for a given melody and thus comparison to any specific set of chords gives a skewed interpretation of the output.
-However, the use of conventional quantative evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords and thus can be cautiously used in evaluation.
+There is difficulty in quantitive evaluation for this problem as there is no strictly correct chords for a given melody and thus comparison to any specific set of chords gives a skewed interpretation of the output.
+However, the use of conventional quantitive evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords and thus can be cautiously used in evaluation.
 The test set from the data can be used to compare the outputs from the model to previously assigned chords. Accuracy can be found by finding the number of chords successfully predicted and dividing by the total number of chords produced.
 \begin{equation}
     \text{Accuracy} = \frac{\text{Number of Chords Correctly Assigned}}{\text{Total Number of Chords Generated}}
 \end{equation}
-As this was the only quantative measure consistently used across previous implementations this is the only one we will consider for evaluation.
+As this was the only quantitive measure consistently used across previous implementations this is the only one we will consider for evaluation.
 
 \paragraph{Qualitative Evaluation}
 Some previous work \cite{MySong}, \cite{BLSTM} carried out experiments to judge the sentiment of untrained musicians to the generated chords.
@@ -104,7 +104,7 @@ The final criteria used for evaluation are thus:
 We now apply this evaluation criteria to a number of models suited to solving the chord generation problem. 
 Specifically we explore the implementations of models from other papers before discussing how a transformer could be implemented to solve this problem.
 
-\subsection{HMMs}
+\subsection{Hidden Markov Models}
 \label{subsec:HMM}
 \subsubsection{Explanation and Applicability}
 Hidden Markov Models or HMMs were first put forward by Leonard E. Baum in a series of statistical papers \cite{HMM1} \cite{HMM2} \cite{HMM3}. 
@@ -136,7 +136,7 @@ An accuracy of $0.4844$ was achieved, however, a choice of only 7 chords were us
 
 % \paragraph{Autoarrangement System of Accompaniment Chords} An HMM with improved PCP feature extraction was used in \cite{HMMswithML} 
 
-\subsection{DNN-HMMs}
+\subsection{Deep Neural Network HMMs}
 
 \label{subsec:DNN-HMMs}
 \subsubsection{Explanation and Applicability} 
@@ -150,7 +150,7 @@ This allows for the posterior to be learned in training.
 The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
 On the user subjective test the DNN-HMM achieved a score of $2.48$.
 
-\subsection{GANs}
+\subsection{Generative Adversarial Networks}
 
 \subsubsection{Explanation and Applicability}
 
@@ -189,7 +189,7 @@ RNNs that operate on large sequences often experience the problems of exploding 
     \label{fig:RNN}
 \end{figure}
 
-\subsection{LSTMs}
+\subsection{Long Short Term Memory}
 
 The Long Short Term Memory model or LSTM was proposed in \cite{LSTMs} in order to overcome the gradient problems related to RNNs and thus allow for faster training on long sequences.
 They are also capable of learning longer dependencies due to their internal memory. An LSTM cell has three gates: input, forget, and output.
@@ -243,7 +243,7 @@ The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and 
 \subsubsection{Explanation and Applicability}
 
 Transformers have been a revolutionary development in the field of NLP, first proposed by \cite{Transformers} they have become very widely used and regularly produce state-of-the-art performance.
-Transformers utilise the encoder decoder model for sequence to sequence translation.
+Transformers utilise the encoder decoder model (\cite{EncoderDecoder}) for sequence to sequence translation.
 They also heavily use attention which is a mechanism for weighting the importance of different elements of a sequence of data.
 Specifically they propose the Scaled dot-product attention shown in \autoref{eq:Attention}
 \begin{equation}
@@ -470,3 +470,12 @@ A confusion matrix of these results can be seen in \autoref{fig:confusion_real}.
     \caption{A confusion matrix of the chords outputted from the model}
     \label{fig:confusion_real}
 \end{figure}
+
+\section{Summary}
+
+We have discussed the requirements for the model and how we set the MVP requirements to create a system that can generate reasonable accompanying chords for a melody.
+We defined criteria for evaluation against these requirements and applied this to a number of models implemented in other papers.
+Using the lessons we learned from this evaluation 
+\textbf{BE MORE CLEAR ABOUT THE LESSONS WE LEARNED IN THE MAIN SECTION} 
+we proposed the use of an LSTMGAN as a solution to this problem and detailed how this should be structured, implemented, trained and tested.
+We also outlined functionality and results from our preliminary implementation.
