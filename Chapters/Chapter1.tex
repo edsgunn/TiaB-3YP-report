@@ -300,84 +300,83 @@ From the National Society of Professional Engineers Code of Ethics \footfullcite
 importance to ensure engineering work upholds honesty, impartiality, fairness, and equity, and must be dedicated to 
 the protection of the public health, safety, and welfare. Since our design interacts with users
 through a mobile application, ethical concerns have arisen regarding the interactions between users 
-as well as data handling on our end. In this section we will address issues related to data ethics.
+and data handling on our end. In this section, we will address issues related to data ethics.
 
 Governmental organisations have published regulations \footfullcite{EUdataregulations2018} and frameworks
-\footfullcite{framework} that are minimum standards for handling data ethically. The core values of data ethics 
+\footfullcite{framework} that are minimum standards for handling data ethically. The core value of data ethics 
 is to treat data responsibly and righteously.
-\\
-There are 3 overarching principles\footfullcite{framework} to adhere to but in short, we as the developer should treat our 
+
+There are three overarching principles to adhere to, but in short, we as the developer should treat our 
 users\textsc{\char13} data as we would for our own.
 
 \subsection{Transparency}
 We should be clear and publish specifications of our project in a way that users can understand and access
 easily. It is necessary to delineate a privacy policy to make sure users read and agree to it before they use
-our application and keep the policy at a prominent location, i.e. in the footer for webpage, in the developer
+our application and keep the policy at a prominent location, i.e. in the footer for the webpage, in the developer
 section of the app listing or on the sign-in interface of the app.\\We would include the following items in our privacy policy:
 \begin{enumerate}
-    \item Company licence and registration reference number: Registration at the Information Commissioner's Office is required
+    \item \textbf{Company licence and registration reference number:} Registration at the Information Commissioner's Office is required
     before collecting data from the public
-    \item Details and purpose of data collected: We should limit data collection to what is necessary and to an explicit purpose.
-    Thus, we will collect
+    \item \textbf{Details and purpose of data collected:} We should limit data collection to what is necessary and to an explicit goal.
+    Thus, we will collect:
     \begin{description}
         \item[Personal details -] Name and email address are the necessary fields. Gender, age and profile picture are optional inputs 
-        that will help improve user experience and accuracy of the model. 
-        \item[Audio data -] Audio signal and metadata to feed in our machine learning model to improve accuracy.
+        that will help improve the user experience and accuracy of the model. 
+        \item[Audio data -] Audio signal and metadata to feed into our machine learning model to improve accuracy.
         \item[Networks and connections -] Collected for our interactive community features.
-        \item[Usage -] Contents and functions that the users have viewed or engaged with, as well as the duration.
-        \item[Device information -] Device attributes like signal strength, battery levels, version of operating system to adjust the operation of our app.
-        \item[Cookie data -] Both first- and third-party cookies are needed. For the first-party cookies, to personalise and optimise user
-        experience, we would save their usage preferences like language, dark or light background mode. 
-        \\There are 2 purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
+        \item[Usage -] Contents and functions that the users have viewed or engaged with and the duration.
+        \item[Device information -] Device attributes like signal strength, battery levels, and operating system version to adjust our app's operation.
+        \item[Cookie data -] Both first- and third-party cookies are needed. For first-party cookies, to personalise and optimise user
+        experience, we would save their usage preferences like language, and dark or light background mode. 
+        \\There are two purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
         these advertising companies will be able to place cookies on our app for standard users, but not the premium users who subscribed to our services. 
-        Secondly, we will be implementing social sign-on, so users do not have to create a new account on our end. In this case, the social media 
-        platform will be placing their third-party cookies on our app.
+        Secondly, we will be implementing social sign-on so users do not have to create a new account on our end. In this case, the social media 
+        platform will be placing its third-party cookies on our app.
         \\It is important to note that users have the right to know the third parties that have access to their data.
     \end{description}
-    \item Data retention policy: We will specify how long information will be kept and the procedure of disposing the data when a user deactivated
+    \item \textbf{Data retention policy:} We will specify how long information will be kept and the procedure of disposing of the data when a user deactivates
     his account or when the data is no longer necessary to collect. Moreover, we would have to erase or rectify inaccurate data without delay. Although 
     there is no limitation on data storage, we will have to act ethically and
     decide the timeframe based on the genuine motivation of retaining the data. Data should only be collected when it is vital in the context
-    of app operation, thus we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
+    of app operation. Thus we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
     would have to either delete it or anonymise it. If we are to delete the data, we have to ensure all digital and hard copies of the data are destroyed. 
-    This action requires careful documentation of data storage from the date we collect data from users as traces may often reside in forgotten databases.
+    This action requires careful documentation of data storage from the date we collect data from users, as traces may often reside in forgotten databases.
     Anonymising data means that a piece of information cannot be associated with an identity, which will not help with improving user experience, but still 
     can be used to monitor the entire application performance.
-    \item Access rights within the team: Different team members of our project will have access rights to different types of data collected from
+    \item \textbf{Access rights within the team:} Different team members of our project will have access rights to different types of data collected from
     the users, and we should delineate who will be responsible for which part of the data we store.
-    \item Rights that users have over their data: Users should have the right to request a copy of data provided, request us to delete the data and object to our data processing.
-    \item Notification of changes to privacy policy: We will contact users to review and accept the revised policy through email.
-    \item Security standards: We should specify the encryption standards and the processes in place to test the confidentiality, integrity and availability of 
+    \item \textbf{Rights that users have over their data:} Users should have the right to request a copy of data provided, request us to delete the data and object to our data processing.
+    \item \textbf{Notification of changes to privacy policy:} We will contact users to review and accept the revised policy through email.
+    \item \textbf{Security standards:} We should specify the encryption standards and the processes in place to test the confidentiality, integrity and availability of 
     our system.
-    \item Contact information: Contact details like organisation contact number, email address, office and postal address.
+    \item \textbf{Contact information:} Contact details like organisation contact number, email address, office and postal address.
 \end{enumerate}
 
 \subsection{Accountability} 
 We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications.\footfullcite{principles} 
 This can be done by creating a department that overviews the entire project and ensures data is managed ethically throughout the process. As we have an interactive community 
 feature, we must ensure that our app does no harm in any way. A new Online Safety Bill is being drafted recently to fight online hate crime, and online companies are liable for failures to
-deal with inappropriate material posted online.\footfullcite{francis} \footfullcite{parliamentlaw} Companies have the responsibilities to confine illegal and harmful discussions and a conventional and efficient method
-to guarantee this is to implement algorithmic censorship. \\Moreover, to be publicly accountable, effective governance and oversight mechanisms that can be exercised by the public are necessary. 
-We can enact this by hiring an independent third-party audit review our data processing.
+deal with inappropriate material posted online.\footfullcite{francis} \footfullcite{parliamentlaw} Companies have the responsibility to confine illegal and harmful discussions, and a conventional and efficient method
+to guarantee this is to implement algorithmic censorship. 
+Moreover, effective governance and oversight mechanisms that the public can exercise are necessary to be publicly accountable. 
+We can enact this by hiring an independent third-party audit to review our data processing.
 
 \subsection{Fairness}
-When processing data, we should ensure no societal, racial or health bias is involved. Our project collects minimal personal data so the problem of differential processing for distinct groups can be avoided. 
-On the other hand, another perspective of fairness can be manifested in the form of \textbf{Responsible Research and Innovation (RRI)}:
-
-RRI is a process that seeks to promote creativity and opportunities for science and innovation that are socially desirable and undertaken in the public interest.\footfullcite{ukri} Not only does research bring novelty 
-and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences for society. Thus, it is key to put emphasis on innovating responsibly and creating changes that
+We should ensure no societal, racial or health bias is involved when processing data. Our project collects minimal personal data, so the problem of differential processing for distinct groups can be avoided. 
+On the other hand, another perspective of fairness can be manifested in the form of \textbf{Responsible Research and Innovation (RRI)}, which is a process that seeks to promote creativity and opportunities 
+for science and innovation that are socially desirable and undertaken in the public interest.\footfullcite{ukri} Not only does research bring novelty 
+and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences for society. Thus, it is key to emphasise innovating responsibly and creating changes that
 have positive societal and environmental impacts.\\ There are a few areas of RRI that we should keep in mind:
 \begin{enumerate}
-    \item Anticipation: We should vision the consequences of our research and innovation conducted. It is to ensure that the consequences of undertaking the research are considered and reflected in the research 
-    design. Although in this project we are not creating physical technology, we are building a platform that allows users to communicate with each other and if not dealt carefully, our app may become a breeding 
-    ground for online hate crime.
-    \item Reflection: researchers should always reflect on the research question they are investigating, the type of data collected, the method used to analyse the data and the implications of the findings.
-    They should also judge if the research is required. An organisation can force reflection through organisational processes and structures like a project advisory board or quality assurance reviews. Reflection 
+    \item Anticipation: We should envision the consequences of our research and innovation. It ensures that the research design considers and reflects the effects of undertaking the research. Although we are not creating physical technology in this project, we are building a platform that allows users to communicate with each other. Our app may become a breeding 
+        ground for an online hate crime if not dealt with carefully.
+    \item Reflection: researchers should always reflect on the research question they are investigating, the type of data collected, the method used to analyse the data and the implications.
+    They should also judge if the research is required. An organisation can reflect through organisational processes and structures like a project advisory board or quality assurance reviews. Reflection 
     allows researchers to review the project from a macroscopic point of view.
-    \item Ethics: Researchers should uphold integrity and prevent misconduct. They should take accountability for both the undergoing research and behaviour.
+    \item Ethics: Researchers should uphold the integrity and prevent misconduct. They should take accountability for both the undergoing research and behaviour.
     \item Gender Equality: Since male engineers still dominate the engineering industry, it is easy to be biased in a project design, i.e. building models and interfaces that better suit male users. Thus, it is 
-    paramount to have opinions from the underrepresented group as to create a comprehensive innovation.
-    \item Open Access: Making the research output publicly available to everyone, so the whole society can be benefitted by reducing wasteful duplication, increasing transparency and reproducibility of results.
+    paramount to have opinions from the underrepresented group to create a comprehensive innovation.
+    \item Open Access: Making the research output publicly available to everyone, so the whole society can benefit by reducing wasteful duplication and increasing transparency and reproducibility of results.
     \item Governance: Organisations should establish practices that foster RRI, i.e. 
     \begin{itemize}
         \item Having transparent and reflective internal procedures
@@ -386,7 +385,7 @@ have positive societal and environmental impacts.\\ There are a few areas of RRI
         \item Encouraging future-oriented governance
         \item Valuing responsiveness
     \end{itemize}
-    \item Public Engagement: Researchers should settle upon a motivation and suitable audience before any public engagement. For our project, the goal would be to allow amateurs to enjoy composing music without
+    \item Public Engagement: Researchers should settle upon motivation and the right audience before any public engagement. For our project, the goal would be to allow amateurs to enjoy composing music without
     music professionalism.
 \end{enumerate}
 %----------------------------------------------------------------------------------------
@@ -395,43 +394,43 @@ have positive societal and environmental impacts.\\ There are a few areas of RRI
 \tocdata{toc}{Kitty Fung}
 \section{Sustainability}
 \label{Sustainability}
-As technology advances, energy consumed by computers and digital personal devices is taking up a larger portion in worldwide energy consumption. 
+As technology advances, energy consumed by computers and personal digital devices is taking up a more significant portion of worldwide energy consumption. 
 According to an article published by \cite{energypy} and a research done by GO-Globe \footfullcite{energy}, there are about 8,918,157,500 active
-mobile devices consuming a total of $3.46\mathrm{e}{12}$ kWh energy per year.
+mobile devices consume a total of $3.46\mathrm{e}{12}$ kWh energy per year.
 While a lot of effort has been put into reducing the energy consumption from the hardware perspective,
-it is also prime to focus on the impact of software implementation as well.
+it is also prime to focus on the impact of software implementation.
 Other than writing energy-efficient codes (i.e. optimised searching and sorting algorithms), the programming language 
-chosen can make a substantial difference too. Energy, time and memory size are classified as the major resources required for running a program.
+chosen can make a substantial difference too. Energy, time and memory size are the significant resources required for running a program.
 At first glance, since \(Energy = Power * Time\), there seems to be a correlation between energy and time. Yet,
 \cite{energyplanguage} suggests that since \(Power\) is not a constant, we cannot draw the conclusion that
 when \(Time\) increases, \(Energy\) must increase. 
-Pereira ranked the performance of different programming languages according to its energy, time and memory size consumption (p.7). 
-Surprisingly, there is no strong correlation between these 3 components. 
+Pereira ranked the performance of different programming languages according to their energy, time and memory size consumption (p.7). 
+Surprisingly, there is no strong correlation between these three components. 
 Instead, the performance depends on the category of the programming language.
-The programming languages can be divided into 3 execution types: compiler, interpreter and virtual machine.
+The programming languages can be divided into three execution types: compiler, interpreter and virtual machine.
 
 \begin{description}
-    \item Compiler converts the entire high-level language code to machine-readable language all at once. Some examples are C, C++, Rust and Go. 
+    \item Compiler converts the entire high-level language code to machine-readable language. Some examples are C, C++, Rust and Go. 
     \item Interpreter translates one statement of the high-level language code to machine-readable language at a time. Common interpreted languages are PHP, Python and JavaScript.
-    Thus, even if an interpreter takes less time to analyse the source code, it takes longer time to execute the process.
-    \item Virtual machine executes an intermediate code translated from the high-level language inputted. Some of the popular languages that uses virtual machines are Java, Scala, JRuby.
+    Thus, even if an interpreter takes less time to analyse the source code, it takes longer to execute the process.
+    \item Virtual machine executes an intermediate code translated from the high-level language inputted. Some popular languages that use virtual machines are Java, Scala, and JRuby.
 \end{description}
 
-Since our application has no requirements on the computational time and memory size, we can solely focus on the energy consumption between 
-different languages. Even though the energy needed to run different algorithms varies for different languages, it is certain that
-compiled language requires less energy compared to virtual machine and interpreted languages. Our team has used Python for the design and implementation, so 
+Since our application has no computational time and memory size requirements, we can solely focus on the energy consumption between 
+different languages. Even though the energy needed to run various algorithms varies for other languages, it is inevitable that
+compiled language requires less energy compared to the virtual machine and interpreted languages. Our team has used Python for the design and implementation, so 
 it is rational to switch from Python to C/ C++/ Rust to code in the future.
 
-Also, according to a research done by \cite{cloudpercent}, we can reduce energy consumption by 87\% by employing a cloud architecture.
-Yet, researches have shown that cloud computing is more energy efficient than relying on local devices (i.e. using our private data centres, computing on
+Also, according to research done by \cite{cloudpercent}, we can reduce energy consumption by 87\% by employing a cloud architecture.
+Yet, researchers have shown that cloud computing is more energy-efficient than relying on local devices (i.e. using our private data centres, computing on
 users\textsc{\char13} smartphones).
 
-Firstly, taking Amazon Web Services (AWS), the leading service provider in the cloud infrastructure market as an example, it aims to fully power the operation with renewable
+Firstly, taking Amazon Web Services (AWS), the leading service provider in the cloud infrastructure market, as an example, it aims to fully power the operation with renewable
 energy by 2025\footfullcite{aws}. Since it is complex and cost-ineffective for individuals or small-scale companies to switch to clean energy, using the cloud services provided
-by eco-conscious companies would greatly reduce the carbon footprints.
+by eco-conscious companies would significantly reduce their carbon footprints.
 
-On the other hand, centralised cloud provider allocates resources more efficiently since there is a higher utilization rate. If we choose an on-premise computing method, we will suffer
-from low utilization rates since the purchased equipments may only be fully utilized when there are usage spikes. Yet, cloud providers have a huge customer base, and it is paramount for 
-their business to optimise server usage. Thus sharing cloud servers can increase average server utilization to 50 percent or higher \footfullcite{cloud}.
+On the other hand, a centralised cloud provider allocates resources more efficiently since there is a higher utilisation rate. If we choose an on-premise computing method, we will suffer
+from low utilisation rates since the purchased equipment may only be fully utilised when there are usage spikes. Yet, cloud providers have a vast customer base, and it is paramount for 
+their businesses to optimise server usage. Thus sharing cloud servers can increase average server utilisation to 50 per cent or higher \footfullcite{cloud}.
 
 % Therefore, we should carefully design our architecture and minimise carbon footprints.
