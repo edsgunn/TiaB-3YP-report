@@ -239,7 +239,7 @@ The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and 
 % The inclusion of variable numbers of chords in each measure greatly expands the possibilities with music composition
 
 \subsection{Transformers}
-
+\label{Transformers Ed}
 \subsubsection{Explanation and Applicability}
 
 Transformers have been a revolutionary development in the field of NLP, first proposed by \cite{Transformers} they have become very widely used and regularly produce state-of-the-art performance.
@@ -454,7 +454,7 @@ The discriminator quickly learned to distinguish between the real and generated 
 The loss of the models can be seen in \autoref{fig:ModelLoss}.
 It was noticed that the generator converged to predict the same chord on every output. 
 This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss was effectively zero.
-A confusion matrix of these results can be seen in \autoref{fig:confusion_real}. The code for this project can be found \href{https://github.com/edsgunn/TerrenceInABox}{here}\footnote{https://github.com/edsgunn/TerrenceInABox}.
+A confusion matrix of these results can be seen in \autoref{fig:confusion_real}. As mentioned earlier in the report, the code for this project can be found \href{https://github.com/edsgunn/TerrenceInABox}{here}\footnote{https://github.com/edsgunn/TerrenceInABox}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\columnwidth]{Figures/ModelLoss}
