@@ -38,14 +38,16 @@ In order to find the best model we evaluate these attempts against defined crite
 \subsection{MVP Requirements}
 \label{sec:MVPRequirements}
 The MVP requirements were defined at the beginning of the project to ensure it is compatible with the other parts of the product that were simultaneously in development and to ensure the possibility of the creation of the prototype for proof of concept. 
-We required the model to be a black box in which we could input a melody, and it would output chords which sounded good.
+The requirements for the system as a whole were outlined in \cref{sec:UImvp} as a key part of the lean startup loop (\cref{sec:techstrategy}) the definition of an MVP was essential.
+Specifically for the model we required it to be a black box in which we could input a melody, and it would output chords which sounded good.
 The notion of sounding good is intentionally vague as what sounds good or bad is usually down to individual taste in music.
 There is never a definitive answer to which chords would sound the best.
 However, we felt that even people without any musical training would be able to judge whether chords fit the melody relatively accurately.
 This is supported by the finding that musical training is not required to respond to music is sophisticated ways in \cite{ExperiencedListeners}.
-Within this overarching requirement we defined tighter constraints for the sake of both practicality and user experience. 
+Within this overarching requirement we defined tighter constraints for the sake of both practicality and User Experience. 
 The model would have to be designed for sequential data such that the temporal relationship of the different notes being played were taken into account.
 It would be possible to simply learn a function where, for a given measure, a chord suited to the notes played within that measure was generated without taking into account surrounding measures.
+This could be a model as simple as a vanilla neural network.
 This approach could produce reasonable results and be significantly more simple that other options, however, the quality and variation of chords generated would be lower than that of a model for sequential data, hence our choice to forego it.
 The model would also have to be conditional. For a given input it should produce a catered output. This is an obvious constraint however for models such as a GAN it requires changes to the format of the input data.
 To maximise user experience the models should be non-deterministic. This allows users to regenerate the accompaniment multiple times to obtain new chords and thus means they can choose what they feel is best.
@@ -103,6 +105,7 @@ The final criteria used for evaluation are thus:
 
 We now apply this evaluation criteria to a number of models suited to solving the chord generation problem. 
 Specifically we explore the implementations of models from other papers before discussing how a transformer could be implemented to solve this problem.
+Each model is numbered for later reference.
 
 \subsection{Hidden Markov Models}
 \label{subsec:HMM}
@@ -117,12 +120,13 @@ For our purposes this limits the "memory" the model could have to a single measu
 
 \subsubsection{Implementations}
 
-\paragraph{MySong} The first application of an HMM to this problem whilst also being the first attempt focusing specifically on a vocal melody from \cite{MySong} used an Augmented Hidden Markov Model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
+\paragraph{MySong - 1} The first application of an HMM to this problem whilst also being the first attempt focusing specifically on a vocal melody from \cite{MySong} used an Augmented Hidden Markov Model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
 No measure was given for the accuracy of the model, however a study which compared the quality of MySong to manually assigned chords was carried out. 
 In 264 comparisons the participants preferred MySong 95 times, manual 121 times and had no preference 48 times
 The additional user input possible with the "Happy factor" and "Jazz factor" parameters are reported to significantly improve the user experience, however, this is their only implementation and so nothing can be inferred about the quality of the HMM itself.
+These parameters are an approach that could be learned from if implementing the mood classification feature described in \cref{sec:moodclassification}.
 
-\paragraph{Chord Generation from Symbolic Melody}  As a comparison for the main model in \cite{BLSTM} an HMM was implemented. 
+\paragraph{Chord Generation from Symbolic Melody - 2}  As a comparison for the main model in \cite{BLSTM} an HMM was implemented. 
 The HMM is trained on a reduced version of the 
 wikifonia.org\footnote{Wikifonia shut down in 2013, but the dataset is still available from http://marg.snu.ac.kr/chord\_generation/ for academic purposes} dataset which includes an array of Western music genres with 2,252 lead sheets, 1802 of which are used for training. 
 This overall comes to 72,418 measures for the training set and 17,768 for the test set. 
@@ -131,7 +135,7 @@ They also carried out a user subjective test with 25 participants each evaluatin
 The users would listen to the music played and judge the accompaniment on a scale of 1, being not appropriate, and 5, being very appropriate.
 The HMM achieved an average score of $2.31$ and the original chords achieved an average score of $4.04$.
 
-\paragraph{Machine Learning in Automatic Music Chords Generation} An HMM was tested in \cite{MLForChords} along with other simpler models. It was trained on 43 lead sheets, with 813 measures total. 
+\paragraph{Machine Learning in Automatic Music Chords Generation - 3} An HMM was tested in \cite{MLForChords} along with other simpler models. It was trained on 43 lead sheets, with 813 measures total. 
 An accuracy of $0.4844$ was achieved, however, a choice of only 7 chords were used unlike the usual 24.
 
 % \paragraph{Autoarrangement System of Accompaniment Chords} An HMM with improved PCP feature extraction was used in \cite{HMMswithML} 
@@ -146,7 +150,7 @@ This allows for the posterior to be learned in training.
 
 \subsubsection{Implementations}
 
-\paragraph{Chord Generation from Symbolic Melody} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \autoref{subsec:HMM}.
+\paragraph{Chord Generation from Symbolic Melody - 4} This was implemented much like the HMM from \cite{BLSTM} mentioned above in \autoref{subsec:HMM}.
 The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
 On the user subjective test the DNN-HMM achieved a score of $2.48$.
 
@@ -168,7 +172,7 @@ Thus, they would be suitable for our uses.
 
 \subsubsection{Implementations}
 
-\paragraph{ChordGAN} \cite{ChordGAN} uses a conditional GAN along with Chroma Feature Extraction to generate chords for a specific genre of music based on the dataset it was trained on.
+\paragraph{ChordGAN - 5} \cite{ChordGAN} uses a conditional GAN along with Chroma Feature Extraction to generate chords for a specific genre of music based on the dataset it was trained on.
 They used three different data sets one for each Pop, Jazz and Classical music each shorter than 1600 measures (specific lengths are not given).
 The model achieved an accuracy of $0.68$, $0.74$ and $0.64$ respectively across the datasets.
 
@@ -227,12 +231,12 @@ The current output of the cell is computed by:
 
 \subsubsection{Implementations}
 
-\paragraph{Chord Generation from Symbolic Melody} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \autoref{subsec:HMM} and \autoref{subsec:DNN-HMMs}.
+\paragraph{Chord Generation from Symbolic Melody - 6} This was the main model under scrutiny in \cite{BLSTM} mentioned above in \autoref{subsec:HMM} and \autoref{subsec:DNN-HMMs}.
 They build a bidirectional LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probability that each of the 24 chords is played.
 The same dataset as the HMM and DNN-HMM was used and an accuracy of $0.5055$, $0.5032$, $0.4923$, and $0.4990$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.5000$.
 On the user subjective test the LSTM achieved a score of $3.55$.
 
-\paragraph{Automatic Melody Harmonization} A particularly interesting model heavily relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
+\paragraph{Automatic Melody Harmonization - 7} A particularly interesting model heavily relying on LSTMs surrounded by a reinforcement learning framework was proposed in \cite{ReinforcementLearning}.
 They simultaneously trained a Structured Representation Module responsible for learning note-level, phrase-level and segment level representations, a Segmentation Module acting as a reinforcement learning agent to decide whether the current note is the boundary of a phrase or segment and a Harmonisation Module responsible for generating chords for each segment.
 They used the Hooktheory Lead Sheet Dataset with 10,000 songs, no number of measures is given but with the difference in model architecture so drastic a comparison on this metric would be inappropriate anyway.
 The achieved an accuracy of $0.3742$ and compared that to an SVM, CNN, LSTM and BLSTM with blocked Gibbs sampling which achieved an accuracy of $0.2516$, $0.2664$, $0.2802$, $0.2933$ respectively.
@@ -273,6 +277,33 @@ The set of output symbols would then consist of the set of possible chords and t
 The structure of the transformer can be that used in \cite{Transformers}.
 In order to train the model the Adam optimiser, \cite{Adam}, can be used and dropout can be used for regularisation.
 Given its success in natural language processing we hypothesise that results from a transformer on this problem would be promising.
+
+\subsection{Summary of Models}
+
+\textbf{FINISH SECTION}
+
+\begin{table}
+    \caption{A summary of the models and their performance in evaluation}
+    \label{tab:modelsummary}
+    \centering
+    \begin{tabular}{l l l l l}
+    \toprule
+    \tabhead{Model} & \tabhead{Num Measures} & \tabhead{Accuracy} & \tabhead{Sentiment} & \tabhead{Extra Functionality} \\
+    \midrule
+    HMMs & & & & \\
+    1 & & & 1.8/5 preferred & "Happy factor" and "Jazz factor" \\
+    2 & 72,418 & 0.4041 & 2.31/5 & \\
+    3 & 813 & 0.4844 & & \\
+    DNN-HMMs & & & & \\
+    4 & 72,418 & 0.4487 & 2.48/5 & \\
+    GANs & & & & \\
+    5 & & 0.687 & & \\
+    LSTMs & & & & \\
+    6 & 72,418 & 0.500 & 3.55/5 & \\
+    7 & 10,000 songs & 0.2802 & & \\
+    \bottomrule \\
+\end{tabular}
+\end{table}
 
 \section{Our Model}
 
@@ -474,8 +505,10 @@ A confusion matrix of these results can be seen in \autoref{fig:confusion_real}.
 \section{Summary}
 
 We have discussed the requirements for the model and how we set the MVP requirements to create a system that can generate reasonable accompanying chords for a melody.
-We defined criteria for evaluation against these requirements and applied this to a number of models implemented in other papers.
-Using the lessons we learned from this evaluation 
-\textbf{BE MORE CLEAR ABOUT THE LESSONS WE LEARNED IN THE MAIN SECTION} 
-we proposed the use of an LSTMGAN as a solution to this problem and detailed how this should be structured, implemented, trained and tested.
-We also outlined functionality and results from our preliminary implementation.
+The final requirements reached were: black box interface, good sounding chords, designed for sequential data, conditional and one chord per measure.
+We developed criteria for evaluation of models expected to satisfy these requirements.
+These criteria were: number of measures in training dataset, accuracy in testing, human sentiment towards generated chords and extra functionality.  
+We applied this to a number of models implemented in other papers and found a combination of the models to be a promising solution. 
+The use of an LSTMGAN as a solution to this problem was proposed hypothesising that the combination of the quality providing GAN and the sequential LSTM would produce high quality outputs.
+This model design was detailed with a breakdown of the function and structure of the generator and discriminator as well as the training process.
+We implemented, trained and tested the model for preliminary investigation, however, our results were unsatisfactory due to system difficulties.
