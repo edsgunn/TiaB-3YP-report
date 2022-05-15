@@ -59,7 +59,7 @@ We will generally take a \textbf{measure} to mean a bar in the music, however it
 To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monophonic melody, allowing amateur musicians to compose music quickly and easily.
 As seen in \cref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
 A minimum viable product (MVP) was defined to specify ReChorder's essential functionality.
-The MVP is further detailed in \cref{UImvp} and \cref{sec:MVPRequirements}
+The MVP is further detailed in \cref{sec:UImvp} and \cref{sec:MVPRequirements}
 For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
 In the desired final product these are accessed through a purpose built user interface.
 
@@ -96,14 +96,20 @@ The model passes its output to the playback processor.
 \paragraph{Playback Processor}
 
 The playback processor takes as input the output chords from the model and the recorded melody and plays these together, allowing the user to hear their generated accompaniment.
-\subsection{Software Design}
+\tocdata{toc}{Edward Gunn}
+\section{Software Design}
+\sectionmark{Software Design - Edward Gunn}
 
-The design for the software to implement each part of the project is heavily modularised, in keeping with the philosophy of object-oriented programming \textbf{HOW?}.
-The interface of each module has been pre-defined such that regardless of module implementation the modules can function together. 
-A UML diagram outlining the design can be seen in \cref{fig:SoftwareOverview}.
+The design for the software to implement each part of the project is heavily modularised, in keeping with the philosophies of object-oriented programming. 
+We define self-contained objects that are composed of data and methods.
+These objects each themselves utilise the ideas of encapsulation where objects act as a black box to others, composition where objects contain other objects, inheritance where a hierarchy of objects is created, and a child object can inherit properties from its parent, and polymorphism where calling code is independent of where in a hierarchy an object is positioned.
+In our product we defined an abstract template class for each module in order to maintain the interface upon implementation through inheritance.
+The main ReChorder class is composed of an instance of each of the models where their implementation is irrelevant.
+This allows us to easily swap out modules for example to test a different model.
 The main functions for the app are concentrated in the ReChorder class.
 These functions could be called directly from the user interface.
-The ReChorder class has instances of all the necessary modules which are defined as abstract classes such that they can be implemented in many ways, such as with a different type of model, and still function correctly.
+A UML diagram outlining the design can be seen in \cref{fig:SoftwareOverview}.
+
 
 \begin{figure}
     \centering
