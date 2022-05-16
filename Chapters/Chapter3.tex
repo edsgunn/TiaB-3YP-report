@@ -333,14 +333,14 @@ Again, we manually check a random selection of sequences like we did in the sani
 
 \section{Data Processor in production}
 \label{data processor}
-As can be seen in the last block of \cref{flowchart}, the Data Processor receives three pieces of information from the Voice Processor: note, note duration, and music key. Hence, the preprocessing needed is similar to the one in \cref{preprocessing} but simplified:
+As mentioned in \cref{sec:Summ}, the Data Processor receives three pieces of information from the Voice Processor: \emph{note}, \emph{note\_duration}, and \emph{key}. Hence, the preprocessing needed is similar to the one in \cref{preprocessing} but simplified:
 
 \begin{enumerate}
-    \item Convert the notes to their numerical representations using \cref{tab:note_map} to obtain $n_r$.
-    \item Since we have the music key information, we can find Pitch 1 of that key using \cref{tab:bigtable} to obtain $p_1$.
-    \item We now have $n_r$ and $p_1$ and can use \cref{shift note 2} to transpose the notes to C major key.
+    \item Convert \emph{note} to its numerical representation using \cref{tab:note_map} to obtain $n_r$.
+    \item Since we have the music key information, we can find Pitch 1 of \emph{key} using \cref{tab:bigtable} to obtain $p_1$.
+    \item We now have $n_r$ and $p_1$ and can use \cref{shift note 2} to transpose the \emph{note} to C major key.
     %\item Normalise the time signatures by multiplying each note duration with the reciprocal of the time signature to give a normalised note duration.
-    \item The preprocessed information is then converted into the LSTM or Transformer format. Note that we needed to provide the chord information to the model when training it, but once trained, the model is meant to output the chords themselves in actual operation. Hence, the data format for the data processor will differ from the data format for the training phase in that the former will only include note information and not chord information.
+    \item The preprocessed information including \emph{note\_duration} is then converted into the LSTM or Transformer format. Note that we needed to provide the chord information to the model when training it, but once trained, the model is meant to output the chords themselves in actual operation. Hence, the data format for the data processor will differ from the data format for the training phase in that the former will only include note information and not chord information.
     \item The fully processed input data is passed to the machine learning model.
   \end{enumerate}
 
