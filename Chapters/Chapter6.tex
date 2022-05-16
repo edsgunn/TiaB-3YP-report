@@ -1,8 +1,8 @@
 
 % Chapter6
 \tocdata{toc}{Di Wan}
-
 \chapter{Recommendation Engine}% Main chapter title
+\chaptermark{Recommendation Engine - Di Wan}
 \label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \section{Introduction}
@@ -21,7 +21,7 @@ The overview of the recommendation system can be seen in \cref{fig:overrecomm}. 
 
 %-----------------------------------------------------------------------------------------------------------------------------Popularity-Based Recommendation System
 \section{Popularity-based Recommendation System}
-Popularity-based recommendation system works on the principle of popularity or anything in trend. These systems check the items in trend or are most popular among the users and directly recommend those. 
+Popularity-based recommendation system works on the principle of popularity or anything in trend (\cite{popRecSystems}). These systems check the items in trend or are most popular among the users and directly recommend those. 
 For our design, instead of recommending posts only based on the number of likes that the posts received, we can give weighting to each parameter involved in our decision. One of the weighted rating models we constructed is shown below.
 \begin{equation*}
 \text{Rating} = f(L,C,m,g,T) = \alpha \times \frac{L^{2}}{L+m} + \beta \times \frac{C^{2}}{C+m} + T \times g_{[k-2,k]}
@@ -152,7 +152,7 @@ The formula we want to construct considers both explicit and implicit informatio
 \subsection{Memory Based Approaches}
 Memory-based approaches are also often referred to as neighbourhood collaborative filtering. Essentially, ratings of user-post combinations are predicted based on their neighbourhoods. The memory-based approach is simple since it just calculates the similarity matrix directly from the user-item matrix. There are two branches of memory-based approaches: item-based and user-based collaborative filtering. User-based essentially means that like-minded users will yield strong and similar recommendations. Item-based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
 \subsubsection{Item-based Collaborative Filtering}
-This method was first invented and used by Amazon in 1998. We can use item-to-item collaborative filtering to match each user’s liked posts to similar posts and then combines those similar posts into a recommendation list.
+This method was used by \cite{ItemBasedCollaborativeFilteringRecommendationAlgorithms}. We can use item-to-item collaborative filtering to match each user’s liked posts to similar posts and then combines those similar posts into a recommendation list.
 We can use item-to-item collaborative filtering to match each user’s liked posts to similar posts and then combines those similar posts into a recommendation list.
 Instead of applying cosine similarity, the better approach will be using the Pearson correlation coefficient, the most well-known similarity metric for the linear relation. It measures the similarity between two samples based on the direction of how the value changes. It is also called \textbf{Centred Cosine Similarity}, and the word “Centred” means we will normalise the Utility matrix first by subtracting the row mean. Compared to cosine similarity, Pearson Correlation solves the problem when we assume unwatched posts by the user to be rated 0. The assumption is considered not much reasonable.
 \begin{equation*}
@@ -236,7 +236,7 @@ So we can initialise $x_{1},x_{2}, \dots,x_{j}$, and then apply a \textbf{For-lo
 \sum_{j=1}^{n_{u}}
 \sum_{k = 1}^{n}(\theta_{j})^{2}
 \end{equation*}
-Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent - clearly explained&nbsp;!! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch &amp; stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
+Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent - clearly explained!! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch \& stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
 \\\textbf{Advantages}
 \\The main advantage of using collaborative filtering models is their simplicity in implementation and the high-level coverage. It is also beneficial because it captures subtle characteristics and does not require understanding the item content.
 \\ \textbf{Disadvantages}
@@ -266,8 +266,8 @@ Recommender systems have several conceptual similarities with the regression mod
 In the ideal situation, we want to see how real users react to recommendations and track metrics around the user to improve our recommendation request. However, this is not easy to accomplish. 
 Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root mean square deviation. 
 \subsection{K Fold Cross Validation}
-The k-fold cross-validation is first introduced by Larson S. in (The shrinkage of the coefficient of multiple correlation. J. Educat. Psychol., 22:45–55,193). It is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample. 
-K fold cross-validation can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset. Each training set/fold is used to train on the recommendation system independently and measures the accuracy of the resulting systems against the test sets. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial in preventing our model from overfitting. However, it is a computationally extensive process.
+K fold cross validation a non-exhaustive validation method \cite{KFold}, which means it does not compute all ways of splitting the original sample. 
+It can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset. Each training set/fold is used to train on the recommendation system independently and measures the accuracy of the resulting systems against the test sets. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial in preventing our model from overfitting. However, it is a computationally extensive process.
 
 \subsection{Mean Absolute Error (MAE)}
 Mean absolute error represents the average absolute value of each error in rating prediction. The formula of it is shown below:
@@ -302,5 +302,9 @@ The weight coefficients are calculated based on the performance and reliability 
 \\We only finished at the design stage, but in the future, we will use the RMSD metric to test our system performance because of its better penalty measures and low computational extensiveness. 
 
 \section{Summary}
-In this chapter, we discussed the different approaches to designing the recommendation system and analysed the applicability of every approach to our design. For each approach, we also identify some major challenges we may face and come up with some possible solutions we can apply to solve them. Finally, we created our own structure design of the recommendation engine, a hybrid system with different sub-systems connected in series and parallel. And the design is based on the principles of using different approaches to solve the drawbacks of each other. Currently, we have only finished the stage of designing the structure of the recommendation engine. However, in the future, we will perform tests of the performance of our design after we finish the programming and keep updating our design by trying new system approaches. Recommendation engine design is only one of the key elements in UX design during the whole project pipeline. In the next chapter, we will dive deeper into the back-end design of our primary app function which is chord generation, and it will discuss the first stage - Audio Pre-processing.
+In this chapter, we discussed the different approaches to designing the recommendation system and analysed the applicability of every approach to our design. For each approach, we also identify some major challenges we may face and come up with some possible solutions we can apply to solve them.
+Finally, we created our own structure design of the recommendation engine, a hybrid system with different sub-systems connected in series and parallel. 
+And the design is based on the principles of using different approaches to solve the drawbacks of each other. Currently, we have only finished the stage of designing the structure of the recommendation engine. 
+However, in the future, we will perform tests of the performance of our design after we finish the programming and keep updating our design by trying new system approaches. 
+The recommendation engine design is only one of the key elements in UX design a small part of the whole product. In the next chapters, we will dive deeper into the back-end design of our primary app function which is chord generation, and it will discuss the pipeline from input audio to generated chords.
 
