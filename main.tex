@@ -66,6 +66,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{titletoc}
 \usepackage{hyperref}
 \usepackage{cleveref}
+\crefname{assumption}{Assumption}{Assumptions}
 \usetikzlibrary{arrows, fit, quotes, shadows,
                 chains,
                 positioning,
@@ -74,7 +75,7 @@ headsepline, % Uncomment to get a line under the header
 \addbibresource{example.bib} % The filename of the bibliography
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage{enumitem}
-\makeatletter
+% \makeatletter
 \newcommand{\setword}[2]{%
   \phantomsection
   #1\def\@currentlabel{\unexpanded{#1}}\label{#2}%

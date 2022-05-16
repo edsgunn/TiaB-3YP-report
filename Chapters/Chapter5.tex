@@ -155,7 +155,7 @@ compare three noise reduction mechanisms.
         \text{CWT}(\mathrm{a},\mathrm{b}; \mathrm{x}(\mathrm{t}),\psi(\mathrm{t}))=\int_{-\infty}^{\infty}[\mathrm{x}(\mathrm{t})\frac{1}{\mathrm{a}}-\psi^{*}(\frac{\mathrm{t}-\mathrm{b}}{\mathrm{a}})]\text{dt}
     \end{equation*}
 
-    where \(x(t)\) is the original signal, \(\psi(t)\) is the mother wavelet, \(a\) is a dilation parameter and \(b\) is a translation parameter \footnote{Dautov, Çiğdem Polat and Özerdem, Mehmet Siraç. (2018). Wavelet transform and signal denoising using Wavelet method. In 2018 26th Signal Processing and Communications Applications Conference (SIU) (pp. 1–4). essay. }.
+    where \(x(t)\) is the original signal, \(\psi(t)\) is the mother wavelet, \(a\) is a dilation parameter and \(b\) is a translation parameter(\cite{waveletparameter}).
     The dilation factor represents how dispersed the wavelet is (similar to scaling), while the translation factor tells us where the wavelet is
     positioned in time (similar to shifting). 
     
@@ -229,20 +229,20 @@ As for wavelet transform, finding a proper mother wavelet is a difficult task.
 Although wavelet transform works better for real-life non-stationary signals compared to conventional frequency-based filters, if we
 do not feed a suitable mother wavelet, the performance is unsatisfactory, the model cannot distinguish between desired and undesired 
 signals and will decrease $P_{signal}$ at the same time, which is unfavourable when it comes to improving the SNR.
-According to \cite{complexwt}, there are two major concerns with using wavelet transform. 
+There are two major concerns with using wavelet transform(\cite{complexwt}). 
 Firstly, it is sensitive to shifts in time; even a minor shift will cause an unpredictable change in transform coefficients which will 
 then cause variations in the output signal. Secondly, wavelet transform suffers from poor directionality easily. For example, 
 a 2-D DWT can only reveal three spatial-domain feature orientations, limiting the signal's optimal representation. 
 
 Therefore, we decided to use spectral reduction as our noise filter algorithm since it is the most effective in removing the ambient noise 
 and wideband noise. Note that this method heavily assumes that the noise spectrum magnitude is staying locally 
-stationary \autoref{as:3}. If this assumption is not satisfied, this method will result in poor performance of either not being able to filter
+stationary \cref{as:3}. If this assumption is not satisfied, this method will result in poor performance of either not being able to filter
  a majority of the broadband noise or removing the features of the signal.
 The implementation of spectral noise gating can be summarised according to \cite{spectralflowchart} as shown in \cref{spectralflowchart}
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.35]{Figures/spectralprocess.png}
-	\caption{Spectral noise gating flowchart}
+	\caption{Spectral noise gating flowchart (\cite{spectralflowchart})}
 	\label{spectralflowchart}
 \end{figure}
 The noise spectrum $N(\omega,k)$ and its statistical measures are obtained by asking users to record at least 3 seconds of silence 
@@ -260,7 +260,7 @@ This is to target frequencies that have a higher average magnitude of noise spec
 the noisy speech spectrum $|\hat{X}(\omega,k)|$. For those frequencies, we would replace the negative values with 0 with a half-wave 
 rectification.
 
-Referring back to \autoref{as:1}, it is prime to require our users not to use any active noise-cancelling inputs since the spectral reduction
+Referring back to \cref{as:1}, it is prime to require our users not to use any active noise-cancelling inputs since the spectral reduction
 the method may not function accurately since the noise amplitudes get attenuated.
 
 %-----------------------------------
@@ -290,8 +290,7 @@ for choosing LPF over a bandpass filter is that spectral reduction effectively t
 
 To determine $f_c$ for the LPF, it would be plausible to refer to the biological features of the users, i.e. their age and gender.
 For males, the pitch level generally reduces from infancy to middle age, while the trend reverses after middle age. 
-On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s and 40s showed lower frequencies than those in their
-20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging”
+On the other hand "Females in their 30s and 40s showed lower frequencies than those in their 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging” (\cite{womenprange}).
 
 
 \begin{figure}
@@ -301,7 +300,7 @@ On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s a
             \includegraphics[scale=0.4]{Figures/f0vage.jpeg}
             }{
             \label{f0vage_chart}
-		    \caption{Scatter plot of\\fundamental frequency}
+		    \caption{Scatter plot of\\fundamental frequency (\cite{f0contour})}
         }
         \killfloatstyle
         \ttabbox
@@ -311,14 +310,13 @@ On the other hand, as pointed out by \cite{womenprange}, "Females in their 30s a
 		    \end{tabular}
             }{
             \label{table:praat}
-            \caption{Praat pitch range }
+            \caption{Praat pitch range (\cite{lifespan})}
             }
     \end{floatrow}
 \end{figure}
 
-After referring to the measurements taken from 192 participants\footnote{Stathopoulos, E. T., Huber, J. E., \&; Sussman, J. E. (2011). Changes in acoustic characteristics of the voice across the life span. Journal of Speech, Language, and Hearing Research, 54(4). https://doi.org/10.1044/1092-4388(2010/10-0036) } 
-and the pitch range set by Praat
-\footnote{Goldstein, Louis. (n.d.). Measuring F0 Contours using Praat: Configuring the pitch contour. Retrieved May 15, 2022, from https://www.fon.hum.uva.nl/praat/manual/Intro\_4\_2\_Configuring\_the\_pitch\_contour.html} 
+After referring to the measurements taken from 192 participants (\cite{lifespan})
+and the pitch range set by Praat (\cite{f0contour})
 (a software for speech analysis), a simple modelling of $f_c$ according to age and gender is as below:
 \[f_{c,male}(n) = 0.07n^2 - 7.5n + 480, \text{ for } 4 \leq n\leq 93 \label{male} \] 
 \[f_{c,female}(n) = 0.02n^2 - 3n + 687, \text{ for } 4 \leq n \leq 93 \label{female} \] 
@@ -376,7 +374,7 @@ Thus, a Bessel filter is preferred in this context.
 \label{sec:PDA}
 After removing noise, we pass the processed signal to a PDA to estimate the fundamental frequency ($f_0$) of
 the signal. Before we explain the algorithm, we would assume that our users will not input polyphonic overtone 
-singing \autoref{as:4}, i.e. creates notes of multiple fundamental frequencies at the same time, since the technique is uncommon
+singing \cref{as:4}, i.e. creates notes of multiple fundamental frequencies at the same time, since the technique is uncommon
 . It requires further investigation on building a robust PDA that can identify different notes at one time period.
 
 %-----------------------------------
@@ -395,13 +393,13 @@ There are four approaches to detect $f_0$, which can be classified into the time
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.5\textwidth]{Figures/zcr.png}
-        \caption[An example signal with zero-crossings marked in dotted lines]{An example signal with zero-crossings marked in dotted lines\footnotemark{}}
+        \caption[An example signal with zero-crossings marked in dotted lines]{An example signal with zero-crossings marked in dotted lines}
     \end{figure}
     \footnotetext{Daoo, R. (2020, May 20). Algorithmic frequency/pitch detection series - part 1: Making a simple pitch tracker using zero... Medium. Retrieved May 14, 2022, from https://medium.com/the-seekers-project/algorithmic-frequency-pitch-detection-series-part-1-making-a-simple-pitch-tracker-using-zero-9991327897a4}
     \item \textbf{Harmonic Product Spectrum (HPS) (frequency domain)}\\
     As aforementioned, the human voice is not of pure tone. A musical note sung will consist of a series of peaks in its frequency spectrum. The peaks correspond to $f_0$ with other peaks indicating the harmonic components of integer multiples of $f_0$. 
     Exploiting this fact, the HPS algorithm creates multiple downsampled signal spectrums and compares them with the original spectrum, as shown in 
-    \cref{HPS}\footnote{QLH Andre, I Khelf, Q Leclere. (2017). Harmonic product spectrum revisited and adapted for rotating machine monitoring based on IAS}.
+    \cref{HPS}(\cite{ias}).
     The strongest harmonic peak will line up no matter how many times we compress the spectrum.
     
     \begin{figure}[h]
@@ -449,7 +447,7 @@ There are four approaches to detect $f_0$, which can be classified into the time
     \end{figure}
     
     We then select the highest peak by exhaustive search within a user-defined range of lags; the corresponding time lag will be
-    the inverse of our estimated $f_0$.
+    the inverse of our estimated $f_0$, i.e. $f_0 = \frac{1}{\tau}$.
 
     To improve the error rates and target periodicity, de Cheveigné \& Kawahara introduced a cumulative mean normalized difference function (CMNDF)
     to replace ACF. 
@@ -514,14 +512,14 @@ pitch output, more time is needed to perform the transform.
 
 YIN has more satisfactory performance, but when the pitch varies rapidly (for example, if the user has a breathy timbre), it cannot 
 estimate the pitch correctly as the algorithm uses a constant threshold. On the other hand, Kim et al. mentioned CREPE has a higher 
-tolerance for inputs with different timbres since CREPE is trained with MedleyDB, which contains recordings of heterogeneous timbres. Figure 
-\cref{CREPEperf} concludes the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and other 2 PDA by Kim et al., and we will choose CREPE 
+tolerance for inputs with different timbres since CREPE is trained with MedleyDB, which contains recordings of heterogeneous timbres. 
+\cref{CREPEperf} summarises the Raw Pitch Accuracy and Raw Chroma Accuracy for CREPE and two other PDAs, and we will choose CREPE 
 to implement in our model.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{Figures/CREPEperf.png}
-	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested by Kim et al.}
+	\caption{Raw Pitch Accuracy and Raw Chroma Accuracy with the standard deviations for the 3 PDA tested (Kim et al.)}
 	\label{CREPEperf}
 \end{figure}
 
@@ -568,7 +566,7 @@ From the implementation, we obtain \emph{note} and \emph{note\_duration} to pass
 %-----------------------------------
 \subsection{Improvements}
 
-On top of the convolutional neural network model, we can integrate Maximum a Posteriori (MAP) estimation to improve the model.
+On top of the convolutional neural network model, we can utilise Maximum a Posteriori (MAP) estimation to improve the model.
 
 Bayes' rule states: 
 \[P(A\mid B)=\frac {P(B\mid A)P(A)}{P(B)}\]
@@ -600,7 +598,7 @@ From a music theory point of view, the most intuitive method to identify the key
 in a piece, and the number defines which key the piece is in. But since our app targets amateurs, we will not expect them to be able to know what key will they be singing
 in.
 
-Krumhansl-Schmuckler algorithm (template-based) \footnote{Krumhansl, C. L. (2001). Cognitive Foundations of musical pitch. Oxford Univ. Press.} is an experimentally measured
+Krumhansl-Schmuckler algorithm (\cite{krumhanslbook})(template-based)  is an experimentally measured
 tonal hierarchy is introduced by \cite{templatedata}, which contains 24 tonal profiles for major and minor keys in total. 
 
 Each of the profiles contains 12 values which correspond to 12 notes in an octave. The values were obtained from the experiment where they asked the listeners to judge how well
@@ -620,6 +618,7 @@ a note fits in a key on a scale from 1 to 7 (1 stands for very bad, 7 stands for
         \caption{Input vector}
         \label{inputv}
       \end{subfigure}%
+    \caption{Profile rating and input for Krumhansl-Schmuckler algorithm}
 \end{figure}
 
 \cref{probetone} serves as an example of the profiles, where sensibly, the base of the major has the highest rating (C has the highest rating in the C major profile, 
@@ -642,7 +641,7 @@ major keys (\cref{as:5}). Thus the $j$ component can be dropped, and we will pas
 %----------------------------------------------------------------------------------------
 %   SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Conclusion}
+\section{Summary}
 \label{sec:Summ}
 In this chapter, we presented methodologies to filter noise, detect pitch and key. We will compile the strengths and weaknesses
 in this section and \* mark represents the algorithm that we picked.
@@ -662,4 +661,5 @@ in this section and \* mark represents the algorithm that we picked.
     \end{tabular}
 \end{table}
 
-We will pass \emph{note, note\_duration} from the PDA and \emph{key} to the data processor in \cref{data processor}.
+We will pass \emph{note, note\_duration} from the PDA and \emph{key} from the KDA the data processor in \cref{data processor} to be reformatted
+to the LSTM or Transformer format. This will be detailed in the next chapter.

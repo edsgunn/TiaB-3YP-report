@@ -30,7 +30,7 @@ Building on the assumptions (see \cref{sec:asm}), we decided to use spectral red
 \\
 To train our model, we needed a dataset and a way to encode this data to make it suitable as input. 
 We discovered from other works that there exists a training dataset with the necessary audio features extracted from the songs, as well as the steps to preprocess that dataset. 
-We then converted the data into formats that are suitable as input to the Generative Adversarial Network with LSTM layers as well as the Transformer in order to train both these models. 
+We then converted the data into formats that are suitable as input to the LSTMGAN as well as the Transformer in order to train both these models. 
 During actual operation, the pieces of code used to process the dataset in the training phase can be reused to encode the output of the Voice Processor to feed it into our model. 
 The only difference is that the Data Processor’s output will no longer contain any chord information.
 \\
