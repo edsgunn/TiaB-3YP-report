@@ -1,44 +1,23 @@
-\documentclass[11pt]{article}
-\usepackage{fontspec}
-\usepackage{graphicx}
-\usepackage{diagbox}
-\usepackage{amsmath,bm}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{hyperref}
-\usepackage[capitalise,noabbrev]{cleveref}
-\setmainfont{Arial}
-\usepackage{setspace}
-
-\doublespacing
-\usepackage{geometry}
- \geometry{
- a4paper,
- total={170mm,257mm},
- left=20mm,
- top=20mm,
- }
-\usepackage{amsmath}
-
-\begin{document}
-
 % Chapter2
 \tocdata{toc}{Di Wan}
-
-
-
 \chapter{Product Design} % Main chapter title
-
+\chaptermark{Product Design - Di Wan}
 \label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \section{Introduction}
 App design combines User interface (UI) and User Experience (UX); while UI is concerned about how the app pages look and feel, such as the fonts, colours and arrangements of icons, UX focuses on the functionality and usability. The primary goal of any business is to increase its sales and push the growth of the business, and UX/UI Design plays an essential role in achieving this goal. It's the primary reason companies keep updating their apps. Currently, we only focus on the mobile app design or specifically IOS design (based on Apple Platform) and Android Design, because of limited project time length.
 %-----------------------------------------------------------------------------------------------------------------------------UX
 \section{UX Design}
-UX Design decides how someone will use an app and create a viable product. During the UX process, mobile app design ideas are generated and validated to ensure that all choices will work so that our app works. The quality of the user experience is the crucial factor in measuring the quality of the design. Usually, it is the key to distinguishing a successful app design from an unsuccessful one. Customers are becoming pickier about which app to use and so quick to abandon the app they do not enjoy, so investing time and effort in creating a great user experience is essential. Also, a study by UXERIA shows that 70\% of online businesses fail because of lousy usability\footnote{Doris Wójcicka UX designer, Wójcicka, D., &amp; designer, U. X. (2015, November 21). 15 statistics that will convince your boss to invest in UX! Uxeria Blog. Retrieved May 15, 2022, from https://blog.uxeria.com/15-statistics-that-will-convince-your-boss-to-invest-in-ux/ }, so we need to consider carefully about the user experience throughout the development process.
+UX Design decides how someone will use an app and create a viable product. 
+During the UX process, mobile app design ideas are generated and validated to ensure that all choices will work so that our app works. 
+The quality of the user experience is the crucial factor in measuring the quality of the design. 
+Usually, it is the key to distinguishing a successful app design from an unsuccessful one. 
+Customers are becoming pickier about which app to use and so quick to abandon the app they do not enjoy, so investing time and effort in creating a great user experience is essential. 
+Also, a study by UXERIA shows that 70\% of online businesses fail because of lousy usability\footnote{Doris Wójcicka UX designer, Wójcicka, D., \& designer, U. X. (2015, November 21). 15 statistics that will convince your boss to invest in UX! Uxeria Blog. Retrieved May 15, 2022, from https://blog.uxeria.com/15-statistics-that-will-convince-your-boss-to-invest-in-ux/ }, so we need to consider carefully about the user experience throughout the development process.
 \subsection{Minimum Viable Product (MVP)}
+\label{sec:UImvp}
 A minimum viable product or MVP is a product with enough features to attract early-adopter customers and validate a product idea early in the development cycle.\footnote{Minimum viable product (MVP). ProductPlan. (2021, August 12). Retrieved May 15, 2022, from https://www.productplan.com/glossary/minimum-viable-product/} 
-To decide which parts belong to the MVP design, we use the MoSCoW method introduced by Software development expert Dai Clegg to represent all the features we want to include in our design. It is a popular prioritization technique for managing requirements and the acronym MoSCoW represents four categories of initiatives: must-have, should-have, could-have, won’t-have, or will not have right now.\footnote{Moscow prioritization. ProductPlan. (2021, September 10). Retrieved May 15, 2022, from https://www.productplan.com/glossary/moscow-prioritization/}
+To decide which parts belong to the MVP design, we use the MoSCoW method introduced by Software development expert Dai Clegg to represent all the features we want to include in our design. It is a popular prioritization technique for managing requirements and the acronym MoSCoW represents four categories of initiatives: must-have, should-have, could-have, won't-have, or will not have right now.\footnote{Moscow prioritization. ProductPlan. (2021, September 10). Retrieved May 15, 2022, from https://www.productplan.com/glossary/moscow-prioritization/}
 The table separates the features for our MVP from the advanced functions that we want to include in our design, and the MoSCoW table for our design can be seen in \cref{moscow}.
 
 \begin{table}[ht]
@@ -96,7 +75,7 @@ from a built-in app such as Voice Memos on iPhone. For ethical reasons (\cref{se
 
 \item \textbf{Chord generation and regeneration}
 \\Unlike Chordify, which generates the same chords each time for the same audio source, we provide the option for users to regenerate the chords. We aim to provide sightly different chords when the regeneration button is pressed. 
-We will also allow our users to lock the chords they like during the regeneration. The theory behind it will be introduced in \cref{Ed part}.
+In future iterations we could also allow our users to lock the chords they like during the regeneration. A possible implementation of this is outlined in \cref{sec:ModelTransformers}.
 
 \item \textbf{Community Page}
 \\Inspired by the Chinese music app NetEase, one of our goals is to create a community page for our users to share their works and collaborate, 
@@ -160,7 +139,7 @@ There are three example sketches in \cref{fig:UIdesign}.
 \label{ch2test}
 The testing stage allows us to discover the problems in our current designs and improve our existing designs. 
 According to Compuware, 48\% of users are less likely to use an app again if they are troubled with its performance.
-As reported by Compuware, only 16\% of users can give the app a try for a second or third time.\footnote{Perez, S. (2013, March 12). Users have a low tolerance for buggy apps – only 16\% will try a failing app more than twice. TechCrunch. Retrieved May 15, 2022, from https://techcrunch.com/2013/03/12/users-have-low-tolerance-for-buggy-apps-only-16-will-try-a-failing-app-more-than-twice/?} Hence it is essential for 
+As reported by Compuware, only 16\% of users can give the app a try for a second or third time.\footnote{Perez, S. (2013, March 12). Users have a low tolerance for buggy apps – only 16\% will try a failing app more than twice. TechCrunch. Retrieved May 15, 2022, from https://techcrunch.com/2013/03/12/users-have-low-tolerance-for-buggy-apps-only-16-will-try-a-failing-app-more-than-twice/?} Hence, it is essential for 
 \\We divide our testing stage into four stages, Unit Tests, Integration Tests, System Tests, and Acceptance Tests.
 \begin{itemize}
 \item\textbf{Unit Test} is the very first stage of any application test. At this step, the system’s separate modules will undergo assessments to see if they individually function correctly to maximum capacity. 
@@ -175,5 +154,3 @@ determine which option is more attractive.\end{itemize}
 
 \section{Summary}
 In the chapter, we discussed the minimum viable product of our design and demonstrated the critical steps throughout our design process. For each function we want to include in our design, we also showed the essential components that must be contained to achieve full functionality. We could not finish the app's programming because of the limited project time, high complexity, and time-consuming coding process. However, we explained how we would perform the testing stage in the future if we had our MVP.
-
-\end{document}

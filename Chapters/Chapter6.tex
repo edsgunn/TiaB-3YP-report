@@ -9,7 +9,7 @@
 A recommendation engine is a data filtering tool using machine learning algorithms to recommend the most relevant items to a particular user or customer. It operates on finding patterns in consumer behaviour data, which can be collected implicitly or explicitly. In our case, the quality of the recommendation system design determines the quality of the posts recommended to our users. We include a recommendation engine to recommend posts, in our case, songs created and shared by our users to each individual user.
 \\A recent study\footnote{Epsilon. (2018, April 11). The personalisation mismatch: Rift grows between brand offerings and consumer desires. geo-redirect. Retrieved May 15, 2022, from https://www.epsilon.com/emea/about-us/pressroom/epsilon-report } by Epsilon, found that 90\% of consumers find personalisation appealing. A further 80\% claim they are more likely to cooperate with a company when offered personalised experiences.
 The study also found that these consumers are ten times more likely to become VIP customers who make more than 15 purchases per year.
-Thus a well-designed recommendation system can benefit the monetisation of our app in the future.
+Thus, a well-designed recommendation system can benefit the monetisation of our app in the future.
 \\Recommendation systems are divided into personalised and non-personalised systems, where personalised recommendation systems can be further divided into content-based and collaborative filtering systems. 
 The overview of the recommendation system can be seen in \cref{fig:overrecomm}. In this chapter, we will discuss the working theory of each system, and analyse the applicability to our design and problems we may face and possible solutions we had.
 \begin{figure}[ht]
@@ -34,7 +34,7 @@ Where:
 $g_{[k-2,k]} = \frac{L_{k} + C_{k} -L_{k-2} -C_{k-2}}{2}$, with $k$ indicates \textit{the current day} and $(k-3)$ indicates \textit{three days ago}.
 \\$T$ is the period and we set $T=1$.
 \\ $\alpha$ and $\beta$ are constants.
-\\This formula is a modified version based on the rating system by IMDB\footnote{Seeda, P. (2021, October 13). A complete guide to recommender system - tutorial with Sklearn, surprise, Keras, Recommender. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/a-complete-guide-to-recommender-system-tutorial-with-sklearn-surprise-keras-recommender-5e52e8ceace1}, which is an online database of information related to films and television series. We introduced non-linearity in the weightings for $L$ and $C$, and it can be seen that we set a threshold for these two parameters; for example, if $L \gg m$, then the first term on the right-hand side will be dominated by $L$, same for $C$ in the second term. The non-linearity here is to attenuate the contribution brought by $L$ and $C$ when these values are small. The last term on the right-hand side predicts the increase in the total number of likes and comments for the next day, assuming the gradient change the day after is the same as two days ago. The further improvement we made is introducing $\alpha$ and $\beta$ to indicate the relative significances of $L$ and $C$, and it is usually considered that $L$ is more significant than $C$, so $\alpha > \beta$. Finally, the system will rank and recommend the posts by the ratings.
+\\This formula is a modified version based on the rating system by IMDB\footnote{Seeda, P. (2021, October 13). A complete guide to recommender system-tutorial with Sklearn, surprise, Keras, Recommender. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/a-complete-guide-to-recommender-system-tutorial-with-sklearn-surprise-keras-recommender-5e52e8ceace1}, which is an online database of information related to films and television series. We introduced non-linearity in the weightings for $L$ and $C$, and it can be seen that we set a threshold for these two parameters; for example, if $L \gg m$, then the first term on the right-hand side will be dominated by $L$, same for $C$ in the second term. The non-linearity here is to attenuate the contribution brought by $L$ and $C$ when these values are small. The last term on the right-hand side predicts the increase in the total number of likes and comments for the next day, assuming the gradient change the day after is the same as two days ago. The further improvement we made is introducing $\alpha$ and $\beta$ to indicate the relative significances of $L$ and $C$, and it is usually considered that $L$ is more significant than $C$, so $\alpha > \beta$. Finally, the system will rank and recommend the posts by the ratings.
 \\The advantage of the popularity based system is that it is easy to implement and requires relatively low computational power. However, the most apparent disadvantage of a popularity-based system is the non-personalisation because it does not analyse the individual user's preference. 
 
 
@@ -81,11 +81,11 @@ The recommendation is modelled as a user-specific classification problem that es
  \caption{User Parameter Matrix}
  \label{userpa}
  \end{table}
-\\After we have the post-feature matrix and the user parameter matrix, we apply similarity metrics and we chose \textit{cosine similarity} to measure the resonance between each combination of $\theta_j$ and each $x_i$. Cosine Similarity, as the name mentioned, it measures the cosine angle of the two vectors in the multidimensional space. Two things can be similar together in terms of direction rather than magnitude.
+\\After we have the post-feature matrix and the user parameter matrix, we apply similarity metrics, and we chose \textit{cosine similarity} to measure the resonance between each combination of $\theta_j$ and each $x_i$. Cosine Similarity, as the name mentioned, it measures the cosine angle of the two vectors in the multidimensional space. Two things can be similar together in terms of direction rather than magnitude.
 \begin{equation*}
 \text{Cosine Similarity} = cos(\theta) = \frac{A \cdot B}{||A|| ||B||}
 \end{equation*}
-\\Finally, the system can rank and reccomend posts to user $k$ based on the similarity scores bewteen $\theta_j$ and each $x_i$.
+\\Finally, the system can rank and recommend posts to user $k$ based on the similarity scores between $\theta_j$ and each $x_i$.
 
 \subsection*{Problems and Possible Solutions}
 The biggest challenge with this approach in our design is to determine the content's subjective features, such as genre, vibe, mood, etc. Our current solution to this problem is by including the “feature tags” in the posts, and we will give a limited number of choices for our users to choose from 
@@ -111,7 +111,7 @@ For example, if the user has not seen any sad song post, then through this appro
 
 %-----------------------------------------------------------------------------------------------------------------------------Collaborative Recommendation System
 \section{Collaborative Filtering Recommendation System}
-Collaborative filtering predicts users' interests by identifying preferences and information from many users.\footnote{Recommendation Systems Explained. Explaining & Implementing Content .... https://towardsdatascience.com/recommendation-systems-explained-a42fc60591ed} 
+Collaborative filtering predicts users' interests by identifying preferences and information from many users.\footnote{Recommendation Systems Explained. Explaining \& Implementing Content .... https://towardsdatascience.com/recommendation-systems-explained-a42fc60591ed} 
 This is done by filtering data for information or patterns using techniques involving collaboration among multiple agents, data sources, etc. 
 The underlying intuition behind collaborative filtering is that if user A and B have similar tastes in an item, then A and B are likely to have similar tastes in other items. We can divide the collaborative filtering system into a model-based approach and a memory-based approach. The memory-based approach can further be divided into item-based and user-based systems. A clear structure can be seen in \cref{fig:overrecomm}.
 \\The first step through collaborative filtering to our design is to construct the user-post interaction matrix. (\cref{fig:UtilityM})
@@ -136,7 +136,7 @@ The underlying intuition behind collaborative filtering is that if user A and B 
  \label{fig:UtilityM}
  \end{table}
 \\We denote that: $r_{ij}$ is a boolean value and $r_{ij} = 1$,  if user $j$ rated item $i$ ($0$,  otherwise). And $y_{ij}$ is the rating by user $j$ on item $i$.
-\\The first chanllege that will be faced in this approach is how we can get ratings $y_{ij}$. The music posts are different from the movie rating system; considering our user experience, we cannot ask our users to rate each post. 
+\\The first challenge that will be faced in this approach is how we can get ratings $y_{ij}$. The music posts are different from the movie rating system; considering our user experience, we cannot ask our users to rate each post. 
 The more sensible way is to allow them to give “Likes”. However, inspired by a Chinese video-streaming app, Bilibili, we can make some changes to the “like” system. 
 Instead of “like” or “not give like”, we introduce a “super like” that our user can give to a post by 'pressing and holding the 'like' button.
 \\Now we want to construct a rating function $y_{ij}(L,t,S,T)$ where, 
@@ -211,7 +211,7 @@ Thus, if we want to learn $\theta_{i}$ for user $j$:
 \label{eqq111}
 \min_{\theta_{1},\theta_{2}, \dots, \theta_{j}} \frac{1}{2}\sum_{j = 1}^{n_{u}}\sum_{i:r_{i,j} = 1}\left((\theta_{i})^{T}x_{j}-y_{ij}\right)^{2} + \frac{\lambda}{2}\sum_{j = 1}^{n_{u}}\sum_{k = 1}^{n}(\theta_{ik})^{2}
 \end{equation}
-\\where $n_{u}$ is number of users, and we get rid of term $m_{(j)}$ because it is a constant which will not affect the result when we proceed the optimisation.
+\\where $n_{u}$ is the number of users, and we get rid of term $m_{(j)}$ because it is a constant which will not affect the result when we proceed the optimisation.
 \\Similarly, if we are given $\theta_{1}$,$\theta_{2}$, \dots, $\theta_{j}$, to learn $x_{1}$,$x_{2}$,\dots,$x_{i}$:
 \begin{equation}
 \label{eqq222}
@@ -235,11 +235,11 @@ So we can initialise $x_{1},x_{2}, \dots,x_{j}$, and then apply a \textbf{For-lo
 \sum_{j=1}^{n_{u}}
 \sum_{k = 1}^{n}(\theta_{j})^{2}
 \end{equation*}
-Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent - clearly explained&nbsp;!! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch &amp; stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
+Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent-clearly explained! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch; stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
 \\\textbf{Advantages}
 \\The main advantage of using collaborative filtering models is their simplicity in implementation and the high-level coverage they provide. It is also beneficial because it captures subtle characteristics and does not require understanding the item content.
 \\ \textbf{Disadvantages}
-\\The main disadvantage to this model is that it’s not friendly for recommending new posts because there has been no user interaction with it. This is referred to as the cold start problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
+\\The main disadvantage to this model is that it's not friendly for recommending new posts because there has been no user interaction with it. This is referred to as the cold start problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
 
 
 \subsubsection{Matrix Factorisation (MF)}
@@ -266,7 +266,7 @@ A recommendation's quality can be assessed through various tactics that measure 
 The evaluation method of a recommendation is solely dependent on the dataset and approach used to generate the request. 
 Recommender systems share several conceptual similarities with the classification and regression modelling problem. 
 In an ideal situation, we would want to see how real users react to recommendations and track metrics around the user to improve your recommendation request. However, this is not easy to accomplish. 
-Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root mean square deviation. 
+Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root-mean-square deviation. 
 \subsection{K Fold Cross Validation}
 This is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample. 
 K fold cross-validation can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset, and each training set/fold is used to train on the recommendation system independently and then measure the accuracy of the resulting systems against the test set. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial to prevent our model from overfitting. However, it is a computationally extensive process.
@@ -296,7 +296,7 @@ We finally decided to design our recommendation system using a hybrid system sho
     \end{figure}
 \\Firstly, the input, which is information gathered from our users, will be passed through the popularity-based system to get the ratings for their popularity.
 \\In addition, the input will be fed into a content-based system to have ratings based on the similarity between users' preferences and posts' features. 
-We also pass the output after the content-based system through model-based collaborative filtering (indicated by the red line) to generally improve the performance. Notice we only allow the red path to go through when the content-based system finishes initialising the utility matrix for new users. It can be considered that we introduce a small time delay at the beginning and we do it because we need the content-based system to solve the cold-start problem in the model-based system. The feedback (indicated by the green line) from the model-based sub-system is to solve the drawbacks in the content-based sub-system by providing a method to update the user parameter matrix.
+We also pass the output after the content-based system through model-based collaborative filtering (indicated by the red line) to generally improve the performance. Notice we only allow the red path to go through when the content-based system finishes initialising the utility matrix for new users. It can be considered that we introduce a small-time delay at the beginning, and we do it because we need the content-based system to solve the cold-start problem in the model-based system. The feedback (indicated by the green line) from the model-based sub-system is to solve the drawbacks in the content-based sub-system by providing a method to update the user parameter matrix.
 \\Furthermore, the input will directly pass through an item-based collaborative filtering system in parallel with other sub-systems 
 to have the ratings of posts based on the analysis of group behaviours. We can introduce a user-based collaborative filtering system in parallel as well, but we abandoned it because of its poorer performance than the item-based filtering system.
 \\Finally, after we have ratings after each design, we pass all the results into a weighting function, where we give weights to each sub-system output and then apply a linear combination.
