@@ -10,57 +10,64 @@ The choice and implementation of ithe noise filter will then be explained in \au
 to a pitch detection algorithm (PDA) in \autoref{sec:PDA} and then a key detection algorithm (KDA) in \autoref{sec:KDA}.
 Figure \ref{flowchart} shows the flowchart of the audio processing part of our project.
 
-\begin{figure}[h]
+% \begin{figure}[h]
+%     \centering
+%     \begin{tikzpicture}[>=latex']
+%         \tikzset{
+%             block/.style= {draw, rectangle, fill=white, align=center,minimum width=2cm,minimum height=1cm},
+%             fbox/.style = {rectangle, draw, densely dashed, inner sep=4mm},
+%             input/.style={ % requires library shapes.geometric
+%             draw,
+%             trapezium,
+%             trapezium left angle=60,
+%             trapezium right angle=120,
+%             minimum width=2cm,
+%             align=center,
+%             minimum height=1cm},
+%         }
+        
+%         %nodes
+%         \node (n1) [block]  {User sings into our app\\ 
+%                     (Obtain input audio signal)}; 
+%         %beige bg
+%         \node (bg) [right= 4.5cm of n1, anchor=center, draw=none, fill={rgb:orange,1;yellow,2;pink,5}, minimum width=7.5cm,minimum height=2.5cm]{};
+%         \node (bglabel) [above = -0.8cm of bg]{Implement noise filter};
+        
+%         \node (n2) [block, right=1cm of n1]
+%                     {Spectral reduction};
+%         \node (n3) [block, right=0.5cm of n2]
+%                     {Low-pass filter};
+%         \node (n4) [block, below=1.8cm of n1] 
+%                     {Pitch Detection\\ Algorithm};
+%         \node (n5) [block, right=1cm of n4] 
+%                     {Key Detection\\ Algorithm};
+%         \node (n6) [block, draw=red, right=1cm of n5]
+%                     {Pass [notes, notes duration, key]\\
+%                     to data processing};
+%         \node [coordinate, below right =1cm and 1cm of n3] (right1) {};  %% Coordinate on right and middle
+%         \node [coordinate, above left =0.8cm and 1cm of n4] (left1) {};  %% Coordinate on left and middle
+
+%         \node [coordinate, below =0.5cm of n4] (n4coor) {};  %% Coordinate on right and middle
+%         \node [coordinate, below =0.5cm of n6] (n6coor) {};  %% Coordinate on left and middle
+%         \path[draw,->]   (n1) edge (n2)
+%                     (n2) edge (n3)
+%                     (n3) -| (right1) -- (left1) |-  (n4)
+%                     (n4) edge (n5)
+%                     (n4.south) -| (n4coor) -- (n6coor) |-  (n6.south)
+%                     (n5) edge (n6);
+
+%     \end{tikzpicture}
+%     \caption{Flowchart of audio processing}
+%     \label{flowchart}
+% \end{figure}
+
+\begin{figure}
     \centering
-    \begin{tikzpicture}[>=latex']
-        \tikzset{
-            block/.style= {draw, rectangle, fill=white, align=center,minimum width=2cm,minimum height=1cm},
-            fbox/.style = {rectangle, draw, densely dashed, inner sep=4mm},
-            input/.style={ % requires library shapes.geometric
-            draw,
-            trapezium,
-            trapezium left angle=60,
-            trapezium right angle=120,
-            minimum width=2cm,
-            align=center,
-            minimum height=1cm},
-        }
-        
-        %nodes
-        \node (n1) [block]  {User sings into our app\\ 
-                    (Obtain input audio signal)}; 
-        %beige bg
-        \node (bg) [right= 4.5cm of n1, anchor=center, draw=none, fill={rgb:orange,1;yellow,2;pink,5}, minimum width=7.5cm,minimum height=2.5cm]{};
-        \node (bglabel) [above = -0.8cm of bg]{Implement noise filter};
-        
-        \node (n2) [block, right=1cm of n1]
-                    {Spectral reduction};
-        \node (n3) [block, right=0.5cm of n2]
-                    {Low-pass filter};
-        \node (n4) [block, below=1.8cm of n1] 
-                    {Pitch Detection\\ Algorithm};
-        \node (n5) [block, right=1cm of n4] 
-                    {Key Detection\\ Algorithm};
-        \node (n6) [block, draw=red, right=1cm of n5]
-                    {Pass [notes, notes duration, key]\\
-                    to data processing};
-        \node [coordinate, below right =1cm and 1cm of n3] (right1) {};  %% Coordinate on right and middle
-        \node [coordinate, above left =0.8cm and 1cm of n4] (left1) {};  %% Coordinate on left and middle
-
-        \node [coordinate, below =0.5cm of n4] (n4coor) {};  %% Coordinate on right and middle
-        \node [coordinate, below =0.5cm of n6] (n6coor) {};  %% Coordinate on left and middle
-        \path[draw,->]   (n1) edge (n2)
-                    (n2) edge (n3)
-                    (n3) -| (right1) -- (left1) |-  (n4)
-                    (n4) edge (n5)
-                    (n4.south) -| (n4coor) -- (n6coor) |-  (n6.south)
-                    (n5) edge (n6);
-
-    \end{tikzpicture}
+    \includegraphics[width=0.8\columnwidth]{Figures/Audio Processing Flow Chart}
+    \decoRule
     \caption{Flowchart of audio processing}
     \label{flowchart}
 \end{figure}
-
 %----------------------------------------------------------------------------------------
 %   SECTION 0
 %----------------------------------------------------------------------------------------
