@@ -221,37 +221,36 @@ Government policies have left music education in the UK in a precarious state \c
 %----------------------------------------------------------------------------------------
 \tocdata{toc}{Di Wan} 
 \section{Risk and Data Security}
-The two operating systems our design was developed for data security reasons are typically encrypted by default. Data is ‘sandboxed’ behind a security layer which isolates each app from the operating system. The app can’t permit itself to access anything, so the permissions system pops up messages asking for access to specific privacy functions such as photos and locations. That prevents the app from reading data from other apps or with the phone’s operating system unless users give the app permission. It’s on developers to make sure that apps only request the access they need.
- \\The app developers’ influence over server security can be limited, but we can certainly make recommendations. When we design our apps, we use Transport Layer Security – a protocol that encrypts the data and demands that the server and app authenticate before exchanging data. If there’s any problem with the ‘handshake’ between server and app, no data is exchanged: prevention, of course, being better than cure. Beyond that, we will test network security using a Microsoft and IBM approved SSL tool designed by Qualys, which offers a continuous network security assessment and compliance with security standards.
- \\Because finding defects in production is expensive, and people perform risk analysis during software testing to understand better what can go wrong with an application before it goes into production. A risk analysis performed during software testing helps identify areas where software flaws could result in severe issues in production. By identifying areas of concern early, developers are able tocan proactively remediate and reduce the overall risk of a production defect.
-
+The two operating systems, the IOS system based on the Apple platform and Android System, that our design was developed on are encrypted by default for data security reasons. Data is ‘sandboxed’ behind a security layer which isolates each app from the operating systems. The app can’t permit itself to access anything, so the permissions system pops up messages asking for access to specific privacy functions such as photos and microphones. That prevents the apps from reading data from other apps or the phone’s operating system unless users give the app permission. It’s on developers to make sure that apps only request the access they need. 
+ \\The app developers’ influence over server security can be limited, but we can certainly make recommendations. We attempt to include Transport Layer Security\footnote{Office, C. D. and D. (2021, April 22). Using transport layer security (TLS) in your organisation. GOV.UK. Retrieved May 14, 2022, from https://www.gov.uk/government/publications/email-security-standards/transport-layer-security-tls} in our design, a protocol that encrypts the data and demands that the server and app authenticate before exchanging data. If there’s any problem with the communication between server and app, no data will be exchanged: prevention is better than cure. Beyond that, we will test network security using a Microsoft, and IBM approved SSL tool\footnote{The University of Stanford. (2018, November 28). Vulnerability Management (Qualys). Vulnerability Management (Qualys) | University IT. Retrieved May 14, 2022, from https://uit.stanford.edu/service/qualys } designed by Qualys, which offers a continuous network security assessment and compliance with security standards.
+ \\Finding defects in production is expensive, so we need to perform risk analysis during software testing to understand better what can go wrong with an application before it goes into the market. A risk analysis performed during software testing helps identify areas where software flaws could result in severe issues in production. By identifying areas of concern early, developers can proactively remediate and reduce the overall risk of a production defect.
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 \tocdata{toc}{Di Wan}
 \section{Finance and Monetisation}
-Like every other project, we need a budget for our app design project. A project budget is the estimated total cost of completing each project activity over each project phase. Based on the statistics published by SPDLoad, our project will take approximately nine months to finish due to its high complexity, such as machine learning integration and online cooperation.
-\subsection{Cost Break-down}
-The cost breakdown is the systematic process of identifying the individual elements that comprise the total cost of a good, service or package. Here we divide our costs into two types, direct costs and indirect costs.
+Our app design project will need a budget to monitor the expenditure throughout the whole development process because a project can fail due to an unexpected shortage of funds. A project budget is the estimated total cost of completing each project activity over each project phase. Based on the statistics published by SPDLoad\footnote{Spdload. (2021, December 28). App Development Cost in 2022 by App Type (&amp; examples). SpdLoad. Retrieved May 14, 2022, from https://spdload.com/blog/app-development-cost/}, our project will take approximately nine months to finish due to its high complexity, such as machine learning integration and online cooperation.
+\subsection{Cost Breakdown}
+The cost breakdown is the systematic process of identifying the individual elements that comprise the total cost of a good, service or package. Here we divide our costs into two types: direct and indirect costs.
 \subsubsection{Direct Costs}
-We define the direct costs are the costs proportional to the number of subscriptions our users registered.
+We define direct costs are the costs proportional to the number of our subscribers, which are costs after our product enters the market in the future.
 \begin{itemize}
-\item As we currently focus on the IOS design based on Apple platform and Android design, the biggest two app stores are \textbf{Apple App Store} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation
-\item The average transaction fee through card payment will be approximately 2.9\%
+\item As we currently focus on the IOS design based on the Apple platform and Android design, the biggest two app stores are \textbf{Apple AppStore} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation\footnote{https://www.theverge.com/21445923/platform-fees-apps-games-business-marketplace-apple-google}. The platform fee can be avoided by redirecting the payment page to our site bypassing the app store platform. However, the extra steps in the payment process introduce more barriers, which may further lead to a more significant fall in subscribers.
+\item The average transaction processing fee through card payment will be approximate 2.9\%, based on the statistics published by The Ascent\footnote{Daly, L. (2022, January 13). Average credit card processing fees and costs in 2021: The ascent. The Motley Fool. Retrieved May 15, 2022, from https://www.fool.com/the-ascent/research/average-credit-card-processing-fees-costs-america/}.
 \end{itemize}
 
 
 \subsubsection{Indirect Costs}
-We define that the indirect costs are the costs which are not proportional to several subscriptions our users registered. Those include:
+We define indirect costs as costs that are not proportional to the number of our subscribers. Those include:
 \begin{itemize}
-\item \textbf{Labour cost}
-\\We will need a team for our app design, based on the post by SPDLoad, a typical app-design team must consist 1 project manager / product manager (£57,341/ year) , 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year),1 backend developer (£53,568/ year) and 1 quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average salaries in London published by Glassdoor, which is a website allow current and former employee to review their company and publish their salary rates.
+\item \textbf{Labor cost}
+\\We will need a team for our app design; based on the post by SPDLoad, a typical app-design team must consist of 1 project manager/product manager (£57,341/ year), 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year), one backend developer (£53,568/ year) and one quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average wages in London published by Glassdoor\footnote{Glassdoor job search. (n.d.). Retrieved May 15, 2022, from https://www.glassdoor.com/member/home/index.htm }, which is a website that allows current and former employees to review their company and publish their salary rates.
 \item \textbf{Marketing cost}
-\\ Marketing costs are all expenses the company makes to market and sell its products and develop and promote its brand. We set our budget to be £100,000
+\\ Marketing costs are all expenses the company makes to market and sell its products and develop and promote its brand. We set our budget to be £10,000.
 \item \textbf{Testing cost}
-\\ Testing cost is the costs associated with the app testing stage, where we need to employ the service from other companies. The estimate will be £10,000, data based on.
+\\ Testing cost is the costs associated with the app testing stage, where we need to employ the service from other companies. The estimate will be £10,000 based on the average app testing cost published by Apphawks\footnote{SunGroup. (n.d.). Breaking down the app testing costs, models, and ways to save. Apphawks. Retrieved May 15, 2022, from https://apphawks.com/blog/breaking-down-the-app-testing-costs }.
 \item \textbf{Others}
-\\Those are the costs consisting of app development account fees and other utilities. The estimate will be £15,000
+\\Those are the costs consisting of app development account fees and other utilities. The estimate will be £15,000.
 \end{itemize}
 
 Here we present those estimated costs in the table of annual cost sheet:
@@ -273,9 +272,9 @@ Here we present those estimated costs in the table of annual cost sheet:
  \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\\hline
  \multicolumn{1}{|c}{\textbf{Indirect Cost}} &\multicolumn{1}{c}{}&\\
  \hline
- Labour Costs&&£229,396\\
+ Labor Costs&&£229,396\\
  \hline
- Marketing&&£100,000\\
+ Marketing&&£10,000\\
  \hline
  Testing&&£10,000\\
  \hline
@@ -283,23 +282,22 @@ Here we present those estimated costs in the table of annual cost sheet:
  \hline
  \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\
  \hline
- \textbf{Total}&\multicolumn{1}{c}{$17.3\%\times N \times P + \pounds 354,396$}&\\
+ \textbf{Total}&\multicolumn{1}{c}{$17.3\%\times N \times P \times M + £264,396$}&\\
  \hline
  \end{tabular}
  \caption{Annual cost sheet}
  \end{table}
-
+\\Where $N$ is number of subscribers, $P$ is the subscription fee per month and $M$ is the number of months. The estimation is based on the assumption that we will hire a whole app proejct team rather than out-sourcing the whole proejct to a software company.
 
 \subsection{Source of Cash Inflow}
-There are two main sources of cash inflow through our app, advertisements revenue and subscription fee.
-\\ \textbf{Advertisement}
-\\ We have decided to cooperate with other music-related companies and place their advertisements on our app pages; the revenue will be based on the number of clicks. The estimated revenue through 
+The source of cash inflow helps maintain the operation of the company.  There are two main sources of cash inflow through our app, advertisements revenue and subscription fee. 
+\\ \textbf{Advertisament Revenue}
+\\ We have decided to cooperate with other music-related companies and place their advertisements on our app pages; the revenue will be based on the number of clicks. The decision on where we are going to place the advertisement will impact our user experience, further affecting the number of users and revenue. Hence we will use A/B testing (will be introduced in \cref{ch2test}) to optimise the position for the advertisement and potentially increase advertisement revenue.
 \\ \textbf{Subscription}
-\\We consider subscription fee as the main source of income for our app; we aim to provide a monthly subscription model for our users to access the premium functions, such as pitch tracking.
+\\We consider a subscription fee the main source of income for our app, and we aim to provide a monthly subscription model for our users to access the premium functions, such as pitch tracking. We will combine different pricing strategies to determine the price for our subscription features, such as competitive pricing and dynamic pricing. Competitive pricing is about analysing the subscription price of our competitors and setting a price that our app remains competitive. We use dynamic pricing to attract our potential subscribers to try our subscription features by setting a lower price than normal for the first month.
 
 \subsection{Estimation}
-The leading apps we are competing with are Chordfy and Chord ai; both primary functions of these apps and our app are generating chords to accompany a melody.  Therefore, it is reasonable to estimate the user size of our app based on $max$[user size of Chordify, user size of Chord ai]. However, there is no public data that reveals the user sizes of these two apps. We finally estimate our potential user size by adding the number of reviewers of Chorify and Chord ai and scaling the total number by 5, which is a good approximation of assuming only 20\% users gave reviews for apps. Thus, we estimate our potential user size to be around 200,000 and further, we can calculate the subscription price of our app to be £.
-
+The leading apps we are competing with are Chordfy and Chord AI. Although MySong\footnote{MySong: Automatic accompaniment for vocal melodies. Microsoft Research. (2021, May 9). Retrieved May 15, 2022, from https://www.microsoft.com/en-us/research/project/mysong-automatic-accompaniment-vocal-melodies/ }, which is a chord generation with simple genre classification developed by Microsoft, we will not consider it as our competitor since MySong is only limited to academic use. All the primary functions of these apps and our app are to generate chords to accompany a melody.  Therefore it is reasonable to estimate the user size of our app based on $max[\text{user size of Chordify, user size of Chord AI}]$. However, there is no public data that reveals the user sizes of these two apps. We finally estimate our potential user size by adding the number of reviewers of Chorify and Chord ai and scaling the total number by 2, which is an approximation of assuming 50\% users gave reviews for apps, based on the statistics published by GlobalWebIndex\footnote{Commerce - GlobalWebIndex. (n.d.). Retrieved May 15, 2022, from https://www.gwi.com/hubfs/Downloads/Commerce\_Report.pdf}. Hence we estimate our potential user size to be around 80,000. If we assume our app is well accepted in the future by our users and 50\% of them are willing to subscribe to our premium features for the whole year, we can calculate the minimum price we should set for our subscription feature to be £0.67 per month by equaling cost to the revenue. The estimated price is quite competitive compared to the subscription fees of Chordify ( £1.24/month ) and Chord AI (£3.49/month).
 %----------------------------------------------------------------------------------------
 %	SECTION 6
 %----------------------------------------------------------------------------------------
