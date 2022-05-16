@@ -41,8 +41,16 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
+
 \usepackage{mathpazo} % Use the Palatino font by default
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath,amsthm,amssymb} 
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+
 \usepackage{diagbox}
 \usepackage{commath}
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
@@ -54,7 +62,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[bottom]{footmisc}
 \usepackage{tikz}
 \usepackage{svg}
-\usepackage{tocdata}
+\usepackage{tocdata} 
 \usepackage{titletoc}
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -72,6 +80,7 @@ headsepline, % Uncomment to get a line under the header
   #1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
 }
 \makeatother
+\usepackage{floatrow}
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
