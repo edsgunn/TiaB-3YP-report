@@ -7,7 +7,7 @@
 
 \section{Introduction}
 A recommendation engine is a data filtering tool using machine learning algorithms to recommend the most relevant items to a particular user or customer. It operates on finding patterns in consumer behaviour data, which can be collected implicitly or explicitly. In our case, the quality of the recommendation system design determines the quality of the posts recommended to our users. We include a recommendation engine to recommend posts, in our case, songs created and shared by our users to each individual user.
-\\A recent study\footnote{Epsilon. (2018, April 11). The personalisation mismatch: Rift grows between brand offerings and consumer desires. geo-redirect. Retrieved May 15, 2022, from https://www.epsilon.com/emea/about-us/pressroom/epsilon-report } by Epsilon, found that 90\% of consumers find personalisation appealing. A further 80\% claim they are more likely to cooperate with a company when offered personalised experiences.
+\\A recent study by Epsilon\footnote{Epsilon. (2018, April 11). The personalisation mismatch: Rift grows between brand offerings and consumer desires. geo-redirect. Retrieved May 15, 2022, from https://www.epsilon.com/emea/about-us/pressroom/epsilon-report }, found that 90\% of consumers find personalisation appealing. A further 80\% claim they are more likely to cooperate with a company when offered personalised experiences.
 The study also found that these consumers are ten times more likely to become VIP customers who make more than 15 purchases per year.
 Thus, a well-designed recommendation system can benefit the monetisation of our app in the future.
 \\Recommendation systems are divided into personalised and non-personalised systems, where personalised recommendation systems can be further divided into content-based and collaborative filtering systems. 
@@ -150,10 +150,11 @@ The formula we want to construct considers both explicit and implicit informatio
 
 %-----------------------------------------------------------------------------------------------------------------------------Memory-based CF
 \subsection{Memory Based Approaches}
-Memory-based approaches are also often referred to as neighbourhood collaborative filtering. Essentially, ratings of user-post combinations are predicted based on their neighbourhoods. The memory-based approach is so simple that it calculates the similarity matrix directly from the user-item matrix. There are two branches of memory-based approaches: item-based and user-based collaborative filtering. User-based essentially means that like-minded users will yield strong and similar recommendations. Item-based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
+Memory-based approaches are also often referred to as neighbourhood collaborative filtering. Essentially, ratings of user-post combinations are predicted based on their neighbourhoods. The memory-based approach is simple since it just calculates the similarity matrix directly from the user-item matrix. There are two branches of memory-based approaches: item-based and user-based collaborative filtering. User-based essentially means that like-minded users will yield strong and similar recommendations. Item-based collaborative filtering recommends items based on the similarity between items calculated using user ratings of those items.
 \subsubsection{Item-based Collaborative Filtering}
 This method was first invented and used by Amazon in 1998. We can use item-to-item collaborative filtering to match each user’s liked posts to similar posts and then combines those similar posts into a recommendation list.
-Instead of applying cosine similarity, the better approach will be using the Pearson correlation coefficient, the most well-known similarity metric for the linear relation. It measures the similarity between two samples based on the direction of how the value changes. It is also called \textbf{Centred Cosine Similarity}, and the word “Centred” means we will normalise the Utility matrix first by subtracting row mean; it solves the problem when we assume unwatched posts by the user to be rated 0. The assumption is considered not much reasonable.
+We can use item-to-item collaborative filtering to match each user’s liked posts to similar posts and then combines those similar posts into a recommendation list.
+Instead of applying cosine similarity, the better approach will be using the Pearson correlation coefficient, the most well-known similarity metric for the linear relation. It measures the similarity between two samples based on the direction of how the value changes. It is also called \textbf{Centred Cosine Similarity}, and the word “Centred” means we will normalise the Utility matrix first by subtracting the row mean. Compared to cosine similarity, Pearson Correlation solves the problem when we assume unwatched posts by the user to be rated 0. The assumption is considered not much reasonable.
 \begin{equation*}
 \text{Pearson Correlation Coefficient} = \frac{\sum(x_{i} - \bar{x})(y_{i} - \bar{y})} {\sqrt{\sum(x_{i} - \bar{x})^{2} \sum{(y_{i} - \bar{y})^{2} }}}
 \end{equation*}
@@ -189,9 +190,9 @@ The algorithm explanation here is mostly based on Dr Andrew Ng's Machine Learnin
  \centering
  \end{table}
 
-\item  We need to obtain a set of feature folders, each is measuring the degree of the content.
+\item We need to obtain a set of feature folders, each is measuring the degree of the content.
 Denote that:
-\\$r_{ij}$ is a boolean value and $r_{ij} = 1$, if user $j$ rated item $i$ ($0$,  otherwise.)
+\\$r_{ij}$ is a boolean value and $r_{ij} = 1$, if user $j$ rated item $i$ ($0$, otherwise.)
 \\$y_{ij}$ \text{is the rating by user $j$ on item $i$}
 \\$\theta_{j}$ \text{is the parameter vector of user $j$}, which is a latent-factor
 \\$x_{i}$ \text{is the feature vector of item $i$}, which is a latent-factor
@@ -211,7 +212,7 @@ Thus, if we want to learn $\theta_{i}$ for user $j$:
 \label{eqq111}
 \min_{\theta_{1},\theta_{2}, \dots, \theta_{j}} \frac{1}{2}\sum_{j = 1}^{n_{u}}\sum_{i:r_{i,j} = 1}\left((\theta_{i})^{T}x_{j}-y_{ij}\right)^{2} + \frac{\lambda}{2}\sum_{j = 1}^{n_{u}}\sum_{k = 1}^{n}(\theta_{ik})^{2}
 \end{equation}
-\\where $n_{u}$ is the number of users, and we get rid of term $m_{(j)}$ because it is a constant which will not affect the result when we proceed the optimisation.
+\\where $n_{u}$ is number of users, and we get rid of term $m_{j}$ because it is a constant which will not affect the result when we proceed the optimisation.
 \\Similarly, if we are given $\theta_{1}$,$\theta_{2}$, \dots, $\theta_{j}$, to learn $x_{1}$,$x_{2}$,\dots,$x_{i}$:
 \begin{equation}
 \label{eqq222}
@@ -220,8 +221,8 @@ Thus, if we want to learn $\theta_{i}$ for user $j$:
 \\Where the last term is usual regularisation term to prevent the overall equation to go to infinity, to prevent overfitting.
 \\The objective of our collaborative optimisation algorithm is that:
 \begin{itemize}
-\item  If we are given $\theta_{1},\theta_{2}, \dots, \theta_{j}$, we are able to estimate $x_{1},x_{2}, \dots,x_{i}$
-\item  If we are given $x_{1},x_{2}, \dots,x_{i}$, we are able to estimate $\theta_{1},\theta_{2}, \dots, \theta_{j}$
+\item If we are given $\theta_{1},\theta_{2}, \dots, \theta_{j}$, we are able to estimate $x_{1},x_{2}, \dots,x_{i}$
+\item If we are given $x_{1},x_{2}, \dots,x_{i}$, we are able to estimate $\theta_{1},\theta_{2}, \dots, \theta_{j}$
 \end{itemize}
 So we can initialise $x_{1},x_{2}, \dots,x_{j}$, and then apply a \textbf{For-loop} to repeat the steps above, ideally the $x_{i}$ and $\theta_{j}$ will be improved gradually. 
 \\ More wisely, we can minimise $x_{1},x_{2}, \dots,x_{i}$ and $\theta_{1},\theta_{2}, \dots, \theta_{j}$ simultaneously by combining equation [\ref{eqq111}] and equation [\ref{eqq222}]:
@@ -235,41 +236,38 @@ So we can initialise $x_{1},x_{2}, \dots,x_{j}$, and then apply a \textbf{For-lo
 \sum_{j=1}^{n_{u}}
 \sum_{k = 1}^{n}(\theta_{j})^{2}
 \end{equation*}
-Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent-clearly explained! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch; stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
+Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_{m})}, \theta_{1},\theta_{2}, \dots, \theta^{(n_{u})}$. We can apply Stochastic Gradient Descent (SGD)\footnote{Srinivasan, A. V. (2019, September 7). Stochastic gradient descent - clearly explained&nbsp;!! Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31 } instead of the Batch Gradient Descent (BGD)\footnote{Patrikar, S. (2019, October 1). Batch, Mini Batch &amp; stochastic gradient descent. Medium. Retrieved May 15, 2022, from https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a} because using BGD is expensive when the dataset is huge. 
 \\\textbf{Advantages}
-\\The main advantage of using collaborative filtering models is their simplicity in implementation and the high-level coverage they provide. It is also beneficial because it captures subtle characteristics and does not require understanding the item content.
+\\The main advantage of using collaborative filtering models is their simplicity in implementation and the high-level coverage. It is also beneficial because it captures subtle characteristics and does not require understanding the item content.
 \\ \textbf{Disadvantages}
-\\The main disadvantage to this model is that it's not friendly for recommending new posts because there has been no user interaction with it. This is referred to as the cold start problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
+\\The main disadvantage to this model is that it is incapable  for recommending new posts because there has been no user interaction with it. This is referred to as the /textbf{cold start} problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
 
 
 \subsubsection{Matrix Factorisation (MF)}
 \label{Matrix Factorisation}
-Now, instead of direct computation with the user-item interaction matrix. We will decompose the user-item interaction matrix into the latent factors matrix representing the lower-dimensional space that is more useful. The idea of decomposing is we believe that the observed user-item rating matrix is constructed from the underlying user and item latent factor matrix. Suppose we can extract the best underlying latent factor matrix that minimises the loss between the reconstructed and original matrix. 
-Then we can use the inner product of the user and item latent factor matrix for inferencing an unobserved rating. It provides a better adjustment.
-\\Matrix factorisation is a class of collaborative filtering algorithms used in recommender systems. Matrix factorisation algorithms work by decomposing the user-item interaction matrix into the product of two lower dimensionality rectangular matrices.
+Matrix factorisation is a class of collaborative filtering algorithms used in recommender systems. Matrix factorisation algorithms work by decomposing the user-item interaction matrix into the product of two lower dimensionality rectangular matrices. It decomposes the user-item interaction matrix into the latent factors matrix representing the lower-dimensional space that is more useful. The theory of decomposing is we believe that the observed user-item rating matrix can be reconstructed by the underlying user and item latent factors. Suppose we can extract the best underlying latent factor matrix that minimises the loss between the reconstructed and original matrix, then we can use the inner product of the user and item latent factors for inferencing an unobserved rating. It provides a better adjustment.
 \\There are several kinds of matrix factorisation techniques, and each of them provides a different set of results, leading to different recommendations.
-\\ \textbf{TruncatedSVD with the sklearn library} is one of the MF techniques, and it is a variant of the Singular Value Decomposition that calculates only the K largest singular value. Also, It applies the linear dimensionality reduction and works well with the sparse matrix like the user-item matrix.
-\\We aim to decompose the user-item matrix into these latent factors. The value of each cell will be the estimated value that satisfies the optimisation constraint.
-\\\textbf{Funk Matrix Factorisation}\footnote{Arga. (2020, September 20). Recommendation System: Matrix Factorization with Funk SVD. RPubs. Retrieved May 15, 2022, from https://rpubs.com/Argaadya/recommender-svdf} is well-known during the Netflix prize challenge\footnote{Netflix Prize. Netflix Prize: Home. (n.d.). Retrieved May 15, 2022, from https://web.archive.org/web/20090919150646/http://www.netflixprize.com/index}, it reduces the user-item interaction into the lower dimensional space latent matrix. The objective of FunkMF is to estimate the latent factor matrix and the bias termed minimising the loss between the original explicit rating and the reconstructed prediction rating.
+\\ \textbf{TruncatedSVD with the sklearn library} is one of the MF techniques, and it is a version of the Singular Value Decomposition that calculates only the top k largest singular value. Also, it applies the linear dimensionality reduction and has excellent performance well with the sparse matrix like the user-item matrix. 
+\\\textbf{Funk Matrix Factorisation}\footnote{Arga. (2020, September 20). Recommendation System: Matrix Factorization with Funk SVD. RPubs. Retrieved May 15, 2022, from https://rpubs.com/Argaadya/recommender-svdf} is well-known during the Netflix prize challenge\footnote{Netflix Prize. Netflix Prize: Home. (n.d.). Retrieved May 15, 2022, from https://web.archive.org/web/20090919150646/http://www.netflixprize.com/index}, it reduces the user-item interaction into the lower dimensional space latent matrix. The objective of FunkMF is to estimate the latent factor matrix and the bias termed minimising the loss between the original value and the reconstructed value.
 
 %-----------------------------------------------------------------------------------------------------------------------------Hybrid Recommendation System
 \section{Hybrid Recommendation System}
-Various methods of recommendation systems have their benefits and flaws. Often, many of these methods may seem restrictive when used in isolation, especially when multiple data sources are available for the problem. Hybrid recommender systems use different public data sources to generate robust inferences. Hybrid recommendation systems have two predominant designs, parallel and sequential. A parallel design provides the input to multiple recommendation systems, and each of those recommendations is combined to generate one output. 
+Various methods of recommendation systems have their benefits and disadvantages. Often, many of these methods may seem restrictive when used in isolation, especially when multiple data sources are available for the problem. Hybrid recommender systems use different public data sources to generate robust inferences. Hybrid recommendation systems have two predominant designs, parallel and sequential. A parallel design provides the input to multiple recommendation systems, and each of those recommendations is combined to generate one output. 
 The sequential design provides the input parameters to a single recommendation engine, the output is passed on to the following recommender in a sequence.
 \\\textbf{Advantages}
 \\The advantage of hybrid systems is that it combines different models to combat the disadvantages of one model with another. Overall it can reduce the weaknesses of using individual models and aids in generating more robust recommendations. This yields more efficient and personalised recommendations for users.
 \\\textbf{Disadvantages} 
-\\These types of models generally have high computational complexity and require a large database of ratings and other attributes to keep up to date. Without up-to-date metrics (user engagement, ratings, etc.), it is difficult to retrain and provide new recommendations.
+\\These types of models generally have high computational complexity and require large database attributes to keep up to date. Without up-to-date metrics (user engagement, ratings, etc.), it is difficult to retrain and provide new recommendations.
 
 \section{Evaluation}
-A recommendation's quality can be assessed through various tactics that measure coverage and accuracy. Accuracy is the fraction of correct recommendations out of the offered possible suggestions. At the same time, coverage measures the fraction of objects in the search space for which the system can provide guidance. 
+A recommendation's quality can be assessed through various tactics that measure coverage and accuracy. Accuracy is the fraction of efficient recommendations out of the offered possible suggestions. At the same time, coverage measures the fraction of objects in the search space for which the system can provide guidance. 
 The evaluation method of a recommendation is solely dependent on the dataset and approach used to generate the request. 
-Recommender systems share several conceptual similarities with the classification and regression modelling problem. 
-In an ideal situation, we would want to see how real users react to recommendations and track metrics around the user to improve your recommendation request. However, this is not easy to accomplish. 
-Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root-mean-square deviation. 
+Recommender systems have several conceptual similarities with the regression modelling and classification problem. 
+In the ideal situation, we want to see how real users react to recommendations and track metrics around the user to improve our recommendation request. However, this is not easy to accomplish. 
+Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root mean square deviation. 
 \subsection{K Fold Cross Validation}
-This is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample. 
-K fold cross-validation can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset, and each training set/fold is used to train on the recommendation system independently and then measure the accuracy of the resulting systems against the test set. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial to prevent our model from overfitting. However, it is a computationally extensive process.
+The k-fold cross-validation is first introduced by Larson S. in (The shrinkage of the coefficient of multiple correlation. J. Educat. Psychol., 22:45–55,193). It is one of the non-exhaustive validation methods, which means it does not compute all ways of splitting the original sample. 
+K fold cross-validation can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset. Each training set/fold is used to train on the recommendation system independently and measures the accuracy of the resulting systems against the test sets. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial in preventing our model from overfitting. However, it is a computationally extensive process.
 
 \subsection{Mean Absolute Error (MAE)}
 Mean absolute error represents the average absolute value of each error in rating prediction. The formula of it is shown below:
@@ -282,27 +280,27 @@ where $y_{i} $ represents the prediction, $x_{i} $ is the true Value and $n$ is 
 \begin{equation*}
 \text{RMSD} = \sqrt{\frac{\sum^{i=N}_{i=1}(y_{i} - x_{i})^{2}}{N}}
 \end{equation*}
-This is a similar metric to MAE but has a stronger penalty for when the prediction is very far from the true value and a weaker penalty for when the prediction is closer to the true value. Taking the squares off the difference between true and predicted values instead of the sum of the absolute values. This ensures that the resulting value is always positive and is larger when the difference is high and smaller when the difference is low.
+This is a similar metric to MAE but has a stronger penalty for when the prediction is very far from the real value and a weaker penalty for when the prediction is closer to the true value. Taking the squares off the difference between actual and predicted values instead of the sum of the absolute values. It ensures that the resulting value is always positive and larger when the difference is high and smaller when it is low.
 
 
 
 \section{Our Own Recommendation System Design}
-We finally decided to design our recommendation system using a hybrid system shown in \cref{hybridd}. The system consists of three sub-systems in parallel with each other, with one of the sub-systems being built with content-based and model-based filtering connected in series.
+We finally decided to design our recommendation system using a hybrid system (shown in \cref{hybridd}) because we can use different approaches to solve the flaws in each other. The system consists of three sub-systems in parallel with each other, with one of the sub-systems being built with content-based and model-based filtering connected in series.
 \begin{figure}[ht]
-    \centering
-    \includegraphics[scale = 0.15]{hybridd.png}
-    \caption{Hybrid recommendation system design}
-    \label{hybridd}
-    \end{figure}
+  \centering
+  \includegraphics[scale = 0.15]{hybridd.png}
+  \caption{Hybrid recommendation system design}
+  \label{hybridd}
+  \end{figure}
 \\Firstly, the input, which is information gathered from our users, will be passed through the popularity-based system to get the ratings for their popularity.
 \\In addition, the input will be fed into a content-based system to have ratings based on the similarity between users' preferences and posts' features. 
-We also pass the output after the content-based system through model-based collaborative filtering (indicated by the red line) to generally improve the performance. Notice we only allow the red path to go through when the content-based system finishes initialising the utility matrix for new users. It can be considered that we introduce a small-time delay at the beginning, and we do it because we need the content-based system to solve the cold-start problem in the model-based system. The feedback (indicated by the green line) from the model-based sub-system is to solve the drawbacks in the content-based sub-system by providing a method to update the user parameter matrix.
+We also pass the output after the content-based system through model-based collaborative filtering (indicated by the red line) to improve performance. Notice we only allow the red path to go through when the content-based system finishes initialising the utility matrix for new users. It can be considered that we introduce a slight time delay at the beginning, and we do it because we need the content-based system to solve the cold-start problem in the model-based approach. The feedback (indicated by the green line) from the model-based sub-system is to solve the drawbacks in the content-based sub-system by providing a method to update the user parameter matrix.
 \\Furthermore, the input will directly pass through an item-based collaborative filtering system in parallel with other sub-systems 
-to have the ratings of posts based on the analysis of group behaviours. We can introduce a user-based collaborative filtering system in parallel as well, but we abandoned it because of its poorer performance than the item-based filtering system.
+to have the ratings of posts based on the analysis of group behaviours. We can also introduce a user-based collaborative filtering system in parallel, but we abandoned it because of its poorer performance than the item-based filtering system.
 \\Finally, after we have ratings after each design, we pass all the results into a weighting function, where we give weights to each sub-system output and then apply a linear combination.
 The weight coefficients are calculated based on the performance and reliability of the sub-systems.
 \\We only finished at the design stage, but in the future, we will use the RMSD metric to test our system performance because of its better penalty measures and low computational extensiveness. 
 
 \section{Summary}
-In this chapter, we discussed the different approaches to designing the recommendation system and analysed the applicability of every approach to our design. For each approach, we also identify some major challenges we may face and come up with some possible solutions we can apply to solve them. Finally, we created our own structure design of the recommendation engine, a hybrid system with different sub-systems connected in series and parallel. And the design is based on the principles of using different approaches to solve the drawbacks of each other.
+In this chapter, we discussed the different approaches to designing the recommendation system and analysed the applicability of every approach to our design. For each approach, we also identify some major challenges we may face and come up with some possible solutions we can apply to solve them. Finally, we created our own structure design of the recommendation engine, a hybrid system with different sub-systems connected in series and parallel. And the design is based on the principles of using different approaches to solve the drawbacks of each other. Currently, we have only finished the stage of designing the structure of the recommendation engine. However, in the future, we will perform tests of the performance of our design after we finish the programming and keep updating our design by trying new system approaches. Recommendation engine design is only one of the key elements in UX design during the whole project pipeline. In the next chapter, we will dive deeper into the back-end design of our primary app function which is chord generation, and it will discuss the first stage - Audio Pre-processing.
 
