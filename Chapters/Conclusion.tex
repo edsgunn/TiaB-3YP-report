@@ -17,12 +17,13 @@ an audio processor to convert a recording into an useable data format;
 a data processor to extract features from the data and put it in a suitable format for input to the model;
 and a machine learning model to generate the chords from an encoded melody. 
 \\
-From our study of product design we determined that \textbf{WHAT DID WE DETERMINE?}
-And from these findings we chose to \textbf{WHAT DID WE USE FOR THE PRODUCT?}
+From our study of product design, we found out that a successful UI and UX is the key factor that helps attract and maintain user traffic to our app, and further benefit monetisation. 
+Currently, we have only finished the prototype of the design using Figma to identify possible flaws in user flows. 
 \\
-As an essential part of the community feature we designed a recommendation engine to provide users with the most engaging content.
-We found from other work on recommendation engines that  \textbf{WHAT DID WE DETERMINE?}
-and hence designed our product to include \textbf{WHAT DID WE USE FOR THE PRODUCT?}
+As an essential part of the community features, we designed a recommendation engine to provide users with the most engaging content.
+We found from other work on recommendation engines that a well-designed recommendation system can improve the impression that our users have on our app, further leads a potential increases in sales.
+Hence designed our product to include both personalised and non-personalised systems, the systems will consider both implicit and explicit information to 
+generate recommendations for each specific user.
 \\
 To convert raw recorded audio to a useable format (i.e. \emph{note, note\_duration and key}), we found that we needed a noise filter, a pitch detection algorithm and a key detection algorithm. 
 Building on the assumptions (see \cref{sec:asm}), we decided to use spectral reduction for the noise filter, the CREPE model for PDA and a template-matching method for KDA.
@@ -41,9 +42,14 @@ We created a prototype implementation of this model but were unable to properly 
 
 Future work could explore
 \textbf{GENERAL IMPROVEMENTS i.e. relaxations of MVP spec} 
-More types of accompaniment, different chords, not chords, percussion etc\\
-\textbf{IMPROVEMENTS TO UI UX} \\
-\textbf{IMPROVEMENTS TO RECOMMENDATION SYSTEM AND COMMUNITY FEATURE}
+More types of accompaniment, different chords, not chords, percussion etc
+\\
+After we finished the programming and testing of the app in the future, we will keep updating our design based on bug identification and reviews from our users.
+We consider reviews from our users are the major factor in evaluating the quality of our design.
+\\
+We will seek different approaches in recommender engine design to improve the quality of recommendations on the community page. 
+We stopped on the structure of the recommendation system design currently, but we will design the test process in the future after we finish the programming. 
+Only after testing, we can decide the balance between the system performance and computational power requirement since there is always a trade-off between these two factors.
 \\
 There are some improvements that can be made in the future. 
 For the noise filter, we can introduce a low-pass filter after the spectral reduction to filter out sudden high-frequency noises. 
