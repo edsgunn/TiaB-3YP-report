@@ -24,24 +24,55 @@ As an essential part of the community feature we designed a recommendation engin
 We found from other work on recommendation engines that  \textbf{WHAT DID WE DETERMINE?}
 and hence designed our product to include \textbf{WHAT DID WE USE FOR THE PRODUCT?}
 \\
-To convert raw recorded audio to an useable format we found that we needed \textbf{LIST COMPONENTS OF AP i.e. FILTER}
-From an analysis of these components we learned \textbf{WHAT DID WE DETERMINE?}
-and thus we designed our product using \textbf{WHAT DID WE USE FOR THE PRODUCT?}
+To convert raw recorded audio to a useable format (i.e. \emph{note, note\_duration and key}), we found that we needed a noise filter, a pitch detection algorithm and a key detection algorithm. 
+Building on the assumptions (see \cref{sec:asm}), we decided to use spectral reduction for the noise filter, the CREPE model for PDA and a template-matching method for KDA.
 \\
-To train our model we needed a dataset and a way to encode this data to make it suitable as input.
-We discovered from other work that \textbf{WHAT DID WE DETERMINE?}
-so we \textbf{WHAT DID WE USE FOR THE PRODUCT?}
+To train our model, we needed a dataset and a way to encode this data to make it suitable as input. 
+We discovered from other works that there exists a training dataset with the necessary audio features extracted from the songs, as well as the steps to preprocess that dataset. 
+We then converted the data into formats that are suitable as input to the Generative Adversarial Network with LSTM layers as well as the Transformer in order to train both these models. 
+During actual operation, the pieces of code used to process the dataset in the training phase can be reused to encode the output of the Voice Processor to feed it into our model. 
+The only difference is that the Data Processor’s output will no longer contain any chord information.
 \\
-To generate chords from a melody we needed a suitable model, we explored our options from the literature and determined that \textbf{WHAT DID WE DETERMINE?}
-Using this evolution we proposed the use of \textbf{WHAT DID WE USE FOR THE PRODUCT?}
+To generate chords from a melody we needed a suitable model, we explored our options from the literature and determined that a combination of models would likely be an effective solution.
+Using this evaluation we proposed the use of an LSTMGAN and detailed its design.
+We created a prototype implementation of this model but were unable to properly train and test it due to system difficulties.
 
 \section{Future work}
 
 Future work could explore
-\textbf{GENERAL IMPROVEMENTS i.e. relaxations of MVP spec} \\
+\textbf{GENERAL IMPROVEMENTS i.e. relaxations of MVP spec} 
+More types of accompaniment, different chords, not chords, percussion etc\\
 \textbf{IMPROVEMENTS TO UI UX} \\
-\textbf{IMPROVEMENTS TO RECOMMENDATION SYSTEM AND COMMUNITY FEATURE}\\
-\textbf{Improvements TO AUDIO PROCESSOR AND ITS INDIVIDUAL COMPONENTS}\\
-\textbf{IMPROVEMENTS TO DATA PROCESSOR}\\
-\textbf{IMPROVEMENTS TO MODEL}\\
+\textbf{IMPROVEMENTS TO RECOMMENDATION SYSTEM AND COMMUNITY FEATURE}
+\\
+There are some improvements that can be made in the future. 
+For the noise filter, we can introduce a low-pass filter after the spectral reduction to filter out sudden high-frequency noises. 
+After we collect sufficient data as our program is launched, we can use the data to improve the performance of our PDA by means of a MAP estimation. 
+As for the template-matching KDA, since one limitation is that the profiles that we are using may be out-of-date, we can update the profile by asking users to rate how well each note fits in a key (replicates the experiment done by Krumhansl and Kessler)
+\\
+As stated in \cref{Intro to Dataset}, all songs in the training dataset we used are in major key. 
+Hence, the use of our model is restricted to songs in major keys; for songs in minor keys, the model will likely perform poorly. 
+In future extensions of this project, we could include training datasets with songs in minor key.
+The Data Processor may then have to be modified slightly to transpose between minor keys like how it is supposed to transpose between major keys. 
+Alternatively, the Data Processor can be coded to transpose between major and minor keys, i.e. from a major key to a minor key and vice versa. 
+This will be more complicated than the simple transposition that we had implemented in \cref{preprocessing} \cite{BasicMusicTheoryBook}, but is definitely something worth exploring in future extensions. 
+\\
+As mentioned in the third preprocessing step in \cref{preprocessing}, more chord types can be easily included in the future as additional independent classes. 
+Doing so would allow us to train our model to be able to output more varied and complex sequences of chords.
+\\
+Additionally, we explored the possibility of including a mood classification functionality in \cref{Music Mood Classification}. 
+The Voice Processor may have to be modified to extract any extra necessary audio information, which will be passed to the Data Processor. 
+The Data Processor will then use a Support Vector Machine to regress and cluster the Tellegen-Watson-Clark continuous mood space model using the audio information to estimate the music mood of songs. 
+In the training phase, the mood information will be used to train the model to produce chords that are appropriate for specific music moods. 
+In the production phase, the model will then be able to output chords for specific moods selected by the user or estimated directly through the user's singing.
+\\
+There is much room for future work to improve the model.
+One direction which could prove fruitful is the relaxation of the MVP requirements. 
+Specifically a model could be created which is capable of generating more than one chord per bar.
+This would likely require significant additions to the structure of the model as the problem of determining when to play a chord is of similar difficulty to determining which chord to play.
+Another possible area for work is to take into account both the order and duration of the notes played within a measure.
+This could be achieved by implementing the transformer model detailed in \cref{sec:ModelTransformers}.
+An extra benefit of this model is it would be able to lock chords when regenerating thus giving the user more power over the chords generated.
+Another improvement to the model would be to add parameters which could be adjusted to change the mood or genre of the generated chords.
+\\
 

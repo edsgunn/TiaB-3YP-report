@@ -15,9 +15,9 @@ There is a large market of amateur musicians who lack the necessary training for
 In this report we will detail the design of ReChorder, a system which facilitates the generation of an appropriately matched set of chords to a given monophonic melody.
 Users are able to record a melody using their microphone and regenerate the chord sequence until they feel they have found one suitable for the intended feel of their song.
 Songs and generated chord accompaniments can be played back to the user, saved to a library of songs and shared using our songwriting community feature. \\
-The problem of converting a recorded melody to a set of chords can be decomposed into a set of simpler sub-probblems, these being:
+The problem of converting a recorded melody to a set of chords can be decomposed into a set of simpler sub-problems, these being:
 the conversion of the recorded melody into a form which numerically represents its features,
-and the generation of a set of chords from this numerical representation,
+and the generation of a set of chords from this numerical representation.
 The latter of these two problems can be solved in a variety of ways, many of which require a detailed knowledge of music to find patterns in melodies to match to chords.  
 %\textbf{WHY IS THIS A PROBLEM FOR US}
 A method which requires little knowledge of music is the use of a machine learning model to extract these patterns from data of known chord melody pairings from professionally composed music. 
@@ -39,7 +39,7 @@ the design of an appropriate machine learning model - detailed in \cref{Chapter4
 Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
 We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes.%, the justification for this is explained in \textbf{reference to explanation}.
  The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
-\textbf{Tempo} will refer to the speed of the music usually measured in beats per minute or bpm
+\textbf{Tempo} will refer to the speed of the music usually measured in beats per minute or bpm.
 \textbf{Time Signature} refers to an integer pair specifying in the top element the number of beats in a bar and in the bottom element the length of note which will represent a beat.
 \textbf{Timbre} is defined as the perceived sound quality of a tone and is affected by its overtones.
 %-----------------------------------
