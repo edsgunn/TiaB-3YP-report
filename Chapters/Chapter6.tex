@@ -212,7 +212,7 @@ Thus, if we want to learn $\theta_{i}$ for user $j$:
 \label{eqq111}
 \min_{\theta_{1},\theta_{2}, \dots, \theta_{j}} \frac{1}{2}\sum_{j = 1}^{n_{u}}\sum_{i:r_{i,j} = 1}\left((\theta_{i})^{T}x_{j}-y_{ij}\right)^{2} + \frac{\lambda}{2}\sum_{j = 1}^{n_{u}}\sum_{k = 1}^{n}(\theta_{ik})^{2}
 \end{equation}
-\\where $n_{u}$ is number of users, and we get rid of term $m_{j}$ because it is a constant which will not affect the result when we proceed the optimisation.
+\\where $n_{u}$ is the number of users, and we get rid of term $m_{j}$ because it is a constant which will not affect the result when we proceed the optimisation.
 \\Similarly, if we are given $\theta_{1}$,$\theta_{2}$, \dots, $\theta_{j}$, to learn $x_{1}$,$x_{2}$,\dots,$x_{i}$:
 \begin{equation}
 \label{eqq222}
@@ -247,7 +247,7 @@ Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_
 \label{Matrix Factorisation}
 Matrix factorisation is a class of collaborative filtering algorithms used in recommender systems. Matrix factorisation algorithms work by decomposing the user-item interaction matrix into the product of two lower dimensionality rectangular matrices. It decomposes the user-item interaction matrix into the latent factors matrix representing the lower-dimensional space that is more useful. The theory of decomposing is we believe that the observed user-item rating matrix can be reconstructed by the underlying user and item latent factors. Suppose we can extract the best underlying latent factor matrix that minimises the loss between the reconstructed and original matrix, then we can use the inner product of the user and item latent factors for inferencing an unobserved rating. It provides a better adjustment.
 \\There are several kinds of matrix factorisation techniques, and each of them provides a different set of results, leading to different recommendations.
-\\ \textbf{TruncatedSVD with the sklearn library} is one of the MF techniques, and it is a version of the Singular Value Decomposition that calculates only the top k largest singular value. Also, it applies the linear dimensionality reduction and has excellent performance well with the sparse matrix like the user-item matrix. 
+\\ \textbf{TruncatedSVD with the sklearn library} is one of the MF techniques, and it is a version of the Singular Value Decomposition that calculates only the top k largest singular values. Also, it applies the linear dimensionality reduction and has excellent performance well with the sparse matrix like the user-item matrix. 
 \\\textbf{Funk Matrix Factorisation}\footnote{Arga. (2020, September 20). Recommendation System: Matrix Factorization with Funk SVD. RPubs. Retrieved May 15, 2022, from https://rpubs.com/Argaadya/recommender-svdf} is well-known during the Netflix prize challenge\footnote{Netflix Prize. Netflix Prize: Home. (n.d.). Retrieved May 15, 2022, from https://web.archive.org/web/20090919150646/http://www.netflixprize.com/index}, it reduces the user-item interaction into the lower dimensional space latent matrix. The objective of FunkMF is to estimate the latent factor matrix and the bias termed minimising the loss between the original value and the reconstructed value.
 
 %-----------------------------------------------------------------------------------------------------------------------------Hybrid Recommendation System
@@ -264,7 +264,7 @@ A recommendation's quality can be assessed through various tactics that measure 
 The evaluation method of a recommendation is solely dependent on the dataset and approach used to generate the request. 
 Recommender systems have several conceptual similarities with the regression modelling and classification problem. 
 In the ideal situation, we want to see how real users react to recommendations and track metrics around the user to improve our recommendation request. However, this is not easy to accomplish. 
-Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root mean square deviation. 
+Common standard statistical accuracy measures to evaluate the accuracy of a recommendation engine are k fold cross-validation, mean absolute error and root-mean-square deviation. 
 \subsection{K Fold Cross Validation}
 K fold cross validation a non-exhaustive validation method \cite{KFold}, which means it does not compute all ways of splitting the original sample. 
 It can be used to infer the results of the model through accuracy metrics. We can create K many randomly assigned training and test sets by splitting the dataset. Each training set/fold is used to train on the recommendation system independently and measures the accuracy of the resulting systems against the test sets. Then we take the average accuracy score to see how well the recommendation system learns. This method is beneficial in preventing our model from overfitting. However, it is a computationally extensive process.

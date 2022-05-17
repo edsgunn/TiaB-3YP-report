@@ -4,7 +4,7 @@
 \chaptermark{Audio Pre-processing - Kitty}
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \cref{ChapterX}
 As the first point of contact (see \cref{fig:MVPOverview}), it is crucial to pre-process the signal to avoid further deterioration
-and achieve higher accuracy for our machine learning model (in \cref{Chapter4}). This process serves as part of the feature extraction , or else the raw data will contain too much irrelevant features that will adversely affect the final output. 
+and achieve higher accuracy for our machine learning model (in \cref{Chapter4}). This process serves as part of the feature extraction, or else the raw data will contain too much irrelevant features that will adversely affect the final output. 
 The choice and implementation of the noise filter will then be explained in \cref{sec:NF}. We then feed the filtered output 
 to a pitch detection algorithm (PDA) in \cref{sec:PDA} and then a key detection algorithm (KDA) in \cref{sec:KDA}.
 \cref{flowchart} shows the flowchart of the audio processing part of our project.
@@ -76,7 +76,7 @@ Before we delineate the approach to audio processing, there are some assumptions
 is built on:
 
 \begin{assumption}\label{as:1}
-    Users' audio input device does not contain active noise cancelling functions.
+    Users' audio input device does not contain active noise-cancelling functions.
 \end{assumption}
 
 \begin{assumption}\label{as:2}
@@ -142,7 +142,7 @@ compare three noise reduction mechanisms.
         \item For windowed FT, if the feature is larger or shorter than the window, it cannot be captured completely.
         \item Time resolution for high frequencies is the same for low frequencies. As frequency increases, the rate of 
         change of the signal increases, and high-frequency signals contain more information in a window than that of 
-        low frequency. Thus we need a higher time resolution for that.
+        low frequency. Thus, we need a higher time resolution for that.
     \end{enumerate}
     Wavelet transform analyses a signal by its different frequency components at multiple resolutions, so features that are 
     undiscovered at one resolution may be evident at another. There are mainly two types of wavelet transforms: continuous wavelet transform (CWT) and discrete wavelet transform (DWT).
@@ -193,7 +193,7 @@ compare three noise reduction mechanisms.
     DWT is often preferred in the context of real-time audio processing since computation is done on discrete wavelets, which require less computational resources.
     
     \item \textbf{Spectral reduction}\\
-    Spectral noise gating learns from a noise profile and removes the signal's slow-changing tonal noise or hiss. Audacity uses this method in its noise reduction algorithm \footnote{How audacity noise reduction works. How Audacity Noise Reduction Works \- Audacity Wiki. (n.d.). Retrieved May 15, 2022, from https://wiki.audacityteam.org/wiki/How\_Audacity\_Noise\_Reduction\_Works}.
+    Spectral noise gating learns from a noise profile and removes the signal's slow-changing tonal noise or hiss. Audacity uses this method in its noise reduction algorithm\footnote{How audacity noise reduction works. How Audacity Noise Reduction Works \- Audacity Wiki. (n.d.). Retrieved May 15, 2022, from https://wiki.audacityteam.org/wiki/How\_Audacity\_Noise\_Reduction\_Works}.
     Suppose noise is additive, and we can represent our noisy audio as
     \begin{align}\label{sreduction} 
     y(n) = x(n) + d(n), \text{ for } 0 \leq n \leq N-1 
@@ -289,7 +289,7 @@ for choosing LPF over a bandpass filter is that spectral reduction effectively t
 
 To determine $f_c$ for the LPF, it would be plausible to refer to the biological features of the users, i.e. their age and gender.
 For males, the pitch level generally reduces from infancy to middle age, while the trend reverses after middle age. 
-On the other hand "Females in their 30s and 40s showed lower frequencies than those in their 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with aging” (\cite{womenprange}).
+On the other hand "Females in their 30s and 40s showed lower frequencies than those in their 20s. Across all age groups, including the 80s, fundamental frequencies tended to decrease markedly in association with ageing” (\cite{womenprange}).
 
 
 \begin{figure}
@@ -373,8 +373,8 @@ Thus, a Bessel filter is preferred in this context.
 \label{sec:PDA}
 After removing noise, we pass the processed signal to a PDA to estimate the fundamental frequency ($f_0$) of
 the signal. Before we explain the algorithm, we would assume that our users will not input polyphonic overtone 
-singing \cref{as:4}, i.e. creates notes of multiple fundamental frequencies at the same time, since the technique is uncommon
-. It requires further investigation on building a robust PDA that can identify different notes at one time period.
+singing \cref{as:4}, i.e. creates notes of multiple fundamental frequencies at the same time, since the technique is uncommon. 
+It requires further investigation on building a robust PDA that can identify different notes at one time period.
 
 %-----------------------------------
 %   SUBSECTION 1
@@ -495,7 +495,7 @@ There are four approaches to detect $f_0$, which can be classified into the time
 \subsection{Comparison between models and implementation}
 Time-domain models are more intuitive and easier to understand when compared to frequency domain models.
 Also, the time-domain implementation often takes up less computational resources and time.
-In exchange, frequency-domain models are less sensitive to noise and perform well on polyphonic singings.
+In exchange, frequency-domain models are less sensitive to noise and perform well on polyphonic singing.
 
 The zero crossings method will not be considered though it has the cheapest computational cost. One limitation is that
 the threshold is fixed at 0, making it susceptible to noise and the vocal timbre of the user. Moreover, the method heavily assumes that the input audio is of pure tone, but unlike a tuning fork, the human voice is not a pure tone. It is 
@@ -625,7 +625,7 @@ Yet, one drawback is that the sense of key changes over time as affected by the 
 updated from time to time.
 
 \subsection{Implementation}
-Using the template from \cite{templatedata} in our model and it is represented as 24 vectors $\vec{P_{i,j}} \in \mathbb{R}^{12 \times 1}$, 
+Using the template from \cite{templatedata} in our model, and it is represented as 24 vectors $\vec{P_{i,j}} \in \mathbb{R}^{12 \times 1}$, 
 where $i$ is the tone of the profile, $j$ indicates whether the profile is in major or minor.
 We also define the pitch class distribution (our input) as a vector $D \in \mathbb{R}^{12,1}$, where the 12 entries are the frequencies of the 12 notes that appeared in the audio.
 $\vec{D}$ can be obtained by looping over the $\hat{f_0}$ array obtained in \cref{creperesult} and using the Python function \emph{collections.Counter([iterable-or-mapping])} to count the
@@ -634,7 +634,7 @@ number of occurrences. We then calculate the correlation between $\vec{P_{i,j}}$
 The estimated key ($i,j$) is found by looping over the 24 $\vec{P_{i,j}}$ vectors and finding the one that gives the maximum correlation.
 
 As mentioned in \cref{data processor}, since the training dataset only contains songs in the major key to get accurate output, we have to assume our users sing in only
-major keys (\cref{as:5}). Thus the $j$ component can be dropped, and we will pass the key \emph{i} to pass to the data processor.
+major keys (\cref{as:5}). Thus, the $j$ component can be dropped, and we will pass the key \emph{i} to pass to the data processor.
 
 %----------------------------------------------------------------------------------------
 %   SECTION 4
@@ -649,7 +649,7 @@ in this section and * mark represents the algorithm that we picked.
     \multicolumn{1}{|l|}{Noise filter}                                                            & \multicolumn{1}{l|}{Strengths}                                                                                                                                                     & Limitations                                                                                                                                                                 \\ \hline
     \multicolumn{1}{|l|}{Low Pass Filter}                                                         & \multicolumn{1}{l|}{Easy and fast to implement}                                                                                                                                    & \begin{tabular}[c]{@{}l@{}}Cannot target broadband noise/\\ noise at low frequencies\\ Hard to set the cut-off frequency\\ for users in different environments\end{tabular} \\ \hline
     \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Wavelet \\ Transform\end{tabular}}            & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Based on both time and frequency\\ domain so localised information \\ about the signal can be efficiently \\ accessed\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Sensitive to shifts in time\\ Poor directionality\\ Hard to set a mother wavelet\end{tabular}                                                    \\ \hline
-    \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Spectral \\ Reduction*\end{tabular}}          & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Based on noise profile of the input \\ recording so it is more customized\end{tabular}}                                             & \begin{tabular}[c]{@{}l@{}}Requires user to input a noise \\ profile/ recording of the background\end{tabular}                                                              \\ \hline
+    \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Spectral \\ Reduction*\end{tabular}}          & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Based on noise profile of the input \\ recording, so it is more customized\end{tabular}}                                             & \begin{tabular}[c]{@{}l@{}}Requires user to input a noise \\ profile/ recording of the background\end{tabular}                                                              \\ \hline
     \multicolumn{3}{|l|}{}                                                                                                                                                                                                                                                                                                                                                                                                                                           \\ \hline
     \multicolumn{1}{|l|}{PDA}                                                                     & \multicolumn{1}{l|}{Strengths}                                                                                                                                                     & Limitations                                                                                                                                                                 \\ \hline
     \multicolumn{1}{|l|}{Zero crossing}                                                           & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Intuitive\\ Cheapest to compute\end{tabular}}                                                                                       & \begin{tabular}[c]{@{}l@{}}Susceptible to noise and vocal \\ timbre\end{tabular}                                                                                            \\ \hline
