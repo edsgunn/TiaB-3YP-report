@@ -7,7 +7,7 @@ As the first point of contact (see \cref{fig:MVPOverview}), it is crucial to pre
 and achieve higher accuracy for our machine learning model (in \cref{Chapter4}). This process serves as part of the feature extraction , or else the raw data will contain too much irrelevant features that will adversely affect the final output. 
 The choice and implementation of the noise filter will then be explained in \cref{sec:NF}. We then feed the filtered output 
 to a pitch detection algorithm (PDA) in \cref{sec:PDA} and then a key detection algorithm (KDA) in \cref{sec:KDA}.
-Figure \cref{flowchart} shows the flowchart of the audio processing part of our project.
+\cref{flowchart} shows the flowchart of the audio processing part of our project.
 
 % \begin{figure}[h]
 %     \centering
@@ -200,7 +200,7 @@ compare three noise reduction mechanisms.
     \end{align}
     where $x(n)$ is our original signal (the signal we wish to recover), $d(n)$ is the noise, $n$ is the discrete time index,
     $N$ is the number of samples. 
-    Assuming $d(n)$ and $x(n)$ have no correlation (\cref{as:2}), and we perform a short-time fourier transform on equation \cref{sreduction}:
+    Assuming $d(n)$ and $x(n)$ have no correlation (\cref{as:2}), and we perform a short-time Fourier transform on \cref{sreduction}:
     \[Y(\omega,k)= X(\omega,k) + D(\omega,k)\]
     where $k$ is the frame number. Each frame will be of
     length $N$. We then have the desired signal in frequency domain:
@@ -331,7 +331,7 @@ In deciding which filter to implement, there are 3 filters in consideration:
     where $\omega _{0}$ is the cut-off frequency and $n$ is the order of filter.
     \item Bessel filter
     \[G_{n}(\omega) = |H_{n}(j\omega)| ={\frac {\theta _{n}(0)}{\theta _{n}(\frac{j\omega}{\omega _{0}})}}\]
-    where $\theta _{n}(j\omega)$ is a reverse Bessel polynomial and $\omega _{0}$ is the cut-off frequnecy
+    where $\theta _{n}(j\omega)$ is a reverse Bessel polynomial and $\omega _{0}$ is the cut-off frequency
 \end{enumerate}
 
 Chebyshev filter has a steeper roll-off than Butterworth and Bessel filter. Still, it also brings passband and stopband ripples, 
@@ -419,8 +419,7 @@ There are four approaches to detect $f_0$, which can be classified into the time
     As outlined by \cite{yin}, YIN algorithm is based on a slightly altered autocorrelation method:
     \[r_t(\tau)=\sum_{j=t+1}^{t+W-\tau}x_j x_{j+\tau}\]
     where $r_t(\tau)$ is the autocorrelation function (ACF) of lag $\tau$ calculated at time index $t$, $W$ is the integration
-    window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in figure 
-    \cref{taped}.
+    window size. Note that as $\tau$ increases, $W$ decreases and the envelope of the function decreases, as shown in \cref{taped}.
 
     \begin{figure}
         \centering

@@ -104,7 +104,7 @@ The solution to it can be through a UX/UI design, which is inspired by Apple Mus
 \item The recommendations provided are “obvious” based on the posts/content the user has interacted with before. This is a disadvantage because if the user has never interacted with a particular type of post, that type will never be recommended to the user. 
 For example, if the user has not seen any sad song post, then through this approach, he will never be recommended sad song posts. This is because the model is user-specific and doesn’t leverage knowledge from similar users. This reduces the diversity of the recommendations.
 %
-\item Also, people's preferences will change, but the content-based approach does not provide a way to update user parameter vectors. Considering user experience, we can not ask our users to update their preferences every day or week. Out-of-date user parameter vectors can lead to inefficient recommendations, further affecting our user experience. Thus being incapable to update the user parameter vector is also $y_{ij}$one of the drawbacks of this approach.
+\item Also, people's preferences will change, but the content-based approach does not provide a way to update user parameter vectors. Considering user experience, we can not ask our users to update their preferences every day or week. Out-of-date user parameter vectors can lead to inefficient recommendations, further affecting our user experience. Thus, one of the drawbacks of this approach is being incapable of updating the user parameter vector $y_{ij}$.
 \end{itemize}
 
 
@@ -240,7 +240,7 @@ Finally we apply gradient descent method to solve for $x_{1},x_{2}, \dots,x^{(n_
 \\\textbf{Advantages}
 \\The main advantage of using collaborative filtering models is their simplicity in implementation and the high-level coverage. It is also beneficial because it captures subtle characteristics and does not require understanding the item content.
 \\ \textbf{Disadvantages}
-\\The main disadvantage to this model is that it is incapable  for recommending new posts because there has been no user interaction with it. This is referred to as the /textbf{cold start} problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
+\\The main disadvantage to this model is that it is incapable  for recommending new posts because there has been no user interaction with it. This is referred to as the \textbf{cold start} problem. Memory-based algorithms are known to perform poorly on highly sparse datasets.
 
 
 \subsubsection{Matrix Factorisation (MF)}

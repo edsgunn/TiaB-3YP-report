@@ -78,10 +78,14 @@ from a built-in app such as Voice Memos on iPhone. For ethical reasons (\cref{se
 In future iterations we could also allow our users to lock the chords they like during the regeneration. A possible implementation of this is outlined in \cref{sec:ModelTransformers}.
 
 \item \textbf{Community Page}
-\\Inspired by the Chinese music app NetEase, one of our goals is to create a community page for our users to share their own musical works and collaborate, 
-we believe that the community element can bring continuous traffic to our app, which can benefit the monetisation of our app in the future. The key features of the community page are post sharing and recommendations.
-As we mentioned before, the user experience determines the success of the app design. Here, the quality of the posts recommended to our users is an essential element affecting our user experience. 
-Therefore, it requires our recommendation engine to be well-designed. (\cref{Chapter6})
+\\The idea is inspired by the Chinese music app NetEase, which designed a community page for its users to share posts. 
+It became popular because most of the users use it to share their stories and feelings associated with each specific song. 
+Thus we want to bring a community element to our app and we will allow our users to share their own musical works or ideas. 
+Also, people can search posts and contact each other, and the community platform will provide a way for them to collaborate. 
+The key features of the community page are post sharing and recommendations.
+As we mentioned before, the user experience determines the success of the app design. 
+Here, the quality of the posts recommended to our users is an essential element affecting our user experience. 
+Therefore, it requires our recommendation engine to be well-designed (\cref{Chapter6}).
 
 \item \textbf{Message Channel}
 \\The message channel allows our users to contact each other directly and share the original chord files to collaborate on. For privacy reasons, we design our message system using end-to-end encryption to protect the content in the conversation from tapping.
@@ -142,7 +146,7 @@ The testing stage allows us to discover the problems in our current designs and 
 \\We divide our testing stage into four stages, Unit Tests, Integration Tests, System Tests, and Acceptance Tests.
 \begin{itemize}
 \item\textbf{Unit Test} is the very first stage of any application test. At this step, the system’s separate modules will undergo assessments to see if they individually function correctly to maximum capacity. 
-\item\textbf{Integration Test} is mostly about verifying the modules and examinating their readiness and collective and integral cooperation. The modules are each tested separately and also as a group. It helps the testers identify any issues with two or more components working together or individually to execute functions.
+\item\textbf{Integration Test} is mostly about verifying the modules and examining their readiness and collective and integral cooperation. The modules are each tested separately and also as a group. It helps the testers identify any issues with two or more components working together or individually to execute functions.
 \item\textbf{System Test} level closely simulates the final production environment. It is very significant in the final testing stage, especially when it needs to ensure that the applications under scrutiny always meet complete functional requirements. 
 At this stage, the test team ascertains if the integrated components are collectively showing optimal performance levels or not. Every software build must undergo testing up to this point, using client requirements as a benchmark. This stage is carried out by the quality assurance engineer in our team.
 \item\textbf{Acceptance Test} is the stage where we will use A/B testing to understand how users respond to our design. 

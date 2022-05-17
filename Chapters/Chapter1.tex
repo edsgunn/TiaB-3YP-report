@@ -22,8 +22,7 @@ The latter of these two problems can be solved in a variety of ways, many of whi
 %\textbf{WHY IS THIS A PROBLEM FOR US}
 A method which requires little knowledge of music is the use of a machine learning model to extract these patterns from data of known chord melody pairings from professionally composed music. 
 The curation and processing of an appropriate dataset requires significant effort and care in itself.
-This leads to a natural division of labour across the project into the categories of:
-\label{sec:Introduction}
+This leads to a natural division of labour across the project into the categories of:\label{sec:Introduction}
 User Interface and general product design - detailed in \cref{Chapter2} by Di Wan;
 recommendation engines for our community feature - detailed in \cref{Chapter6} by Di Wan;
 the conversion of recorded melody to the same format as expressed in the dataset - detailed in \cref{Chapter5} by Kitty Fung;
@@ -37,8 +36,8 @@ the design of an appropriate machine learning model - detailed in \cref{Chapter4
 %-----------------------------------
 \subsection{Musical terminology}
 Throughout this report we will use a variety of musical terminology which will be defined here. A piece of music is composed of a sequence of adjacent \textbf{measures}, periods of time in which notes and chords can be played. 
-We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes.%, the justification for this is explained in \textbf{reference to explanation}.
-  The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
+We will generally take a \textbf{measure} to mean a bar in the music, however it is not restricted to this. We restrict \textbf{chord} to refer to a triad of notes. %, the justification for this is explained in \textbf{reference to explanation}.
+The use of \textbf{melody} refers to a monophonic melody in which only one note is played at a time, excluding accompanying chords, unless otherwise stated.
 \textbf{Tempo} will refer to the speed of the music usually measured in beats per minute or bpm.
 \textbf{Time Signature} refers to an integer pair specifying in the top element the number of beats in a bar and in the bottom element the length of note which will represent a beat.
 \textbf{Timbre} is defined as the perceived sound quality of a tone and is affected by its overtones.
@@ -57,11 +56,11 @@ We will generally take a \textbf{measure} to mean a bar in the music, however it
 \end{figure}
 
 \paragraph{Overview}
-To achieve the goal of this project the product design should be capable of producing chords which appropriately accompany a monophonic melody, allowing amateur musicians to compose music quickly and easily.
+To achieve the goal of this project, the product design should be capable of producing chords which appropriately accompany a monophonic melody, allowing amateur musicians to compose music quickly and easily.
 As seen in \cref{sec:Introduction} this problem can modularised into a number of independent parts, each solving a sub-problem, which when connected end to end can solve the problem as a whole.
 A minimum viable product (MVP) was defined to specify ReChorder's essential functionality.
 The MVP is further detailed in \cref{sec:UImvp} and \cref{sec:MVPRequirements}
-For the MVP the required modules are as follows: the Recording Processor, the Voice Processor, the Data Processor, the Model, the Playback Processor.
+For the MVP the required modules are as follows: the Recording Processor, the Audio Pre-processor, the Data Processor, the Model, the Playback Processor.
 In the desired final product these are accessed through a purpose built user interface.
 
 \paragraph{Recording Processor}
@@ -74,11 +73,10 @@ Once the recording is complete it is passed to the Voice Processor along with th
 
 \paragraph{Audio Pre-processor}
 
-The function of the audio pre-processor is to extract from a noisy recording of the user's melody the musical features present in our Model's training dataset and put these in the same form as the raw dataset.
+The function of the audio pre-processor is to extract the musical features present in our Model's training dataset from a noisy recording of the user's melody and put these in the same form as the raw dataset.
 This processing involves three main steps: filtering, pitch detection and key detection.
-The recoding must first be filtered to remove noise.
-Then the pitch detection algorithm is used.
-For each submeasure, determined by the time signature and tempo, the note played is determined thus giving the notes that are played, which measure they are in and a rough estimate of the duration for which they are played.
+The recoding must first be filtered to remove noise, then the pitch detection algorithm is used.
+For each submeasure, using the time signature and tempo, the note played is determined giving for each song the notes that are played, which measure they are in and a rough estimate of the duration for which they are played.
 The final step is to use the key detection algorithm to determine the key in which the piece is played.
 The data is then passed to the data processor in the same form as the dataset for further processing.
 
@@ -86,7 +84,7 @@ The data is then passed to the data processor in the same form as the dataset fo
 
 The function of the data processor is to convert the data into a format which can be used to train the model or used as input in production.
 In training, we encode both the melody and chord data, putting it into vector format which can be inputted into the model, so the loss can be calculated by comparing the generated chords to the true chords.
-In production, we encode the melody data such that it can be inputted into the model to generate chords.
+In production, we encode the melody data, so it can be inputted into the model to generate chords.
 
 \paragraph{Model}
 
@@ -94,6 +92,7 @@ The function of the model is fundamentally that of a sequence translator, transl
 We make use of machine learning to achieve this. 
 The model is trained using the dataset to imitate real chord sequences which in production can be used to produce accompaniment for the input melodies.
 The model passes its output to the playback processor.
+
 \paragraph{Playback Processor}
 
 The playback processor takes as input the output chords from the model and the recorded melody and plays these together, allowing the user to hear their generated accompaniment.
@@ -103,10 +102,10 @@ The playback processor takes as input the output chords from the model and the r
 
 The design for the software to implement each part of the project is heavily modularised, in keeping with the philosophies of object-oriented programming. 
 We define self-contained objects that are composed of data and methods.
-These objects each themselves utilise the ideas of encapsulation where objects act as a black box to others, composition where objects contain other objects, inheritance where a hierarchy of objects is created, and a child object can inherit properties from its parent, and polymorphism where calling code is independent of where in a hierarchy an object is positioned.
+These objects each themselves utilise the ideas of encapsulation where objects act as a black box to other objects, composition where objects contain other objects, inheritance where a hierarchy of objects is created, a child object can inherit properties from its parent, and polymorphism where calling code is independent of where in a hierarchy an object is positioned.
 In our product we defined an abstract template class for each module in order to maintain the interface upon implementation through inheritance.
 The main ReChorder class is composed of an instance of each of the models where their implementation is irrelevant.
-This allows us to easily swap out modules for example to test a different model.
+This allows us to easily swap out modules, for example, to test a different model.
 The main functions for the app are concentrated in the ReChorder class.
 These functions could be called directly from the user interface.
 A UML diagram outlining the design can be seen in \cref{fig:SoftwareOverview}.
@@ -144,16 +143,16 @@ Given these findings, we can identify two main needs of our target market that o
 \sectionmark{Project management - Edward Gunn}
 \label{sec:Project management}
 The project was conducted with an agile approach allowing us to quickly adjust to changes in the product as we learned and identified areas to improve on.
-Agile works best in small teams with effective communication, and it requires less formal training than traditional methods (\cite{Agile}) thus it was very well suited to our project. 
+Agile works best in small teams with effective communication, and requires less formal training than traditional methods (\cite{Agile}) thus it was very well suited to our project. 
 At the beginning of the project we clearly defined our objectives and wrote an MVP specification of a product we hoped to produce as proof of concept.
 As stated in the introduction \cref{sec:Introduction} we divided the work into four distinct sections suited to the skills and experience each team member possessed and was interested in expanding.
-Using the defined objectives and division of responsibilities we produced and prioritised a backlog of work to be completed and created a timeline for this work to be completed in the form of a Gantt chart.
+Using the defined objectives and division of responsibilities we produced and prioritised a backlog of work to be completed, and created a timeline for this work to be completed in the form of a Gantt chart.
 We organised week long sprints with a meeting at the end of each sprint to track our progress and adjust pace on lessons learned. 
 Any work not completed in one sprint was carried over to the next.
 A cadence of completing one piece of work each from the backlog per sprint was established.
 Minutes were taken in the weekly meetings to record important decisions.
 To ensure collaboration within the team we kept centralised repositories of resources from which we were able to easily access other peoples work and track changes to our code bases.
-These repositories took the form of a shared OneDrive folder, for project documents and relevant academic papers, and two git repositories, one to manage our code and one to manage the writing of our report.
+These repositories took the form of a shared OneDrive folder for project documents and relevant academic papers, and two git repositories, one to manage our code and one to manage the writing of our report.
 
 
 %----------------------------------------------------------------------------------------
@@ -250,7 +249,7 @@ The cost breakdown is the systematic process of identifying the individual eleme
 \subsubsection{Direct Costs}
 We define direct costs are the costs proportional to the number of our subscribers, which are costs after our product enters the market in the future.
 \begin{itemize}
-\item As we currently focus on the IOS design based on the Apple platform and Android design, the biggest two app stores are \textbf{Apple AppStore} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation\footnote{https://www.theverge.com/21445923/platform-fees-apps-games-business-marketplace-apple-google}. The platform fee can be avoided by redirecting the payment page to our site bypassing the app store platform. However, the extra steps in the payment process introduce more barriers, which may further lead to a more significant fall in the number of subscribers.
+\item As we currently focus on the IOS design based on the Apple platform and Android design, the biggest two app stores are \textbf{Apple App Store} and \textbf{Google Play}, the retailer charge fee will be 15\% to 30\% depending on the subscription situation\footnote{https://www.theverge.com/21445923/platform-fees-apps-games-business-marketplace-apple-google}. The platform fee can be avoided by redirecting the payment page to our site bypassing the app store platform. However, the extra steps in the payment process introduce more barriers, which may further lead to a more significant fall in the number of subscribers.
 \item The average transaction processing fee through card payment will be approximate 2.9\%, based on the statistics published by The Ascent\footnote{Daly, L. (2022, January 13). Average credit card processing fees and costs in 2021: The ascent. The Motley Fool. Retrieved May 15, 2022, from https://www.fool.com/the-ascent/research/average-credit-card-processing-fees-costs-america/}.
 \end{itemize}
 
@@ -258,7 +257,7 @@ We define direct costs are the costs proportional to the number of our subscribe
 \subsubsection{Indirect Costs}
 We define indirect costs as costs that are not proportional to the number of our subscribers. Those include:
 \begin{itemize}
-\item \textbf{Labor cost}
+\item \textbf{Labour cost}
 \\We will need a team for our app design; based on the post by SPDLoad, a typical app-design team must consist of 1 project manager/product manager (£57,341/ year), 1 UI/UX designer (£39,540/ year), 1 iOS developer (£57,351/ year), 1 Android developer (£53,350/ year), one backend developer (£53,568/ year) and one quality assurance engineer (£44,712/ year), the annual salaries for each team-member is according to average wages in London published by Glassdoor\footnote{Glassdoor job search. (n.d.). Retrieved May 15, 2022, from https://www.glassdoor.com/member/home/index.htm }, which is a website that allows current and former employees to review their company and publish their salary rates.
 \item \textbf{Marketing cost}
 \\ Marketing costs are all expenses the company makes to market and sell its products and develop and promote its brand. We set our budget to be £10,000.
@@ -287,7 +286,7 @@ Here we present those estimated costs in the table of annual cost sheet (see \cr
  \multicolumn{1}{|c}{}&\multicolumn{1}{c}{}&\\\hline
  \multicolumn{1}{|c}{\textbf{Indirect Cost}} &\multicolumn{1}{c}{}&\\
  \hline
- Labor Costs&&£229,396\\
+ Labour Costs&&£229,396\\
  \hline
  Marketing&&£10,000\\
  \hline
@@ -303,18 +302,18 @@ Here we present those estimated costs in the table of annual cost sheet (see \cr
  \caption{Annual cost sheet}
  \label{costsheet}
  \end{table}
-Where $N$ is number of subscribers, $P$ is the subscription fee per month and $M$ is the number of months. The estimation is based on the assumption that we will hire a whole app proejct team rather than out-sourcing the whole proejct to a software company.
+Where $N$ is number of subscribers, $P$ is the subscription fee per month and $M$ is the number of months. The estimation is based on the assumption that we will hire a whole app project team rather than out-sourcing the whole project to a software company.
 
 \subsection{Source of Cash Inflow}
 \label{Source of Cash Inflow}
 The source of cash inflow helps maintain the operation of the company.  There are two main sources of cash inflow through our app, advertisements revenue and subscription fee. 
-\\ \textbf{Advertisament Revenue}
-\\ We have decided to cooperate with other music-related companies and place their advertisements on our app pages; the revenue will be based on the number of clicks. The decision on where we are going to place the advertisement will impact our user experience, further affecting the number of users and revenue. Hence we will use A/B testing (will be introduced in \cref{ch2test}) to optimise the position for the advertisement and potentially increase advertisement revenue.
+\\ \textbf{Advertisement Revenue}
+\\ We have decided to cooperate with other music-related companies and place their advertisements on our app pages; the revenue will be based on the number of clicks. The decision on where we are going to place the advertisement will impact our user experience, further affecting the number of users and revenue. Hence, we will use A/B testing (will be introduced in \cref{ch2test}) to optimise the position for the advertisement and potentially increase advertisement revenue.
 \\ \textbf{Subscription}
 \\We consider a subscription fee the main source of income for our app, and we aim to provide a monthly subscription model for our users to access the premium functions, such as pitch tracking. We will combine different pricing strategies to determine the price for our subscription features, such as competitive pricing and dynamic pricing. Competitive pricing is about analysing the subscription price of our competitors and setting a price that our app remains competitive. We use dynamic pricing to attract our potential subscribers to try our subscription features by setting a lower price than normal for the first month.
 
 \subsection{Estimation}
-The leading apps we are competing with are Chordify, Chord AI and MySong (\cite{MySong}). Although MySong is a chord generation system, since it is only limited to educational use we will not consider it as our competitor . All the primary functions of these apps and our app are to generate chords to accompany a melody.  Therefore it is reasonable to estimate the user size of our app based on $max[\text{user size of Chordify, user size of Chord AI}]$. However, there is no public data that reveals the user sizes of these two apps. We finally estimate our potential user size by adding the number of reviewers of Chorify and Chord ai and scaling the total number by 2, which is an approximation of assuming 50\% users gave reviews for apps, based on the statistics published by GlobalWebIndex\footnote{Commerce - GlobalWebIndex. (n.d.). Retrieved May 15, 2022, from https://www.gwi.com/hubfs/Downloads/Commerce\_Report.pdf}. Hence we estimate our potential user size to be around 80,000. If we assume our app is well accepted in the future by our users and 50\% of them are willing to subscribe to our premium features for the whole year, we can calculate the minimum price we should set for our subscription feature to be £0.67 per month by equaling cost to the revenue. The estimated price is quite competitive compared to the subscription fees of Chordify ( £1.24/month ) and Chord AI (£3.49/month).
+The leading apps we are competing with are Chordify, Chord AI and MySong (\cite{MySong}). Although MySong is a chord generation system, since it is only limited to educational use we will not consider it as our competitor. All the primary functions of these apps and our app are to generate chords to accompany a melody.  Therefore, it is reasonable to estimate the user size of our app based on $max[\text{user size of Chordify, user size of Chord AI}]$. However, there is no public data that reveals the user sizes of these two apps. We finally estimate our potential user size by adding the number of reviewers of Chordify and Chord ai and scaling the total number by 2, which is an approximation of assuming 50\% users gave reviews for apps, based on the statistics published by GlobalWebIndex\footnote{Commerce - GlobalWebIndex. (n.d.). Retrieved May 15, 2022, from https://www.gwi.com/hubfs/Downloads/Commerce\_Report.pdf}. Hence, we estimate our potential user size to be around 80,000. If we assume our app is well accepted in the future by our users and 50\% of them are willing to subscribe to our premium features for the whole year, we can calculate the minimum price we should set for our subscription feature to be £0.67 per month by equalling cost to the revenue. The estimated price is quite competitive compared to the subscription fees of Chordify (£1.24/month) and Chord AI (£3.49/month).
 %----------------------------------------------------------------------------------------
 %	SECTION 6
 %----------------------------------------------------------------------------------------
@@ -322,14 +321,14 @@ The leading apps we are competing with are Chordify, Chord AI and MySong (\cite{
 \section{Ethics}
 \sectionmark{Ethics - Kitty Fung}
 \label{sec:dataethics}
-From the National Society of Professional Engineers Code of Ethics \footfullcite{codeofethics}, it is of the utmost 
+From the National Society of Professional Engineers Code of Ethics (\cite{codeofethics}), it is of the utmost 
 importance to ensure engineering work upholds honesty, impartiality, fairness, and equity, and must be dedicated to 
 the protection of the public health, safety, and welfare. Since our design interacts with users
 through a mobile application, ethical concerns have arisen regarding the interactions between users 
 and data handling on our end. In this section, we will address issues related to data ethics.
 
-Governmental organisations have published regulations \footfullcite{EUdataregulations2018} and frameworks
-\footfullcite{framework} that are minimum standards for handling data ethically. The core value of data ethics 
+Governmental organisations have published regulations (\cite{EUdataregulations2018}) and frameworks
+(\cite{framework}) that are minimum standards for handling data ethically. The core value of data ethics 
 is to treat data responsibly and righteously.
 
 There are three overarching principles to adhere to, but in short, we as the developer should treat our 
@@ -356,7 +355,7 @@ section of the app listing or on the sign-in interface of the app.\\We would inc
         experience, we would save their usage preferences like language, and dark or light background mode. 
         \\There are two purposes for using third-party cookies. Firstly, since we will be displaying advertisements, 
         these advertising companies will be able to place cookies on our app for standard users, but not the premium users who subscribed to our services. 
-        Secondly, we will be implementing social sign-on so users do not have to create a new account on our end. In this case, the social media 
+        Secondly, we will be implementing social sign-on, so users do not have to create a new account on our end. In this case, the social media 
         platform will be placing its third-party cookies on our app.
         \\It is important to note that users have the right to know the third parties that have access to their data.
     \end{description}
@@ -364,7 +363,7 @@ section of the app listing or on the sign-in interface of the app.\\We would inc
     his account or when the data is no longer necessary to collect. Moreover, we would have to erase or rectify inaccurate data without delay. Although 
     there is no limitation on data storage, we will have to act ethically and
     decide the timeframe based on the genuine motivation of retaining the data. Data should only be collected when it is vital in the context
-    of app operation. Thus we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
+    of app operation. Thus, we should not keep data just in case it is needed in the future. For data that has expired (past the retention period), we 
     would have to either delete it or anonymise it. If we are to delete the data, we have to ensure all digital and hard copies of the data are destroyed. 
     This action requires careful documentation of data storage from the date we collect data from users, as traces may often reside in forgotten databases.
     Anonymising data means that a piece of information cannot be associated with an identity, which will not help with improving user experience, but still 
@@ -379,10 +378,10 @@ section of the app listing or on the sign-in interface of the app.\\We would inc
 \end{enumerate}
 
 \subsection{Accountability} 
-We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications.\footfullcite{principles} 
+We should process personal data responsibly and systematically, as well as endeavour to reduce risks for individuals and mitigate social and ethical implications (\cite{principles}).
 This can be done by creating a department that overviews the entire project and ensures data is managed ethically throughout the process. As we have an interactive community 
 feature, we must ensure that our app does no harm in any way. A new Online Safety Bill is being drafted recently to fight online hate crime, and online companies are liable for failures to
-deal with inappropriate material posted online.\footfullcite{francis} \footfullcite{parliamentlaw} Companies have the responsibility to confine illegal and harmful discussions, and a conventional and efficient method
+deal with inappropriate material posted online (\cite{francis}), (\cite{parliamentlaw}). Companies have the responsibility to confine illegal and harmful discussions, and a conventional and efficient method
 to guarantee this is to implement algorithmic censorship. 
 Moreover, effective governance and oversight mechanisms that the public can exercise are necessary to be publicly accountable. 
 We can enact this by hiring an independent third-party audit to review our data processing.
@@ -390,7 +389,7 @@ We can enact this by hiring an independent third-party audit to review our data 
 \subsection{Fairness}
 We should ensure no societal, racial or health bias is involved when processing data. Our project collects minimal personal data, so the problem of differential processing for distinct groups can be avoided. 
 On the other hand, another perspective of fairness can be manifested in the form of \textbf{Responsible Research and Innovation (RRI)}, which is a process that seeks to promote creativity and opportunities 
-for science and innovation that are socially desirable and undertaken in the public interest.\footfullcite{ukri} Not only does research bring novelty 
+for science and innovation that are socially desirable and undertaken in the public interest (\cite{ukri}). Not only does research bring novelty 
 and value to society, it may also bring forward ethical dilemmas, social transformations and adverse consequences for society. Thus, it is key to emphasise innovating responsibly and creating changes that
 have positive societal and environmental impacts.\\ There are a few areas of RRI that we should keep in mind:
 \begin{enumerate}
@@ -422,14 +421,14 @@ have positive societal and environmental impacts.\\ There are a few areas of RRI
 \sectionmark{Sustainability - Kitty Fung}
 \label{Sustainability}
 As technology advances, energy consumed by computers and personal digital devices is taking up a more significant portion of worldwide energy consumption. 
-According to an article published by \cite{energypy} and a research done by GO-Globe \footfullcite{energy}, there are about 8,918,157,500 active
-mobile devices consume a total of $3.46\mathrm{e}{12}$ kWh energy per year.
+According to an article published by \citebracks{energypy} and a research done by GO-Globe (\cite{energy}), there are about 8,918,157,500 active
+mobile devices consume a total of $3.46\times 10^{12}$ kWh energy per year.
 While a lot of effort has been put into reducing the energy consumption from the hardware perspective,
 it is also prime to focus on the impact of software implementation.
 Other than writing energy-efficient codes (i.e. optimised searching and sorting algorithms), the programming language 
 chosen can make a substantial difference too. Energy, time and memory size are the significant resources required for running a program.
 At first glance, since \(Energy = Power * Time\), there seems to be a correlation between energy and time. Yet,
-\cite{energyplanguage} suggests that since \(Power\) is not a constant, we cannot draw the conclusion that
+\citebracks{energyplanguage} suggests that since \(Power\) is not a constant, we cannot draw the conclusion that
 when \(Time\) increases, \(Energy\) must increase. 
 Pereira ranked the performance of different programming languages according to their energy, time and memory size consumption (p.7). 
 Surprisingly, there is no strong correlation between these three components. 
@@ -453,11 +452,11 @@ Yet, researchers have shown that cloud computing is more energy-efficient than r
 users\textsc{\char13} smartphones).
 
 Firstly, taking Amazon Web Services (AWS), the leading service provider in the cloud infrastructure market, as an example, it aims to fully power the operation with renewable
-energy by 2025\footfullcite{aws}. Since it is complex and cost-ineffective for individuals or small-scale companies to switch to clean energy, using the cloud services provided
+energy by 2025 \citebracks{aws}. Since it is complex and cost-ineffective for individuals or small-scale companies to switch to clean energy, using the cloud services provided
 by eco-conscious companies would significantly reduce their carbon footprints.
 
 On the other hand, a centralised cloud provider allocates resources more efficiently since there is a higher utilisation rate. If we choose an on-premise computing method, we will suffer
 from low utilisation rates since the purchased equipment may only be fully utilised when there are usage spikes. Yet, cloud providers have a vast customer base, and it is paramount for 
-their businesses to optimise server usage. Thus sharing cloud servers can increase average server utilisation to 50 per cent or higher \footfullcite{cloud}.
+their businesses to optimise server usage. Thus sharing cloud servers can increase average server utilisation to 50 per cent or higher (\cite{cloud}).
 
 % Therefore, we should carefully design our architecture and minimise carbon footprints.
