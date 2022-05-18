@@ -82,7 +82,7 @@ This is a particularly important area for evaluation as it will strongly affect 
 
 \paragraph{Quantitative Evaluation}
 There is difficulty in quantitative evaluation for this problem as there are no strictly correct chords for a given melody, and thus comparison to any specific set of chords gives a skewed interpretation of the output.
-However, the use of conventional quantitative evaluation does still correlate strongly with the sentiment given by a human judging the quality of chords, and thus can be cautiously used in evaluation.
+However, the use of conventional quantitative evaluation does still provide a measure of proximity to human written chords, and thus can be cautiously used in evaluation.
 The test set from the data can be used to compare the outputs from the model to previously assigned chords. Accuracy can be found by finding the number of chords successfully predicted and dividing by the total number of chords produced.
 \begin{equation}
     \text{Accuracy} = \frac{\text{Number of Chords Correctly Assigned}}{\text{Total Number of Chords Generated}}
@@ -120,7 +120,7 @@ To apply an HMM to our problem we take the hidden state, $\boldsymbol{X}$, to be
 It is notable that the conditional probability distribution of the hidden variable $x(t)$ at time t, only depends on that of the previous time step $x(t-1)$ and that $y(t)$ only depends on the hidden distribution at the current time step $x(t)$.
 For our purposes this limits the "memory" the model could have to a single measure and thus seriously reduces the effect of relationship between chords across time.
 
-\subsubsection{Implementations}
+\subsubsection{Implementations in literature}
 
 \paragraph{MySong - 1} The first application of an HMM to this problem whilst also being the first attempt focusing specifically on a vocal melody was MySong (\cite{MySong}).
 It used an Augmented Hidden Markov Model with parameters such that users could adjust the "Happy Factor" and "Jazz Factor" to alter the mood of the generated chords to their preference.
@@ -151,7 +151,7 @@ An accuracy of $0.4844$ was achieved, however, a choice of only 7 chords were us
 A deep neural network HMM makes it possible to assume a posterior for the HMM using the output from the softmax output layer of the DNN. 
 This allows for the posterior to be learned in training.
 
-\subsubsection{Implementations}
+\subsubsection{Implementations in literature}
 
 \paragraph{Chord Generation from Symbolic Melody - 4} This was implemented much like the HMM from \citebracks{BLSTM} mentioned above in \cref{subsec:HMM}.
 The same dataset was used and an accuracy of $0.4502$, $0.4482$, $0.4495$, and $0.4468$  was obtained on the 4, 8, 12 and 16 bars respectively. This results in an average accuracy of $0.4487$.
@@ -167,7 +167,7 @@ The binary cross entropy loss is used for the discriminator averaged across real
 \begin{equation}
 \underset{D}{\text{min}} \underset{G}{\text{max}} V(D,G) = \mathbf{E}_{x\sim p_{data}(\mathbf{x})}[logD(\mathbf{x})] + \mathbf{E}_{z\sim p_{data}(\mathbf{z})}[log(1-D(G(\mathbf{z})))]
 \end{equation} 
-Theoretically the G=generator and discriminator can be any differentiable function thus leaving much room for flexibility.
+Theoretically the generator and discriminator can be any differentiable function thus leaving much room for flexibility.
 The problem with GANs for our uses is that they are not conditional, the only input to the Generator is noise.
 GANs can be made conditional by concatenating the label data with noise as input to the generator and doing the same with the training data and the label data as input to the discriminator (\cite{CGANs}). 
 In our case the melody would be concatenated with noise as input to the generator and with a chord vector as input to the discriminator.
@@ -175,7 +175,7 @@ The temporal sensitivity of a GAN depends on the models used for the generator a
 If the models used for this purpose are temporally sensitive then the GAN will inherit this property.
 Therefore, they satisfy our requirements and so are suitable for use as our model. 
 
-\subsubsection{Implementations}
+\subsubsection{Implementations in literature}
 
 \paragraph{ChordGAN - 5} \citebracks{ChordGAN} used a conditional GAN along with Chroma Feature Extraction to generate chords for a specific genre of music based on the dataset it was trained on.
 They used three different data sets one for each Pop, Jazz and Classical music each shorter than 1600 measures (specific lengths are not given).
@@ -234,7 +234,7 @@ The current output of the cell is computed by:
     \label{fig:LSTM}
 \end{figure}
 
-\subsubsection{Implementations}
+\subsubsection{Implementations in literature}
 
 \paragraph{Chord Generation from Symbolic Melody - 6} This was the main model under scrutiny in \citebracks{BLSTM} mentioned above in \cref{subsec:HMM} and \cref{subsec:DNN-HMMs}.
 They built a bidirectional LSTM with two hidden layers and used a hyperbolic tangent activation function. The softmax function is applied to the output in order to represent the probability that each of the 24 chords is played.
@@ -481,13 +481,6 @@ An example of a confusion matrix is shown in \cref{fig:confusion_ideal}
 Another form of testing that could be performed is a subjective study like those in \citebracks{MySong} and \citebracks{BLSTM}.
 Ideally the studies would be carried out as similarly as possible to the others so that the models they are testing can be reliably compared.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\columnwidth]{Figures/confusion_ideal}
-    \decoRule
-    \caption{An ideal confusion matrix}
-    \label{fig:confusion_ideal}
-\end{figure}
 
 \section{Results}
 Unfortunately due to implementation difficulties followed by the sudden death of the machine we were using to train the model we were unable to obtain any valid results.
@@ -497,22 +490,35 @@ The loss of the models can be seen in \cref{fig:ModelLoss}.
 It was noticed that the generator converged to predict the same chord on every output. 
 This is likely due to a combination of overfitting of the linear output layer in the generator and the vanishing of gradients as the discriminator loss approached zero.
 A confusion matrix of these results can be seen in \cref{fig:confusion_real}. The code for this project can be found \href{https://github.com/edsgunn/TerrenceInABox}{here}\footnote{https://github.com/edsgunn/TerrenceInABox}.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\columnwidth]{Figures/ModelLoss}
-    \decoRule
-    \caption{The loss of the Generator and Discriminator, blue and orange respectively}
-    \label{fig:ModelLoss}
-\end{figure}
+
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\columnwidth]{Figures/confusion_real}
-    \decoRule
-    \caption{A confusion matrix of the chords outputted from the model}
-    \label{fig:confusion_real}
+    \begin{subfigure}{0.3\columnwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{Figures/confusion_ideal}
+        \decoRule
+        \caption{An ideal confusion matrix}
+        \label{fig:confusion_ideal}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\columnwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{Figures/ModelLoss}
+        \decoRule
+        \caption{The loss of the Generator and Discriminator, blue and orange respectively}
+        \label{fig:ModelLoss}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\columnwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{Figures/confusion_real}
+        \decoRule
+        \caption{A confusion matrix of the chords outputted from the model}
+        \label{fig:confusion_real}
+    \end{subfigure}
+    \caption{Quantitative measures of the quality of our model vs the ideal case}
 \end{figure}
-
 \section{Summary}
 
 We have discussed the requirements for the model and how we set the MVP requirements to create a system that can generate reasonable accompanying chords for a melody.

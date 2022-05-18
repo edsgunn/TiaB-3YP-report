@@ -38,6 +38,8 @@ headsepline, % Uncomment to get a line under the header
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
@@ -66,7 +68,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{titletoc}
 \usepackage{hyperref}
 \usepackage{cleveref}
-\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+
 \crefname{assumption}{Assumption}{Assumptions}
 \usetikzlibrary{arrows, fit, quotes, shadows,
                 chains,
@@ -353,7 +356,7 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
-
+\setstretch{1.4}
 \printbibliography[heading=bibintoc]
 
 %----------------------------------------------------------------------------------------

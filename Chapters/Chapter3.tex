@@ -267,14 +267,26 @@ Note that we could have combined this section with the pre-processing steps in \
 We know that each row of the LSTM data input format corresponds to a single measure. We also know that the pre-processing done in \cref{preprocessing} would have removed unnecessary measures from some songs. Hence, the LSTM data cannot possibly have more measures than the original dataset for each song. By comparing the number of rows of the LSTM data and the highest value of \emph{measure} in the original Dataframe for each song, we can perform a simple check of the correctness of our code. From \cref{fig:LSTM check}, we can see that no songs in LSTM data input format has more measures than in their original DataFrame format.
 
 In addition, we picked out a few songs at random and manually checked the format conversion.
-
 \begin{figure}
     \centering
-    \includegraphics{Figures/LSTM check}
-    \decoRule
-    \caption{Number of songs in LSTM format with 'correct' and 'incorrect' number of measures.}
-    \label{fig:LSTM check}
-    \end{figure}
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{Figures/LSTM check}
+        \decoRule
+        \caption{Number of songs in LSTM format with 'correct' and 'incorrect' number of measures.}
+        \label{fig:LSTM check}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{Figures/Transformer check}
+        \decoRule
+        \caption{Number of note/chord sequences with 'correct' and 'incorrect' number of columns.}
+        \label{fig:Transformer check}
+    \end{subfigure}
+    \caption{Number of data groups with 'correct' and 'incorrect' length}
+\end{figure}
+    
 
 \subsection{Transformer format}
 \label{Transformer format for training}
@@ -322,13 +334,13 @@ We expect the number of elements in each of the note/chord sequence to be less t
 
 Again, we manually check a random selection of sequences like we did in the sanity check for the LSTM in \cref{lstm check}.
 
-\begin{figure}
-    \centering
-    \includegraphics{Figures/Transformer check}
-    \decoRule
-    \caption{Number of note/chord sequences with 'correct' and 'incorrect' number of columns.}
-    \label{fig:Transformer check}
-    \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics{Figures/Transformer check}
+%     \decoRule
+%     \caption{Number of note/chord sequences with 'correct' and 'incorrect' number of columns.}
+%     \label{fig:Transformer check}
+%     \end{figure}
 
 
 \section{Data Processor in production}
